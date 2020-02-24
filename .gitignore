@@ -24,3 +24,5 @@ Pods
 !Podfile
 !Podfile.lock
 ALEFAPP.xcscheme
+
+AelfApp/Resources/Configure.plist
