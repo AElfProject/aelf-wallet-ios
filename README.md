@@ -32,7 +32,7 @@ AELF 是一个区块链系统，旨在通过使用侧链和灵活的设计实现
 
 ## 📱预览
 
-|-|-|-|-|-|-|
+|资产|侧链|交易|市场|发现|身份|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |<img src="images/01.png" width="60%">|<img src="images/02.png" width="60%">|<img src="images/03.png" width="60%">|<img src="images/04.png" width="60%">|<img src="images/05.png" width="60%">|<img src="images/06.png" width="60%">|
 
