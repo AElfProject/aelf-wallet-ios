@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DappSignConfirmView" customModule="AELF_Wallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKs-yB-NPB">
+                    <rect key="frame" x="30" y="239.5" width="354" height="417"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="签名授权" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hd4-8w-VA5">
+                            <rect key="frame" x="20" y="30" width="314" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Dapp sign title"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZU-XB-jda">
+                            <rect key="frame" x="324" y="10" width="20" height="22"/>
+                            <state key="normal" image="close-popup"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="hZa-ss-xBy"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="text view" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zUL-Sd-saW">
+                            <rect key="frame" x="30" y="74" width="294" height="100"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="clo-nx-fqi"/>
+                            </constraints>
+                            <color key="textColor" red="0.41148707270000001" green="0.44006985430000001" blue="0.473760128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auA-gu-nzX">
+                            <rect key="frame" x="30" y="194" width="294" height="45"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please input wallet password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iA8-3Y-Ni8">
+                                    <rect key="frame" x="10" y="0.0" width="274" height="45"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Please input wallet password"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="iA8-3Y-Ni8" firstAttribute="top" secondItem="auA-gu-nzX" secondAttribute="top" id="9YX-KR-mcf"/>
+                                <constraint firstItem="iA8-3Y-Ni8" firstAttribute="leading" secondItem="auA-gu-nzX" secondAttribute="leading" constant="10" id="gYX-Fa-fLS"/>
+                                <constraint firstAttribute="bottom" secondItem="iA8-3Y-Ni8" secondAttribute="bottom" id="gpE-Dy-SSu"/>
+                                <constraint firstAttribute="height" constant="45" id="yJI-vn-46v"/>
+                                <constraint firstAttribute="trailing" secondItem="iA8-3Y-Ni8" secondAttribute="trailing" constant="10" id="zQc-5b-9MU"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukm-09-A7f">
+                            <rect key="frame" x="177" y="249" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.87450980389999999" green="0.30980392159999998" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kr8-sI-6KQ">
+                            <rect key="frame" x="102" y="327" width="150" height="50"/>
+                            <color key="backgroundColor" red="0.26845800879999998" green="0.063092477620000004" blue="0.56250131130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="BMi-AS-yo5"/>
+                                <constraint firstAttribute="width" constant="150" id="U2p-v5-yeo"/>
+                            </constraints>
+                            <state key="normal" title="Confirm">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Confirm"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="heightCircle" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="confirmTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qwu-oV-gLj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucr-Jz-deK">
+                            <rect key="frame" x="30" y="249" width="106" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="OK3-co-rhD"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <state key="normal" title="   加入白名单" image="icon_squre">
+                                <color key="titleColor" red="0.41148707270000001" green="0.44006985430000001" blue="0.473760128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" image="icon_squre_selected"/>
+                            <connections>
+                                <action selector="joinButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="4mf-AB-Pco"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfi-Tm-qbR">
+                            <rect key="frame" x="30" y="289" width="294" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.41148707270000001" green="0.44006985430000001" blue="0.473760128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Dapp join White list description"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="kr8-sI-6KQ" secondAttribute="bottom" constant="40" id="32Z-ay-5NH"/>
+                        <constraint firstAttribute="trailing" secondItem="zUL-Sd-saW" secondAttribute="trailing" constant="30" id="8QB-Ak-YNe"/>
+                        <constraint firstAttribute="trailing" secondItem="Hd4-8w-VA5" secondAttribute="trailing" constant="20" id="BQ8-Cn-egF"/>
+                        <constraint firstItem="ucr-Jz-deK" firstAttribute="top" secondItem="auA-gu-nzX" secondAttribute="bottom" constant="10" id="FiI-AH-f4t"/>
+                        <constraint firstItem="zUL-Sd-saW" firstAttribute="leading" secondItem="HKs-yB-NPB" secondAttribute="leading" constant="30" id="Fz5-ku-fgU"/>
+                        <constraint firstItem="ukm-09-A7f" firstAttribute="centerX" secondItem="HKs-yB-NPB" secondAttribute="centerX" id="G9D-Yn-xEh"/>
+                        <constraint firstItem="Hd4-8w-VA5" firstAttribute="leading" secondItem="HKs-yB-NPB" secondAttribute="leading" constant="20" id="GLo-zO-fHu"/>
+                        <constraint firstItem="ucr-Jz-deK" firstAttribute="leading" secondItem="HKs-yB-NPB" secondAttribute="leading" constant="30" id="IRg-dY-p6I"/>
+                        <constraint firstItem="VZU-XB-jda" firstAttribute="top" secondItem="HKs-yB-NPB" secondAttribute="top" constant="10" id="SEc-bZ-XzB"/>
+                        <constraint firstItem="Hfi-Tm-qbR" firstAttribute="leading" secondItem="HKs-yB-NPB" secondAttribute="leading" constant="30" id="Tvq-ry-qGj"/>
+                        <constraint firstItem="zUL-Sd-saW" firstAttribute="top" secondItem="Hd4-8w-VA5" secondAttribute="bottom" constant="20" id="Twe-w2-hzF"/>
+                        <constraint firstAttribute="trailing" secondItem="Hfi-Tm-qbR" secondAttribute="trailing" constant="30" id="VVv-46-Uzl"/>
+                        <constraint firstItem="Hd4-8w-VA5" firstAttribute="top" secondItem="HKs-yB-NPB" secondAttribute="top" constant="30" id="bDM-Kk-oHT"/>
+                        <constraint firstItem="kr8-sI-6KQ" firstAttribute="top" secondItem="Hfi-Tm-qbR" secondAttribute="bottom" constant="20" id="bvW-qt-I9c"/>
+                        <constraint firstItem="auA-gu-nzX" firstAttribute="top" secondItem="zUL-Sd-saW" secondAttribute="bottom" constant="20" id="cl4-ue-WE1"/>
+                        <constraint firstItem="kr8-sI-6KQ" firstAttribute="centerX" secondItem="HKs-yB-NPB" secondAttribute="centerX" id="irC-50-7es"/>
+                        <constraint firstAttribute="trailing" secondItem="VZU-XB-jda" secondAttribute="trailing" constant="10" id="lhg-KM-pNW"/>
+                        <constraint firstItem="Hfi-Tm-qbR" firstAttribute="top" secondItem="ucr-Jz-deK" secondAttribute="bottom" constant="10" id="nWi-Cf-gBU"/>
+                        <constraint firstItem="ukm-09-A7f" firstAttribute="top" secondItem="auA-gu-nzX" secondAttribute="bottom" constant="10" id="oC7-t8-Kp2"/>
+                        <constraint firstItem="auA-gu-nzX" firstAttribute="leading" secondItem="HKs-yB-NPB" secondAttribute="leading" constant="30" id="qzT-Nx-Mp3"/>
+                        <constraint firstAttribute="trailing" secondItem="auA-gu-nzX" secondAttribute="trailing" constant="30" id="vDb-Wh-iPS"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="HKs-yB-NPB" secondAttribute="trailing" constant="30" id="8Uv-RK-hSt"/>
+                <constraint firstItem="HKs-yB-NPB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="F5y-99-P2n"/>
+                <constraint firstItem="HKs-yB-NPB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="z7f-qx-wmN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="backgroundView" destination="HKs-yB-NPB" id="SQ6-Ym-Hdh"/>
+                <outlet property="closeButton" destination="VZU-XB-jda" id="4uZ-AN-zdu"/>
+                <outlet property="confirmButton" destination="kr8-sI-6KQ" id="zvu-a6-sAY"/>
+                <outlet property="hintLabel" destination="ukm-09-A7f" id="CKx-86-AL2"/>
+                <outlet property="joinButton" destination="ucr-Jz-deK" id="aDi-7u-R0h"/>
+                <outlet property="joinDescLabel" destination="Hfi-Tm-qbR" id="ZLf-2e-Jo9"/>
+                <outlet property="pwdField" destination="iA8-3Y-Ni8" id="SNU-Q1-29e"/>
+                <outlet property="textView" destination="zUL-Sd-saW" id="JWw-hQ-4v3"/>
+                <outlet property="textViewHeight" destination="clo-nx-fqi" id="eVC-iR-ocO"/>
+                <outlet property="titleLabel" destination="Hd4-8w-VA5" id="hvj-Jv-7hd"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close-popup" width="20" height="20"/>
+        <image name="icon_squre" width="17" height="17"/>
+        <image name="icon_squre_selected" width="17" height="17"/>
+    </resources>
+</document>

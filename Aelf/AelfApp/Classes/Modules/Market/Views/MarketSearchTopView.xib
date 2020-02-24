@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MarketSearchTopView" customModule="AElfApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAX-dG-S6a">
+                    <rect key="frame" x="20" y="23.5" width="53.5" height="15"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <color key="textColor" red="0.035294117649999998" green="0.086274509799999996" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Market_currency"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oH1-Lj-Loh">
+                    <rect key="frame" x="140" y="23.5" width="30" height="15"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <color key="textColor" red="0.035294117649999998" green="0.086274509799999996" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Market_price"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyW-71-pCD">
+                    <rect key="frame" x="329" y="23.5" width="60" height="15"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <color key="textColor" red="0.035294117649999998" green="0.086274509799999996" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Favourites"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="QyW-71-pCD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4nO-pB-h47"/>
+                <constraint firstItem="oH1-Lj-Loh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6tQ-46-YXy"/>
+                <constraint firstItem="OAX-dG-S6a" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="DKZ-vY-qgN"/>
+                <constraint firstItem="oH1-Lj-Loh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="140" id="cfe-Au-wtb"/>
+                <constraint firstItem="OAX-dG-S6a" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="mPq-x8-Ybp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QyW-71-pCD" secondAttribute="trailing" constant="25" id="zc0-oG-1mf"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="275" y="266"/>
+        </view>
+    </objects>
+</document>

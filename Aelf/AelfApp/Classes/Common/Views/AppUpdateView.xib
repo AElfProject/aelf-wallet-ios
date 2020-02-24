@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="yr6-SY-4yM" customClass="AppUpdateView" customModule="AELF_Wallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="238"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgZ-I2-c6c">
+                    <rect key="frame" x="37.666666666666657" y="0.0" width="300" height="238"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Maa-bp-EZR">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSP-uB-wZD">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
+                                    <string key="text">New Version
+v2.0</string>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="18"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.39223867649999999" green="0.11453550310000001" blue="0.68792980910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="70" id="AEq-LJ-9VI"/>
+                                <constraint firstAttribute="trailing" secondItem="ZSP-uB-wZD" secondAttribute="trailing" id="IXy-Pe-ahZ"/>
+                                <constraint firstAttribute="bottom" secondItem="ZSP-uB-wZD" secondAttribute="bottom" id="cLG-88-zju"/>
+                                <constraint firstItem="ZSP-uB-wZD" firstAttribute="top" secondItem="Maa-bp-EZR" secondAttribute="top" id="emg-Hl-7OM"/>
+                                <constraint firstItem="ZSP-uB-wZD" firstAttribute="leading" secondItem="Maa-bp-EZR" secondAttribute="leading" id="hVn-I7-aNO"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDO-b8-8md">
+                            <rect key="frame" x="155" y="163" width="115" height="45"/>
+                            <color key="backgroundColor" red="0.38412314650000001" green="0.114183329" blue="0.70616668459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="yS0-DI-KHx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="Update">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Update"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="22.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="confirmTapped:" destination="yr6-SY-4yM" eventType="touchUpInside" id="0hp-o9-1Hb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nO-Bc-e22">
+                            <rect key="frame" x="30" y="163" width="115" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="SAV-T4-mqy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="tintColor" red="0.39223867649999999" green="0.11453550310000001" blue="0.68792980910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Later">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Update_later"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="22.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.39223867649999999" green="0.11453550310000001" blue="0.68792980910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="titleColorForDisabled">
+                                    <color key="value" red="0.39223867649999999" green="0.11453550310000001" blue="0.68792980910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="titleColorForHighlighted">
+                                    <color key="value" red="0.39223867649999999" green="0.11453550310000001" blue="0.68792980910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="titleColorForNormal">
+                                    <color key="value" red="0.39223867649999999" green="0.11453550310000001" blue="0.68792980910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="titleColorForSelected">
+                                    <color key="value" red="0.39223867649999999" green="0.11453550310000001" blue="0.68792980910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="laterAction:" destination="yr6-SY-4yM" eventType="touchUpInside" id="En1-2C-PZp"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What’s New" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzU-wT-f8R">
+                            <rect key="frame" x="25" y="85" width="86" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Evy-5C-A2b"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="15"/>
+                            <color key="textColor" red="0.038395576180000002" green="0.087211258710000003" blue="0.17723751069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localized" value="What’s New"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNt-R1-cNb">
+                            <rect key="frame" x="25" y="110" width="250" height="43"/>
+                            <string key="text">1.  Fixed some BTC wallet issues
+
+2.  Optimized user experience in transfer
+
+3.  
+                        </string>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                            <color key="textColor" red="0.47170114517211914" green="0.49940097332000732" blue="0.53023499250411987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Maa-bp-EZR" firstAttribute="leading" secondItem="AgZ-I2-c6c" secondAttribute="leading" id="35u-ZN-F0X"/>
+                        <constraint firstAttribute="trailing" secondItem="aDO-b8-8md" secondAttribute="trailing" constant="30" id="5dI-4X-22a"/>
+                        <constraint firstAttribute="trailing" secondItem="Maa-bp-EZR" secondAttribute="trailing" id="DDh-RM-mdx"/>
+                        <constraint firstItem="xNt-R1-cNb" firstAttribute="top" secondItem="TzU-wT-f8R" secondAttribute="bottom" constant="5" id="G19-aV-0xz"/>
+                        <constraint firstItem="xNt-R1-cNb" firstAttribute="leading" secondItem="AgZ-I2-c6c" secondAttribute="leading" constant="25" id="Nhs-0F-NK9"/>
+                        <constraint firstItem="TzU-wT-f8R" firstAttribute="top" secondItem="Maa-bp-EZR" secondAttribute="bottom" constant="15" id="QlC-hg-ujx"/>
+                        <constraint firstItem="TzU-wT-f8R" firstAttribute="leading" secondItem="AgZ-I2-c6c" secondAttribute="leading" constant="25" id="TXY-a2-C4p"/>
+                        <constraint firstAttribute="bottom" secondItem="aDO-b8-8md" secondAttribute="bottom" constant="30" id="W02-90-ZKL"/>
+                        <constraint firstItem="aDO-b8-8md" firstAttribute="top" secondItem="xNt-R1-cNb" secondAttribute="bottom" constant="10" id="aEN-Nf-3hJ"/>
+                        <constraint firstAttribute="bottom" secondItem="2nO-Bc-e22" secondAttribute="bottom" constant="30" id="htc-jD-D3p"/>
+                        <constraint firstItem="2nO-Bc-e22" firstAttribute="leading" secondItem="AgZ-I2-c6c" secondAttribute="leading" constant="30" id="ptf-5G-Vkg"/>
+                        <constraint firstItem="aDO-b8-8md" firstAttribute="leading" secondItem="2nO-Bc-e22" secondAttribute="trailing" constant="10" id="rgF-K3-1Cm"/>
+                        <constraint firstAttribute="trailing" secondItem="xNt-R1-cNb" secondAttribute="trailing" constant="25" id="ta9-wp-ZcK"/>
+                        <constraint firstItem="Maa-bp-EZR" firstAttribute="top" secondItem="AgZ-I2-c6c" secondAttribute="top" id="w7S-PB-KWR"/>
+                        <constraint firstAttribute="width" constant="300" id="yGj-Le-EWZ"/>
+                        <constraint firstItem="aDO-b8-8md" firstAttribute="width" secondItem="2nO-Bc-e22" secondAttribute="width" id="zXb-9C-gih"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="AgZ-I2-c6c" firstAttribute="centerX" secondItem="yr6-SY-4yM" secondAttribute="centerX" id="WkB-ne-LpJ"/>
+                <constraint firstAttribute="bottom" secondItem="AgZ-I2-c6c" secondAttribute="bottom" id="qBD-8R-0cv"/>
+                <constraint firstItem="AgZ-I2-c6c" firstAttribute="top" secondItem="yr6-SY-4yM" secondAttribute="top" id="w5G-Cp-CBx"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="6LH-yZ-HnC"/>
+            <connections>
+                <outlet property="backgroundView" destination="AgZ-I2-c6c" id="NzL-6S-AmT"/>
+                <outlet property="desLabel" destination="xNt-R1-cNb" id="tFY-8e-7xY"/>
+                <outlet property="laterButton" destination="2nO-Bc-e22" id="MPL-fr-C0R"/>
+                <outlet property="tipLabel" destination="TzU-wT-f8R" id="1fT-zn-lMN"/>
+                <outlet property="updateButton" destination="aDO-b8-8md" id="vlT-ui-Q9B"/>
+                <outlet property="versionLabel" destination="ZSP-uB-wZD" id="D97-SK-ddK"/>
+            </connections>
+            <point key="canvasLocation" x="81.884057971014499" y="368.47826086956525"/>
+        </view>
+    </objects>
+</document>

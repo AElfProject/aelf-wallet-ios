@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SecurityWarnView" customModule="AELF_Wallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="286"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHT-BW-VQj">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="286"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJh-NX-oYn">
+                            <rect key="frame" x="10" y="0.0" width="394" height="186"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Security Warning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oF2-L5-uYm">
+                                    <rect key="frame" x="20" y="25" width="354" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="LPY-Er-YzI"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                    <color key="textColor" red="0.035294117647058823" green="0.086274509803921567" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Security Warning"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hu-Rd-HaN">
+                                    <rect key="frame" x="20" y="65" width="354" height="101"/>
+                                    <string key="text">You have not backed up your mnemonic phrases. Please bacup now! Mnemonics can be used to reYou have not backed up your mnemonic phrases. Please bacup now! Mnemonics can be used to re</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="0.47058823529411764" green="0.49803921568627452" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localized" value="You have not backed up"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="3Hu-Rd-HaN" secondAttribute="bottom" constant="20" id="1aT-cd-FkN"/>
+                                <constraint firstItem="oF2-L5-uYm" firstAttribute="top" secondItem="wJh-NX-oYn" secondAttribute="top" constant="25" id="5Nc-u0-0Ru"/>
+                                <constraint firstAttribute="trailing" secondItem="3Hu-Rd-HaN" secondAttribute="trailing" constant="20" id="7n2-Kf-Qbs"/>
+                                <constraint firstItem="oF2-L5-uYm" firstAttribute="leading" secondItem="wJh-NX-oYn" secondAttribute="leading" constant="20" id="GWZ-eu-UAS"/>
+                                <constraint firstAttribute="trailing" secondItem="oF2-L5-uYm" secondAttribute="trailing" constant="20" id="MAu-I2-o4t"/>
+                                <constraint firstItem="3Hu-Rd-HaN" firstAttribute="top" secondItem="oF2-L5-uYm" secondAttribute="bottom" constant="10" id="aNb-Qa-m8s"/>
+                                <constraint firstItem="3Hu-Rd-HaN" firstAttribute="leading" secondItem="wJh-NX-oYn" secondAttribute="leading" constant="20" id="kyG-wF-7Lu"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViL-M5-SR4">
+                            <rect key="frame" x="10" y="196" width="394" height="60"/>
+                            <color key="backgroundColor" red="0.38412314650000001" green="0.114183329" blue="0.70616668459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="8uq-03-t5w"/>
+                            </constraints>
+                            <state key="normal" title="Backup Now">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Backup Now"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="confirmTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="nAS-oA-8ic"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ViL-M5-SR4" secondAttribute="bottom" constant="30" id="0Kt-Hc-g6q"/>
+                        <constraint firstAttribute="trailing" secondItem="ViL-M5-SR4" secondAttribute="trailing" constant="10" id="537-rw-o8g"/>
+                        <constraint firstItem="wJh-NX-oYn" firstAttribute="leading" secondItem="GHT-BW-VQj" secondAttribute="leading" constant="10" id="5an-Wn-FAe"/>
+                        <constraint firstItem="ViL-M5-SR4" firstAttribute="leading" secondItem="GHT-BW-VQj" secondAttribute="leading" constant="10" id="CUw-aH-BwZ"/>
+                        <constraint firstItem="ViL-M5-SR4" firstAttribute="top" secondItem="wJh-NX-oYn" secondAttribute="bottom" constant="10" id="Gzj-1p-kwz"/>
+                        <constraint firstAttribute="trailing" secondItem="wJh-NX-oYn" secondAttribute="trailing" constant="10" id="TrQ-ei-mqd"/>
+                        <constraint firstItem="wJh-NX-oYn" firstAttribute="top" secondItem="GHT-BW-VQj" secondAttribute="top" id="tiI-bu-laM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="GHT-BW-VQj" secondAttribute="trailing" id="MCK-QH-vhL"/>
+                <constraint firstAttribute="bottom" secondItem="GHT-BW-VQj" secondAttribute="bottom" id="TOd-gq-bZy"/>
+                <constraint firstItem="GHT-BW-VQj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wHk-wz-IXC"/>
+                <constraint firstItem="GHT-BW-VQj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wgy-ht-K6m"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgroundView" destination="GHT-BW-VQj" id="mSY-08-fI7"/>
+                <outlet property="bodyLabel" destination="3Hu-Rd-HaN" id="v2X-Wz-XCF"/>
+                <outlet property="buttonbottom" destination="0Kt-Hc-g6q" id="2cQ-cH-hQ2"/>
+                <outlet property="confirmButton" destination="ViL-M5-SR4" id="zj7-c6-dDB"/>
+                <outlet property="contentView" destination="wJh-NX-oYn" id="QLH-Up-Ipm"/>
+                <outlet property="titleLabel" destination="oF2-L5-uYm" id="fhw-Vw-4Xc"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="355.58035714285711"/>
+        </view>
+    </objects>
+</document>

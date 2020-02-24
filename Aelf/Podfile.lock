@@ -1,0 +1,296 @@
+PODS:
+  - Alamofire (4.9.1)
+  - BitcoinKit (1.1.0)
+  - Bugly (2.5.2)
+  - Cache (5.2.0)
+  - Closures (0.7)
+  - CropViewController (2.5.2)
+  - Differentiator (3.1.0)
+  - DZNEmptyDataSet (1.8.1)
+  - ESTabBarController-swift (2.8.0)
+  - FoldingCell (5.0.2)
+  - FSPagerView (0.8.3)
+  - Hero (1.5.0)
+  - IQKeyboardManagerSwift (6.5.5)
+  - JJException (0.2.7):
+    - JJException/All (= 0.2.7)
+  - JJException/All (0.2.7):
+    - JJException/ARC
+    - JJException/DeallocBlock
+    - JJException/Main
+    - JJException/MRC
+    - JJException/Swizzle
+  - JJException/ARC (0.2.7):
+    - JJException/DeallocBlock
+    - JJException/Main
+    - JJException/Swizzle
+  - JJException/DeallocBlock (0.2.7)
+  - JJException/Main (0.2.7)
+  - JJException/MRC (0.2.7):
+    - JJException/Main
+    - JJException/Swizzle
+  - JJException/Swizzle (0.2.7)
+  - JXSegmentedView (1.0.4)
+  - KafkaRefresh (1.4.7):
+    - KafkaRefresh/Category (= 1.4.7)
+    - KafkaRefresh/Configuration (= 1.4.7)
+    - KafkaRefresh/Core (= 1.4.7)
+    - KafkaRefresh/Default (= 1.4.7)
+    - KafkaRefresh/Style (= 1.4.7)
+    - KafkaRefresh/UIKit (= 1.4.7)
+  - KafkaRefresh/Category (1.4.7)
+  - KafkaRefresh/Configuration (1.4.7):
+    - KafkaRefresh/UIKit/FootKit
+    - KafkaRefresh/UIKit/HeadKit
+  - KafkaRefresh/Core (1.4.7):
+    - KafkaRefresh/Category
+  - KafkaRefresh/Default (1.4.7):
+    - KafkaRefresh/Style
+  - KafkaRefresh/Style (1.4.7)
+  - KafkaRefresh/UIKit (1.4.7):
+    - KafkaRefresh/UIKit/FootKit (= 1.4.7)
+    - KafkaRefresh/UIKit/HeadKit (= 1.4.7)
+    - KafkaRefresh/UIKit/LayerKit (= 1.4.7)
+  - KafkaRefresh/UIKit/FootKit (1.4.7):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/HeadKit (1.4.7):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/LayerKit (1.4.7):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Default
+  - KeychainSwift (19.0.0)
+  - Kingfisher (4.10.1)
+  - Localize-Swift (3.1.0)
+  - LTMorphingLabel (0.7.0)
+  - MarqueeLabel (4.0.2)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya-ObjectMapper (2.8):
+    - Moya-ObjectMapper/Core (= 2.8)
+  - Moya-ObjectMapper/Core (2.8):
+    - Moya (~> 12.0)
+    - ObjectMapper (~> 3.4)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - MYTableViewIndex (0.8.0)
+  - "NSObject+Rx (4.4.1)":
+    - RxSwift (~> 4.3)
+  - ObjectMapper (3.5.1)
+  - Result (4.1.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.5.0)
+  - Schedule (2.0.3)
+  - SnapKit (4.2.0)
+  - SQLiteRepairKit (1.2.2):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - SVProgressHUD (2.2.5)
+  - SwifterSwift (5.1.0):
+    - SwifterSwift/AppKit (= 5.1.0)
+    - SwifterSwift/CoreGraphics (= 5.1.0)
+    - SwifterSwift/CoreLocation (= 5.1.0)
+    - SwifterSwift/Dispatch (= 5.1.0)
+    - SwifterSwift/Foundation (= 5.1.0)
+    - SwifterSwift/MapKit (= 5.1.0)
+    - SwifterSwift/SceneKit (= 5.1.0)
+    - SwifterSwift/SpriteKit (= 5.1.0)
+    - SwifterSwift/SwiftStdlib (= 5.1.0)
+    - SwifterSwift/UIKit (= 5.1.0)
+  - SwifterSwift/AppKit (5.1.0)
+  - SwifterSwift/CoreGraphics (5.1.0)
+  - SwifterSwift/CoreLocation (5.1.0)
+  - SwifterSwift/Dispatch (5.1.0)
+  - SwifterSwift/Foundation (5.1.0)
+  - SwifterSwift/MapKit (5.1.0)
+  - SwifterSwift/SceneKit (5.1.0)
+  - SwifterSwift/SpriteKit (5.1.0)
+  - SwifterSwift/SwiftStdlib (5.1.0)
+  - SwifterSwift/UIKit (5.1.0)
+  - SwiftMessages (7.0.1):
+    - SwiftMessages/App (= 7.0.1)
+  - SwiftMessages/App (7.0.1)
+  - SwiftyAttributes (5.1.1)
+  - SwiftyRSA (1.5.0):
+    - SwiftyRSA/ObjC (= 1.5.0)
+  - SwiftyRSA/ObjC (1.5.0)
+  - Then (2.6.0)
+  - "UITextView+Placeholder (1.3.3)"
+  - UMCAnalytics (6.0.5):
+    - UMCCommon
+  - UMCCommon (2.0.1)
+  - UMCPush (3.2.4):
+    - UMCCommon
+  - Validator (3.2.1)
+  - ViewAnimator (2.7.0)
+  - WCDB.swift (1.0.8.2):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
+  - WKWebViewJavascriptBridge (1.2.0)
+
+DEPENDENCIES:
+  - BitcoinKit (~> 1.1.0)
+  - Bugly
+  - Cache
+  - Closures
+  - CropViewController
+  - DZNEmptyDataSet
+  - ESTabBarController-swift
+  - FoldingCell
+  - FSPagerView
+  - Hero
+  - IQKeyboardManagerSwift
+  - JJException
+  - JXSegmentedView
+  - KafkaRefresh
+  - KeychainSwift
+  - Kingfisher
+  - Localize-Swift
+  - LTMorphingLabel
+  - MarqueeLabel
+  - Moya
+  - Moya-ObjectMapper
+  - Moya/RxSwift
+  - MYTableViewIndex
+  - "NSObject+Rx"
+  - Result
+  - RxCocoa
+  - RxDataSources
+  - RxSwift
+  - Schedule
+  - SnapKit
+  - SVProgressHUD
+  - SwifterSwift
+  - SwiftMessages
+  - SwiftyAttributes
+  - SwiftyRSA
+  - Then
+  - "UITextView+Placeholder"
+  - UMCAnalytics
+  - UMCCommon (~> 2.0.1)
+  - UMCPush (~> 3.2.4)
+  - Validator
+  - ViewAnimator
+  - WCDB.swift
+  - WKWebViewJavascriptBridge (~> 1.2.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - BitcoinKit
+    - Bugly
+    - Cache
+    - Closures
+    - CropViewController
+    - Differentiator
+    - DZNEmptyDataSet
+    - ESTabBarController-swift
+    - FoldingCell
+    - FSPagerView
+    - Hero
+    - IQKeyboardManagerSwift
+    - JJException
+    - JXSegmentedView
+    - KafkaRefresh
+    - KeychainSwift
+    - Kingfisher
+    - Localize-Swift
+    - LTMorphingLabel
+    - MarqueeLabel
+    - Moya
+    - Moya-ObjectMapper
+    - MYTableViewIndex
+    - "NSObject+Rx"
+    - ObjectMapper
+    - Result
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+    - Schedule
+    - SnapKit
+    - SQLiteRepairKit
+    - SVProgressHUD
+    - SwifterSwift
+    - SwiftMessages
+    - SwiftyAttributes
+    - SwiftyRSA
+    - Then
+    - "UITextView+Placeholder"
+    - UMCAnalytics
+    - UMCCommon
+    - UMCPush
+    - Validator
+    - ViewAnimator
+    - WCDB.swift
+    - WCDBOptimizedSQLCipher
+    - WKWebViewJavascriptBridge
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  BitcoinKit: a8c198d2a57caf64dc43271901f8c5a2309aced2
+  Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
+  Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
+  Closures: a83b9892a5b1c4125a9dfcd53e2754db5d7f6d22
+  CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
+  FoldingCell: f92eb5fb9842319e7cd08c71533c98408b785099
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  JJException: 6d987840193b7ef59e778d41bca463401a80a79b
+  JXSegmentedView: b278b4c5d4c4c2982b4e084cef76ff1ddd37c6a5
+  KafkaRefresh: a7962ea8f03f384c1b545d8c27ac419aa0d5b055
+  KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Localize-Swift: 4bed4f0ccac8be2ec3517ee359da80ba2adb0fae
+  LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
+  MarqueeLabel: f762aa681ae201f66c1d511858b171f75d83013a
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
+  MYTableViewIndex: 55d5d8557b3f2a4de270d8c0260b41f3918ba4e3
+  "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  Schedule: 1d9d3fa36b3522cd2c9ebcf9bbe4c9ef3e58e24a
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
+  SwiftMessages: b577dc7043be8b299857ab35bb663dbff6483bd0
+  SwiftyAttributes: e3e13891ddac3c62b3d7798d5c3969cea88e62bb
+  SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
+  Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
+  "UITextView+Placeholder": c407b27599ea23cca425946fee3cf1db5d547008
+  UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
+  UMCCommon: 0263a057a2e1ae1da4c8308541e56904a493ce13
+  UMCPush: 1edd856027dcf905333effb4040ace5d236a7316
+  Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
+  ViewAnimator: 5af1c6f3b310f012bf081259c43717aa54fbae73
+  WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
+  WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
+
+PODFILE CHECKSUM: fd5d350cc146237fc3514e95ffd273a044b1a5cf
+
+COCOAPODS: 1.8.4

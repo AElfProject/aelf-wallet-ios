@@ -1,0 +1,750 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Hello AElf</title>
+</head>
+
+<body>
+    <h1>minaelf</h1>
+    // 下载完替换下面2个 js
+    // curl -L -O https://unpkg.com/aelf-sdk@latest/dist/aelf.umd.js
+    // curl -L -O https://unpkg.com/aelf-sdk-cross-chain@latest/dist/aelf-cross-chain.umd.js
+    <script type="text/javascript" src="aelf.umd.js"></script>
+    <script type="text/javascript" src="aelf-cross-chain.umd.js"></script>
+    <script type="text/javascript">
+        AElf = window.AElf;
+        const Wallet = AElf.wallet;
+        const { CrossChain } = window.AElfCrossChain;
+        const ec = Wallet.ellipticEc;
+
+        window.onerror = function (err) {
+            log('window.onerror: ' + err)
+        }
+
+        function setupWKWebViewJavascriptBridge(callback) {
+            if (window.WKWebViewJavascriptBridge) {
+                return callback(WKWebViewJavascriptBridge);
+            }
+            if (window.WKWVJBCallbacks) {
+                return window
+                    .WKWVJBCallbacks
+                    .push(callback);
+            }
+            window.WKWVJBCallbacks = [callback];
+            window
+                .webkit
+                .messageHandlers
+                .iOS_Native_InjectJavascript
+                .postMessage(null)
+        }
+
+        setupWKWebViewJavascriptBridge(function (bridge) {
+            var uniqueId = 1
+            function log(message, data, type) {
+                var log = document.getElementById('log')
+                var el = document.createElement('div')
+                el.className = type == 'native'
+                    ? 'logLine_Native'
+                    : 'logLine_JS'
+                el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+                if (log.children.length) {
+                    log.insertBefore(el, log.children[0])
+                } else {
+                    log.appendChild(el)
+                }
+            }
+
+            bridge.registerHandler('generalKeyPair', function (data, responseCallback) {
+
+                try {
+                    function generateKeyPair() {
+                        return ec.genKeyPair();
+                    }
+                    const keyPair = generateKeyPair();
+                    const publicKey = keyPair.getPublic().encode('hex');
+                    const privateKey = keyPair.getPrivate('hex')
+
+                    var params = { 'publicKey': publicKey, "privateKey": privateKey }
+                    var responseData = { 'error': '', "success": 1, "params": params }
+                    responseCallback(JSON.stringify(responseData))
+                } catch (error) {
+                    var responseData = { 'params': '', 'err': error.message, 'success': 0 }
+                    responseCallback(JSON.stringify(responseData));
+                }
+            })
+
+            // message、privateKey
+            bridge.registerHandler('keyPairSign', function (data, responseCallback) {
+
+                try {
+                    var keyJson = data
+                    // messaestr string, priv string
+                    function keyPairSign(messaestr, privateKey) {
+                        const message = convertToHex(messaestr);
+                        const keyPair = ec.keyFromPrivate(privateKey);
+                        const signedMsg = keyPair.sign(message);
+                        return [
+                            signedMsg.r.toString(16, 64),
+                            signedMsg.s.toString(16, 64),
+                            `0${signedMsg.recoveryParam.toString()}`
+                        ].join('');
+                    }
+
+                    function convertToHex(str) {
+                        var hex = '';
+                        for (var i = 0; i < str.length; i++) {
+                            hex += '' + str.charCodeAt(i).toString(16);
+                        }
+                        return hex;
+                    }
+                    const sig = keyPairSign(keyJson.message, keyJson.privateKey)
+                    var params = { 'signature': sig }
+                    var responseData = { 'error': '', "success": 1, "params": params }
+                    responseCallback(JSON.stringify(responseData))
+                } catch (error) {
+                    var responseData = { 'params': '', 'err': error.message, 'success': 0 }
+                    responseCallback(JSON.stringify(responseData));
+                }
+            })
+
+            // signature/message/publicKey
+            bridge.registerHandler('keyPairVerify', function (data, responseCallback) {
+
+                try {
+                    var keyJson = data
+                    function vertifySignature(signature, messaestr, publicKey) {
+                        const message = convertToHex(messaestr);
+                        const keypair = ec.keyFromPublic(publicKey, 'hex');
+                        // 
+                        const r = signature.slice(0, 64);
+                        const s = signature.slice(64, 128);
+                        const recoveryParam = signature.slice(128);
+                        const signatureObj = { r, s, recoveryParam };
+                        try {
+                            const result = keypair.verify(message, signatureObj);
+                            return result;
+                        } catch (e) {
+                            return false;
+                        }
+                    }
+
+                    function convertToHex(str) {
+                        var hex = '';
+                        for (var i = 0; i < str.length; i++) {
+                            hex += '' + str.charCodeAt(i).toString(16);
+                        }
+                        return hex;
+                    }
+
+                    const vertifyResult = vertifySignature(keyJson.signature, keyJson.message, keyJson.publicKey);
+
+                    var params = { 'result': vertifyResult ? 1 : 0 }
+                    var responseData = { 'error': '', "success": 1, "params": params }
+                    responseCallback(JSON.stringify(responseData))
+                } catch (error) {
+                    var responseData = { 'params': '', 'err': error.message, 'success': 0 }
+                    responseCallback(JSON.stringify(responseData));
+                }
+            })
+
+            bridge.registerHandler('testJavascriptHandler', function (data, responseCallback) {
+                log('iOS called testJavascriptHandler with', data, 'native')
+                var responseData = {
+                    'Javascript Says': 'Right back atcha!'
+                }
+                log('JS responding with', responseData, 'native')
+                responseCallback(JSON.stringify(responseData))
+                //dsBridge.call("onResult", JSON.stringify(responseData));
+            })
+
+            bridge.registerHandler('getWalletByMnemonicJS', function (data, responseCallback) {
+                log('iOS called getWalletByMnemonicJS with', data, 'native')
+                //let mnemonic = 'weekend merge garden buddy future twelve tenant stone remind awake bomb dust'
+                let mnemonic = data.mnemonic;
+                let elfWallet = Wallet.getWalletByMnemonic(mnemonic);
+                let keyPair = elfWallet.keyPair
+                //# 产生私钥
+                let privateKey = elfWallet.privateKey
+                //# 产生地址
+                let address = elfWallet.address
+
+                let getPub = keyPair.getPublic()
+                let publicKey = JSON.stringify({
+                    x: getPub
+                        .x
+                        .toString('hex'),
+                    y: getPub
+                        .y
+                        .toString('hex')
+                })
+                // let x  = publicKey.x.toString('hex')
+                //console.log('publicKey :',publicKey)
+
+                let signedAddress = keyPair.sign(address)
+                // document.writeln('signedAddress = ' + JSON.stringify(signedAddress))
+                var responseData = {
+                    'privateKey': privateKey,
+                    'publicKey': publicKey,
+                    'signedAddress': JSON.stringify(signedAddress),
+                    'address': address
+                }
+                log('iOS called getWalletByMnemonicJS Result ', responseData, 'native')
+                responseCallback(JSON.stringify(responseData))
+                //dsBridge.call("onResult", JSON.stringify(responseData));
+            })
+
+
+            bridge.registerHandler('getWalletKeyStoreJS', function (data, responseCallback) {
+                try {
+                    log('iOS called getWalletKeyStoreJS1 with', data, 'native')
+
+                    let keyStoreJson = data //
+
+                    let privateKeyStr = keyStoreJson.privateKey
+                    //# 密码
+                    let password = keyStoreJson.password
+                    // 验证地址格式
+                    let elfWallet = Wallet.getWalletByPrivateKey(privateKeyStr)
+                    log('iOS called getWalletKeyStoreJS3 with', keyStoreJson, 'native')
+
+                    let privateKey = elfWallet.privateKey
+                    //# 产生地址
+                    let address = elfWallet.address
+                    const keystroeObj = {
+                        address,
+                        privateKey,
+                        mnemonic: ''
+                    }
+
+                    //# 产生keystore
+                    const keyStore = Wallet
+                        .keyStore
+                        .getKeystore(keystroeObj, password, {}, 1);
+                    var responseData = {
+                        'keystore': JSON.stringify(keyStore),
+                        'success': 1
+                    }
+                    log('iOS called getWalletKeyStoreJS with', responseData, 'native')
+                    responseCallback(JSON.stringify(responseData));
+                    //dsBridge.call("onResult", JSON.stringify(responseData));
+                } catch (err) {
+                    log('iOS called getWalletKeyStoreJS with', err, 'native')
+                    //TODO handle the exception
+                    if (responseCallback) {
+                        var responseData = {
+                            'keystore': err.message,
+                            'success': 0
+                        }
+                        responseCallback(JSON.stringify(responseData));
+                        //dsBridge.call("onResult", JSON.stringify(responseData));
+                    }
+                }
+
+            })
+            bridge.registerHandler('importWalletPrivateKeyJS', function (data, responseCallback) {
+                try {
+                    log('iOS called getWalletByPrivateKeyJS with', data, 'native')
+
+                    let keyStoreJson = data //
+
+                    //# 密码
+                    let password = keyStoreJson.password
+                    //# 产生私钥
+                    let privateKey = keyStoreJson.privateKey
+                    let elfWallet = Wallet.getWalletByPrivateKey(privateKey)
+                    let keyPair = elfWallet.keyPair
+                    //# 产生地址
+                    let address = elfWallet.address
+
+                    let getPub = keyPair.getPublic()
+                    let publicKey = JSON.stringify({
+                        x: getPub
+                            .x
+                            .toString('hex'),
+                        y: getPub
+                            .y
+                            .toString('hex')
+                    })
+                    // let x  = publicKey.x.toString('hex')
+                    //console.log('publicKey :',publicKey)
+
+                    let signedAddress = keyPair.sign(address)
+                    // document.writeln('signedAddress = ' + JSON.stringify(signedAddress))
+                    var responseData = {
+                        'privateKey': privateKey,
+                        'publicKey': publicKey,
+                        'signedAddress': signedAddress,
+                        'address': address
+                    }
+                    log('iOS called getWalletByPrivateKeyJS Result ', responseData, 'native')
+                    responseCallback(JSON.stringify(responseData))
+
+
+                } catch (err) {
+                    log('iOS called getWalletByPrivateKeyJS with', err, 'native')
+                    //TODO handle the exception
+                    if (responseCallback) {
+                        var responseData = {
+                            'privateKey': '',
+                            'publicKey': '',
+                            'signedAddress': '',
+                            'address': ''
+                        }
+                        responseCallback(JSON.stringify(responseData));
+                        //dsBridge.call("onResult", JSON.stringify(responseData));
+                    }
+                }
+
+            })
+
+            bridge.registerHandler('importWalletKeyStoreJS', function (data, responseCallback) {
+                try {
+                    log('iOS called importWalletKeyStoreJS1 with', data, 'native')
+
+                    let keyStoreJson = data //
+
+                    let keystore = JSON.parse(keyStoreJson.keystore)
+                    //# 密码
+                    let password = keyStoreJson.password
+
+                    //# 产生keystore
+                    const unlockData = Wallet
+                        .keyStore
+                        .unlockKeystore(keystore, password);
+                    log('iOS called importWalletKeyStoreJS2 with', unlockData, 'native')
+
+                    if ("privateKey" in unlockData) {
+                        //# 产生私钥
+                        let privateKey = unlockData.privateKey
+                        let elfWallet = Wallet.getWalletByPrivateKey(privateKey)
+                        let keyPair = elfWallet.keyPair
+                        //# 产生地址
+                        let address = elfWallet.address
+
+                        let getPub = keyPair.getPublic()
+                        let publicKey = JSON.stringify({
+                            x: getPub
+                                .x
+                                .toString('hex'),
+                            y: getPub
+                                .y
+                                .toString('hex')
+                        })
+                        // let x  = publicKey.x.toString('hex')
+                        //console.log('publicKey :',publicKey)
+
+                        let signedAddress = keyPair.sign(address)
+                        // document.writeln('signedAddress = ' + JSON.stringify(signedAddress))
+                        var responseData = {
+                            'privateKey': privateKey,
+                            'publicKey': publicKey,
+                            'signedAddress': signedAddress,
+                            'address': address
+                        }
+                        log('iOS called getWalletByMnemonicJS Result ', responseData, 'native')
+                        responseCallback(JSON.stringify(responseData))
+                        //dsBridge.call("onResult", JSON.stringify(responseData));
+                    } else {
+                        var responseData = {
+                            'privateKey': '',
+                            'publicKey': '',
+                            'signedAddress': '',
+                            'address': ''
+                        }
+                        responseCallback(JSON.stringify(responseData));
+                        //dsBridge.call("onResult", JSON.stringify(responseData));
+                    }
+
+                } catch (err) {
+                    log('iOS called importWalletKeyStoreJS4 with', err, 'native')
+                    //TODO handle the exception
+                    if (responseCallback) {
+                        var responseData = {
+                            'privateKey': '',
+                            'publicKey': '',
+                            'signedAddress': '',
+                            'address': ''
+                        }
+                        responseCallback(JSON.stringify(responseData));
+                        //dsBridge.call("onResult", JSON.stringify(responseData));
+                    }
+                }
+
+            })
+            //传 json {"privateKey":"xx","toAddress":"xx,"amount":100,"symbol":"xx","nodeUrl":"","contractAt",""}
+            bridge.registerHandler('transferElfJS', function (data, responseCallback) {
+                try {
+                    var transferJson = data
+                    let privateKey = transferJson.privateKey
+
+                    //# 目标地址
+                    let toAddress = transferJson.toAddress
+                    //# 密码
+                    let amount = transferJson.amount
+                    let symbol = transferJson.symbol
+                    // 新增节点地址
+                    let nodeUrl = transferJson.nodeUrl
+                    // 新增合约地址
+                    let contractAt = transferJson.contractAt
+
+                    const aelf = new AElf(new AElf.providers.HttpProvider(nodeUrl));
+                    // 获取钱包
+                    const wallet = Wallet.getWalletByPrivateKey(privateKey);
+                    const tokenC = aelf
+                        .chain
+                        .contractAt(contractAt, wallet, { sync: true });
+                    if (!aelf.isConnected()) {
+                        if (responseCallback) {
+                            var responseData = { 'txId': '', 'err': 'Unable to link service', 'success': 0 }
+                            responseCallback(JSON.stringify(responseData));
+                            //dsBridge.call("onResult", JSON.stringify(responseData));
+                        }
+                        // aelf.reConnected()
+                    }
+
+                    //#构造交易
+                    tokenC.Transfer({
+                        to: toAddress,
+                        symbol: symbol,
+                        amount: amount
+                    }, (error, txObj) => {
+
+                        if (responseCallback) {
+                            if (error) {
+                                var responseData = { 'txId': '', 'err': error.message, 'success': 0 }
+                                responseCallback(JSON.stringify(responseData));
+                            } else {
+                                var responseData = { 'txId': txObj.TransactionId, 'err': '', 'success': 1 }
+                                responseCallback(JSON.stringify(responseData));
+                            }
+                        }
+                    });
+                } catch (err) {
+                    //TODO handle the exception
+                    if (responseCallback) {
+                        var responseData = {
+                            'txId': '',
+                            'err': err.message,
+                            'success': 0
+                        }
+                        responseCallback(JSON.stringify(responseData));
+                    }
+                }
+
+            })
+
+            // 新增跨链转账接口 json {"privateKey":"xx","toAddress":"xx,"amount":100,"symbol":"xx","memo","xx","sendNode":"xx","receiveNode","xx"}
+            bridge.registerHandler('transferCrossChainJS', function (data, responseCallback) {
+                var start = new Date().getTime();
+                var totalTime = "JS 内部耗时计算：";
+                try {
+                    var transferJson = data
+                    function crossChain() {
+
+                        const wallet = Wallet.getWalletByPrivateKey(transferJson.privateKey);
+                        const sendInstance = new AElf(new AElf.providers.HttpProvider(transferJson.fromNode));
+                        const receiveInstance = new AElf(new AElf.providers.HttpProvider(transferJson.toNode));
+                        totalTime += ("< endInstance:" + (new Date().getTime() - start).toString() + "   ");
+                        if (!sendInstance.isConnected() || !receiveInstance.isConnected()) {
+                            // TODO: 这里补充下异常逻辑
+                            console.log('Blockchain Node is not running or missing connection');
+                            throw Error('Not Connected');
+                        }
+
+                        const crossChainInstance = new CrossChain({
+                            AElfUtils: AElf.utils,
+                            sendInstance,
+                            receiveInstance,
+                            wallet,
+                            mainChainId: transferJson.mainChainId,
+                            issueChainId: transferJson.issueChainId
+                        });
+                        totalTime += ("< endCrossChain:" + (new Date().getTime() - start).toString() + "   ");
+
+                        crossChainInstanceInited = 0;
+
+                        async function send(sendParams) {
+                            // await crossChainInstance.init();
+                            await crossChainInstance.init({
+                                contractAddresses: {
+                                    tokenContractAddressSend: transferJson.fromTokenContractAddress,
+                                    crossChainContractAddressSend: transferJson.fromCrossChainContractAddress,
+                                    tokenContractAddressReceive: transferJson.toTokenContractAddress,
+                                    crossChainContractAddressReceive: transferJson.toCrossChainContractAddress
+                                },
+                                chainIds: {
+                                    chainIdSend: transferJson.fromChainName,
+                                    chainIdReceive: transferJson.toChainName
+                                }
+                            });
+                            crossChainInstanceInited = 1;
+                            const { crossTransferTxId } = await crossChainInstance.send(sendParams);
+                            console.log('crossTransferTxId: ', crossTransferTxId);
+                            return crossTransferTxId;
+                        }
+
+                        return { send };
+                    }
+
+                    const crossChainInstance = crossChain();
+                    totalTime += ("< crossChain():" + (new Date().getTime() - start).toString() + "   ");
+
+                    crossChainInstance
+                        .send({
+                            to: transferJson.toAddress,
+                            symbol: transferJson.symbol,
+                            amount: transferJson.amount,
+                            memo: transferJson.memo
+                        })
+                        .then(result => {
+                            // 从这里拿到发送的 交易id
+                            totalTime += ("< result :" + (new Date().getTime() - start).toString() + "   ");
+
+                            if (responseCallback) {
+                                var responseData = { 'txId': result, 'err': totalTime, 'success': 1 }
+                                responseCallback(JSON.stringify(responseData));
+                            }
+                        })
+                        .catch(error => {
+                            if (responseCallback) {
+                                var responseData = { 'txId': '', 'err': error.message, 'success': 0 }
+                                responseCallback(JSON.stringify(responseData));
+                            }
+                        });
+
+                } catch (err) {
+                    if (responseCallback) {
+                        var responseData = { 'txId': '', 'err': error.message, 'success': 0 }
+                        responseCallback(JSON.stringify(responseData));
+                    }
+                }
+            })
+            // -------
+
+            // 跨链 Receive 接收方法
+            bridge.registerHandler('transferCrossChainReceiveJS', function (data, responseCallback) {
+
+                try {
+
+                    var transferJson = data
+                    function crossChain() {
+
+                        const wallet = Wallet.getWalletByPrivateKey(transferJson.privateKey);
+                        const sendInstance = new AElf(new AElf.providers.HttpProvider(transferJson.fromNode));
+                        const receiveInstance = new AElf(new AElf.providers.HttpProvider(transferJson.toNode));
+
+                        if (!sendInstance.isConnected() || !receiveInstance.isConnected()) {
+                            // TODO: 这里补充下异常逻辑
+                            console.log('Blockchain Node is not running or missing connection');
+                            throw Error('Not Connected');
+                        }
+                        const crossChainInstance = new CrossChain({
+                            AElfUtils: AElf.utils,
+                            sendInstance,
+                            receiveInstance,
+                            wallet,
+                            mainChainId: Number(transferJson.mainChainId),
+                            issueChainId: Number(transferJson.issueChainId)
+                        });
+
+                        // send 之后，达到可以receive的状态需要等一段时间，需要等等主链和侧链相互索引
+                        // 有一种情况是，侧链欠费了，那么这个侧链到主链的转账就永远不会成功了。
+                        crossChainInstanceInited = 0;
+                        async function receive(crossTransferTxId) {
+                            // await crossChainInstance.init();
+                            await crossChainInstance.init({
+                                contractAddresses: {
+                                    tokenContractAddressSend: transferJson.fromTokenContractAddress,
+                                    crossChainContractAddressSend: transferJson.fromCrossChainContractAddress,
+                                    tokenContractAddressReceive: transferJson.toTokenContractAddress,
+                                    crossChainContractAddressReceive: transferJson.toCrossChainContractAddress
+                                },
+                                chainIds: {
+                                    chainIdSend: transferJson.fromChainName,
+                                    chainIdReceive: transferJson.toChainName
+                                }
+                            });
+                            crossChainInstanceInited = 1;
+                            const receiveInfo = await crossChainInstance.receive(
+                                crossTransferTxId
+                            );
+                            return receiveInfo;
+                        }
+                        return {
+                            receive
+                        };
+                    }
+                    const crossChainInstance = crossChain();
+                    crossChainInstance.receive({ crossTransferTxId: transferJson.txID }).then(result => {
+                        if (responseCallback) {
+                            var responseData = { 'txId': result.TransactionId, 'err': '', 'success': 1 }
+                            responseCallback(JSON.stringify(responseData));
+                        }
+                    }).catch(error => {
+                        if (responseCallback) {
+                            const msg = error.message || error.Error || "unknown error"
+                            var responseData = { 'txId': '', 'err': JSON.stringify(msg), 'success': 0 }
+                            responseCallback(JSON.stringify(responseData));
+                        }
+                    });
+
+                } catch (error) {
+                    if (responseCallback) {
+                        const msg = error.message || error.Error || "unknown error"
+                        var responseData = { 'txId': '', 'err': JSON.stringify(msg), 'success': 0 }
+                        responseCallback(JSON.stringify(responseData));
+                    }
+                }
+
+            })
+
+            // 跨链 Receive 接收方法
+            bridge.registerHandler('transferCrossChainGetTxResultJS', function (data, responseCallback) {
+
+                try {
+
+                    var transferJson = data
+                    const aelf = new AElf(new AElf.providers.HttpProvider(transferJson.nodeURL));
+                    if (!aelf.isConnected()) {
+                        // TODO: 这里补充下异常逻辑
+                        console.log('Blockchain Node is not running or missing connection');
+                        throw Error('Not Connected');
+                    }
+                    // 获取钱包
+                    aelf.chain.getTxResult(transferJson.txID).then(result => {
+                        if (responseCallback) {
+                            var isSuccess = result.Status == "NotExisted" ? 0 : 1 // 不等于 NotExisted 即可。
+                            var responseData = { 'txId': result.TransactionId, "params": result, 'err': result.Status, 'success': isSuccess }
+                            responseCallback(JSON.stringify(responseData));
+                        }
+                    }).catch(error => {
+                        if (responseCallback) {
+                            const msg = error.message || error.Error || "unknown error"
+                            var responseData = { 'txId': '', 'err': JSON.stringify(msg), 'success': 0 }
+                            responseCallback(JSON.stringify(responseData));
+                        }
+                    });
+
+                } catch (error) {
+                    if (responseCallback) {
+                        const msg = error.message || error.Error || "unknown error"
+                        var responseData = { 'txId': '', 'err': JSON.stringify(msg), 'success': 0 }
+                        responseCallback(JSON.stringify(responseData));
+                    }
+                }
+
+            })
+
+            // --------- 
+
+            bridge.registerHandler('invokeOrInvokeReadJS', function (data, responseCallback) {
+
+                try {
+
+                    var resultJson = data
+                    const wallet = Wallet.getWalletByPrivateKey(resultJson.privateKey);
+                    const aelf = new AElf(new AElf.providers.HttpProvider(resultJson.nodeURL));
+                    if (!aelf.isConnected()) {
+                        throw Error('Blockchain Node is not running or missing connection');
+                    }
+
+                    const action = resultJson.action;
+                    const argumentsInput = resultJson.argumentsInput || [];
+                    aelf.chain.contractAt(resultJson.contractAddress, wallet).then(contractInstance => {
+
+                        // invokeRead是不需要授权的，随便找一个公共的私钥签名就行了
+                        // 返回数据结果
+                        if (action === 'invokeRead') {
+                            contractInstance[resultJson.contractMethod].call.apply(null, argumentsInput.map(v => v.value)).then(result => {
+                                var responseData = { 'data': result, 'err': '', 'id': resultJson.id, 'success': 1 }
+                                responseCallback(JSON.stringify(responseData));
+
+                            }).catch(error => {
+                                // TODO: 异常处理
+                                const msg = error.message || error.Error || "unknown error"
+                                var responseData = { 'err': JSON.stringify(msg), 'success': -1, 'data': '' }
+                                responseCallback(JSON.stringify(responseData));
+                            });
+                        }
+
+                        if (action === 'invoke') {
+                            contractInstance[resultJson.contractMethod].apply(null, argumentsInput.map(v => v.value)).then(result => {
+                                console.log('result: ', result);
+                                var responseData = { 'data': result, 'err': '', 'id': resultJson.id, 'success': 1 }
+                                responseCallback(JSON.stringify(responseData));
+                            }).catch(error => {
+                                const msg = error.message || error.Error || "unknown error"
+                                var responseData = { 'err': JSON.stringify(msg), 'success': -1, 'data': '' }
+                                responseCallback(JSON.stringify(responseData));
+                            });
+                        }
+
+                    }).catch(error => {
+                        const msg = error.message || error.Error || "unknown error"
+                        var responseData = { 'err': JSON.stringify(msg), 'success': -1, 'data': '' }
+                        responseCallback(JSON.stringify(responseData));
+                    });
+
+                } catch (error) {
+                    const msg = error.message || error.Error || "unknown error"
+                    var responseData = { 'err': JSON.stringify(msg), 'success': -1, 'data': '' }
+                    responseCallback(JSON.stringify(responseData));
+                }
+
+            });
+
+
+
+            // apiJs
+            bridge.registerHandler('dappAPIJS', function (data, responseCallback) {
+
+                try {
+                    var resultJson = data
+                    const aelf = new AElf(new AElf.providers.HttpProvider(resultJson.nodeURL));
+                    if (!aelf.isConnected()) {
+                        throw Error('Blockchain Node is not running or missing connection');
+                    }
+                    const action = resultJson.action;
+                    const CHAIN_APIS = {
+                        '/api/blockChain/chainStatus': 'getChainStatus',
+                        '/api/blockChain/blockState': 'getChainState',
+                        '/api/blockChain/contractFileDescriptorSet': 'getContractFileDescriptorSet',
+                        '/api/blockChain/blockHeight': 'getBlockHeight',
+                        '/api/blockChain/block': 'getBlock',
+                        '/api/blockChain/blockByHeight': 'getBlockByHeight',
+                        '/api/blockChain/transactionResult': 'getTxResult',
+                        '/api/blockChain/transactionResults': 'getTxResults',
+                        '/api/blockChain/merklePathByTransactionId': 'getMerklePathByTxId'
+                    };
+
+                    if (!CHAIN_APIS[resultJson.apiPath]) {
+                        throw Error('Not support api ${resultJson.apiPath}');
+                    }
+                    const argumentsInput = resultJson.argumentsInput || [];
+
+                    aelf.chain[CHAIN_APIS[resultJson.apiPath]].apply(null, argumentsInput.map(v => v.value)).then(result => {
+                        var responseData = { 'data': result, 'err': '', 'id': resultJson.id, 'success': 1 }
+                        responseCallback(JSON.stringify(responseData));
+
+                    }).catch(error => {
+                        const msg = error.message || error.Error || "unknown error"
+                        var responseData = { 'err': JSON.stringify(msg), 'success': -1, 'data': '' }
+                        responseCallback(JSON.stringify(responseData));
+                    });
+
+                } catch (error) {
+                    const msg = error.message || error.Error || "unknown error"
+                    var responseData = { 'err': JSON.stringify(msg), 'success': -1, 'data': '' }
+                    responseCallback(JSON.stringify(responseData));
+                }
+
+            });
+
+        })
+    </script>
+    <div id='buttons'></div>
+    <div id='log'></div>
+</body>
+
+</html>

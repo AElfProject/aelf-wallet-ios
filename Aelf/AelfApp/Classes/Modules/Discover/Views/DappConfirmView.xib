@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DappConfirmView" customModule="AELF_Wallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Hj-DE-csp">
+                    <rect key="frame" x="30" y="346.5" width="354" height="203.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPz-JS-nHW">
+                            <rect key="frame" x="20" y="40" width="314" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjX-CV-Krf">
+                            <rect key="frame" x="20" y="84" width="314" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxx-V6-djE">
+                            <rect key="frame" x="0.0" y="123.5" width="354" height="60"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2X-eF-9x9">
+                                    <rect key="frame" x="20" y="5" width="125" height="50"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Cancel">
+                                        <color key="titleColor" red="0.26845800879999998" green="0.063092477620000004" blue="0.56250131130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Cancel"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="heightCircle" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.26845800879999998" green="0.063092477620000004" blue="0.56250131130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="cancelButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="KT1-xI-6mw"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-dC-Fqp">
+                                    <rect key="frame" x="155" y="5" width="179" height="50"/>
+                                    <color key="backgroundColor" red="0.26845800879999998" green="0.063092477620000004" blue="0.56250131130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Confirm">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localized" value="Confirm"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="heightCircle" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="confirmButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="hze-tf-2yr"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="H2X-eF-9x9" firstAttribute="height" secondItem="dNL-dC-Fqp" secondAttribute="height" id="AYM-4f-T34"/>
+                                <constraint firstAttribute="height" constant="60" id="C8w-l7-iyV"/>
+                                <constraint firstItem="H2X-eF-9x9" firstAttribute="leading" secondItem="rxx-V6-djE" secondAttribute="leading" constant="20" id="Icz-RA-UbW"/>
+                                <constraint firstAttribute="bottom" secondItem="H2X-eF-9x9" secondAttribute="bottom" constant="5" id="PIR-Lq-MGl"/>
+                                <constraint firstItem="H2X-eF-9x9" firstAttribute="centerY" secondItem="rxx-V6-djE" secondAttribute="centerY" id="S5b-Lt-CYi"/>
+                                <constraint firstItem="dNL-dC-Fqp" firstAttribute="centerY" secondItem="rxx-V6-djE" secondAttribute="centerY" id="SRQ-ca-bKc"/>
+                                <constraint firstItem="H2X-eF-9x9" firstAttribute="top" secondItem="rxx-V6-djE" secondAttribute="top" constant="5" id="bb8-wV-r6S"/>
+                                <constraint firstItem="dNL-dC-Fqp" firstAttribute="leading" secondItem="H2X-eF-9x9" secondAttribute="trailing" constant="10" id="jj0-Jq-N7C"/>
+                                <constraint firstAttribute="trailing" secondItem="dNL-dC-Fqp" secondAttribute="trailing" constant="20" id="ksi-Lq-IdC"/>
+                                <constraint firstItem="H2X-eF-9x9" firstAttribute="width" secondItem="dNL-dC-Fqp" secondAttribute="width" multiplier="0.7" id="nTb-s5-wy7"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="RPz-JS-nHW" secondAttribute="trailing" constant="20" id="0c6-PX-6Iy"/>
+                        <constraint firstAttribute="trailing" secondItem="rxx-V6-djE" secondAttribute="trailing" id="A8u-iN-XOR"/>
+                        <constraint firstAttribute="trailing" secondItem="PjX-CV-Krf" secondAttribute="trailing" constant="20" id="Ecy-K2-LIH"/>
+                        <constraint firstItem="rxx-V6-djE" firstAttribute="top" secondItem="PjX-CV-Krf" secondAttribute="bottom" constant="20" id="GHi-fw-o7u"/>
+                        <constraint firstItem="PjX-CV-Krf" firstAttribute="leading" secondItem="1Hj-DE-csp" secondAttribute="leading" constant="20" id="LCf-2D-Aj6"/>
+                        <constraint firstItem="PjX-CV-Krf" firstAttribute="top" secondItem="RPz-JS-nHW" secondAttribute="bottom" constant="20" id="Nac-YW-yHA"/>
+                        <constraint firstItem="RPz-JS-nHW" firstAttribute="top" secondItem="1Hj-DE-csp" secondAttribute="top" constant="40" id="XZC-TY-5Ur"/>
+                        <constraint firstAttribute="bottom" secondItem="rxx-V6-djE" secondAttribute="bottom" constant="20" id="oXi-Qv-2YY"/>
+                        <constraint firstItem="rxx-V6-djE" firstAttribute="leading" secondItem="1Hj-DE-csp" secondAttribute="leading" id="toC-Zz-nYh"/>
+                        <constraint firstItem="RPz-JS-nHW" firstAttribute="leading" secondItem="1Hj-DE-csp" secondAttribute="leading" constant="20" id="wO1-yP-HLi"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="1Hj-DE-csp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="4wW-qw-eux"/>
+                <constraint firstItem="1Hj-DE-csp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5i1-HW-qfG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1Hj-DE-csp" secondAttribute="trailing" constant="30" id="myJ-Nu-fiB"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="backgroundView" destination="1Hj-DE-csp" id="qNz-u6-Ox2"/>
+                <outlet property="bodyLabel" destination="PjX-CV-Krf" id="msK-DG-hUc"/>
+                <outlet property="cancelButon" destination="H2X-eF-9x9" id="9hs-ho-Jlp"/>
+                <outlet property="confirmButton" destination="dNL-dC-Fqp" id="QvK-yW-aYY"/>
+                <outlet property="titleLabel" destination="RPz-JS-nHW" id="vOn-9m-emj"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </view>
+    </objects>
+</document>
