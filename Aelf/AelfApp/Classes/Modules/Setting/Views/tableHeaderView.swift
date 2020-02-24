@@ -4,7 +4,7 @@
 
 //
 //  Created by MacKun on 2019/6/25.
-//  Copyright © 2019 legenddigital. All rights reserved.
+//  Copyright © 2019 AELF. All rights reserved.
 //
 
 import UIKit

@@ -3,7 +3,7 @@
 //  RxExamples
 //
 //  Created by 晋先森 on 2019/5/30.
-//  Copyright © 2019 晋先森. All rights reserved.
+//  Copyright © 2019 AELF. All rights reserved.
 //
 
 import Foundation

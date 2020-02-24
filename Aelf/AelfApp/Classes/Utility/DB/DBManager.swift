@@ -1,9 +1,9 @@
 //
 //  DBManager.swift
-//  BestHyperPay
+//
 //
 //  Created by jinxiansen on 2019/7/31.
-//  Copyright © 2019 神话科技. All rights reserved.
+//  Copyright © 2019 aelf. All rights reserved.
 //
 
 import Foundation

@@ -3,7 +3,7 @@
 //  AElfApp
 //
 //  Created by 晋先森 on 2019/10/14.
-//  Copyright © 2019 legenddigital. All rights reserved.
+//  Copyright © 2019 AELF. All rights reserved.
 //
 
 import Foundation

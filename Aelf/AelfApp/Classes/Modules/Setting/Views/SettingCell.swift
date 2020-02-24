@@ -3,7 +3,7 @@
 //  AelfApp
 //
 //  Created by MacKun on 2019/5/30.
-//  Copyright © 2019 legenddigital. All rights reserved.
+//  Copyright © 2019 AELF. All rights reserved.
 //
 
 import UIKit
