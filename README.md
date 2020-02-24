@@ -34,7 +34,7 @@ AELF 是一个区块链系统，旨在通过使用侧链和灵活的设计实现
 
 |-|-|-|-|-|-|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|<img src="images/1.png" width="60%">|<img src="images/2.png" width="60%">|<img src="images/3.png" width="60%">|<img src="images/4.png" width="60%">|<img src="images/5.png" width="60%">|<img src="images/6.png" width="60%">|
+|<img src="images/01.png" width="60%">|<img src="images/02.png" width="60%">|<img src="images/03.png" width="60%">|<img src="images/04.png" width="60%">|<img src="images/05.png" width="60%">|<img src="images/06.png" width="60%">|
 
 
 ## 💻开发环境
