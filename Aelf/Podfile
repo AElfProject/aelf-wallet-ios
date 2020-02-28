@@ -2,7 +2,7 @@ platform :ios, '9.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
 
-target 'AElfApp' do
+target 'AelfApp' do
   use_frameworks!
   inhibit_all_warnings!
   

@@ -23,7 +23,6 @@ DerivedData
 Pods
 !Podfile
 !Podfile.lock
-ALEFAPP.xcscheme
+AelfApp.xcscheme
 
-Configure.plist
-
+Resources/Configure.plist
