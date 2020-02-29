@@ -32,7 +32,7 @@ class ImportPrivateKeyController: BaseController {
         super.viewDidLoad()
         
         #if DEBUG
-        //        menmonicTextView.text = "main case speed hint similar maze fish benefit oppose adapt hollow subway"
+
         menmonicTextView.text = "4c02c6f538d68a77f3f0e7ef980fbe5548ec50836e81fb4891b67ba38c76069a"
         pwdField.text = "111111111aA!"
         confirmPwdField.text = "111111111aA!"

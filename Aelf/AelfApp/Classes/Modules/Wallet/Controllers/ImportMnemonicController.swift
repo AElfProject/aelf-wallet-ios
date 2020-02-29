@@ -32,12 +32,10 @@ class ImportMnemonicController: BaseController {
         super.viewDidLoad()
         
         #if DEBUG
-        //        menmonicTextView.text = "main case speed hint similar maze fish benefit oppose adapt hollow subway"
         menmonicTextView.text = "kite magnet crew kitten cradle jealous amateur chalk gospel meadow toward pear"
         pwdField.text = "111111111aA!"
         confirmPwdField.text = "111111111aA!"
         hintField.text = "auto"
-        
         #endif
         
         menmonicTextView.placeholder = "Input mnemonic".localized()
@@ -133,7 +131,7 @@ class ImportMnemonicController: BaseController {
                                     name: Define.defaultChainID,
                                     callback: { [weak self] (created, wallet) in
                                         if created {
-                                            App.isMnemonicImport = true;
+                                            App.isMnemonicImport = true
                                             self?.importedHandler(address: wallet?.address,loadingView: loadingView)
                                         } else {
                                             SVProgressHUD.showInfo(withStatus: "Import failed".localized())

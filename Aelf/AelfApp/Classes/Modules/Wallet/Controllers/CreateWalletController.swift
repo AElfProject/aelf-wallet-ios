@@ -37,11 +37,11 @@ class CreateWalletController: BaseController {
         super.viewDidLoad()
         
         #if DEBUG
-        //        menmonicTextView.text = "main case speed hint similar maze fish benefit oppose adapt hollow subway"
-        userNameField.text = "我是name"
+        
+        userNameField.text = "I'm AELF"
         passwordField.text = "111111111aA!"
         confirmPasswordField.text = "111111111aA!"
-        hintField.text = "auto"
+        hintField.text = "auto hint"
         
         #endif
         
@@ -137,6 +137,7 @@ class CreateWalletController: BaseController {
                                 callback: { (created,wallet) in
             asyncMainDelay(duration: 1.5, block: { [weak self] in // loading 一会
                 if created {
+                    App.isMnemonicImport = true
                     self?.createdHandler(wallet: wallet, mnemonics: mnemonics, userName: userName, loadingView: loadingView)
                 } else {
                     loadingView.dismiss()

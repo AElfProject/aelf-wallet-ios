@@ -45,10 +45,7 @@ class AssetTransferController: BaseController {
         addNavigationItem()
         bindTransferViewModel()
         #if DEBUG
-//                    addressField.text = "21gvYK1e2Zf4yYLvzj9afBUr4M3hd1FZsqpgP9LDaYjQyef38y"
-//                addressField.text = "2c6Fc9MTHsEVarQq33SaWe1r2CE3U5RUpum22Ak3KatFtJKZAt" // main case 种子
         addressField.text = "QDDLWzuvSYhYR18KeF7AHZNpJdtrTCh2G8MprXF4rGx8x9Fpm" // kite magnet
-        //        addressField.text = "2BBxWWoouDAQdXSZSnV5cXtbLrptC5dnaJE3uAiHbvs222VWNp" // 李坤40
         #endif
     }
     
@@ -210,16 +207,6 @@ class AssetTransferController: BaseController {
             SVProgressHUD.showInfo(withStatus: "Do not transfer to your current address".localized())
             return
         }
-        
-//        SecurityVerifyManager.verifyPaymentPassword(completion: { (pwd) in
-//            if let pwd = pwd {
-//                if isCrossChain { // 是跨链转账
-//                    self.startCrossTransaction(pwd: pwd)
-//                } else { // 同链不允许给自己转。
-//                    self.startAElfTransaction(pwd: pwd)
-//                }
-//            }
-//        })
         
         SecurityVerifyManager.verifyPaymentPassword(completion: { (pwd) in
             self.goTransferHandler(pwd: pwd, isCrossChain: isCrossChain)
