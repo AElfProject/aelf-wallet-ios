@@ -73,28 +73,18 @@ AELF 是一个去中心化云计算区块链网络，具有高性能、资源隔
 
 ## ⚒编译和运行
 
-运行本项目前，请确保已通过 brew 安装`autoconf automake libtool`,
+1. 运行本项目前，请确保已通过 brew 安装`autoconf automake libtool`, 安装命令： `brew install autoconf automake libtool`
 
-安装命令： 
+2. 然后 `git clone` 下载本项目后，打开终端，进入项目 **Podfile** 文件所在目录，安装依赖库：`pod repo update && pod install`
 
-> `brew install autoconf automake libtool`
+	> `BitcoinKit` 由于依赖 `autoconf automake libtool`，所以校验安装时间会稍长。
 
-然后 `git clone` 下载本项目后，打开终端，进入项目 **Podfile** 文件所在目录，
-
-执行以下命令：
-
-> `pod install`
-
-> `BitcoinKit` 由于依赖 `autoconf automake libtool`，所以校验安装时间会稍长。
-
-请耐心等待，安装完成本项目所有依赖框架后，
-
-在 **Resources** 目录下创建 `Configure.plist` 文件，添加 Key: `pubKey`，Value 为 公钥字符串；如下图所示：
+3. 请耐心等待 pod 安装完本项目依赖框架后，在 AelfApp/Resources 目录下创建 `Configure.plist` 文件，添加 Key: `pubKey`，Value 为 公钥字符串；如下图所示：
 ![](images/plist.png)
 
-然后双击`AelfApp.xcworkspace` 打开并运行项目，编译并运行。
+4. 双击`AelfApp.xcworkspace` 打开项目，编译并运行。
 
-> 项目运行后，访问接口需要 PubKey 加密，在项目的 `Resources/Configure.plist` 中配置。如有必要，你可以通过 [issue](https://github.com/AElfProject/aelf-wallet-ios/issues) 来申请一个 PubKey。
+	> 项目运行后，访问接口需要 PubKey 加密，在项目的 `Resources/Configure.plist` 中配置。如有必要，你可以通过 [issue](https://github.com/AElfProject/aelf-wallet-ios/issues) 来申请一个 PubKey。
 
 ## 📁项目结构
 
