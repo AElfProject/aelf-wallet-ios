@@ -164,7 +164,7 @@ extension String {
     /// 移除 Emoji 表情
     ///
     /// - Returns: 返回不包含 Emoji 的字符串。
-    func removingEmoji() -> String {
+    func filterEmoji() -> String {
         return String(self.filter { !$0.isEmoji })
     }
     

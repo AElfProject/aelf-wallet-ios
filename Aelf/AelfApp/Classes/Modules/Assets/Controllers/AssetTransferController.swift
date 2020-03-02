@@ -32,8 +32,8 @@ class AssetTransferController: BaseController {
     let fetchChainsTripper = PublishSubject<Void>()
     let chains = BehaviorRelay<[ChainItem]>(value: [])
     var item: AssetDetailItem?
-    var balance:Double = 0
-    var fee:Double = 0
+    var balance: Double = 0
+    var fee: Double = 0
     var task: Task?
     
     var fromItem: ChainItem?
@@ -327,7 +327,7 @@ class AssetTransferController: BaseController {
 
                     let item = TransactionInfoItem(amount: amount,
                                                    symbol: self.currentSymbol(),
-                                                   fee: 0.00,
+                                                   fee: self.fee,
                                                    toAddress: toAddress.removeChainID(),
                                                    toChain: toItem.name,
                                                    toNode: toNode,

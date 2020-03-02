@@ -29,7 +29,7 @@ extension TransationDetailViewModel: ViewModelType {
         
         let out = Output()
         
-        input.fetchDetail.flatMapLatest({ [weak self] _ -> Observable<AssetHistory> in
+        input.fetchDetail.flatMapFirst({ [weak self] _ -> Observable<AssetHistory> in
             guard let self = self else { return Observable.just(AssetHistory(JSON: [:])!)}
             return self.requestTransactionDetail(address: input.address,
                                                  txid: input.txId,

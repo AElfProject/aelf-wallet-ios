@@ -50,8 +50,8 @@ class AddAddressController: BaseController {
 
     func bindEvent() {
 
-        nameTF.rx.text.orEmpty.map({ $0.removingEmoji() }).bind(to:  nameTF.rx.text).disposed(by: rx.disposeBag)
-        addressTF.rx.text.orEmpty.map({ $0.removingEmoji() }).bind(to:  addressTF.rx.text).disposed(by: rx.disposeBag)
+        nameTF.rx.text.orEmpty.map({ $0.filterEmoji() }).bind(to:  nameTF.rx.text).disposed(by: rx.disposeBag)
+        addressTF.rx.text.orEmpty.map({ $0.filterEmoji() }).bind(to:  addressTF.rx.text).disposed(by: rx.disposeBag)
         
     }
     
