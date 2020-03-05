@@ -25,6 +25,7 @@ struct ChainItem: Mappable,TableCodable {
     var explorer = ""
     var issueID = ""
     var crossChainContractAddress = ""
+    var transferCoins = "" // 支持的交易币种
 
     init?(map: Map) {
     }
@@ -40,6 +41,7 @@ struct ChainItem: Mappable,TableCodable {
         explorer <- map["explorer"]
         issueID <- map["issueid"]
         crossChainContractAddress <- map["crossChainContractAddress"]
+        transferCoins <- map["transferCoins"]
     }
     
     enum CodingKeys :String,CodingTableKey {
@@ -56,6 +58,7 @@ struct ChainItem: Mappable,TableCodable {
         case explorer
         case issueID
         case crossChainContractAddress
+        case transferCoins
 
         static let objectRelationalMapping = TableBinding(CodingKeys.self)
         
@@ -105,5 +108,14 @@ extension ChainItem {
 extension ChainItem {
     func isMain() -> Bool {
         return type == "main"
+    }
+    
+    
+    /// 是否支持跨链转账。
+    /// - Parameter toSymbol: 接收链的 Symbol
+    func isSupportTransfer(toSymbol: String) -> Bool {
+        if transferCoins == "*" { return true } //
+        if transferCoins.lowercased().contains(toSymbol.lowercased()) { return true }
+        return false
     }
 }

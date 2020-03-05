@@ -34,8 +34,6 @@ class DappWebController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addNavigationItems()
-        
         title = item.name
         
         view.addSubview(webView)
@@ -46,16 +44,6 @@ class DappWebController: BaseController {
         view.addSubview(progressView)
 
         webView.loadURLString(item.url)
-        
-    }
-    
-    
-    func addNavigationItems() {
-        
-        //        let right = UIBarButtonItem(image: UIImage(named: "edit_favourites")?.original, style: .done) {
-        //            //            self.sendMessage(dict: <#T##[String : String]#>)
-        //        }
-        //        navigationItem.rightBarButtonItem = right
         
     }
     

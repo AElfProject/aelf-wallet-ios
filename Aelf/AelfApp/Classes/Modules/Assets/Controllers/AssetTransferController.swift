@@ -231,13 +231,8 @@ class AssetTransferController: BaseController {
         let toAddress = self.addressField.text ?? ""
         if let toChainID = toAddress.chainID() {
             if let fromChainID = item?.chainID, toChainID.lowercased() != fromChainID.lowercased() { // toChainID 存在且不相等，提示跨链交易
-                chains.value.forEach({
-                    if $0.name.lowercased() == toChainID.lowercased() { // 如果是跨链，则根据 toChainID 获取对应链的 node
-                        self.toItem = $0
-                    }
-                })
-                
-                let value = isSuppert(chainID: toChainID)
+
+                let value = isSupportCrossTransfer(chainID: toChainID)
                 if !value.0 {
                     SVProgressHUD.showInfo(withStatus: "Chain ID: %@ not supported".localizedFormat(toChainID))
                     return
@@ -245,6 +240,7 @@ class AssetTransferController: BaseController {
                 
                 // 上面已经判断了是否支持 toChainID，如果走到这里，则能取到 item
                 guard let item = value.1 else { return }
+                self.toItem = item
                 self.checkToChainFee(item: item) {
                     // 检测为跨链，提示跨链弹框
                     TransferDetectedView.show(fromChain: fromChainID, toChain: toChainID) {
@@ -283,11 +279,6 @@ class AssetTransferController: BaseController {
             return }
         
         // js 提供的转账规则。
-        if !isSuppertCrossChain(toChainID: toItem.name,symbol: currentSymbol()) {
-            let info = "Please look forward to the release of the new version of AELF".localizedFormat(fromItem.name,toItem.name,currentSymbol())
-            SVProgressHUD.showError(withStatus: info)
-            return
-        }
         
         let fromNode = fromItem.node.removeSlash()
         let toNode = toItem.node.removeSlash()
@@ -469,7 +460,7 @@ class AssetTransferController: BaseController {
             let toAddress = self.addressField.text ?? ""
             if let toChainID = toAddress.chainID() {
                 
-                if !isSuppert(chainID: toChainID).0 {
+                if !isSupportCrossTransfer(chainID: toChainID).0 {
                     SVProgressHUD.showInfo(withStatus: "Chain ID: %@ not supported".localizedFormat(toChainID))
                     return
                 }
@@ -528,33 +519,17 @@ class AssetTransferController: BaseController {
 
 extension AssetTransferController {
     
-    private func isSuppertCrossChain(toChainID: String,symbol: String) -> Bool {
-        switch (toChainID) {
-        case "AELF":
-            return true
-        case "tDVV":
-            return symbol == "EPC" || symbol == "ELF"
-        case "tDVW":
-            return symbol == "EDA" || symbol == "ELF"
-        case "tDVX":
-            return symbol == "EDB" || symbol == "ELF"
-        case "tDVY":
-            return symbol == "EDC" || symbol == "ELF"
-        case "tDVZ":
-            return symbol == "EDD" || symbol == "ELF"
-        default:
-            return false
-        }
-    }
-    
-    private func isSuppert(chainID: String) -> (Bool,ChainItem?) {
+    private func isSupportCrossTransfer(chainID: String) -> (Bool,ChainItem?) {
+        
+        guard let fromItem = self.fromItem else { return (false,nil) }
         var isContainer = false
         var item: ChainItem?
-        self.chains.value.forEach({
-            if $0.name.lowercased() == chainID.lowercased() {
+        chains.value.forEach({
+            if $0.name.lowercased() == chainID.lowercased() && fromItem.isSupportTransfer(toSymbol: $0.symbol) {
                 isContainer = true
                 item = $0
             }
+            
         })
         return (isContainer,item)
     }
