@@ -42,7 +42,7 @@ class DappWebController: BaseController {
         }
         
         view.addSubview(progressView)
-
+        
         webView.loadURLString(item.url)
         
     }
@@ -260,7 +260,7 @@ extension DappWebController {
             self.sendErrorMessage("Missing parameters".localized() + ": params",code: 1003, id: item.id)
             return
         }
-
+        
         params.parseParams(dappPublicKey: wallet.dappPublicKey) { [weak self] (err, json) in
             guard let self = self else { return }
             if let err = err {
@@ -330,9 +330,9 @@ extension DappWebController {
             
             logInfo("apiItem: \(apiItem)")
             if !self.isValidTime(apiItem.timestamp) {
-                 self.sendErrorMessage("Invalid timestamp".localized(),code: 1001, id: item.id)
-                 return
-             }
+                self.sendErrorMessage("Invalid timestamp".localized(),code: 1001, id: item.id)
+                return
+            }
             self.openDappAPI(id: item.id, action: item.action, item: apiItem)
             
         })
@@ -427,7 +427,7 @@ extension DappWebController {
     }
     
     func showPasswordView(content: String, id: String,callback: @escaping ((String?) -> ())) {
-
+        
         let url = self.item.url
         DappSignConfirmView.show(content: content, confirmClosure: { view in
             let pwd = view.pwdField.text ?? ""
@@ -447,7 +447,6 @@ extension DappWebController {
                 SVProgressHUD.showError(withStatus: "Password Error".localized())
             }
         }) {
-            //
             self.sendErrorMessage("User cancelled".localized(), code: 1101, id: id)
         }
         
@@ -607,23 +606,23 @@ extension DappWebController {
         }
         
         /*
-        
-        * 1001 时间戳无效：  Invalid timestamp
-        * 1002 数据解析失败： Data parsing failed
-        * 1003 缺少参数： Missing parameters
-        * 1004 请先登录：Please sign in
-        * 1005 加密类型不支持：Encryption type is not supported
-        * 1006 参数无效： Invalid argument
-        * 1007 签名失败： Signature failure
-        * 1008 不支持的 action：Unsupported actions
-
-        * 1100 未知错误： unknown error
+         
+         * 1001 时间戳无效：  Invalid timestamp
+         * 1002 数据解析失败： Data parsing failed
+         * 1003 缺少参数： Missing parameters
+         * 1004 请先登录：Please sign in
+         * 1005 加密类型不支持：Encryption type is not supported
+         * 1006 参数无效： Invalid argument
+         * 1007 签名失败： Signature failure
+         * 1008 不支持的 action：Unsupported actions
+         
+         * 1100 未知错误： unknown error
          
          1101：用户取消
          1102：链节点无法连接
          1103：网络错误
-        
-        */
+         
+         */
         
     }
     

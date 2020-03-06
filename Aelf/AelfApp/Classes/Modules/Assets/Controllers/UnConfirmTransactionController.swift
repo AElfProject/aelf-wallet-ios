@@ -77,8 +77,6 @@ class UnConfirmTransactionController: BaseTableViewController {
         
     }
     
-    
-    
     /// 检查在 ToChain 链上，我的 fee 是否足够。
     /// - Parameters:
     ///   - contractAddress: Tochain 链的合约地址

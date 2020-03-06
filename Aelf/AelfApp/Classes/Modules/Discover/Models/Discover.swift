@@ -73,21 +73,6 @@ struct DiscoverTag: Mappable {
     }
 }
 
-//struct DiscoverGroup: Mappable {
-//
-//    var group : [DiscoverItem]?
-//    var tag : Int?
-//    var title = ""
-//
-//    init?(map: Map) {}
-//    mutating func mapping(map: Map) {
-//        group <- map["group"]
-//        tag <- map["tag"]
-//        title <- map["title"]
-//
-//    }
-//}
-
 struct DiscoverItem: Mappable {
 
     var name = ""
@@ -103,8 +88,6 @@ struct DiscoverItem: Mappable {
         website <- map["website"]
     }
 }
-
-
 
 struct DiscoverBanner: Mappable {
 

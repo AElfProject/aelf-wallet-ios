@@ -9,11 +9,11 @@
 import UIKit
 
 class DappSearchController: BaseController {
-
+    
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-
+    
     private var items = [DiscoverDapp]()
     
     private let viewModel = DappSearchViewModel()
@@ -22,22 +22,22 @@ class DappSearchController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         searchField.hero.id = "SearchBar"
         addEmptyBackItem()
         
         setupTableView()
         bindSearchViewModel()
     }
-
+    
     override func configBaseInfo() {
-
+        
         title = "Search".localized()
         
     }
     
     func setupTableView() {
-
+        
         tableView.register(nibWithCellClass: DappGameCell.self)
         tableView.register(nibWithCellClass: DappSearchHotCell.self)
         tableView.delegate = self
@@ -56,19 +56,19 @@ class DappSearchController: BaseController {
         let v = DappSearchHeaderView.loadFromNib(named: DappSearchHeaderView.className) as! DappSearchHeaderView
         return v
     }()
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         searchField.becomeFirstResponder()
     }
-
+    
     func bindSearchViewModel() {
-
+        
         let input = DappSearchViewModel.Input(searchText: searchField.asDriver(),
                                               items: self.items,
                                               headerRefresh: headerRefresh())
         let output = viewModel.transform(input: input)
-
+        
         output.items.subscribe(onNext: { [weak self] items in
             guard let self = self else { return }
             
@@ -78,8 +78,8 @@ class DappSearchController: BaseController {
             self.items = items
             self.tableView.reloadData()
             
-            }).disposed(by: rx.disposeBag)
-     }
+        }).disposed(by: rx.disposeBag)
+    }
     
     
     func didSelectDapp(item: DiscoverDapp) {
@@ -90,12 +90,12 @@ class DappSearchController: BaseController {
             self.push(controller: DappWebController(item: DappItem(url: item.url, name: item.name)))
         }
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         view.endEditing(true)
     }
-
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
         searchField.resignFirstResponder()
         pop()

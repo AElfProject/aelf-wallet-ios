@@ -7,45 +7,44 @@
 //
 
 import UIKit
-//import BitcoinKit
 
 private let dappApplyURL = "http://aelfaelf1616.mikecrm.com/Z8EMGWN"
 
 class DiscoverController: BaseTableViewController {
-
+    
     var dappSource = [DiscoverDapp]()
     var listSource = [DiscoverDapp]()
-
+    
     let viewModel = DiscoverViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupSubViews()
         checkIsBackupMnemonic()
         bindDiscoverViewModel()
     }
-
+    
     override func languageChanged() {
-
+        
         navigationItem.title = "Discover".localized()
         headerView.searchButton.setTitle("Enter DApp Name".localized(), for: .normal)
         footerView.applyButton.setTitle("DApp listing application".localized(), for: .normal)
     }
-
+    
     func bindDiscoverViewModel() {
-
+        
         let input = DiscoverViewModel.Input(headerRefresh: headerRefreshTrigger)
         let output = viewModel.transform(input: input)
-
+        
         viewModel.loading.asObservable().bind(to: isLoading).disposed(by: rx.disposeBag)
         viewModel.headerLoading.asObservable().bind(to: isHeaderLoading).disposed(by: rx.disposeBag)
         viewModel.parseError.map{ $0.msg ?? "" }.bind(to: emptyDataSetDescription).disposed(by: rx.disposeBag)
-
+        
         emptyDataSetButtonTap.subscribe(onNext: { [weak self] () in
             self?.headerRefreshTrigger.onNext(())
         }).disposed(by: rx.disposeBag)
-
+        
         output.discover.subscribe(onNext: { [weak self] discover in
             guard let self = self else { return }
             
@@ -54,16 +53,16 @@ class DiscoverController: BaseTableViewController {
             self.listSource = discover.tool
             self.tableView.reloadData()
             self.updateLayouts()
-        }, onError: { e in
-            logDebug(e)
+            }, onError: { e in
+                logDebug(e)
         }).disposed(by: rx.disposeBag)
-
+        
         tableView.headRefreshControl.beginRefreshing()
-
+        
     }
-
+    
     func setupSubViews() {
-
+        
         tableView.register(nibWithCellClass: DiscoverRecommendCell.self)
         tableView.register(nibWithCellClass: DappGameCell.self)
         tableView.tableHeaderView = headerView
@@ -90,10 +89,10 @@ class DiscoverController: BaseTableViewController {
             make.size.equalTo(CGSize(width: screenWidth, height: 50))
             make.top.equalTo(tableView.contentSize.height)
         }
-//
+        //
         self.tableView.setNeedsLayout()
         self.tableView.layoutIfNeeded()
-
+        
     }
     
     func updateLayouts() {
@@ -117,8 +116,6 @@ class DiscoverController: BaseTableViewController {
     
     lazy var footerView: DiscoverFooterView = {
         let v = DiscoverFooterView.loadFromNib(named: DiscoverFooterView.className, bundle: nil) as! DiscoverFooterView
-
-//        v.applyButton.backgroundColor = UIColor.red
         v.tapDapply = {
             self.dappApplyTapped()
         }
@@ -139,17 +136,12 @@ class DiscoverController: BaseTableViewController {
         let vc = WebViewController(urlStr: url)
         push(controller: vc)
     }
-
+    
     @objc func moreButtonTapped(_ button: UIButton) {
-
+        
         self.performSegue(withIdentifier: DappListController.className, sender: nil)
-//        if button.tag == 0 {
-//            self.performSegue(withIdentifier: DappListController.className, sender: nil)
-//        } else {
-//            logInfo("Button.tag: \(button.tag)")
-//        }
     }
-
+    
     override func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
         return false
     }
@@ -157,9 +149,8 @@ class DiscoverController: BaseTableViewController {
 
 
 extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return dappSource.isEmpty ? 0:2
         if dappSource.isEmpty {
             footerView.isHidden = true
             return 0
@@ -168,7 +159,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
             return 2
         }
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -177,7 +168,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
             return self.listSource.count
         }
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
@@ -192,14 +183,14 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
             return 90
         }
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
+        
         guard let view = DiscoverSectionView.loadFromNib(named: DiscoverSectionView.className) as? DiscoverSectionView else {
             return nil
         }
         view.sectionButton.setTitle("More".localized(), for: .normal)
-
+        
         if section == 0 {
             view.titleLabel.text = "Recommend".localized()
         } else {
@@ -207,10 +198,10 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
         }
         view.sectionButton.tag = section
         view.sectionButton.addTarget(self, action: #selector(moreButtonTapped(_:)), for: .touchUpInside)
-
+        
         return view
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -228,10 +219,10 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
             return cell
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
         switch indexPath.section {
         case 0:
             logInfo("\(indexPath)")
@@ -240,7 +231,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
             didSelectDapp(name: item.name, url: item.url)
         }
     }
-
+    
 }
 
 extension DiscoverController: UIScrollViewDelegate {

@@ -76,7 +76,7 @@ class MyAccountController: BaseController {
             self.nameButton.setTitle(name, for: .normal)
 //            copyButton.isHidden = false
         }else {
-            self.nameButton.setTitle(AElfWallet.walletName ?? "AElf", for: .normal)
+            self.nameButton.setTitle(AElfWallet.walletName ?? "AELF", for: .normal)
 //            copyButton.isHidden = true
         }
 

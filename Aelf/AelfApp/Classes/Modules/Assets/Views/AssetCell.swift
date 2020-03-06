@@ -9,22 +9,22 @@
 import UIKit
 
 class AssetCell: BaseTableCell {
-
+    
     @IBOutlet weak var iconImgView: UIImageView!
     @IBOutlet weak var coinLabel: UILabel!
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     var item: AssetItem? {
         didSet {
             guard let item = item else { return }
-
+            
             coinLabel.text = item.symbol
             
             if App.isPrivateMode {
@@ -42,10 +42,10 @@ class AssetCell: BaseTableCell {
             }
         }
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

@@ -86,7 +86,6 @@ extension BaseTableBarController {
         
         let assetNav = UIStoryboard.loadController(BaseNavigationController.self, storyType: .assets)
         let marketNav = UIStoryboard.loadController(BaseNavigationController.self, storyType: .market)
-        
         let settingNav = UIStoryboard.loadController(BaseNavigationController.self, storyType: .setting)
         
         assetNav.tabBarItem = ESTabBarItem(BouncesContentView(),
