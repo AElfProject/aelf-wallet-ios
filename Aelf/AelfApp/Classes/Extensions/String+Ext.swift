@@ -9,6 +9,7 @@
 import Foundation
 import CommonCrypto
 import SwiftyRSA
+
 extension String {
     
     static var appVersion: String {
@@ -55,11 +56,6 @@ extension String {
         
         return dbPath
     }
-    
-    //    func elfAddress() -> String {
-    //        let address = "\(elfPrefix)_" + self + "_\(defaultChainID)" //主网 AELF
-    //        return address
-    //    }
     
     func elfAddress(_ chainID: String = Define.defaultChainID) -> String {
         let address = "\(Define.elfPrefix)_" + self + "_\(chainID)" //主网 AELF
@@ -204,71 +200,10 @@ extension String {
     /// 移除首尾空格
     ///
     /// - Returns:
-    func setMnemonicFormatter() -> String {
+    func filterSpaceAndNewlines() -> String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
      
-    
-    func stringToJSON() -> String {
-        // 计数tab的个数
-        var tabNum: Int = 0
-        var jsonFormat: String = ""
-
-        var last = "";
-        for i in self.indices {
-            let c = self[i]
-            if (c == "{") {
-                tabNum += 1
-                jsonFormat.append("\(c) \n")
-                jsonFormat.append(getSpaceOrTab(tabNum: tabNum))
-            }
-            else if (c == "}") {
-                tabNum -= 1
-                jsonFormat.append("\n")
-                jsonFormat.append(getSpaceOrTab(tabNum: tabNum))
-                jsonFormat.append(c)
-            }
-            else if (c == ",") {
-                jsonFormat.append("\n")
-                jsonFormat.append(getSpaceOrTab(tabNum: tabNum))
-            }
-            else if (c == ":") {
-                jsonFormat.append("\(c) ")
-            }
-            else if (c == "[") {
-                tabNum += 1
-                let next = self[self.index(i, offsetBy: 1)]
-                if (next == "]") {
-                    jsonFormat.append("\(c)")
-                } else {
-                    jsonFormat.append("\(c) \n")
-                    jsonFormat.append(getSpaceOrTab(tabNum: tabNum))
-                }
-            }
-            else if (c == "]") {
-                tabNum -= 1
-                if (last == "[") {
-                    jsonFormat.append("\(c)")
-                } else {
-                    jsonFormat.append("\(getSpaceOrTab(tabNum: tabNum))\n \(c)")
-                }
-            }
-            else {
-                jsonFormat.append("\(c)")
-            }
-            last = "\(c)"
-        }
-        return jsonFormat;
-    }
-
-
-    func getSpaceOrTab(tabNum: Int) -> String {
-        var sbTab = ""
-        for _ in 0..<tabNum {
-            sbTab.append("\t")
-        }
-        return sbTab
-    }
     
     func isValidJSON() -> Bool {
         guard let jsonData = self.replacingOccurrences(of: "\n", with: "").data(using: String.Encoding.utf8) else {

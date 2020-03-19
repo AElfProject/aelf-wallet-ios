@@ -65,7 +65,7 @@ class AssetHistoryCell: UITableViewCell {
         }
 
         let result = ("  " + (item.statusText)).withFont(UIFont.systemFont(ofSize: 10)).withTextColor(color)
-        let timeAtt = TimeInterval(item.time?.int ?? 0).transTime().withFont(.systemFont(ofSize: 10)).withTextColor(.c78)
+        let timeAtt = TimeInterval(item.time?.int ?? 0).transferTime().withFont(.systemFont(ofSize: 10)).withTextColor(.c78)
         timeAtt.append(result)
 
         return timeAtt

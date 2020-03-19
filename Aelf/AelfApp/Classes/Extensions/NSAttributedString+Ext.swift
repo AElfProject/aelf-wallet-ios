@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension NSAttributedString {
 
     var mutableAttributed: NSMutableAttributedString {

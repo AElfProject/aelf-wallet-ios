@@ -179,7 +179,7 @@ class TransactionDetailController: BaseStaticTableController {
             footerView.height = 60
             failedInfoHeight.constant = 0
             failedBgView.isHidden = true
-            timeLabel.text = TimeInterval(item.time?.int ?? 0).transTime()
+            timeLabel.text = TimeInterval(item.time?.int ?? 0).transferTime()
             
             if item.status.int == 1 { // 成功
                 task?.cancel()

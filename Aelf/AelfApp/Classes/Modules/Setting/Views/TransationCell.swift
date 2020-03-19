@@ -62,7 +62,7 @@ class TransationCell: BaseTableCell {
             chainLabel.attributedText = sourceChainText(fromChain: item.fromChainID, toChain: item.toChainID)
             
             let timeStamp = item.time?.int ?? 0
-            timeLabel.text = TimeInterval(timeStamp).transTime()
+            timeLabel.text = TimeInterval(timeStamp).transferTime()
         }
     }
     

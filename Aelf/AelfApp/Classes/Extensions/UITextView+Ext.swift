@@ -9,6 +9,7 @@
 import Foundation
 
 extension UITextView {
+    
     func asDriver() -> Driver<String> {
         return rx.text.orEmpty.asDriver()
     }

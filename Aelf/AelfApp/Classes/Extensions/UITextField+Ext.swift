@@ -13,7 +13,5 @@ extension UITextField {
     func asDriver() -> Driver<String> {
         return rx.text.orEmpty.asDriver()
     }
-//    func asTextDriver() -> Driver<String> {
-//        return rx.text.asDriver()
-//    }
+
 }

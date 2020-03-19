@@ -27,7 +27,7 @@ class SystemMessageCell: BaseTableCell {
             timeLabel.text = item.createTime
             let timeStamp = item.createTime?.int ?? 0
 
-            timeLabel.text = TimeInterval(timeStamp).transTime()
+            timeLabel.text = TimeInterval(timeStamp).transferTime()
             unreadView.isHidden = item.isDidRead()
 
         }

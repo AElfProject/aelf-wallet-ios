@@ -339,6 +339,7 @@
 "Input keystore" = "Input keystore";
 "Input mnemonic" = "Input mnemonic";
 "Input privatekey" = "Input privatekey";
+"Please input privatekey" = "Please input privatekey";
 
 "Input keystore’s password" = "Input keystore's password";
 "Keystore format error" = "Keystore format error";

@@ -53,7 +53,7 @@ class ImportMnemonicController: BaseController {
     
     func bindImportViewModel() {
         
-        menmonicTextView.rx.text.orEmpty//.map{ $0.setMnemonicFormatter() }
+        menmonicTextView.rx.text.orEmpty//.map{ $0.filterSpaceAndNewlines() }
             .bind(to: menmonicTextView.rx.text).disposed(by: rx.disposeBag)
         
         pwdField.rx.text.orEmpty.map({ $0[0..<pwdLengthMax]})
@@ -117,7 +117,7 @@ class ImportMnemonicController: BaseController {
             return
         }
         
-        let array = menmonicTextView.text.setMnemonicFormatter().components(separatedBy: " ")
+        let array = menmonicTextView.text.filterSpaceAndNewlines().components(separatedBy: " ")
         let pwd = pwdField.text ?? ""
         let hint = hintField.text ?? ""
         if array.count != 12 {

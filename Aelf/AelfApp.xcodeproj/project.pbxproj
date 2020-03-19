@@ -823,6 +823,22 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		3C27045C24230B2900BC8855 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				3CA1131922DC755B0065AA1D /* TestPlanController.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		3C27045D24230B3700BC8855 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				3CA1131822DC755B0065AA1D /* WebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		3C2910162354459500B0FC07 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,15 +944,6 @@
 				D2B69C5E22A8ED44003A4ADE /* Chart.swift */,
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		3C72EF5822D2E84900B17DEC /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				3CA1131922DC755B0065AA1D /* TestPlanController.swift */,
-				3CA1131822DC755B0065AA1D /* WebViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		3C9706B522F7FBE400551C31 /* Models */ = {
@@ -1061,7 +1068,6 @@
 				3C9DE1DF22967BE200BB8C74 /* Modules */,
 				3C9DE1CD22967A6000BB8C74 /* Extensions */,
 				3C9DE1D222967A6000BB8C74 /* Utility */,
-				3CDFB86322B88F95003CC897 /* Common */,
 				3CCC54FE22B0AC0F00B7F0C8 /* Libs */,
 			);
 			path = Classes;
@@ -1143,6 +1149,9 @@
 				3C9DE2252296982500BB8C74 /* DB */,
 				3C4F0EBA22A68F3000912F4D /* Log */,
 				3CE3F8862297FD5500ABA2A7 /* Network */,
+				3CDFB86522B88FD2003CC897 /* Views */,
+				3C27045C24230B2900BC8855 /* Debug */,
+				3C27045D24230B3700BC8855 /* WebView */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1151,7 +1160,7 @@
 			isa = PBXGroup;
 			children = (
 				3CA1131722DC6E060065AA1D /* Protocols */,
-				D26E21D222BE30760055167A /* elfjs */,
+				D26E21D222BE30760055167A /* HTML */,
 				D20CCAC422A6586700345262 /* Assets.xcassets */,
 				3C9DE1D522967A6000BB8C74 /* LaunchScreen.storyboard */,
 				3C9DE23C2296A6E600BB8C74 /* Storyboard */,
@@ -1539,15 +1548,6 @@
 			path = Libs;
 			sourceTree = "<group>";
 		};
-		3CDFB86322B88F95003CC897 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				3C72EF5822D2E84900B17DEC /* Controllers */,
-				3CDFB86522B88FD2003CC897 /* Views */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		3CDFB86522B88FD2003CC897 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1628,14 +1628,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		D26E21D222BE30760055167A /* elfjs */ = {
+		D26E21D222BE30760055167A /* HTML */ = {
 			isa = PBXGroup;
 			children = (
 				3C3AB86923AB709200AFFDD1 /* aelf-cross-chain.umd.js */,
 				3C3AB86A23AB709200AFFDD1 /* aelf.umd.js */,
 				3C4B6AF42393F47D00575F4D /* minaelf_iOS.html */,
 			);
-			path = elfjs;
+			path = HTML;
 			sourceTree = "<group>";
 		};
 		D2A61B0D229FF0E000D64D71 /* Views */ = {

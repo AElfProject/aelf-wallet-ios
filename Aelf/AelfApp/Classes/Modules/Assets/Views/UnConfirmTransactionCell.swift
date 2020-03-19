@@ -65,7 +65,7 @@ class UnConfirmTransactionCell: FoldingCell {
         didSet {
             guard let item = item else { return }
             
-            timeLabel.text = TimeInterval(item.time.double).transTime()
+            timeLabel.text = TimeInterval(item.time.double).transferTime()
             sourceLabel.attributedText = sourceChainText(symbol: item.symbol,fromChain: item.fromChain, toChain: item.toChain)
             amountLabel.text = item.amount
             toLabel.attributedText = toAttributed()
@@ -78,7 +78,7 @@ class UnConfirmTransactionCell: FoldingCell {
             
             memo2Label.attributedText = memoAttributed()
             
-            time2Label.text = TimeInterval(item.time.double).transTime()
+            time2Label.text = TimeInterval(item.time.double).transferTime()
         }
     }
     

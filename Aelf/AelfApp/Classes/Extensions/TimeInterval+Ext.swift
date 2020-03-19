@@ -12,7 +12,7 @@ private let formatter = DateFormatter()
 
 extension TimeInterval {
 
-    func transTime() -> String {
+    func transferTime() -> String {
 
         let date = Date(timeIntervalSince1970: self)
 

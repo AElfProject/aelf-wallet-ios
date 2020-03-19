@@ -467,10 +467,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="qiS-pH-h4g">
-                                        <rect key="frame" x="184.5" y="100" width="45" height="45"/>
+                                        <rect key="frame" x="162" y="100" width="90" height="90"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please back up your wallet!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXV-Xg-svY">
-                                        <rect key="frame" x="20" y="165" width="374" height="19.5"/>
+                                        <rect key="frame" x="20" y="210" width="374" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -479,7 +479,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHc-V2-NbL">
-                                        <rect key="frame" x="20" y="199.5" width="374" height="62.5"/>
+                                        <rect key="frame" x="20" y="244.5" width="374" height="62.5"/>
                                         <string key="text">Password is used to encrypt and protect your private keys and transactions so the strength of the password is very important. Aelf Wallet will not save your wallet password and get it back. So please remember your password.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.47058823529999999" green="0.49803921569999998" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -489,7 +489,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVR-8L-9K4">
-                                        <rect key="frame" x="69.5" y="292" width="275" height="45"/>
+                                        <rect key="frame" x="69.5" y="337" width="275" height="45"/>
                                         <color key="backgroundColor" red="0.38412314650000001" green="0.114183329" blue="0.70616668459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Kaj-en-ZFh"/>
@@ -814,7 +814,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v00-zX-S1R">
-                                        <rect key="frame" x="20" y="330.5" width="167" height="17"/>
+                                        <rect key="frame" x="20" y="330.5" width="184" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title=" I have read and agree to" image="icon_squre">
                                             <color key="titleColor" red="0.47058823529999999" green="0.49803921569999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
@@ -828,7 +828,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8J-8R-6mC">
-                                        <rect key="frame" x="192" y="325" width="102" height="28"/>
+                                        <rect key="frame" x="209" y="333.5" width="102" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Terms of Service">
                                             <color key="titleColor" red="0.38412314650000001" green="0.114183329" blue="0.70616668459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -841,7 +841,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="it7-2L-0mH">
-                                        <rect key="frame" x="69.5" y="377.5" width="275" height="45"/>
+                                        <rect key="frame" x="69.5" y="394.5" width="275" height="45"/>
                                         <color key="backgroundColor" red="0.38412314650000001" green="0.114183329" blue="0.70616668459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="5p7-xw-NGl"/>
@@ -1042,7 +1042,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBp-lt-sGD">
-                                        <rect key="frame" x="20" y="219" width="167" height="17"/>
+                                        <rect key="frame" x="20" y="219" width="184" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title=" I have read and agree to" image="icon_squre">
                                             <color key="titleColor" red="0.47058823529999999" green="0.49803921569999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
@@ -1056,7 +1056,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APa-ho-3To">
-                                        <rect key="frame" x="192" y="213.5" width="102" height="28"/>
+                                        <rect key="frame" x="209" y="222" width="102" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Terms of Service">
                                             <color key="titleColor" red="0.38412314650000001" green="0.114183329" blue="0.70616668459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1069,7 +1069,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq9-zI-X0E">
-                                        <rect key="frame" x="69.5" y="266" width="275" height="45"/>
+                                        <rect key="frame" x="69.5" y="283" width="275" height="45"/>
                                         <color key="backgroundColor" red="0.38412314650000001" green="0.114183329" blue="0.70616668459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="RsT-bj-8AE"/>
@@ -1869,7 +1869,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWL-Xo-2dp">
-                                        <rect key="frame" x="20" y="344" width="184" height="34"/>
+                                        <rect key="frame" x="20" y="344" width="167" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title=" I have read and agree to" image="icon_squre">
                                             <color key="titleColor" red="0.47058823529999999" green="0.49803921569999998" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
@@ -1883,7 +1883,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPf-Fe-0Xy">
-                                        <rect key="frame" x="209" y="347" width="102" height="28"/>
+                                        <rect key="frame" x="192" y="338.5" width="102" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Terms of Service">
                                             <color key="titleColor" red="0.38412314650000001" green="0.114183329" blue="0.70616668459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1896,7 +1896,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KA9-I7-IYt">
-                                        <rect key="frame" x="69.5" y="408" width="275" height="45"/>
+                                        <rect key="frame" x="69.5" y="391" width="275" height="45"/>
                                         <color key="backgroundColor" red="0.38412314650000001" green="0.114183329" blue="0.70616668459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="275" id="Ozm-9a-yap"/>
@@ -1966,11 +1966,11 @@
                         <viewLayoutGuide key="safeArea" id="EvT-uf-iCL"/>
                     </view>
                     <connections>
+                        <outlet property="PrivateKeyTextView" destination="nsN-tR-FDq" id="LXZ-cQ-pI9"/>
                         <outlet property="agreeButton" destination="sWL-Xo-2dp" id="AMg-V3-suJ"/>
                         <outlet property="confirmPwdField" destination="Fkc-Bv-vz1" id="PBx-pn-Iq8"/>
                         <outlet property="hintField" destination="jYD-vo-dHe" id="VPu-2Q-RRY"/>
                         <outlet property="importButton" destination="KA9-I7-IYt" id="IFX-BG-h5W"/>
-                        <outlet property="menmonicTextView" destination="nsN-tR-FDq" id="IdO-V5-Sxv"/>
                         <outlet property="pwdField" destination="wr7-XG-DMl" id="Q21-DJ-tZa"/>
                         <outlet property="pwdInfoLabel" destination="oH6-5Y-fP9" id="f2Q-7C-HSC"/>
                         <outlet property="serverProtocolButton" destination="mPf-Fe-0Xy" id="w64-4f-cis"/>

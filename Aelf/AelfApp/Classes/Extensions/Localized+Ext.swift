@@ -9,6 +9,7 @@
 import Foundation
 
 extension UILabel {
+    
     @IBInspectable var localized: String? {
         get { return self.text }
         set { self.text = newValue?.localized() }
@@ -24,6 +25,7 @@ extension UIButton {
 }
 
 extension UITextField {
+    
     @IBInspectable var localized: String? {
         get { return self.placeholder }
         set { self.placeholder = newValue?.localized() }
@@ -31,6 +33,7 @@ extension UITextField {
 }
 
 extension UISearchBar {
+    
     @IBInspectable var localized: String? {
         get { return self.placeholder }
         set { self.placeholder = newValue?.localized() }

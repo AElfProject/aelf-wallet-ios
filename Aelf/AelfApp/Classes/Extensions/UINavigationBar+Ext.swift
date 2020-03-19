@@ -21,11 +21,6 @@ extension UINavigationBar {
         appearance().backgroundColor = color
         appearance().setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
 
-        // controller 基类里改
-//        let attr = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .medium),
-//                    NSAttributedString.Key.foregroundColor: UIColor.init(hexString: "09162D")!]
-//        appearance().titleTextAttributes = attr
-
     }
 
 }

@@ -14,7 +14,7 @@ import JXSegmentedView
 /// 通过 助记词 导入钱包
 class ImportPrivateKeyController: BaseController {
     
-    @IBOutlet weak var menmonicTextView: UITextView!
+    @IBOutlet weak var PrivateKeyTextView: UITextView!
     
     @IBOutlet weak var pwdField: UITextField!
     @IBOutlet weak var confirmPwdField: UITextField!
@@ -33,14 +33,14 @@ class ImportPrivateKeyController: BaseController {
         
         #if DEBUG
 
-        menmonicTextView.text = "4c02c6f538d68a77f3f0e7ef980fbe5548ec50836e81fb4891b67ba38c76069a"
+        PrivateKeyTextView.text = "4c02c6f538d68a77f3f0e7ef980fbe5548ec50836e81fb4891b67ba38c76069a"
         pwdField.text = "111111111aA!"
         confirmPwdField.text = "111111111aA!"
         hintField.text = "auto"
         
         #endif
         
-        menmonicTextView.placeholder = "Input privatekey".localized()
+        PrivateKeyTextView.placeholder = "Input privatekey".localized()
         importButton.hero.id = "importID"
         bindImportViewModel()
     }
@@ -55,8 +55,8 @@ class ImportPrivateKeyController: BaseController {
     
     func bindImportViewModel() {
         
-        menmonicTextView.rx.text.orEmpty//.map{ $0.setMnemonicFormatter() }
-            .bind(to: menmonicTextView.rx.text).disposed(by: rx.disposeBag)
+        PrivateKeyTextView.rx.text.orEmpty//.map{ $0.filterSpaceAndNewlines() }
+            .bind(to: PrivateKeyTextView.rx.text).disposed(by: rx.disposeBag)
         
         pwdField.rx.text.orEmpty.map({ $0[0..<pwdLengthMax]})
             .bind(to: pwdField.rx.text).disposed(by: rx.disposeBag)
@@ -119,27 +119,31 @@ class ImportPrivateKeyController: BaseController {
             return
         }
         
-        let privateKey = menmonicTextView.text.setMnemonicFormatter()
+        let privateKey = PrivateKeyTextView.text.filterSpaceAndNewlines()
         let pwd = pwdField.text ?? ""
         let hint = hintField.text ?? ""
-        if privateKey.count == 0 {
-        } else {
-            let loadingView = WalletLoadingView.loadView(type: .importWallet)
-            loadingView.show()
-            AElfWallet.createPrivateKeyWallet(privateKey: privateKey,
-                                              pwd: pwd,
-                                              hint: hint,
-                                              name: Define.defaultChainID,
-                                              callback: { [weak self] (created, wallet) in
-                                                if created {
-                                                    App.isPrivateKeyImport = true;
-                                                    self?.importedHandler(address: wallet?.address,loadingView: loadingView)
-                                                } else {
-                                                    SVProgressHUD.showInfo(withStatus: "Import failed".localized())
-                                                    loadingView.dismiss()
-                                                }
-            })
+        
+        guard privateKey.count > 0 else {
+            // input privatekey
+            SVProgressHUD.showInfo(withStatus: "Please input privatekey".localized())
+            return
         }
+        
+        let loadingView = WalletLoadingView.loadView(type: .importWallet)
+        loadingView.show()
+        AElfWallet.createPrivateKeyWallet(privateKey: privateKey,
+                                          pwd: pwd,
+                                          hint: hint,
+                                          name: Define.defaultChainID,
+                                          callback: { [weak self] (created, wallet) in
+                                            if created {
+                                                App.isPrivateKeyImport = true;
+                                                self?.importedHandler(address: wallet?.address,loadingView: loadingView)
+                                            } else {
+                                                SVProgressHUD.showInfo(withStatus: "Import failed".localized())
+                                                loadingView.dismiss()
+                                            }
+        })
     }
     
     

@@ -340,6 +340,8 @@
 "Input keystore" = "输入 Keystore";
 "Input mnemonic" = "输入 Mnemonic";
 "Input privatekey" = "输入 Privatekey";
+"Please input privatekey" = "请输入 Privatekey";
+
 
 "Input keystore’s password" = "输入 Keystore 密码";
 "Keystore format error" = "Keystore 格式错误";

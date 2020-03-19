@@ -138,7 +138,7 @@ class TestPlanController: BaseController {
         
         dataSource.append(TestItem(title: "拷贝地址：ELF_yAHruQaJ5XvJ6n7ghXDex93YhssrtorQeGB2MApp16SLinv8H_AELF", closure: {
             UIPasteboard.general.string = "ELF_yAHruQaJ5XvJ6n7ghXDex93YhssrtorQeGB2MApp16SLinv8H_AELF"
-            SVProgressHUD.showSuccess(withStatus: "拷了。")
+            SVProgressHUD.showSuccess(withStatus: "OK")
         }))
         
         
