@@ -30,21 +30,21 @@ AELF 是一个去中心化云计算区块链网络，具有高性能、资源隔
 * [官方文档](https://docs.aelf.io/v/dev/)
 * [白皮书](https://grid.hoopox.com/aelf_whitepaper_EN.pdf?v=1) 
 
-## 📱预览
+## 📱 预览
 
 |资产|侧链|交易|市场|发现|身份|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |<img src="images/01.png" width="60%">|<img src="images/02.png" width="60%">|<img src="images/03.png" width="60%">|<img src="images/04.png" width="60%">|<img src="images/05.png" width="60%">|<img src="images/06.png" width="60%">|
 
 
-## 💻开发环境
+## 💻 开发环境
 
 - iOS 9.0+
 - macOS 10.14+ 
 - Xcode 9.0+
 - Swift 4.0+
 
-## ⚔️APP 功能
+## ⚔️ APP 功能
 
 - [x] 创建/导入钱包
 - [x] 添加/编辑资产
@@ -53,25 +53,27 @@ AELF 是一个去中心化云计算区块链网络，具有高性能、资源隔
 - [x] 主流币市场行情/K线
 - [x] 交易消息通知
 
-## ⌨️技术
-- [x] 高效的异步编程框架 ([RxSwift](https://github.com/ReactiveX/RxSwift) and MVVM)
-- [x] 强大的网络框架 ([Moya](https://github.com/Moya/Moya), [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper))
+## ⌨️ 框架
+
+- [x] 高效的异步编程框架 ([RxSwift](https://github.com/ReactiveX/RxSwift) 和 MVVM)
+- [x] 强大的网络框架及数据解析框架 ([Moya](https://github.com/Moya/Moya) 和 [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper))
 - [x] 比特币协议框架 ([BitcoinKit](https://github.com/yenom/BitcoinKit))
 - [x] RSA 加密算法 ([SwiftyRSA](https://github.com/TakeScoop/SwiftyRSA))
-- [x] 自定义转场动画 ([Hero](https://github.com/HeroTransitions/Hero))
-- [x] Crash 捕获与使用统计 ([Bugly](https://bugly.qq.com/v2/))
-- [x] 安全的数据存储框架 ([KeychainSwift](https://github.com/evgenyneu/keychain-swift))
+- [x] 安全的数据存储框架 ([KeychainSwift](https://github.com/evgenyneu/keychain-swift) 和 [WCDB](https://github.com/Tencent/wcdb))
+- [x] 简易的转场动画 ([Hero](https://github.com/HeroTransitions/Hero))
+- [x] 便捷的多语言框架 ([Localize-Swift](https://github.com/marmelroy/Localize-Swift))
+-  [x]  Crash 捕获与使用统计 ([Bugly](https://bugly.qq.com/v2/))
+- [x] ……
 
 
-## 🔧工具
+## 🔧 工具
 - [x] [Brew](https://github.com/Homebrew/brew) - `macOS` 必不可少的包管理器
 - [x] [JSONExport](https://github.com/Ahmed-Ali/JSONExport) - `macOS` 平台快速将 `JSON` 转 `Model` 的开发框架
-- [x] [Flex](https://github.com/Flipboard/FLEX) - `iOS` 调试与诊断工具
 - [x] [Sourcetree](https://www.sourcetreeapp.com) - 免费的 `Git` 客户端，支持 `macOS` 和 `Windows`
 - [x] [Postman](https://www.getpostman.com) - 用于测试 `Web` 服务的强大客户端
 
 
-## ⚒编译和运行
+## ⚒ 编译和运行
 
 1. 运行本项目前，请确保已通过 brew 安装`autoconf automake libtool`, 安装命令： `brew install autoconf automake libtool`
 
@@ -118,7 +120,6 @@ AELF 是一个去中心化云计算区块链网络，具有高性能、资源隔
 
 * 请在 GitHub issue 中搜索是否已存在此问题；
 * 在反馈时提供尽可能多的信息；如：iOS 系统版本，AELF 的版本，如何重现...
-
 
 
 ## 📄 License	

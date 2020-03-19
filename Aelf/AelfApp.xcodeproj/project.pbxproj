@@ -47,6 +47,8 @@
 		3C20351623A63CEB00F95262 /* DappSignConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C20351523A63CEB00F95262 /* DappSignConfirmView.xib */; };
 		3C291018235445AD00B0FC07 /* DappVerifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C291017235445AD00B0FC07 /* DappVerifyManager.swift */; };
 		3C29101A2354493800B0FC07 /* TransferLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2910192354493800B0FC07 /* TransferLoadingView.swift */; };
+		3C2F756E242325B30081E3CA /* aelf-cross-chain.umd.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C2F756C242325B30081E3CA /* aelf-cross-chain.umd.js */; };
+		3C2F756F242325B30081E3CA /* aelf.umd.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C2F756D242325B30081E3CA /* aelf.umd.js */; };
 		3C305856230678950003014D /* UUID+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C305855230678940003014D /* UUID+Ext.swift */; };
 		3C31E3F023A08A3600DC5471 /* UIView+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E3EF23A08A3600DC5471 /* UIView+Shake.swift */; };
 		3C31F205239F764300C4F46D /* DappError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31F204239F764300C4F46D /* DappError.swift */; };
@@ -58,8 +60,6 @@
 		3C32E8F823A7762C0014E482 /* DappTransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C32E8F723A7762C0014E482 /* DappTransactionItem.swift */; };
 		3C32E8FA23A78F250014E482 /* AELFTransactionBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C32E8F923A78F240014E482 /* AELFTransactionBody.swift */; };
 		3C32E8FD23A8E2F10014E482 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C32E8FF23A8E2F10014E482 /* InfoPlist.strings */; };
-		3C3AB86B23AB709300AFFDD1 /* aelf-cross-chain.umd.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AB86923AB709200AFFDD1 /* aelf-cross-chain.umd.js */; };
-		3C3AB86C23AB709300AFFDD1 /* aelf.umd.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AB86A23AB709200AFFDD1 /* aelf.umd.js */; };
 		3C3C5A7322CF2BA90009EF51 /* ShareAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3C5A7122CF2BA90009EF51 /* ShareAlertView.xib */; };
 		3C3C5A7422CF2BA90009EF51 /* ShareAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3C5A7222CF2BA90009EF51 /* ShareAlertView.swift */; };
 		3C3C5A7E22CF35E60009EF51 /* ShareTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3C5A7C22CF35E60009EF51 /* ShareTableCell.swift */; };
@@ -417,6 +417,8 @@
 		3C20351523A63CEB00F95262 /* DappSignConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DappSignConfirmView.xib; sourceTree = "<group>"; };
 		3C291017235445AD00B0FC07 /* DappVerifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappVerifyManager.swift; sourceTree = "<group>"; };
 		3C2910192354493800B0FC07 /* TransferLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferLoadingView.swift; sourceTree = "<group>"; };
+		3C2F756C242325B30081E3CA /* aelf-cross-chain.umd.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "aelf-cross-chain.umd.js"; path = "AelfApp/Resources/HTML/aelf-cross-chain.umd.js"; sourceTree = SOURCE_ROOT; };
+		3C2F756D242325B30081E3CA /* aelf.umd.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = aelf.umd.js; path = AelfApp/Resources/HTML/aelf.umd.js; sourceTree = SOURCE_ROOT; };
 		3C305855230678940003014D /* UUID+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UUID+Ext.swift"; sourceTree = "<group>"; };
 		3C31E3EF23A08A3600DC5471 /* UIView+Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shake.swift"; sourceTree = "<group>"; };
 		3C31F204239F764300C4F46D /* DappError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappError.swift; sourceTree = "<group>"; };
@@ -429,8 +431,6 @@
 		3C32E8F923A78F240014E482 /* AELFTransactionBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AELFTransactionBody.swift; sourceTree = "<group>"; };
 		3C32E8FE23A8E2F10014E482 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3C32E90023A8E2F20014E482 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		3C3AB86923AB709200AFFDD1 /* aelf-cross-chain.umd.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "aelf-cross-chain.umd.js"; sourceTree = "<group>"; };
-		3C3AB86A23AB709200AFFDD1 /* aelf.umd.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = aelf.umd.js; sourceTree = "<group>"; };
 		3C3C5A7122CF2BA90009EF51 /* ShareAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareAlertView.xib; sourceTree = "<group>"; };
 		3C3C5A7222CF2BA90009EF51 /* ShareAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareAlertView.swift; sourceTree = "<group>"; };
 		3C3C5A7C22CF35E60009EF51 /* ShareTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTableCell.swift; sourceTree = "<group>"; };
@@ -1631,8 +1631,8 @@
 		D26E21D222BE30760055167A /* HTML */ = {
 			isa = PBXGroup;
 			children = (
-				3C3AB86923AB709200AFFDD1 /* aelf-cross-chain.umd.js */,
-				3C3AB86A23AB709200AFFDD1 /* aelf.umd.js */,
+				3C2F756C242325B30081E3CA /* aelf-cross-chain.umd.js */,
+				3C2F756D242325B30081E3CA /* aelf.umd.js */,
 				3C4B6AF42393F47D00575F4D /* minaelf_iOS.html */,
 			);
 			path = HTML;
@@ -1818,7 +1818,6 @@
 				3C9DE1DD22967A6000BB8C74 /* Main.storyboard in Resources */,
 				3C4824FB22E9AFE700554305 /* MarketCell.xib in Resources */,
 				3C4B6AED2393D23E00575F4D /* UnConfirmTransactionCell.xib in Resources */,
-				3C3AB86C23AB709300AFFDD1 /* aelf.umd.js in Resources */,
 				3CDFB85A22B79514003CC897 /* LanguageCell.xib in Resources */,
 				D20CCAC322A6574C00345262 /* TransationCell.xib in Resources */,
 				3CF319EE234F46790025F1EE /* TransactionVoucherFooterCell.xib in Resources */,
@@ -1855,7 +1854,9 @@
 				3C045A6622A925B200E0C1E1 /* SecurityWarnView.xib in Resources */,
 				4114E2DF2403A239009891DC /* Configure.plist in Resources */,
 				D2A61B12229FF0E000D64D71 /* SettingCell.xib in Resources */,
+				3C2F756F242325B30081E3CA /* aelf.umd.js in Resources */,
 				3C9706E722F91B3000551C31 /* MarketManagerTopView.xib in Resources */,
+				3C2F756E242325B30081E3CA /* aelf-cross-chain.umd.js in Resources */,
 				3C9DE23D2296A70400BB8C74 /* Assets.storyboard in Resources */,
 				3C9504FD22BA31EE000AF2E7 /* VersionLogCell.xib in Resources */,
 				3C3C95E522A4BFDF007AB0C1 /* WalletLoadingView.xib in Resources */,
@@ -1871,7 +1872,6 @@
 				4180E63723ACBF8800FB3146 /* DiscoverFooterView.xib in Resources */,
 				3C32E8FD23A8E2F10014E482 /* InfoPlist.strings in Resources */,
 				3C2034C023A3699D00F95262 /* AssetSortCell.xib in Resources */,
-				3C3AB86B23AB709300AFFDD1 /* aelf-cross-chain.umd.js in Resources */,
 				D2F9239922C21DDE00BA92CF /* UserProtocol_zh.html in Resources */,
 				3CF319E4234F0FD90025F1EE /* TransactionVoucherCell.xib in Resources */,
 				D2B69C5322A8EC92003A4ADE /* DiscoverRecommendCell.xib in Resources */,

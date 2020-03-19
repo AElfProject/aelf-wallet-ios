@@ -33,7 +33,7 @@ class ImportPrivateKeyController: BaseController {
         
         #if DEBUG
 
-        PrivateKeyTextView.text = "4c02c6f538d68a77f3f0e7ef980fbe5548ec50836e81fb4891b67ba38c76069a"
+        PrivateKeyTextView.text = "2fc8ecc47bd7905b312b30dfc1d5e62522b8ffab4740f48e549c4649de559ec8"
         pwdField.text = "111111111aA!"
         confirmPwdField.text = "111111111aA!"
         hintField.text = "auto"
