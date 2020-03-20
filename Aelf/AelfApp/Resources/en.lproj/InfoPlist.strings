@@ -11,3 +11,4 @@
 "NSFaceIDUsageDescription" = "This app requires Face ID permission to authenticate using Face recognition.";
 "NSPhotoLibraryAddUsageDescription" = "Only if you agree can you enter the album to save the photos";
 "NSPhotoLibraryUsageDescription" = "We need to access your album to access photos";
+"NSLocationWhenInUseUsageDescription" = "We need to access your location to provide location information for the photos taken.";
