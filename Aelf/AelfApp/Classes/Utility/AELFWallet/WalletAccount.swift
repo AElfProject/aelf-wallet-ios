@@ -33,6 +33,7 @@ struct TransferResult: Mappable {
     var err : String = ""
     var params: Any?
     var data: Any?
+    var fee: Any?
     
     init?(map: Map) {}
     
@@ -42,6 +43,7 @@ struct TransferResult: Mappable {
         success <- map["success"]
         params <- map["params"] // getTxResult 方法用到
         data <- map["data"]
+        fee <- map["fee"]
     }
     
     var isOk: Bool {

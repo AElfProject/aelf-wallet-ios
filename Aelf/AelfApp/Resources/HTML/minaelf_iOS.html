@@ -615,7 +615,8 @@
                     aelf.chain.getTxResult(transferJson.txID).then(result => {
                         if (responseCallback) {
                             var isSuccess = result.Status == "NotExisted" ? 0 : 1 // 不等于 NotExisted 即可。
-                            var responseData = { 'txId': result.TransactionId, "params": result, 'err': result.Status, 'success': isSuccess }
+                            var responseData = { 'txId': result.TransactionId, "params": result, 'err': result.Status,
+                                                                   'success': isSuccess, 'fee': AElf.pbUtils.getTransactionFee(result.Logs) }
                             responseCallback(JSON.stringify(responseData));
                         }
                     }).catch(error => {

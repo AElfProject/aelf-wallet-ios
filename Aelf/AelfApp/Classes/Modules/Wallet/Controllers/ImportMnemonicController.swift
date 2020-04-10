@@ -32,7 +32,7 @@ class ImportMnemonicController: BaseController {
         super.viewDidLoad()
         
         #if DEBUG
-        menmonicTextView.text = "kite magnet crew kitten cradle jealous amateur chalk gospel meadow toward pear"
+        menmonicTextView.text = "trumpet reopen miss tell tank neglect anchor spoon lamp cable nurse stamp"
         pwdField.text = "111111111aA!"
         confirmPwdField.text = "111111111aA!"
         hintField.text = "auto"

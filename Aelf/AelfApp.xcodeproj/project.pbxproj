@@ -47,8 +47,6 @@
 		3C20351623A63CEB00F95262 /* DappSignConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C20351523A63CEB00F95262 /* DappSignConfirmView.xib */; };
 		3C291018235445AD00B0FC07 /* DappVerifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C291017235445AD00B0FC07 /* DappVerifyManager.swift */; };
 		3C29101A2354493800B0FC07 /* TransferLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2910192354493800B0FC07 /* TransferLoadingView.swift */; };
-		3C2F756E242325B30081E3CA /* aelf-cross-chain.umd.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C2F756C242325B30081E3CA /* aelf-cross-chain.umd.js */; };
-		3C2F756F242325B30081E3CA /* aelf.umd.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C2F756D242325B30081E3CA /* aelf.umd.js */; };
 		3C305856230678950003014D /* UUID+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C305855230678940003014D /* UUID+Ext.swift */; };
 		3C31E3F023A08A3600DC5471 /* UIView+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E3EF23A08A3600DC5471 /* UIView+Shake.swift */; };
 		3C31F205239F764300C4F46D /* DappError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31F204239F764300C4F46D /* DappError.swift */; };
@@ -112,6 +110,8 @@
 		3C6FBC9122CF4A170062F0B3 /* VerifyIdentityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6FBC9022CF4A170062F0B3 /* VerifyIdentityView.xib */; };
 		3C71281522FAD28900119D4A /* MarketCoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C71281422FAD28900119D4A /* MarketCoinModel.swift */; };
 		3C71281E22FAE82F00119D4A /* AElfBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C71281D22FAE82F00119D4A /* AElfBrowserView.swift */; };
+		3C729CFC24404E7E0034AFA4 /* aelf-cross-chain.umd.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C729CFA24404E7D0034AFA4 /* aelf-cross-chain.umd.js */; };
+		3C729CFD24404E7E0034AFA4 /* aelf.umd.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C729CFB24404E7D0034AFA4 /* aelf.umd.js */; };
 		3C72EF5722D2E82D00B17DEC /* TransactionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C72EF5622D2E82D00B17DEC /* TransactionDetailController.swift */; };
 		3C72EF5A22D3112B00B17DEC /* VerifyFailedAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C72EF5922D3112B00B17DEC /* VerifyFailedAlertView.swift */; };
 		3C72EF5C22D3114000B17DEC /* VerifyFailedAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C72EF5B22D3114000B17DEC /* VerifyFailedAlertView.xib */; };
@@ -417,8 +417,6 @@
 		3C20351523A63CEB00F95262 /* DappSignConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DappSignConfirmView.xib; sourceTree = "<group>"; };
 		3C291017235445AD00B0FC07 /* DappVerifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappVerifyManager.swift; sourceTree = "<group>"; };
 		3C2910192354493800B0FC07 /* TransferLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferLoadingView.swift; sourceTree = "<group>"; };
-		3C2F756C242325B30081E3CA /* aelf-cross-chain.umd.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "aelf-cross-chain.umd.js"; path = "AelfApp/Resources/HTML/aelf-cross-chain.umd.js"; sourceTree = SOURCE_ROOT; };
-		3C2F756D242325B30081E3CA /* aelf.umd.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = aelf.umd.js; path = AelfApp/Resources/HTML/aelf.umd.js; sourceTree = SOURCE_ROOT; };
 		3C305855230678940003014D /* UUID+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UUID+Ext.swift"; sourceTree = "<group>"; };
 		3C31E3EF23A08A3600DC5471 /* UIView+Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shake.swift"; sourceTree = "<group>"; };
 		3C31F204239F764300C4F46D /* DappError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappError.swift; sourceTree = "<group>"; };
@@ -483,6 +481,8 @@
 		3C6FBC9022CF4A170062F0B3 /* VerifyIdentityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyIdentityView.xib; sourceTree = "<group>"; };
 		3C71281422FAD28900119D4A /* MarketCoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCoinModel.swift; sourceTree = "<group>"; };
 		3C71281D22FAE82F00119D4A /* AElfBrowserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AElfBrowserView.swift; sourceTree = "<group>"; };
+		3C729CFA24404E7D0034AFA4 /* aelf-cross-chain.umd.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "aelf-cross-chain.umd.js"; path = "AelfApp/Resources/HTML/aelf-cross-chain.umd.js"; sourceTree = SOURCE_ROOT; };
+		3C729CFB24404E7D0034AFA4 /* aelf.umd.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = aelf.umd.js; path = AelfApp/Resources/HTML/aelf.umd.js; sourceTree = SOURCE_ROOT; };
 		3C72EF5622D2E82D00B17DEC /* TransactionDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetailController.swift; sourceTree = "<group>"; };
 		3C72EF5922D3112B00B17DEC /* VerifyFailedAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyFailedAlertView.swift; sourceTree = "<group>"; };
 		3C72EF5B22D3114000B17DEC /* VerifyFailedAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyFailedAlertView.xib; sourceTree = "<group>"; };
@@ -1631,8 +1631,8 @@
 		D26E21D222BE30760055167A /* HTML */ = {
 			isa = PBXGroup;
 			children = (
-				3C2F756C242325B30081E3CA /* aelf-cross-chain.umd.js */,
-				3C2F756D242325B30081E3CA /* aelf.umd.js */,
+				3C729CFA24404E7D0034AFA4 /* aelf-cross-chain.umd.js */,
+				3C729CFB24404E7D0034AFA4 /* aelf.umd.js */,
 				3C4B6AF42393F47D00575F4D /* minaelf_iOS.html */,
 			);
 			path = HTML;
@@ -1854,9 +1854,9 @@
 				3C045A6622A925B200E0C1E1 /* SecurityWarnView.xib in Resources */,
 				4114E2DF2403A239009891DC /* Configure.plist in Resources */,
 				D2A61B12229FF0E000D64D71 /* SettingCell.xib in Resources */,
-				3C2F756F242325B30081E3CA /* aelf.umd.js in Resources */,
+				3C729CFD24404E7E0034AFA4 /* aelf.umd.js in Resources */,
 				3C9706E722F91B3000551C31 /* MarketManagerTopView.xib in Resources */,
-				3C2F756E242325B30081E3CA /* aelf-cross-chain.umd.js in Resources */,
+				3C729CFC24404E7E0034AFA4 /* aelf-cross-chain.umd.js in Resources */,
 				3C9DE23D2296A70400BB8C74 /* Assets.storyboard in Resources */,
 				3C9504FD22BA31EE000AF2E7 /* VersionLogCell.xib in Resources */,
 				3C3C95E522A4BFDF007AB0C1 /* WalletLoadingView.xib in Resources */,
@@ -2445,10 +2445,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AElfApp/AElfApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 7TBU7A3K9X;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = LR77E76VJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/AElfApp/Resources/Info.plist";
@@ -2458,7 +2458,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
 				PRODUCT_NAME = "AELF Wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AElfApp/Resources/AElfApp-Bridging-Header.h";
@@ -2475,10 +2475,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AElfApp/AElfApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 7TBU7A3K9X;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = LR77E76VJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/AElfApp/Resources/Info.plist";
@@ -2488,7 +2488,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
 				PRODUCT_NAME = "AELF Wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AElfApp/Resources/AElfApp-Bridging-Header.h";

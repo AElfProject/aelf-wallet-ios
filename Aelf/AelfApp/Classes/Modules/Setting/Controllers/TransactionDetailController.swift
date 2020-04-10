@@ -32,6 +32,8 @@ class TransactionDetailController: BaseStaticTableController {
     
     var refreshTrigger = PublishSubject<Void>()
     
+    var fee: String?
+    
     private var task: Task?
     
     override func viewDidLoad() {
@@ -98,6 +100,31 @@ class TransactionDetailController: BaseStaticTableController {
                 logInfo("获取交易详情失败：\(e)")
         }).disposed(by: rx.disposeBag)
         
+        fetchTransferFee()
+    }
+    
+    func fetchTransferFee() {
+        
+        let fromChainID = self.fromChainID ?? self.item?.fromChainID
+        let txid = self.txId ?? self.item?.txid
+        
+        guard let chainID = fromChainID, let txID = txid,let chainItem = ChainItem.getItem(chainID: chainID) else { return }
+        
+        AElfWallet.transferCrossGetTxResultCall(nodeURL: chainItem.node, txID: txID) { [weak self] txResult in
+            guard let txResult = txResult,let self = self else { return }
+            logWarn("跨链交易结果: \(txResult)")
+            
+            guard let fees = txResult.fee as? [Any], let dict = fees.first as? [String:String] else {
+                return
+            }
+            guard let doubleValue = dict["amount"]?.double() else { return }
+            self.fee = (doubleValue/Define.decimalsValue).string
+            
+            logInfo(" ----")
+            if let item = self.item {
+                self.reloadSubViews(item: item)
+            }
+        }
     }
     
     func startScheduler() {
@@ -200,7 +227,7 @@ class TransactionDetailController: BaseStaticTableController {
         }
         
         let detailsArray = [item.amount,
-                            item.fee ?? "0.00",
+                            "0.00",
                             item.from.elfAddress(item.fromChainID),
                             item.to.elfAddress(item.toChainID),
                             item.memo ?? "",
@@ -215,7 +242,7 @@ class TransactionDetailController: BaseStaticTableController {
                                                 preFont: .systemFont(ofSize: 16),
                                                 next: " \(item.toChainID.uppercased())", nextFont: .systemFont(ofSize: 12))
             case 1: // Fee
-                label.attributedText = getAttri(pre: item.fee ?? "0.00",
+                label.attributedText = getAttri(pre: self.fee ?? item.fee ?? "0.00",
                                                 preFont: .systemFont(ofSize: 16),
                                                 next: " \(item.toChainID.uppercased())",
                     nextFont: .systemFont(ofSize: 12))
@@ -264,10 +291,7 @@ class TransactionDetailController: BaseStaticTableController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        //        if item?.status.int == -1 && indexPath.row == 6 { // 失败隐藏
-        //            return 0
-        //        }
+  
         return UITableView.automaticDimension
     }
     

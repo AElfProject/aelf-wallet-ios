@@ -355,14 +355,6 @@ class AssetTransferController: BaseController {
         
     }
     
-    
-    func addTransIndexResult() {
-
-        SVProgressHUD.show()
-        
-             
-    }
-    
     func addTransactionIndex(item: TransactionInfoItem) -> Observable<VResult> {
         return assetProvider.requestData(.sendTransaction(txID: item.txID,
                                                           fromChain: item.fromChain,
@@ -408,11 +400,8 @@ class AssetTransferController: BaseController {
             asyncMainDelay(duration: 0.5) { // 延迟 0.5 秒查询构造结果
                 // 查询交易结构
                 AElfWallet.transferCrossGetTxResultCall(nodeURL: fromNode, txID: result.txId) { txResult in
-                    
-                    if let r = txResult {
-                        logWarn("查询同链交易结果: \(r)")
-                    }
                     guard let txResult = txResult else { return }
+                    logInfo("查询同链交易结果: \(txResult)")
                     if txResult.isOk {
                         SVProgressHUD.dismiss()
                         let recordVC = UIStoryboard.loadController(TransactionDetailController.self, storyType: .setting)
