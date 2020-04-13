@@ -22,6 +22,8 @@
 
 本项目为 [AELF](https://aelf.io) iOS app 开源项目。
 
+[![](images/download.png)](https://apps.apple.com/us/app/crypto-aelf-wallet/id1507344137?l=zh&ls=1)
+
 AELF 是一个去中心化云计算区块链网络，具有高性能、资源隔离特性以及更完善的治理和发展结构。为了支持多个用例，AELF 通过提供易于使用的工具和框架来扩展/定制系统，以便定制链并编写智能合约，从而尽可能简化。AELF 最终将支持各种语言，让开发人员选择他们最熟悉的语言。
 
 有关更多信息，请访问以下链接：
