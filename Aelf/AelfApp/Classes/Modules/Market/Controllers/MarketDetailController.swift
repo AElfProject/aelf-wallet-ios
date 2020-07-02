@@ -29,10 +29,10 @@ class MarketDetailController: BaseStaticTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addWhiteBackItem()
+        setupUI()
 
         tableView.separatorStyle = .none
         setSegmentTag(tag: 0)
-
         loadChartView()
         addRightItem()
         bindViewModel()
@@ -100,65 +100,110 @@ class MarketDetailController: BaseStaticTableController {
             favouriteButton.isSelected = true
         }
     }
+    
+    func setupUI() {
+        let price = self.model?.lastPrice?.double() ?? 0
+        
+        if App.currency.lowercased() == "usd" {
+            self.priceMarketLabel.text = "$" + String(price)
+        } else {
+            self.priceMarketLabel.text = "¥" + String(price)
+        }
+
+        let increase = model?.increase?.double() ?? 0.0
+        let format = (increase > 0 ? "+" : "-") + String(format: "%.2f",increase) + "%"
+        
+        self.priceChangeLabel.text = format.replacingOccurrences(of: "--", with: "-")
+        if increase > 0 {//小于0
+            self.priceChangeLabel.backgroundColor = .appGreen
+        } else {
+            self.priceChangeLabel.backgroundColor = .appRed
+        }
+        
+        let titleList = ["marketValue","coin_intro_rank","coin_intro_vol24","coin_intro_total_supply"].map { $0.localized() }
+        for i in 0..<4 {
+            self.titleArray[i].isHidden = false
+            self.detailArray[i].isHidden = false
+            self.titleArray[i].text = titleList[i]
+            if i == 0 {
+//                self.detailArray[i].text = self.model?.marketValue
+            } else if i == 1 {
+                self.detailArray[i].text = "#\(self.model?.marketValueTrans)"
+
+            } else if i == 2 {
+                self.detailArray[i].text = self.model?.marketValueTrans
+            } else if i == 3 {
+                self.detailArray[i].text = self.model?.amountTrans
+
+            }
+        }
+
+        for i in 4..<8 {
+            self.titleArray[i].isHidden = true
+            self.detailArray[i].isHidden = true
+        }
+        self.tableView.reloadData()
+
+    }
 
     func updateUI(detailModel: MarketDetailModel) {
-
-        if ((self.viewModel.output?.numberSectionOfRow.value)! > 0) {
-            
-            let price = self.model?.lastPrice?.double() ?? 0
-            if App.currency.lowercased() == "usd" {
-                let p = price * (detailModel.usdToCNY.double() ?? 0)
-                self.priceMarketLabel.text = "¥" + p.format(maxDigits: 3)
-            } else {
-                let p = price / (detailModel.usdToCNY.double() ?? 1)
-                self.priceMarketLabel.text = "$" + p.format(maxDigits: 3)
-            }
-    
-            let increase = model?.increase?.double() ?? 0.0
-            let format = (increase > 0 ? "+" : "-") + String(format: "%.2f",increase * 100) + "%"
-            self.priceChangeLabel.text = format.replacingOccurrences(of: "--", with: "-")
-            if increase > 0 {//小于0
-                self.priceChangeLabel.backgroundColor = .appGreen
-            } else {
-                self.priceChangeLabel.backgroundColor = .appRed
-            }
-            let titleList = ["marketValue","coin_intro_rank","coin_intro_vol24","coin_intro_total_supply"].map { $0.localized() }
-            for i in 0..<4 {
-
-                self.titleArray[i].text = titleList[i]
-                if i == 0 {
-                    self.detailArray[i].text = detailModel.marketValue
-                } else if i == 1 {
-                    self.detailArray[i].text = "#\(detailModel.marketValueOrder)"
-
-                } else if i == 2 {
-                    self.detailArray[i].text = detailModel.volTrans
-
-                } else if i == 3 {
-                    self.detailArray[i].text = detailModel.supply
-
-                }
-            }
-            
-            for i in 4..<8 {
-                self.titleArray[i].isHidden = true
-                self.detailArray[i].isHidden = true
-            }
-
-            self.tableView.reloadData()
+        
+        let price = self.model?.lastPrice?.double() ?? 0
+        if App.currency.lowercased() == "usd" {
+            let p = price * (detailModel.usdToCNY.double() ?? 0)
+            self.priceMarketLabel.text = "¥" + p.format(maxDigits: 3)
+        } else {
+            let p = price / (detailModel.usdToCNY.double() ?? 1)
+            self.priceMarketLabel.text = "$" + p.format(maxDigits: 3)
         }
+//
+//        let increase = model?.increase?.double() ?? 0.0
+//        let format = (increase > 0 ? "+" : "-") + String(format: "%.2f",increase) + "%"
+//        self.priceChangeLabel.text = format.replacingOccurrences(of: "--", with: "-")
+//        if increase > 0 {//小于0
+//            self.priceChangeLabel.backgroundColor = .appGreen
+//        } else {
+//            self.priceChangeLabel.backgroundColor = .appRed
+//        }
+//        let titleList = ["marketValue","coin_intro_rank","coin_intro_vol24","coin_intro_total_supply"].map { $0.localized() }
+//        for i in 0..<4 {
+//
+//            self.titleArray[i].text = titleList[i]
+//            if i == 0 {
+//                self.detailArray[i].text = detailModel.marketValue
+//            } else if i == 1 {
+//                self.detailArray[i].text = "#\(detailModel.marketValueOrder)"
+//
+//            } else if i == 2 {
+//                self.detailArray[i].text = detailModel.volTrans
+//
+//            } else if i == 3 {
+//                self.detailArray[i].text = detailModel.supply
+//
+//            }
+//        }
+//
+//        for i in 4..<8 {
+//            self.titleArray[i].isHidden = true
+//            self.detailArray[i].isHidden = true
+//        }
+//
+//        self.tableView.reloadData()
+
+//        if ((self.viewModel.output?.numberSectionOfRow.value)! > 0) {
+//        }
     }
 
     func configBaseInfo() {
 
         
     }
+    
     func loadChartView()  {
         contentChartView.lineWidth = 0.5
         contentChartView.hideHighlightLineOnTouchEnd = true
         contentChartView.xLabelsTextAlignment = .center
         contentChartView.yLabelsOnRightSide = true
-
     }
 
     func updateView(klineSource: MarketTradeModel) {

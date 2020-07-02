@@ -47,18 +47,18 @@ extension MarketDetailViewModel: ViewModelType {
             .bind(to: output.klineSource)
             .disposed(by: rx.disposeBag)
 
-        input.loadData
-            .flatMapLatest({ [weak self] _ -> Observable<MarketDetailModel> in
-                guard let self = self else { return Observable.just(MarketDetailModel(JSON: [:])!)}
-                return self.requestData(input: input)
-            })
-            .subscribe(onNext: { result in
-                output.numberOfSection <= 1
-                let sizeTotal = 2
-                output.numberSectionOfRow <= sizeTotal + 2
-                output.items <= result.site
-                output.dataSource.accept(result)
-            }).disposed(by: rx.disposeBag)
+//        input.loadData
+//            .flatMapLatest({ [weak self] _ -> Observable<MarketDetailModel> in
+//                guard let self = self else { return Observable.just(MarketDetailModel(JSON: [:])!)}
+//                return self.requestData(input: input)
+//            })
+//            .subscribe(onNext: { result in
+//                output.numberOfSection <= 1
+//                let sizeTotal = 2
+//                output.numberSectionOfRow <= sizeTotal + 2
+//                output.items <= result.site
+//                output.dataSource.accept(result)
+//            }).disposed(by: rx.disposeBag)
 
         return output
     }

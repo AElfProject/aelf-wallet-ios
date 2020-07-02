@@ -41,11 +41,8 @@ extension MarktAPI: TargetType {
             path = "coins/markets"
         case .coinDetail:
             path = "coins"
-        case let .tradeKline(id, currency, days):
-            let params = ["id":id,
-                          "vs_currency":currency,
-                          "days":days]
-            path = "coins/" + dicValueString(params)! + "/market_chart"
+        case let .tradeKline(id, _, _):
+            path = "coins/" + id + "/market_chart"
             break
             path += "?lang=\(App.languageID ?? "")"
         }
@@ -75,8 +72,8 @@ extension MarktAPI: TargetType {
                           "price_change_percentage":priceChangePercentage]
         case let .coinDetail(id):
             parameters = ["id":id]
-        case let .tradeKline(id, currency, days):
-            parameters = ["id":id,
+        case let .tradeKline(_, currency, days):
+            parameters = [
             "vs_currency":currency,
             "days":days]
             break
