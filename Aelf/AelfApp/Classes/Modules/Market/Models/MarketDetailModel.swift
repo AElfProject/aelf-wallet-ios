@@ -11,12 +11,12 @@ import ObjectMapper
 //MarketDetailModel
 
 class MarketTradeModel: Mappable {
-    var list = [MarketTradeDetailModel]()
+    var list = [Any]()
     
     required init?(map: Map){}
     
     func mapping(map: Map) {
-        list <- map["list"]
+        list <- map["prices"]
     }
 }
 

@@ -23,7 +23,7 @@ class MarketCoinModel : Mappable,TableCodable {
     var lastPrice : String?
     var lastUpdate : String?
     var logo : String?
-    var marketValue : Float?
+    var marketValue: String?
     var marketValueTrans : String?
     var maxPrice : String?
     var minPrice : String?
@@ -41,7 +41,7 @@ class MarketCoinModel : Mappable,TableCodable {
     func mapping(map: Map) {
         identifier <- map["id"]
         amount <- map["amount"]
-        amountTrans <- map["amount_trans"]
+        amountTrans <- (map["total_supply"],MapperString())
         arrow <- map["arrow"]
         date <- map["date"]
         increase <- (map["price_change_percentage_24h"],MapperString())
@@ -49,8 +49,8 @@ class MarketCoinModel : Mappable,TableCodable {
         lastPrice <- (map["current_price"],MapperString())
         lastUpdate <- map["last_update"]
         logo <- map["logo"]
-        marketValue <- map["market_value"]
-        marketValueTrans <- map["market_value_trans"]
+        marketValue <- (map["market_cap"],MapperString())
+        marketValueTrans <- (map["market_cap_rank"],MapperString())
         maxPrice <- map["high_24h"]
         minPrice <- map["low_24h"]
         name <- map["symbol"]

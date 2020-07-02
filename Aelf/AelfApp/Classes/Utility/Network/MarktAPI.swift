@@ -44,8 +44,8 @@ extension MarktAPI: TargetType {
         case let .tradeKline(id, _, _):
             path = "coins/" + id + "/market_chart"
             break
-            path += "?lang=\(App.languageID ?? "")"
         }
+        path += "?lang=\(App.languageID ?? "")"
         return path
     }
     var method: Moya.Method {
@@ -90,13 +90,6 @@ extension MarktAPI: TargetType {
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
     }
 }
-
-func dicValueString(_ dic:[String : Any]) -> String?{
-    let data = try? JSONSerialization.data(withJSONObject: dic, options: [])
-    let str = String(data: data!, encoding: String.Encoding.utf8)
-    return str
-}
-
 
 #warning("老版本接口设置")
 //enum MarktAPI{

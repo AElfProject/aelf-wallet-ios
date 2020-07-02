@@ -32,7 +32,6 @@ extension MoyaProvider {
                         observer.onCompleted()
                         break;
                     }
-                    
                 case .failure(let error):
                     if (target is MarktAPI){
                         

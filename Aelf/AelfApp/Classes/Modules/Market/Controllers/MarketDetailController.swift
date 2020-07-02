@@ -102,15 +102,21 @@ class MarketDetailController: BaseStaticTableController {
     }
     
     func setupUI() {
-        let price = self.model?.lastPrice?.double() ?? 0
         
-        if App.currency.lowercased() == "usd" {
-            self.priceMarketLabel.text = "$" + String(price)
-        } else {
-            self.priceMarketLabel.text = "¥" + String(price)
-        }
+        guard let model = model else { return }
 
-        let increase = model?.increase?.double() ?? 0.0
+        
+//        let price = model.lastPrice?.double() ?? 0
+        priceMarketLabel.text = ""
+        priceMarketLabel.isHidden = true
+        
+//        if App.currency.lowercased() == "usd" {
+//            priceMarketLabel.text = "$" + String(price)
+//        } else {
+//            priceMarketLabel.text = "¥" + String(price)
+//        }
+
+        let increase = model.increase?.double() ?? 0.0
         let format = (increase > 0 ? "+" : "-") + String(format: "%.2f",increase) + "%"
         
         self.priceChangeLabel.text = format.replacingOccurrences(of: "--", with: "-")
@@ -122,28 +128,39 @@ class MarketDetailController: BaseStaticTableController {
         
         let titleList = ["marketValue","coin_intro_rank","coin_intro_vol24","coin_intro_total_supply"].map { $0.localized() }
         for i in 0..<4 {
-            self.titleArray[i].isHidden = false
-            self.detailArray[i].isHidden = false
+//            self.titleArray[i].isHidden = false
+//            self.detailArray[i].isHidden = false
             self.titleArray[i].text = titleList[i]
             if i == 0 {
-//                self.detailArray[i].text = self.model?.marketValue
+                self.detailArray[i].text = self.model?.marketValue
             } else if i == 1 {
-                self.detailArray[i].text = "#\(self.model?.marketValueTrans)"
-
+                self.detailArray[i].text = "#\(self.model?.marketValueTrans ?? "")"
             } else if i == 2 {
                 self.detailArray[i].text = self.model?.marketValueTrans
             } else if i == 3 {
                 self.detailArray[i].text = self.model?.amountTrans
-
             }
+            
+//            self.titleArray[i].text = titleList[i]
+//            if i == 0 {
+//                self.detailArray[i].text = self.model?.marketValue
+//            } else if i == 1 {
+//                self.detailArray[i].text = "#\(detailModel.marketValueOrder)"
+//
+//            } else if i == 2 {
+//                self.detailArray[i].text = detailModel.volTrans
+//
+//            } else if i == 3 {
+//                self.detailArray[i].text = detailModel.supply
+//
+//            }
         }
 
         for i in 4..<8 {
             self.titleArray[i].isHidden = true
             self.detailArray[i].isHidden = true
         }
-        self.tableView.reloadData()
-
+        tableView.reloadData()
     }
 
     func updateUI(detailModel: MarketDetailModel) {
@@ -167,7 +184,7 @@ class MarketDetailController: BaseStaticTableController {
 //        }
 //        let titleList = ["marketValue","coin_intro_rank","coin_intro_vol24","coin_intro_total_supply"].map { $0.localized() }
 //        for i in 0..<4 {
-//
+
 //            self.titleArray[i].text = titleList[i]
 //            if i == 0 {
 //                self.detailArray[i].text = detailModel.marketValue
@@ -229,7 +246,7 @@ class MarketDetailController: BaseStaticTableController {
         let indexCount = array.count/hCount
         for (i, value) in array.enumerated() {
 
-            serieData.append(value.last)
+            serieData.append((value as AnyObject).last)
             minValue = min(minValue, value.last)
             maxValue = max(maxValue, value.last)
 
