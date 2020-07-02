@@ -49,8 +49,8 @@ extension MarketViewModel: ViewModelType {
             self.page = 1
             let sortType = input.sortType.value
             return self.request(sort: sortType)
-//                .trackActivity(self.headerLoading)
-//                .catchErrorJustComplete()
+                .trackActivity(self.headerLoading)
+                .catchErrorJustComplete()
             }.subscribe(onNext: { result in
                 output.items <= result.list
                 output.dataSource.accept(result)

@@ -370,11 +370,11 @@
 		D2F9C00B22AE53AA00E5E597 /* TransationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C00A22AE53AA00E5E597 /* TransationViewModel.swift */; };
 		D2F9C00D22AE5BE300E5E597 /* TransationNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C00C22AE5BE300E5E597 /* TransationNoteModel.swift */; };
 		D2FA90C322A7D7420022F381 /* MarketDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA90C222A7D7420022F381 /* MarketDetailController.swift */; };
+		D848F07224ADB55300EFC9BD /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D848F07124ADB55300EFC9BD /* NetworkModel.swift */; };
 		D8B5C31E24A89BEE0087A4EB /* SwitchNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C31D24A89BEE0087A4EB /* SwitchNetworkController.swift */; };
 		D8B5C32024A8A9320087A4EB /* SettingManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C31F24A8A9320087A4EB /* SettingManagerController.swift */; };
 		D8B5C32624A8AE260087A4EB /* SwitchNetworkTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C32424A8AE260087A4EB /* SwitchNetworkTableCell.swift */; };
 		D8B5C32724A8AE260087A4EB /* SwitchNetworkTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B5C32524A8AE260087A4EB /* SwitchNetworkTableCell.xib */; };
-		D8B5C34924A997840087A4EB /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C34824A997840087A4EB /* NetworkModel.swift */; };
 		D8B5C34B24A9CC7B0087A4EB /* network.json in Resources */ = {isa = PBXBuildFile; fileRef = D8B5C34A24A9CC7B0087A4EB /* network.json */; };
 		D8B5C35024A9DE780087A4EB /* CustomNetworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C34E24A9DE780087A4EB /* CustomNetworkCell.swift */; };
 		D8B5C35124A9DE780087A4EB /* CustomNetworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B5C34F24A9DE780087A4EB /* CustomNetworkCell.xib */; };
@@ -775,11 +775,11 @@
 		D2F9C00A22AE53AA00E5E597 /* TransationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransationViewModel.swift; sourceTree = "<group>"; };
 		D2F9C00C22AE5BE300E5E597 /* TransationNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransationNoteModel.swift; sourceTree = "<group>"; };
 		D2FA90C222A7D7420022F381 /* MarketDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailController.swift; sourceTree = "<group>"; };
+		D848F07124ADB55300EFC9BD /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkModel.swift; path = AelfApp/Classes/Modules/Setting/Models/NetworkModel.swift; sourceTree = SOURCE_ROOT; };
 		D8B5C31D24A89BEE0087A4EB /* SwitchNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchNetworkController.swift; path = AelfApp/Classes/Modules/Setting/Controllers/SwitchNetworkController.swift; sourceTree = SOURCE_ROOT; };
 		D8B5C31F24A8A9320087A4EB /* SettingManagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingManagerController.swift; path = AelfApp/Classes/Modules/Setting/Controllers/SettingManagerController.swift; sourceTree = SOURCE_ROOT; };
 		D8B5C32424A8AE260087A4EB /* SwitchNetworkTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchNetworkTableCell.swift; path = AelfApp/Classes/Modules/Setting/Views/SwitchNetworkTableCell.swift; sourceTree = SOURCE_ROOT; };
 		D8B5C32524A8AE260087A4EB /* SwitchNetworkTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SwitchNetworkTableCell.xib; path = AelfApp/Classes/Modules/Setting/Views/SwitchNetworkTableCell.xib; sourceTree = SOURCE_ROOT; };
-		D8B5C34824A997840087A4EB /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkModel.swift; path = AelfApp/Classes/Modules/Setting/Models/NetworkModel.swift; sourceTree = SOURCE_ROOT; };
 		D8B5C34A24A9CC7B0087A4EB /* network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = network.json; path = AelfApp/Resources/network.json; sourceTree = SOURCE_ROOT; };
 		D8B5C34E24A9DE780087A4EB /* CustomNetworkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomNetworkCell.swift; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.swift; sourceTree = SOURCE_ROOT; };
 		D8B5C34F24A9DE780087A4EB /* CustomNetworkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomNetworkCell.xib; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.xib; sourceTree = SOURCE_ROOT; };
@@ -1707,7 +1707,7 @@
 				3CDFB87422B8B548003CC897 /* IdentityInfo.swift */,
 				D26E21C122B8B0C10055167A /* AddressBookModel.swift */,
 				3C9504F222BA30FB000AF2E7 /* AppVersionLog.swift */,
-				D8B5C34824A997840087A4EB /* NetworkModel.swift */,
+				D848F07124ADB55300EFC9BD /* NetworkModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2036,7 +2036,6 @@
 				3CD5C7BF233B6197008A8FBD /* ChainItem.swift in Sources */,
 				3CDFB87322B8AF10003CC897 /* MyAccountViewModel.swift in Sources */,
 				3C9504F922BA31B2000AF2E7 /* VersionLogViewModel.swift in Sources */,
-				D8B5C34924A997840087A4EB /* NetworkModel.swift in Sources */,
 				D2F9239222C200C400BA92CF /* HelpDetailCell.swift in Sources */,
 				3C9706C522F82B1200551C31 /* SearchBarView.swift in Sources */,
 				D2F4875B22B1041D00DD2902 /* AElfWallet.swift in Sources */,
@@ -2049,6 +2048,7 @@
 				D2B69C5122A8EC92003A4ADE /* DiscoverRecommendCell.swift in Sources */,
 				D20CCAC222A6574C00345262 /* TransationCell.swift in Sources */,
 				3C9DE22C22969C9100BB8C74 /* BaseTableBarController.swift in Sources */,
+				D848F07224ADB55300EFC9BD /* NetworkModel.swift in Sources */,
 				3C7818D52397AD1100064F5F /* Dictionary+Ext.swift in Sources */,
 				3C9DE2222296971200BB8C74 /* Constant.swift in Sources */,
 				3C2034B623A2284400F95262 /* DappSignResult.swift in Sources */,
