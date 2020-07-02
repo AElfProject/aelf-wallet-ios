@@ -33,19 +33,24 @@ extension MarketViewModel: ViewModelType {
         input.sortType.flatMapLatest { t -> Observable<MarketModel> in
             self.page = 1
             SVProgressHUD.show()
-            return self.request(sort: t)
-            }.subscribe(onNext: { result in
+            
+            return self.request(sort: t)}.subscribe(onNext: { result in
                 output.items <= result.list
                 output.dataSource.accept(result)
                 SVProgressHUD.dismiss()
+            }, onError: { error in
+                if let r = error as? ResultError {
+                    SVProgressHUD.showError(withStatus: r.msg)
+                }
+                logDebug(error)
             }).disposed(by: rx.disposeBag)
 
         input.headerRefresh.flatMapLatest { _ -> Observable<MarketModel> in
             self.page = 1
             let sortType = input.sortType.value
             return self.request(sort: sortType)
-                .trackActivity(self.headerLoading)
-                .catchErrorJustComplete()
+//                .trackActivity(self.headerLoading)
+//                .catchErrorJustComplete()
             }.subscribe(onNext: { result in
                 output.items <= result.list
                 output.dataSource.accept(result)
@@ -66,7 +71,6 @@ extension MarketViewModel: ViewModelType {
 }
 
 extension MarketViewModel {
-
     func request(sort:Int) -> Observable<MarketModel> {
         return marketProvider
             .requestData(.markList(currency: "usd", ids: "", perPage: 20, page: self.page, sparkLine: false, priceChangePercentage: ""))
@@ -74,7 +78,4 @@ extension MarketViewModel {
             .trackError(self.error)
             .trackActivity(self.loading)
     }
-    
-    
-
 }

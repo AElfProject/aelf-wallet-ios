@@ -80,7 +80,7 @@ extension MarktAPI: TargetType {
         
         logInfo("\n \(self.path)\n请求参数：\(parameters)\n")
         
-        parameters.addIfNotExist(dict: BaseConfig.baseParameters())
+//        parameters.addIfNotExist(dict: BaseConfig.baseParameters())
         
         var headers: [String : String]? {
             return nil
