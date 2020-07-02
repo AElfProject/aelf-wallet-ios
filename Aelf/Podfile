@@ -11,7 +11,7 @@ target 'AelfApp' do
   pod 'SnapKit' # Layout 布局 https://github.com/SnapKit/SnapKit
   pod 'WCDB.swift' # 腾讯数据库 https://github.com/Tencent/wcdb
   pod 'IQKeyboardManagerSwift' # 键盘管理 https://github.com/hackiftekhar/IQKeyboardManager
-  pod 'Bugly' # 崩溃统计 https://bugly.qq.com/v2/
+  pod 'Bugly', '2.5.2' # 崩溃统计 https://bugly.qq.com/v2/
 
   pod 'LTMorphingLabel' # 文字动画 https://github.com/lexrus/LTMorphingLabel
 #  pod 'BouncyLayout' #collection 滑动弹性动画 https://github.com/roberthein/BouncyLayout
@@ -33,7 +33,7 @@ target 'AelfApp' do
   pod 'JXSegmentedView' # Segment 分页 https://github.com/pujiaxin33/JXSegmentedView
   pod 'SwiftyAttributes' # 富文本字符串 https://github.com/eddiekaiger/SwiftyAttributes
   pod 'UITextView+Placeholder'
-  pod 'CropViewController' # Crop Image https://github.com/TimOliver/TOCropViewController
+  pod 'CropViewController','2.5.2' # Crop Image https://github.com/TimOliver/TOCropViewController
   pod 'ESTabBarController-swift' # https://github.com/eggswift/ESTabBarController
   pod 'WKWebViewJavascriptBridge', '~> 1.2.0' # https://github.com/Lision/WKWebViewJavascriptBridge
   pod 'FoldingCell'  # 折叠 cell https://github.com/Ramotion/folding-cell
@@ -51,7 +51,7 @@ target 'AelfApp' do
   pod 'Validator' # 表单验证 https://github.com/adamwaite/Validator
   pod 'Result' # https://github.com/antitypical/Result
 
-  pod 'Cache' # 缓存库
+  pod 'Cache','5.2.0' # 缓存库
 
   # 区块链相关库
   pod 'BitcoinKit', '~> 1.1.0' # #// bitcoin need it : brew install autoconf automake libtool
