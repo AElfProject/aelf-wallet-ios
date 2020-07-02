@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (4.9.1)
   - BitcoinKit (1.1.0)
-  - Bugly (2.5.2)
-  - Cache (5.2.0)
+  - Bugly (2.5.5)
+  - Cache (5.3.0)
   - Closures (0.7)
-  - CropViewController (2.5.2)
+  - CropViewController (2.5.3)
   - Differentiator (3.1.0)
   - DZNEmptyDataSet (1.8.1)
   - ESTabBarController-swift (2.8.0)
@@ -129,7 +129,7 @@ PODS:
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
-  - Then (2.7.0)
+  - Then (2.6.0)
   - "UITextView+Placeholder (1.4.0)"
   - UMCAnalytics (6.1.0):
     - UMCCommon
@@ -146,10 +146,10 @@ PODS:
 
 DEPENDENCIES:
   - BitcoinKit (~> 1.1.0)
-  - Bugly (= 2.5.2)
-  - Cache (= 5.2.0)
+  - Bugly
+  - Cache
   - Closures
-  - CropViewController (= 2.5.2)
+  - CropViewController
   - DZNEmptyDataSet
   - ESTabBarController-swift
   - FoldingCell
@@ -191,7 +191,7 @@ DEPENDENCIES:
   - WKWebViewJavascriptBridge (~> 1.2.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - BitcoinKit
     - Bugly
@@ -244,10 +244,10 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BitcoinKit: a8c198d2a57caf64dc43271901f8c5a2309aced2
-  Bugly: dbac48b55ad469a97cc4321045cd50df8f63d44f
-  Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
+  Bugly: eded937bbb1f731cacf689c2d934ddbd9ab34f83
+  Cache: 48762993ec44e1d93483c4d4a13edd18452326f4
   Closures: a83b9892a5b1c4125a9dfcd53e2754db5d7f6d22
-  CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
+  CropViewController: a5c143548a0fabcd6cc25f2d26e40460cfb8c78c
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
@@ -280,7 +280,7 @@ SPEC CHECKSUMS:
   SwiftMessages: b577dc7043be8b299857ab35bb663dbff6483bd0
   SwiftyAttributes: e3e13891ddac3c62b3d7798d5c3969cea88e62bb
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
-  Then: acfe0be7e98221c6204e12f8161459606d5d822d
+  Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
   UMCAnalytics: 3503f179f7af932b30af9ac161ac11fb48fa72b6
   UMCCommon: 0263a057a2e1ae1da4c8308541e56904a493ce13
@@ -291,6 +291,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: 94368b2b1e267a5e9562a2c83a8f26bad08abc2d
+PODFILE CHECKSUM: aa60cbb1546c4e73a369099700ead0a24eab0bc9
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

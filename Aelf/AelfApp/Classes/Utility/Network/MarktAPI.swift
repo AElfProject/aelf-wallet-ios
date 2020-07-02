@@ -40,9 +40,12 @@ extension MarktAPI: TargetType {
         case .markList:
             path = "coins/markets"
         case .coinDetail:
-            path = "coins/{id}"
-        case .tradeKline:
-            path = "coins/{id}/market_chart"
+            path = "coins"
+        case let .tradeKline(id, currency, days):
+            let params = ["id":id,
+                          "vs_currency":currency,
+                          "days":days]
+            path = "coins/" + dicValueString(params)! + "/market_chart"
             break
             path += "?lang=\(App.languageID ?? "")"
         }
@@ -74,8 +77,9 @@ extension MarktAPI: TargetType {
             parameters = ["id":id]
         case let .tradeKline(id, currency, days):
             parameters = ["id":id,
-                          "vs_currency":currency,
-                          "days":days]
+            "vs_currency":currency,
+            "days":days]
+            break
         }
         
         logInfo("\n \(self.path)\n请求参数：\(parameters)\n")
@@ -88,6 +92,12 @@ extension MarktAPI: TargetType {
         
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
     }
+}
+
+func dicValueString(_ dic:[String : Any]) -> String?{
+    let data = try? JSONSerialization.data(withJSONObject: dic, options: [])
+    let str = String(data: data!, encoding: String.Encoding.utf8)
+    return str
 }
 
 

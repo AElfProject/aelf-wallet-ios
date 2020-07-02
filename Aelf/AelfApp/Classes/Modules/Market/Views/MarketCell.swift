@@ -22,11 +22,11 @@ class MarketCell: BaseTableCell {
     var item : MarketCoinModel? {
         didSet {
             guard let item = item else { return }
-            symbol.text = item.name
+            symbol.text = item.name?.uppercased()
             priceLabel.text = App.currencySymbol + String(item.lastPrice ?? "")
             let increase = item.increase?.double() ?? 0.0
             // 返回数据 < 0 带 - 号
-            let format = (increase > 0 ? "+" : "") + String(format: "%.2f",increase * 100) + "%"
+            let format = (increase > 0 ? "+" : "") + String(format: "%.2f",increase) + "%"
             changeLabel.text = format
             if increase > 0 {
                 changeLabel.backgroundColor = .appGreen

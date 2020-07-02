@@ -44,16 +44,16 @@ class MarketCoinModel : Mappable,TableCodable {
         amountTrans <- map["amount_trans"]
         arrow <- map["arrow"]
         date <- map["date"]
-        increase <- (map["increase"],MapperString())
+        increase <- (map["price_change_percentage_24h"],MapperString())
         isAdd <- map["isAdd"]
-        lastPrice <- map["current_price"]
+        lastPrice <- (map["current_price"],MapperString())
         lastUpdate <- map["last_update"]
         logo <- map["logo"]
         marketValue <- map["market_value"]
         marketValueTrans <- map["market_value_trans"]
         maxPrice <- map["high_24h"]
         minPrice <- map["low_24h"]
-        name <- map["name"]
+        name <- map["symbol"]
         nameCn <- map["name_cn"]
         nameEn <- map["name_en"]
         type <- map["type"]

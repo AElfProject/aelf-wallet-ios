@@ -58,8 +58,8 @@ extension MarketViewModel: ViewModelType {
             let sortType = input.sortType.value
             return self.request(sort: sortType).trackActivity(self.footerLoading)
         }.subscribe(onNext: { result in
-            output.items <= result
             //分页
+            output.items <=  output.items.value + result
         }).disposed(by: rx.disposeBag)
         return output
     }
@@ -69,7 +69,7 @@ extension MarketViewModel: ViewModelType {
 extension MarketViewModel {
     func request(sort:Int) -> Observable<[MarketCoinModel]> {
         return marketProvider
-            .requestData(.markList(currency: "usd", ids: "", perPage: 20, page: self.page, sparkLine: false, priceChangePercentage: ""))
+            .requestData(.markList(currency: App.currency, ids: "", perPage: 20, page: self.page, sparkLine: false, priceChangePercentage: ""))
             .mapObjects(MarketCoinModel.self)
             .trackError(self.error)
             .trackActivity(self.loading)

@@ -10,7 +10,6 @@ import UIKit
 import ObjectMapper
 
 class MarketDetailViewModel: ViewModel {
-
     var input: Input?
     var output: Output?
 }
@@ -66,11 +65,10 @@ extension MarketDetailViewModel: ViewModelType {
 }
 
 
-#warning("TODO")
 extension MarketDetailViewModel {
 
     func requestKLine(input: Input) -> Observable<MarketTradeModel> {
-        return marketProvider.requestData(.tradeKline(id: "123", currency: "usd", days: "5"))
+        return marketProvider.requestData(.tradeKline(id: input.name, currency: input.currency, days:String(try! input.time.value())))
             .mapObject(MarketTradeModel.self)
             .trackActivity(self.loading)
             .trackError(self.error)
@@ -78,7 +76,7 @@ extension MarketDetailViewModel {
 
     func requestData(input: Input) -> Observable<MarketDetailModel> {
         return marketProvider
-            .requestData(.coinDetail(id: "123"))
+            .requestData(.coinDetail(id: input.name))
             .mapObject(MarketDetailModel.self)
             .trackError(self.error)
             .trackActivity(self.loading)

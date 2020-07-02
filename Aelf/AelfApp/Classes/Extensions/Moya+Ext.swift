@@ -22,7 +22,7 @@ extension MoyaProvider {
                 case .success(let value):
                     if (target is MarktAPI){
                         var result = VResult.init(JSON: [:])
-                        result?.status = 200
+                        result?.status = value.statusCode
                         result?.data = self?.nsdataToJSON(data: value.data)
                         observer.onNext(result!)
                         observer.onCompleted()

@@ -30,7 +30,6 @@ class MarketDetailController: BaseStaticTableController {
         super.viewDidLoad()
         addWhiteBackItem()
 
-//        tableView.backgroundColor = UIColor.master
         tableView.separatorStyle = .none
         setSegmentTag(tag: 0)
 
@@ -46,14 +45,14 @@ class MarketDetailController: BaseStaticTableController {
 //        self.priceLabel.hero.id = self.priceLabel.text
 //        self.priceMarketLabel.text =
 
-        title = (model.name ?? "")
+        title = (model.name?.uppercased() ?? "")
         
         SVProgressHUD.show(withStatus: nil)
         SVProgressHUD.setDefaultMaskType(.none)
         
         let refresh = Observable.of(Observable.just(()), kLineRefreshTrigger).merge()
         let input = MarketDetailViewModel.Input(currency: App.currency,
-                                                name: model.name ?? "",
+                                                name: model.identifier ?? "",
                                                 type: 1,
                                                 time: timeTrigger,
                                                 loadKLine: refresh,
