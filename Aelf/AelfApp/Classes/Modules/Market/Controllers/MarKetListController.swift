@@ -89,6 +89,7 @@ class MarKetListController: BaseTableViewController {
             self.headerRefreshTrigger.onNext(())
         }).disposed(by: rx.disposeBag)
 
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: MarketCell.className)
         output.items.bind(to: tableView.rx.items(cellIdentifier: MarketCell.className,
                                                  cellType: MarketCell.self)) { (_, element, cell) in
                                                     cell.item = element
