@@ -23,7 +23,13 @@ extension MoyaProvider {
                     if (target is MarktAPI){
                         var result = VResult.init(JSON: [:])
                         result?.status = value.statusCode
-                        result?.data = self?.nsdataToJSON(data: value.data)
+                        if value.statusCode != 200 {
+                          let errDict = self?.nsdataToJSON(data: value.data)
+                         // print(err)
+                            result?.msg = errDict?["error"] as? String
+                        } else {
+                            result?.data = self?.nsdataToJSON(data: value.data)
+                        }
                         observer.onNext(result!)
                         observer.onCompleted()
                         break;
