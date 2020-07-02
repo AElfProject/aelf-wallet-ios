@@ -331,7 +331,6 @@
 		D2A61B1722A10CF600D64D71 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A61B1622A10CF600D64D71 /* MyAccountController.swift */; };
 		D2A61B1A22A111F700D64D71 /* AccountItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A61B1822A111F700D64D71 /* AccountItemCell.swift */; };
 		D2A61B1B22A111F700D64D71 /* AccountItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2A61B1922A111F700D64D71 /* AccountItemCell.xib */; };
-		D2A61B1F22A127BE00D64D71 /* SettingManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A61B1E22A127BE00D64D71 /* SettingManagerController.swift */; };
 		D2B69C4522A8EC58003A4ADE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B69C4422A8EC58003A4ADE /* Alamofire.framework */; };
 		D2B69C4E22A8EC92003A4ADE /* DiscoverGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B69C4622A8EC92003A4ADE /* DiscoverGameCell.swift */; };
 		D2B69C4F22A8EC92003A4ADE /* DiscoverRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B69C4722A8EC92003A4ADE /* DiscoverRecordCell.xib */; };
@@ -371,6 +370,14 @@
 		D2F9C00B22AE53AA00E5E597 /* TransationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C00A22AE53AA00E5E597 /* TransationViewModel.swift */; };
 		D2F9C00D22AE5BE300E5E597 /* TransationNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C00C22AE5BE300E5E597 /* TransationNoteModel.swift */; };
 		D2FA90C322A7D7420022F381 /* MarketDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA90C222A7D7420022F381 /* MarketDetailController.swift */; };
+		D8B5C31E24A89BEE0087A4EB /* SwitchNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C31D24A89BEE0087A4EB /* SwitchNetworkController.swift */; };
+		D8B5C32024A8A9320087A4EB /* SettingManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C31F24A8A9320087A4EB /* SettingManagerController.swift */; };
+		D8B5C32624A8AE260087A4EB /* SwitchNetworkTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C32424A8AE260087A4EB /* SwitchNetworkTableCell.swift */; };
+		D8B5C32724A8AE260087A4EB /* SwitchNetworkTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B5C32524A8AE260087A4EB /* SwitchNetworkTableCell.xib */; };
+		D8B5C34924A997840087A4EB /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C34824A997840087A4EB /* NetworkModel.swift */; };
+		D8B5C34B24A9CC7B0087A4EB /* network.json in Resources */ = {isa = PBXBuildFile; fileRef = D8B5C34A24A9CC7B0087A4EB /* network.json */; };
+		D8B5C35024A9DE780087A4EB /* CustomNetworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C34E24A9DE780087A4EB /* CustomNetworkCell.swift */; };
+		D8B5C35124A9DE780087A4EB /* CustomNetworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B5C34F24A9DE780087A4EB /* CustomNetworkCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -726,7 +733,6 @@
 		D2A61B1622A10CF600D64D71 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		D2A61B1822A111F700D64D71 /* AccountItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountItemCell.swift; sourceTree = "<group>"; };
 		D2A61B1922A111F700D64D71 /* AccountItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountItemCell.xib; sourceTree = "<group>"; };
-		D2A61B1E22A127BE00D64D71 /* SettingManagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManagerController.swift; sourceTree = "<group>"; };
 		D2B69C4422A8EC58003A4ADE /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B69C4622A8EC92003A4ADE /* DiscoverGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverGameCell.swift; sourceTree = "<group>"; };
 		D2B69C4722A8EC92003A4ADE /* DiscoverRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverRecordCell.xib; sourceTree = "<group>"; };
@@ -769,6 +775,14 @@
 		D2F9C00A22AE53AA00E5E597 /* TransationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransationViewModel.swift; sourceTree = "<group>"; };
 		D2F9C00C22AE5BE300E5E597 /* TransationNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransationNoteModel.swift; sourceTree = "<group>"; };
 		D2FA90C222A7D7420022F381 /* MarketDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailController.swift; sourceTree = "<group>"; };
+		D8B5C31D24A89BEE0087A4EB /* SwitchNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchNetworkController.swift; path = AelfApp/Classes/Modules/Setting/Controllers/SwitchNetworkController.swift; sourceTree = SOURCE_ROOT; };
+		D8B5C31F24A8A9320087A4EB /* SettingManagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingManagerController.swift; path = AelfApp/Classes/Modules/Setting/Controllers/SettingManagerController.swift; sourceTree = SOURCE_ROOT; };
+		D8B5C32424A8AE260087A4EB /* SwitchNetworkTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchNetworkTableCell.swift; path = AelfApp/Classes/Modules/Setting/Views/SwitchNetworkTableCell.swift; sourceTree = SOURCE_ROOT; };
+		D8B5C32524A8AE260087A4EB /* SwitchNetworkTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SwitchNetworkTableCell.xib; path = AelfApp/Classes/Modules/Setting/Views/SwitchNetworkTableCell.xib; sourceTree = SOURCE_ROOT; };
+		D8B5C34824A997840087A4EB /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkModel.swift; path = AelfApp/Classes/Modules/Setting/Models/NetworkModel.swift; sourceTree = SOURCE_ROOT; };
+		D8B5C34A24A9CC7B0087A4EB /* network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = network.json; path = AelfApp/Resources/network.json; sourceTree = SOURCE_ROOT; };
+		D8B5C34E24A9DE780087A4EB /* CustomNetworkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomNetworkCell.swift; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.swift; sourceTree = SOURCE_ROOT; };
+		D8B5C34F24A9DE780087A4EB /* CustomNetworkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomNetworkCell.xib; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.xib; sourceTree = SOURCE_ROOT; };
 		DB9BEC060865C77E9FC06FD7 /* Pods_ALEFAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALEFAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1159,12 +1173,14 @@
 		3C9DE1D322967A6000BB8C74 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D8B5C32124A8ACC10087A4EB /* Network */,
 				3CA1131722DC6E060065AA1D /* Protocols */,
 				D26E21D222BE30760055167A /* HTML */,
 				D20CCAC422A6586700345262 /* Assets.xcassets */,
 				3C9DE1D522967A6000BB8C74 /* LaunchScreen.storyboard */,
 				3C9DE23C2296A6E600BB8C74 /* Storyboard */,
 				3C9DE1D922967A6000BB8C74 /* Info.plist */,
+				D8B5C34A24A9CC7B0087A4EB /* network.json */,
 				4114E2DE2403A239009891DC /* Configure.plist */,
 				3C9DE2112296816C00BB8C74 /* Localizable.strings */,
 				3C32E8FF23A8E2F10014E482 /* InfoPlist.strings */,
@@ -1311,17 +1327,18 @@
 		3C9DE1EE22967BE200BB8C74 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8B5C31F24A8A9320087A4EB /* SettingManagerController.swift */,
 				3C9DE20122967C8300BB8C74 /* SettingController.swift */,
 				D20CCAB222A6448D00345262 /* NotificationsController.swift */,
 				3C5CC0DF22CE1EA100BF5CDD /* TransationMessagesController.swift */,
 				D20CCAB822A655E400345262 /* SystemMessagesController.swift */,
-				D2A61B1E22A127BE00D64D71 /* SettingManagerController.swift */,
 				3C9DC316229FC5F400B3DCA9 /* LanguageController.swift */,
 				D2A61B1622A10CF600D64D71 /* MyAccountController.swift */,
 				D2E1C40E22A4FA4400C011E5 /* AddAddressController.swift */,
 				3C72EF5622D2E82D00B17DEC /* TransactionDetailController.swift */,
 				D2348B7222AD040B00DFC84A /* ChargeUnitController.swift */,
 				D2348B7422AD043300DFC84A /* AssetShowTypeController.swift */,
+				D8B5C31D24A89BEE0087A4EB /* SwitchNetworkController.swift */,
 				D2F4876022B2427F00DD2902 /* BackupController.swift */,
 				D2F4876222B249B400DD2902 /* AccountExportController.swift */,
 				D2F4876422B257A900DD2902 /* PasswordHintController.swift */,
@@ -1672,6 +1689,10 @@
 				D2F9239022C200C400BA92CF /* HelpDetailCell.swift */,
 				D2F9239122C200C400BA92CF /* HelpDetailCell.xib */,
 				3C2910192354493800B0FC07 /* TransferLoadingView.swift */,
+				D8B5C32424A8AE260087A4EB /* SwitchNetworkTableCell.swift */,
+				D8B5C32524A8AE260087A4EB /* SwitchNetworkTableCell.xib */,
+				D8B5C34E24A9DE780087A4EB /* CustomNetworkCell.swift */,
+				D8B5C34F24A9DE780087A4EB /* CustomNetworkCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1686,6 +1707,7 @@
 				3CDFB87422B8B548003CC897 /* IdentityInfo.swift */,
 				D26E21C122B8B0C10055167A /* AddressBookModel.swift */,
 				3C9504F222BA30FB000AF2E7 /* AppVersionLog.swift */,
+				D8B5C34824A997840087A4EB /* NetworkModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1729,6 +1751,14 @@
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
+		};
+		D8B5C32124A8ACC10087A4EB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
+			path = AelfApp/Resources/Network;
+			sourceTree = SOURCE_ROOT;
 		};
 		E21676D78BD542BD698EE96D /* Frameworks */ = {
 			isa = PBXGroup;
@@ -1817,18 +1847,21 @@
 				3CF319EA234F43F10025F1EE /* TransactionVoucherHeaderCell.xib in Resources */,
 				3C9DE1DD22967A6000BB8C74 /* Main.storyboard in Resources */,
 				3C4824FB22E9AFE700554305 /* MarketCell.xib in Resources */,
+				D8B5C35124A9DE780087A4EB /* CustomNetworkCell.xib in Resources */,
 				3C4B6AED2393D23E00575F4D /* UnConfirmTransactionCell.xib in Resources */,
 				3CDFB85A22B79514003CC897 /* LanguageCell.xib in Resources */,
 				D20CCAC322A6574C00345262 /* TransationCell.xib in Resources */,
 				3CF319EE234F46790025F1EE /* TransactionVoucherFooterCell.xib in Resources */,
 				3CDFB86D22B8901E003CC897 /* InputAlertView.xib in Resources */,
 				D2B69C5522A8EC92003A4ADE /* DiscoverGameCell.xib in Resources */,
+				D8B5C32724A8AE260087A4EB /* SwitchNetworkTableCell.xib in Resources */,
 				3C86C4FE234C6C1D00D193AD /* ChainListCell.xib in Resources */,
 				3CDFB85822B794DA003CC897 /* AssetShowTypeCell.xib in Resources */,
 				3C97070322F9607600551C31 /* MarketSearchTopView.xib in Resources */,
 				3C9504F122B9D79B000AF2E7 /* ChooseChainCell.xib in Resources */,
 				D20CCAA922A522CF00345262 /* QRScanner.bundle in Resources */,
 				3C3C5A7F22CF35E60009EF51 /* ShareTableCell.xib in Resources */,
+				D8B5C34B24A9CC7B0087A4EB /* network.json in Resources */,
 				D253D1BA22C370E900CBA855 /* AppUpdateView.xib in Resources */,
 				D20CCAC522A6586700345262 /* Assets.xcassets in Resources */,
 				3C9706CE22F834DB00551C31 /* FavouritesFooterView.xib in Resources */,
@@ -1971,6 +2004,7 @@
 				3C4B94F922A8F361008C8994 /* DiscoverSectionView.swift in Sources */,
 				3C4B94A722A79805008C8994 /* AssetReceiveController.swift in Sources */,
 				3C9706E322F91A9400551C31 /* MarketManagerController.swift in Sources */,
+				D8B5C31E24A89BEE0087A4EB /* SwitchNetworkController.swift in Sources */,
 				3C9504EB22B9CDD8000AF2E7 /* CrossChainsHeaderView.swift in Sources */,
 				D2348B7922AD04D400DFC84A /* ChargeUnitCell.swift in Sources */,
 				3CE1EF6722D4C782000AABC2 /* String+RSA.swift in Sources */,
@@ -2002,6 +2036,7 @@
 				3CD5C7BF233B6197008A8FBD /* ChainItem.swift in Sources */,
 				3CDFB87322B8AF10003CC897 /* MyAccountViewModel.swift in Sources */,
 				3C9504F922BA31B2000AF2E7 /* VersionLogViewModel.swift in Sources */,
+				D8B5C34924A997840087A4EB /* NetworkModel.swift in Sources */,
 				D2F9239222C200C400BA92CF /* HelpDetailCell.swift in Sources */,
 				3C9706C522F82B1200551C31 /* SearchBarView.swift in Sources */,
 				D2F4875B22B1041D00DD2902 /* AElfWallet.swift in Sources */,
@@ -2160,6 +2195,7 @@
 				3C9504FC22BA31EE000AF2E7 /* VersionLogCell.swift in Sources */,
 				3C6F006222A0BB1A00AC1EE6 /* UIButton+Ext.swift in Sources */,
 				3C045A7D22AE0A6E00E0C1E1 /* DiscoverViewModel.swift in Sources */,
+				D8B5C32624A8AE260087A4EB /* SwitchNetworkTableCell.swift in Sources */,
 				D2348B7522AD043300DFC84A /* AssetShowTypeController.swift in Sources */,
 				D2A61B1A22A111F700D64D71 /* AccountItemCell.swift in Sources */,
 				3CA4210F22BC89250042804B /* CameraMan.swift in Sources */,
@@ -2181,11 +2217,11 @@
 				D20CCAB322A6448D00345262 /* NotificationsController.swift in Sources */,
 				3CA4211122BC89250042804B /* ImagePickerController.swift in Sources */,
 				3C9DC2E4229FB6CC00B3DCA9 /* UserAPI.swift in Sources */,
-				D2A61B1F22A127BE00D64D71 /* SettingManagerController.swift in Sources */,
 				3C8C78D222A4F21900E0AE52 /* WalletConfirmController.swift in Sources */,
 				D2F9239522C2047000BA92CF /* tableHeaderView.swift in Sources */,
 				3C4B94FF22A90434008C8994 /* Chart.swift in Sources */,
 				3C71281522FAD28900119D4A /* MarketCoinModel.swift in Sources */,
+				D8B5C35024A9DE780087A4EB /* CustomNetworkCell.swift in Sources */,
 				3C9DC312229FBDD900B3DCA9 /* UIView+Ext.swift in Sources */,
 				3CF319E9234F43F10025F1EE /* TransactionVoucherHeaderCell.swift in Sources */,
 				D20CCABA22A655E400345262 /* SystemMessagesController.swift in Sources */,
@@ -2195,6 +2231,7 @@
 				3C6CD77523C09AB60055DF68 /* SecurityVerifyManager.swift in Sources */,
 				3CB7DAC022A13D5A00ADFEF6 /* UITextView+Ext.swift in Sources */,
 				3C7737D522990FA100CFC54D /* Enviroment.swift in Sources */,
+				D8B5C32024A8A9320087A4EB /* SettingManagerController.swift in Sources */,
 				3CA1131A22DC755B0065AA1D /* WebViewController.swift in Sources */,
 				3C9706F322F928C700551C31 /* ErrorType.swift in Sources */,
 				3C9DC30A229FBDD900B3DCA9 /* Moya+Ext.swift in Sources */,

@@ -22,13 +22,18 @@ private enum APIEnv: Int {
     var appHost: String {
         switch self {
         case .dev:
-            return "https://hp-pre-wallet.aelf.io/"
+//            http://1.119.195.50:11177/app/elf/chain?lang=zh-cn
+//            return "https://hp-pre-wallet.aelf.io/"
+            return "http://1.119.195.50:11177/"
         case .test:
-            return "http://aelf.phpdl.com/"
+//            return "http://aelf.phpdl.com/"
+            return "http://1.119.195.50:11177/"
         case .staging:
-            return "https://hp-pre-wallet.aelf.io/"
+//            return "https://hp-pre-wallet.aelf.io/"
+            return "http://1.119.195.50:11177/"
         case .prodcution:
-            return "http://aelf.phpdl.com/"
+//            return "http://aelf.phpdl.com/"
+            return "http://1.119.195.50:11177/"
         }
     }
 

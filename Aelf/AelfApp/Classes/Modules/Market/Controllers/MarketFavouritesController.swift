@@ -9,6 +9,7 @@
 import UIKit
 import JXSegmentedView
 
+
 class MarketFavouritesController: BaseTableViewController {
 
     var parentVC: MarketContentController?
@@ -19,7 +20,7 @@ class MarketFavouritesController: BaseTableViewController {
         super.viewDidLoad()
 
         makeUI()
-        bindViewModel()
+//        bindViewModel()
 
     }
 
@@ -67,41 +68,41 @@ class MarketFavouritesController: BaseTableViewController {
         parentVC?.push(controller: MarketManagerController())
     }
 
-    func bindViewModel() {
-
-        let input = MarketFavouritesViewModel.Input(headerRefresh: headerRefreshTrigger)
-        let output = viewModel.transform(input: input)
-
-        viewModel.loading.asObservable().bind(to: isLoading).disposed(by: rx.disposeBag)
-        viewModel.headerLoading.asObservable().bind(to: isHeaderLoading).disposed(by: rx.disposeBag)
-//        viewModel.footerLoading.asObservable().bind(to: isFooterLoading).disposed(by: rx.disposeBag)
-        viewModel.parseError.map{ $0.msg ?? "No Favourites".localized() }.bind(to: emptyDataSetDescription).disposed(by: rx.disposeBag)
-
-        output.items.bind(to: tableView.rx.items(cellIdentifier: MarketCell.className,
-                                                 cellType: MarketCell.self)) { idx,item,cell in
-          cell.item = item
-        }.disposed(by: rx.disposeBag)
-        output.items.subscribe(onNext: { items in
-            self.footerView.isHidden = items.isEmpty
-        }).disposed(by: rx.disposeBag)
-
-        Observable.zip(tableView.rx.itemSelected,
-                       tableView.rx.modelSelected(MarketCoinModel.self))
-            .subscribe(onNext: { [weak self] (index,item) in
-                self?.tableView.deselectRow(at: index, animated: true)
-                self?.enterDetailVC(item: item)
-        }).disposed(by: rx.disposeBag)
-
-        emptyDataSetImage = UIImage(named: "favour_emptystate")
-        emptyDataSetDescription.accept("No Favourites".localized())
-        
-        NotificationCenter.default.rx.notification(NotificationName.currencyDidChange).subscribe(onNext: { [weak self] notify in
-            self?.headerRefreshTrigger.onNext(())
-        }).disposed(by: rx.disposeBag)
-
-        tableView.headRefreshControl.beginRefreshing()
-        
-    }
+//    func bindViewModel() {
+//
+//        let input = MarketFavouritesViewModel.Input(headerRefresh: headerRefreshTrigger)
+//        let output = viewModel.transform(input: input)
+//
+//        viewModel.loading.asObservable().bind(to: isLoading).disposed(by: rx.disposeBag)
+//        viewModel.headerLoading.asObservable().bind(to: isHeaderLoading).disposed(by: rx.disposeBag)
+////        viewModel.footerLoading.asObservable().bind(to: isFooterLoading).disposed(by: rx.disposeBag)
+//        viewModel.parseError.map{ $0.msg ?? "No Favourites".localized() }.bind(to: emptyDataSetDescription).disposed(by: rx.disposeBag)
+//
+//        output.items.bind(to: tableView.rx.items(cellIdentifier: MarketCell.className,
+//                                                 cellType: MarketCell.self)) { idx,item,cell in
+//          cell.item = item
+//        }.disposed(by: rx.disposeBag)
+//        output.items.subscribe(onNext: { items in
+//            self.footerView.isHidden = items.isEmpty
+//        }).disposed(by: rx.disposeBag)
+//
+//        Observable.zip(tableView.rx.itemSelected,
+//                       tableView.rx.modelSelected(MarketCoinModel.self))
+//            .subscribe(onNext: { [weak self] (index,item) in
+//                self?.tableView.deselectRow(at: index, animated: true)
+//                self?.enterDetailVC(item: item)
+//        }).disposed(by: rx.disposeBag)
+//
+//        emptyDataSetImage = UIImage(named: "favour_emptystate")
+//        emptyDataSetDescription.accept("No Favourites".localized())
+//
+//        NotificationCenter.default.rx.notification(NotificationName.currencyDidChange).subscribe(onNext: { [weak self] notify in
+//            self?.headerRefreshTrigger.onNext(())
+//        }).disposed(by: rx.disposeBag)
+//
+//        tableView.headRefreshControl.beginRefreshing()
+//
+//    }
 
     func enterDetailVC(item: MarketCoinModel) {
 

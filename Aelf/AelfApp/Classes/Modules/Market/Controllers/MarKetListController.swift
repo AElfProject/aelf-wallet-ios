@@ -92,7 +92,7 @@ class MarKetListController: BaseTableViewController {
         output.items.bind(to: tableView.rx.items(cellIdentifier: MarketCell.className,
                                                  cellType: MarketCell.self)) { (_, element, cell) in
                                                     cell.item = element
-            }.disposed(by: rx.disposeBag)
+        }.disposed(by: rx.disposeBag)
 
         tableView.rx.modelSelected(MarketCoinModel.self).subscribe(onNext: { [weak self] item in
             self?.pushFromParent(model: item)
@@ -103,7 +103,6 @@ class MarKetListController: BaseTableViewController {
         }).disposed(by: rx.disposeBag)
 
         tableView.headRefreshControl.beginRefreshing()
-
     }
     
     func pushFromParent(model:MarketCoinModel) {

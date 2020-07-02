@@ -66,3 +66,5 @@ class LanguageController: BaseTableViewController {
         title = "Set Language".localized()
     }
 }
+
+

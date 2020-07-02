@@ -120,7 +120,7 @@ import UIKit
         if let previewImage = activityItems.first(where: { $0 is UIImage }) as? UIImage {
             let previewImageView = UIImageView(image: previewImage)
             previewImageView.translatesAutoresizingMaskIntoConstraints = false
-            previewImageView.layer.cornerRadius = previewImageCornerRadius
+//            previewImageView.layer.cornerRadius = previewImageCornerRadius
             previewImageView.contentMode = .scaleAspectFill
             previewImageView.clipsToBounds = true
             

@@ -69,13 +69,12 @@ extension MarketViewModel {
 
     func request(sort:Int) -> Observable<MarketModel> {
         return marketProvider
-            .requestData(.markList(currency: App.currency,
-                                   sortType: sort,
-                                   p: self.page,
-                                   coinName: nil))
+            .requestData(.markList(currency: "usd", ids: "", perPage: 20, page: self.page, sparkLine: false, priceChangePercentage: ""))
             .mapObject(MarketModel.self)
             .trackError(self.error)
             .trackActivity(self.loading)
     }
+    
+    
 
 }

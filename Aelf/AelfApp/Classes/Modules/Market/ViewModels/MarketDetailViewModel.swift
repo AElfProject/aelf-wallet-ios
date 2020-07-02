@@ -65,13 +65,12 @@ extension MarketDetailViewModel: ViewModelType {
     }
 }
 
+
+#warning("TODO")
 extension MarketDetailViewModel {
 
     func requestKLine(input: Input) -> Observable<MarketTradeModel> {
-        return marketProvider.requestData(.tradeKline(currency: input.currency,
-                                                      name: input.name,
-                                                      time: (try? input.time.value()) ?? 1,
-                                                      type: input.type))
+        return marketProvider.requestData(.tradeKline(id: "123", currency: "usd", days: "5"))
             .mapObject(MarketTradeModel.self)
             .trackActivity(self.loading)
             .trackError(self.error)
@@ -79,8 +78,7 @@ extension MarketDetailViewModel {
 
     func requestData(input: Input) -> Observable<MarketDetailModel> {
         return marketProvider
-            .requestData(.coinDetail(currency: input.currency,
-                                     name: input.name))
+            .requestData(.coinDetail(id: "123"))
             .mapObject(MarketDetailModel.self)
             .trackError(self.error)
             .trackActivity(self.loading)

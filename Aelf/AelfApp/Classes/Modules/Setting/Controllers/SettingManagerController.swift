@@ -31,6 +31,9 @@ class SettingManagerController: BaseStaticTableController {
     @IBOutlet weak var privateButton: UIButton!
     @IBOutlet weak var identificationButton: UIButton!
     
+    @IBOutlet weak var networkLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,13 +102,13 @@ class SettingManagerController: BaseStaticTableController {
                                 SVProgressHUD.showSuccess(withStatus: "Closed".localized())
             }
         } else {
-
+            
             SecurityWarnView.show(title: "Do you want to allow AELF Wallet to use biometrics?".localized(),
                                   centerTitle: false,
                                   body: "Using biometrics can be applied to unlock apps and verify payments".localized(),
                                   interactive: true,
                                   confirmTitle: "Confirm".localized()) {
-                self.showInputPwdView()
+                                    self.showInputPwdView()
             }
         }
     }
@@ -195,6 +198,11 @@ extension SettingManagerController {
         if indexPath.row == 4 {//Asset Display
             let languageVC = UIStoryboard.loadStoryClass(className: AssetShowTypeController.className, storyType: .setting)
             push(controller: languageVC)
+        }
+        
+        if indexPath.row == 5 {//Switch Network
+            let switchVC = UIStoryboard.loadStoryClass(className: SwitchNetworkController.className, storyType: .setting)
+            push(controller: switchVC)
         }
     }
     
