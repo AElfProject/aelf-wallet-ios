@@ -22,21 +22,19 @@ extension MarketViewModel: ViewModelType {
     }
     
     struct Output {
-        let dataSource = BehaviorRelay<MarketModel>(value: MarketModel(JSON: [:])!)
-        let items = BehaviorRelay<[MarketCoinModel]>(value: [])
+        var items = BehaviorRelay<[MarketCoinModel]>(value: [])
     }
     
     func transform(input: MarketViewModel.Input) -> MarketViewModel.Output {
         
         let output = Output()
 
-        input.sortType.flatMapLatest { t -> Observable<MarketModel> in
+        input.sortType.flatMapLatest { t -> Observable<[MarketCoinModel]> in
             self.page = 1
             SVProgressHUD.show()
             
             return self.request(sort: t)}.subscribe(onNext: { result in
-                output.items <= result.list
-                output.dataSource.accept(result)
+                output.items <= result
                 SVProgressHUD.dismiss()
             }, onError: { error in
                 if let r = error as? ResultError {
@@ -45,36 +43,34 @@ extension MarketViewModel: ViewModelType {
                 logDebug(error)
             }).disposed(by: rx.disposeBag)
 
-        input.headerRefresh.flatMapLatest { _ -> Observable<MarketModel> in
+        input.headerRefresh.flatMapLatest { _ -> Observable<[MarketCoinModel]> in
             self.page = 1
             let sortType = input.sortType.value
             return self.request(sort: sortType)
-//                .trackActivity(self.headerLoading)
-//                .catchErrorJustComplete()
+                .trackActivity(self.headerLoading)
+                .catchErrorJustComplete()
             }.subscribe(onNext: { result in
-                output.items <= result.list
-                output.dataSource.accept(result)
+                output.items <= result
             }).disposed(by: rx.disposeBag)
 
-        input.footerRefresh.flatMapLatest { _ -> Observable<MarketModel> in
+        input.footerRefresh.flatMapLatest { _ -> Observable<[MarketCoinModel]> in
             self.page += 1
             let sortType = input.sortType.value
             return self.request(sort: sortType).trackActivity(self.footerLoading)
-            }.subscribe(onNext: { result in
-                output.dataSource.value.list += result.list
-                output.items <=  output.dataSource.value.list
-            }).disposed(by: rx.disposeBag)
-
+        }.subscribe(onNext: { result in
+            output.items <= result
+            //分页
+        }).disposed(by: rx.disposeBag)
         return output
     }
 
 }
 
 extension MarketViewModel {
-    func request(sort:Int) -> Observable<MarketModel> {
+    func request(sort:Int) -> Observable<[MarketCoinModel]> {
         return marketProvider
             .requestData(.markList(currency: "usd", ids: "", perPage: 20, page: self.page, sparkLine: false, priceChangePercentage: ""))
-            .mapObject(MarketModel.self)
+            .mapObjects(MarketCoinModel.self)
             .trackError(self.error)
             .trackActivity(self.loading)
     }

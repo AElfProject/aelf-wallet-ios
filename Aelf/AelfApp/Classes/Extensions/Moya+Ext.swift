@@ -13,18 +13,34 @@ import Moya_ObjectMapper
 typealias ResultCompletion = (_ result:VResult) -> Void
 
 extension MoyaProvider {
-
+    
     func requestData(_ target: Target) -> Observable<VResult> {
-
+        
         return Observable.create { [weak self] observer in
-            let cancellableToken = self?.request(target) { result in
+            let cancellableToken = self?.request(target) { [weak self]result in
                 switch result {
                 case .success(let value):
-                    observer.onNext(value.toResult())
-                    observer.onCompleted()
+                    if (target is MarktAPI){
+                        var result = VResult.init(JSON: [:])
+                        result?.status = 200
+                        result?.data = self?.nsdataToJSON(data: value.data)
+                        observer.onNext(result!)
+                        observer.onCompleted()
+                        break;
+                    } else {
+                        observer.onNext(value.toResult())
+                        observer.onCompleted()
+                        break;
+                    }
+                    
                 case .failure(let error):
+                    if (target is MarktAPI){
+                        
+                        break;
+                    }
                     logInfo("请求出错：\(error)\n")
                     observer.onError(ResultError.error(type: .networkError))
+                    // break
                 }
             }
             
@@ -33,10 +49,21 @@ extension MoyaProvider {
             }
         }
     }
-
-
+    func nsdataToJSON(data: Data) -> AnyObject? {
+        do {
+            let jsonStr = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+            print(jsonStr as Any)
+            return try JSONSerialization.jsonObject(with: data, options: .init()) as? AnyObject
+            // return try JSONSerialization.jsonObject(with: data as Data, options: .mutableContainers) as AnyObject
+        } catch {
+            print("error!")
+        }
+        
+        return nil
+    }
+    
     class func JSONEndpointMapping(_ target: Target) -> Endpoint {
-
+        
         let url = target.baseURL.appendingPathComponent(target.path).absoluteString.replacingOccurrences(of: "%3F", with: "?")
         return Endpoint(
             url: url,
@@ -52,8 +79,8 @@ extension MoyaProvider {
 
 // Cache
 extension MoyaProvider {
-
-//    func requestCacheData(_ target: Target) -> Observable<VResult> {
-//        return cacheObject(target, type: VResult.self)
-//    }
+    
+    //    func requestCacheData(_ target: Target) -> Observable<VResult> {
+    //        return cacheObject(target, type: VResult.self)
+    //    }
 }
