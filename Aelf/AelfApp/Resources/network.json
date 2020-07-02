@@ -1,0 +1,25 @@
+[
+  {
+    "name": "默认配置",
+    "nameEn": "default",
+    "nodeApi":"xxx",
+    "walletServer": "1.119.195.50",
+    "canDelete": true
+  },
+  {
+    "name": "测试网",
+    "nameEn": "testnet",
+    "nodeApi":"xxx",
+    "walletServer": "1.119.195.51",
+    "canDelete": true
+  },
+  {
+    "name": "测试网美国节点",
+    "nameEn": "testnet-america",
+    "nodeApi":"xxx",
+    "walletServer": "1.119.195.52",
+    "canDelete": false
+  },
+]
+
+

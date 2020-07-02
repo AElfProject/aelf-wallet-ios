@@ -28,6 +28,22 @@ extension AssetViewModel: ViewModelType {
     func transform(input: AssetViewModel.Input) -> AssetViewModel.Output {
         
         let output = Output()
+        
+//        Observable
+//            .combineLatest(input.address.filter({ $0.length > 0}),
+//                           input.chainIDChanged,
+//                           input.headerRefresh)
+//            .flatMapLatest { [weak self] (address,_,v) -> Observable<[AssetItem]> in
+//                
+//                
+//                
+//        }.subscribe(onNext: { [weak self] results in
+//            guard let self  = self else { return }
+//            output.total.onNext(self.totalPrice(assert(results)))
+//            output.items.accept(results)
+//        }).dispose(by: rx.disposeBag)
+
+        
         // 头部刷新
         Observable
             .combineLatest(input.address.filter({ $0.length > 0 }),

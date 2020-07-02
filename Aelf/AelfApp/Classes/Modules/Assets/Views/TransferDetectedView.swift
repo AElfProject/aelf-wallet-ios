@@ -37,6 +37,7 @@ class TransferDetectedView: MessageView {
     }
 
 
+    
     @IBAction func confirmTapped(_ sender: UIButton) {
         SwiftMessages.hide(animated: false)
         confirmAction?()

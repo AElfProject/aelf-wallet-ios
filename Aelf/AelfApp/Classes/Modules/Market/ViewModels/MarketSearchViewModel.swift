@@ -80,10 +80,7 @@ extension MarketSearchViewModel {
     
     func requestSearchResults() -> Observable<MarketModel> {
         return marketProvider
-            .requestData(.markList(currency: App.currency,
-                                   sortType: -1,
-                                   p: self.page,
-                                   coinName: self.searchText))
+            .requestData(.markList(currency: "usd", ids: "", perPage: 20, page: 1, sparkLine: false, priceChangePercentage: ""))
             .mapObject(MarketModel.self)
             .trackError(self.error)
             .trackActivity(self.loading)

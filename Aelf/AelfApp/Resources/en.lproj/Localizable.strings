@@ -200,6 +200,7 @@
 "Language" = "Language";
 "Pricing Currency" = "Pricing Currency";
 "Asset Display" = "Asset Display";
+"Switch Network" = "Switch Network";
 "When turn on" = "When turn on private mode, the assets and amount in wallet will be hidden.";
 "Biometric Identification" = "Biometric Identification";
 "Face ID or Touch ID" = "Face ID or Touch ID";
