@@ -288,12 +288,12 @@
 		3CF319EA234F43F10025F1EE /* TransactionVoucherHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF319E8234F43F10025F1EE /* TransactionVoucherHeaderCell.xib */; };
 		3CF319ED234F46790025F1EE /* TransactionVoucherFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF319EB234F46790025F1EE /* TransactionVoucherFooterCell.swift */; };
 		3CF319EE234F46790025F1EE /* TransactionVoucherFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF319EC234F46790025F1EE /* TransactionVoucherFooterCell.xib */; };
-		4114E2DF2403A239009891DC /* Configure.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4114E2DE2403A239009891DC /* Configure.plist */; };
 		4114E2E12403AB49009891DC /* AppConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4114E2E02403AB49009891DC /* AppConfigManager.swift */; };
 		4180E63523ACBF8200FB3146 /* DiscoverFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180E63423ACBF8200FB3146 /* DiscoverFooterView.swift */; };
 		4180E63723ACBF8800FB3146 /* DiscoverFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4180E63623ACBF8800FB3146 /* DiscoverFooterView.xib */; };
 		41980D7D2400CE82000ECB02 /* DappSearchHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41980D7B2400CE82000ECB02 /* DappSearchHotCell.swift */; };
 		41980D7E2400CE82000ECB02 /* DappSearchHotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41980D7C2400CE82000ECB02 /* DappSearchHotCell.xib */; };
+		5A2335CD24ADB22A0067A944 /* Configure.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A2335CC24ADB22A0067A944 /* Configure.plist */; };
 		5A2661A9423E0DA5AB50BBDB /* Pods_AelfApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC6304F4AEEB1A9325E3945 /* Pods_AelfApp.framework */; };
 		5A623DCD23BF34250068A8F0 /* ImportPrivateKeyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A623DCC23BF34250068A8F0 /* ImportPrivateKeyController.swift */; };
 		D20CCAA522A522CF00345262 /* QRScannerPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20CCA9F22A522CE00345262 /* QRScannerPermissions.swift */; };
@@ -677,13 +677,13 @@
 		3CF319E8234F43F10025F1EE /* TransactionVoucherHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionVoucherHeaderCell.xib; sourceTree = "<group>"; };
 		3CF319EB234F46790025F1EE /* TransactionVoucherFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionVoucherFooterCell.swift; sourceTree = "<group>"; };
 		3CF319EC234F46790025F1EE /* TransactionVoucherFooterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionVoucherFooterCell.xib; sourceTree = "<group>"; };
-		4114E2DE2403A239009891DC /* Configure.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Configure.plist; path = AelfApp/Resources/Configure.plist; sourceTree = SOURCE_ROOT; };
 		4114E2E02403AB49009891DC /* AppConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppConfigManager.swift; path = AelfApp/Classes/Utility/Managers/AppConfigManager.swift; sourceTree = SOURCE_ROOT; };
 		4180E63423ACBF8200FB3146 /* DiscoverFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscoverFooterView.swift; path = AelfApp/Classes/Modules/Discover/Views/DiscoverFooterView.swift; sourceTree = SOURCE_ROOT; };
 		4180E63623ACBF8800FB3146 /* DiscoverFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DiscoverFooterView.xib; path = AelfApp/Classes/Modules/Discover/Views/DiscoverFooterView.xib; sourceTree = SOURCE_ROOT; };
 		41980D7B2400CE82000ECB02 /* DappSearchHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DappSearchHotCell.swift; path = AelfApp/Classes/Modules/Discover/Views/DappSearchHotCell.swift; sourceTree = SOURCE_ROOT; };
 		41980D7C2400CE82000ECB02 /* DappSearchHotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DappSearchHotCell.xib; path = AelfApp/Classes/Modules/Discover/Views/DappSearchHotCell.xib; sourceTree = SOURCE_ROOT; };
 		4BE8ED1E8B905400A99CBD1E /* Pods-AelfApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AelfApp.debug.xcconfig"; path = "Target Support Files/Pods-AelfApp/Pods-AelfApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5A2335CC24ADB22A0067A944 /* Configure.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Configure.plist; sourceTree = "<group>"; };
 		5A623DCC23BF34250068A8F0 /* ImportPrivateKeyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportPrivateKeyController.swift; sourceTree = "<group>"; };
 		6E1AA27E93B6AD3020103087 /* Pods-AelfApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AelfApp.release.xcconfig"; path = "Target Support Files/Pods-AelfApp/Pods-AelfApp.release.xcconfig"; sourceTree = "<group>"; };
 		70DB8A204905FA0529A143B8 /* Pods-ALEFAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALEFAPP.debug.xcconfig"; path = "Target Support Files/Pods-ALEFAPP/Pods-ALEFAPP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1159,13 +1159,13 @@
 		3C9DE1D322967A6000BB8C74 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A2335CC24ADB22A0067A944 /* Configure.plist */,
 				3CA1131722DC6E060065AA1D /* Protocols */,
 				D26E21D222BE30760055167A /* HTML */,
 				D20CCAC422A6586700345262 /* Assets.xcassets */,
 				3C9DE1D522967A6000BB8C74 /* LaunchScreen.storyboard */,
 				3C9DE23C2296A6E600BB8C74 /* Storyboard */,
 				3C9DE1D922967A6000BB8C74 /* Info.plist */,
-				4114E2DE2403A239009891DC /* Configure.plist */,
 				3C9DE2112296816C00BB8C74 /* Localizable.strings */,
 				3C32E8FF23A8E2F10014E482 /* InfoPlist.strings */,
 				3C9DE20522967CC700BB8C74 /* AElfApp-Bridging-Header.h */,
@@ -1852,7 +1852,7 @@
 				3C9504ED22B9CE60000AF2E7 /* CrossChainsHeaderView.xib in Resources */,
 				3C9CB46022A52F5F00F4C281 /* WalletWarnView.xib in Resources */,
 				3C045A6622A925B200E0C1E1 /* SecurityWarnView.xib in Resources */,
-				4114E2DF2403A239009891DC /* Configure.plist in Resources */,
+				5A2335CD24ADB22A0067A944 /* Configure.plist in Resources */,
 				D2A61B12229FF0E000D64D71 /* SettingCell.xib in Resources */,
 				3C729CFD24404E7E0034AFA4 /* aelf.umd.js in Resources */,
 				3C9706E722F91B3000551C31 /* MarketManagerTopView.xib in Resources */,

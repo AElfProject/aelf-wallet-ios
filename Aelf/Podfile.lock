@@ -30,46 +30,46 @@ PODS:
     - JJException/Main
     - JJException/Swizzle
   - JJException/Swizzle (0.2.7)
-  - JXSegmentedView (1.0.4)
-  - KafkaRefresh (1.4.7):
-    - KafkaRefresh/Category (= 1.4.7)
-    - KafkaRefresh/Configuration (= 1.4.7)
-    - KafkaRefresh/Core (= 1.4.7)
-    - KafkaRefresh/Default (= 1.4.7)
-    - KafkaRefresh/Style (= 1.4.7)
-    - KafkaRefresh/UIKit (= 1.4.7)
-  - KafkaRefresh/Category (1.4.7)
-  - KafkaRefresh/Configuration (1.4.7):
+  - JXSegmentedView (1.1.0)
+  - KafkaRefresh (1.4.8):
+    - KafkaRefresh/Category (= 1.4.8)
+    - KafkaRefresh/Configuration (= 1.4.8)
+    - KafkaRefresh/Core (= 1.4.8)
+    - KafkaRefresh/Default (= 1.4.8)
+    - KafkaRefresh/Style (= 1.4.8)
+    - KafkaRefresh/UIKit (= 1.4.8)
+  - KafkaRefresh/Category (1.4.8)
+  - KafkaRefresh/Configuration (1.4.8):
     - KafkaRefresh/UIKit/FootKit
     - KafkaRefresh/UIKit/HeadKit
-  - KafkaRefresh/Core (1.4.7):
+  - KafkaRefresh/Core (1.4.8):
     - KafkaRefresh/Category
-  - KafkaRefresh/Default (1.4.7):
+  - KafkaRefresh/Default (1.4.8):
     - KafkaRefresh/Style
-  - KafkaRefresh/Style (1.4.7)
-  - KafkaRefresh/UIKit (1.4.7):
-    - KafkaRefresh/UIKit/FootKit (= 1.4.7)
-    - KafkaRefresh/UIKit/HeadKit (= 1.4.7)
-    - KafkaRefresh/UIKit/LayerKit (= 1.4.7)
-  - KafkaRefresh/UIKit/FootKit (1.4.7):
-    - KafkaRefresh/Category
-    - KafkaRefresh/Core
-    - KafkaRefresh/Default
-    - KafkaRefresh/Style
-    - KafkaRefresh/UIKit/LayerKit
-  - KafkaRefresh/UIKit/HeadKit (1.4.7):
+  - KafkaRefresh/Style (1.4.8)
+  - KafkaRefresh/UIKit (1.4.8):
+    - KafkaRefresh/UIKit/FootKit (= 1.4.8)
+    - KafkaRefresh/UIKit/HeadKit (= 1.4.8)
+    - KafkaRefresh/UIKit/LayerKit (= 1.4.8)
+  - KafkaRefresh/UIKit/FootKit (1.4.8):
     - KafkaRefresh/Category
     - KafkaRefresh/Core
     - KafkaRefresh/Default
     - KafkaRefresh/Style
     - KafkaRefresh/UIKit/LayerKit
-  - KafkaRefresh/UIKit/LayerKit (1.4.7):
+  - KafkaRefresh/UIKit/HeadKit (1.4.8):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/LayerKit (1.4.8):
     - KafkaRefresh/Category
     - KafkaRefresh/Default
   - KeychainSwift (19.0.0)
   - Kingfisher (4.10.1)
   - Localize-Swift (3.1.0)
-  - LTMorphingLabel (0.7.0)
+  - LTMorphingLabel (0.8.0)
   - MarqueeLabel (4.0.2)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
@@ -87,7 +87,7 @@ PODS:
   - MYTableViewIndex (0.8.0)
   - "NSObject+Rx (4.4.1)":
     - RxSwift (~> 4.3)
-  - ObjectMapper (3.5.1)
+  - ObjectMapper (3.5.3)
   - Result (4.1.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
@@ -96,7 +96,7 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
-  - Schedule (2.0.3)
+  - Schedule (2.1.0)
   - SnapKit (4.2.0)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
@@ -129,9 +129,9 @@ PODS:
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
-  - Then (2.6.0)
-  - "UITextView+Placeholder (1.3.3)"
-  - UMCAnalytics (6.0.5):
+  - Then (2.7.0)
+  - "UITextView+Placeholder (1.4.0)"
+  - UMCAnalytics (6.1.0):
     - UMCCommon
   - UMCCommon (2.0.1)
   - UMCPush (3.2.4):
@@ -146,10 +146,10 @@ PODS:
 
 DEPENDENCIES:
   - BitcoinKit (~> 1.1.0)
-  - Bugly
-  - Cache
+  - Bugly (= 2.5.2)
+  - Cache (= 5.2.0)
   - Closures
-  - CropViewController
+  - CropViewController (= 2.5.2)
   - DZNEmptyDataSet
   - ESTabBarController-swift
   - FoldingCell
@@ -191,7 +191,7 @@ DEPENDENCIES:
   - WKWebViewJavascriptBridge (~> 1.2.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/CocoaPods/Specs:
     - Alamofire
     - BitcoinKit
     - Bugly
@@ -256,23 +256,23 @@ SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   JJException: 6d987840193b7ef59e778d41bca463401a80a79b
-  JXSegmentedView: b278b4c5d4c4c2982b4e084cef76ff1ddd37c6a5
-  KafkaRefresh: a7962ea8f03f384c1b545d8c27ac419aa0d5b055
+  JXSegmentedView: 072a2979323f98fc5d0e0e5dc2342549ae8a5c8f
+  KafkaRefresh: aaae4ff23197f2ef38b6b22ca320740beac4bbb4
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Localize-Swift: 4bed4f0ccac8be2ec3517ee359da80ba2adb0fae
-  LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
+  LTMorphingLabel: 1ada1cb5c046ae4ce5c66b428cf2e05e227e8e4f
   MarqueeLabel: f762aa681ae201f66c1d511858b171f75d83013a
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
   MYTableViewIndex: 55d5d8557b3f2a4de270d8c0260b41f3918ba4e3
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
-  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  Schedule: 1d9d3fa36b3522cd2c9ebcf9bbe4c9ef3e58e24a
+  Schedule: 00e6d7bbdbdb000fd1f51a7d10e9f88a8c451fda
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
@@ -280,9 +280,9 @@ SPEC CHECKSUMS:
   SwiftMessages: b577dc7043be8b299857ab35bb663dbff6483bd0
   SwiftyAttributes: e3e13891ddac3c62b3d7798d5c3969cea88e62bb
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
-  Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
-  "UITextView+Placeholder": c407b27599ea23cca425946fee3cf1db5d547008
-  UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
+  Then: acfe0be7e98221c6204e12f8161459606d5d822d
+  "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
+  UMCAnalytics: 3503f179f7af932b30af9ac161ac11fb48fa72b6
   UMCCommon: 0263a057a2e1ae1da4c8308541e56904a493ce13
   UMCPush: 1edd856027dcf905333effb4040ace5d236a7316
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
@@ -291,6 +291,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: aa60cbb1546c4e73a369099700ead0a24eab0bc9
+PODFILE CHECKSUM: 94368b2b1e267a5e9562a2c83a8f26bad08abc2d
 
 COCOAPODS: 1.8.4
