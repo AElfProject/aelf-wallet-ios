@@ -294,6 +294,12 @@
 		41980D7D2400CE82000ECB02 /* DappSearchHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41980D7B2400CE82000ECB02 /* DappSearchHotCell.swift */; };
 		41980D7E2400CE82000ECB02 /* DappSearchHotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41980D7C2400CE82000ECB02 /* DappSearchHotCell.xib */; };
 		5A2335CD24ADB22A0067A944 /* Configure.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A2335CC24ADB22A0067A944 /* Configure.plist */; };
+		5A2335CF24ADB4F30067A944 /* SwitchNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2335CE24ADB4F30067A944 /* SwitchNetworkController.swift */; };
+		5A2335D124ADB51D0067A944 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2335D024ADB51D0067A944 /* NetworkModel.swift */; };
+		5A2335D424ADB53A0067A944 /* SwitchNetworkTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2335D224ADB53A0067A944 /* SwitchNetworkTableCell.xib */; };
+		5A2335D524ADB53A0067A944 /* SwitchNetworkTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2335D324ADB53A0067A944 /* SwitchNetworkTableCell.swift */; };
+		5A2335D824ADB5580067A944 /* CustomNetworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2335D624ADB5580067A944 /* CustomNetworkCell.xib */; };
+		5A2335D924ADB5580067A944 /* CustomNetworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2335D724ADB5580067A944 /* CustomNetworkCell.swift */; };
 		5A2661A9423E0DA5AB50BBDB /* Pods_AelfApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC6304F4AEEB1A9325E3945 /* Pods_AelfApp.framework */; };
 		5A623DCD23BF34250068A8F0 /* ImportPrivateKeyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A623DCC23BF34250068A8F0 /* ImportPrivateKeyController.swift */; };
 		D20CCAA522A522CF00345262 /* QRScannerPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20CCA9F22A522CE00345262 /* QRScannerPermissions.swift */; };
@@ -684,6 +690,12 @@
 		41980D7C2400CE82000ECB02 /* DappSearchHotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DappSearchHotCell.xib; path = AelfApp/Classes/Modules/Discover/Views/DappSearchHotCell.xib; sourceTree = SOURCE_ROOT; };
 		4BE8ED1E8B905400A99CBD1E /* Pods-AelfApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AelfApp.debug.xcconfig"; path = "Target Support Files/Pods-AelfApp/Pods-AelfApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5A2335CC24ADB22A0067A944 /* Configure.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Configure.plist; sourceTree = "<group>"; };
+		5A2335CE24ADB4F30067A944 /* SwitchNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchNetworkController.swift; path = AelfApp/Classes/Modules/Setting/Controllers/SwitchNetworkController.swift; sourceTree = SOURCE_ROOT; };
+		5A2335D024ADB51D0067A944 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkModel.swift; path = AelfApp/Classes/Modules/Setting/Models/NetworkModel.swift; sourceTree = SOURCE_ROOT; };
+		5A2335D224ADB53A0067A944 /* SwitchNetworkTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SwitchNetworkTableCell.xib; path = AelfApp/Classes/Modules/Setting/Views/SwitchNetworkTableCell.xib; sourceTree = SOURCE_ROOT; };
+		5A2335D324ADB53A0067A944 /* SwitchNetworkTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchNetworkTableCell.swift; path = AelfApp/Classes/Modules/Setting/Views/SwitchNetworkTableCell.swift; sourceTree = SOURCE_ROOT; };
+		5A2335D624ADB5580067A944 /* CustomNetworkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomNetworkCell.xib; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.xib; sourceTree = SOURCE_ROOT; };
+		5A2335D724ADB5580067A944 /* CustomNetworkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomNetworkCell.swift; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.swift; sourceTree = SOURCE_ROOT; };
 		5A623DCC23BF34250068A8F0 /* ImportPrivateKeyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportPrivateKeyController.swift; sourceTree = "<group>"; };
 		6E1AA27E93B6AD3020103087 /* Pods-AelfApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AelfApp.release.xcconfig"; path = "Target Support Files/Pods-AelfApp/Pods-AelfApp.release.xcconfig"; sourceTree = "<group>"; };
 		70DB8A204905FA0529A143B8 /* Pods-ALEFAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALEFAPP.debug.xcconfig"; path = "Target Support Files/Pods-ALEFAPP/Pods-ALEFAPP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1311,6 +1323,7 @@
 		3C9DE1EE22967BE200BB8C74 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A2335CE24ADB4F30067A944 /* SwitchNetworkController.swift */,
 				3C9DE20122967C8300BB8C74 /* SettingController.swift */,
 				D20CCAB222A6448D00345262 /* NotificationsController.swift */,
 				3C5CC0DF22CE1EA100BF5CDD /* TransationMessagesController.swift */,
@@ -1641,6 +1654,10 @@
 		D2A61B0D229FF0E000D64D71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A2335D724ADB5580067A944 /* CustomNetworkCell.swift */,
+				5A2335D624ADB5580067A944 /* CustomNetworkCell.xib */,
+				5A2335D324ADB53A0067A944 /* SwitchNetworkTableCell.swift */,
+				5A2335D224ADB53A0067A944 /* SwitchNetworkTableCell.xib */,
 				D225DC5322D75DEA004ED478 /* AElfAlertView.swift */,
 				D225DC5222D75DE7004ED478 /* AElfAlertView.xib */,
 				3C3C5A7222CF2BA90009EF51 /* ShareAlertView.swift */,
@@ -1679,6 +1696,7 @@
 		D2A61B11229FF0E000D64D71 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5A2335D024ADB51D0067A944 /* NetworkModel.swift */,
 				D2F9C00C22AE5BE300E5E597 /* TransationNoteModel.swift */,
 				D2F4874522AF437100DD2902 /* SystemMessageModel.swift */,
 				D2F4876822B341D700DD2902 /* CurrencyModel.swift */,
@@ -1823,6 +1841,7 @@
 				3CF319EE234F46790025F1EE /* TransactionVoucherFooterCell.xib in Resources */,
 				3CDFB86D22B8901E003CC897 /* InputAlertView.xib in Resources */,
 				D2B69C5522A8EC92003A4ADE /* DiscoverGameCell.xib in Resources */,
+				5A2335D424ADB53A0067A944 /* SwitchNetworkTableCell.xib in Resources */,
 				3C86C4FE234C6C1D00D193AD /* ChainListCell.xib in Resources */,
 				3CDFB85822B794DA003CC897 /* AssetShowTypeCell.xib in Resources */,
 				3C97070322F9607600551C31 /* MarketSearchTopView.xib in Resources */,
@@ -1838,6 +1857,7 @@
 				3C9706EB22F91C1100551C31 /* MarketManagerCell.xib in Resources */,
 				3C045A6A22ACEA9D00E0C1E1 /* AssetSortView.xib in Resources */,
 				D2F9239322C200C400BA92CF /* HelpDetailCell.xib in Resources */,
+				5A2335D824ADB5580067A944 /* CustomNetworkCell.xib in Resources */,
 				3C3C5A7322CF2BA90009EF51 /* ShareAlertView.xib in Resources */,
 				3C20350E23A6255D00F95262 /* DappLoginView.xib in Resources */,
 				3C32E8F223A76E370014E482 /* DappTransactionView.xib in Resources */,
@@ -1950,6 +1970,7 @@
 				3C9706BF22F825C200551C31 /* MarketFavouritesController.swift in Sources */,
 				3CCC54FD22B0A62900B7F0C8 /* ActivityIndicator.swift in Sources */,
 				D2F4874822AF449200DD2902 /* MessageViewModel.swift in Sources */,
+				5A2335D524ADB53A0067A944 /* SwitchNetworkTableCell.swift in Sources */,
 				3CA1131B22DC755B0065AA1D /* TestPlanController.swift in Sources */,
 				3C9DE20422967C9100BB8C74 /* AssetController.swift in Sources */,
 				3C9DC30C229FBDD900B3DCA9 /* UIViewController+Ext.swift in Sources */,
@@ -1971,6 +1992,7 @@
 				3C4B94F922A8F361008C8994 /* DiscoverSectionView.swift in Sources */,
 				3C4B94A722A79805008C8994 /* AssetReceiveController.swift in Sources */,
 				3C9706E322F91A9400551C31 /* MarketManagerController.swift in Sources */,
+				5A2335CF24ADB4F30067A944 /* SwitchNetworkController.swift in Sources */,
 				3C9504EB22B9CDD8000AF2E7 /* CrossChainsHeaderView.swift in Sources */,
 				D2348B7922AD04D400DFC84A /* ChargeUnitCell.swift in Sources */,
 				3CE1EF6722D4C782000AABC2 /* String+RSA.swift in Sources */,
@@ -2129,6 +2151,7 @@
 				D20CCAA522A522CF00345262 /* QRScannerPermissions.swift in Sources */,
 				D253D1B822C370DF00CBA855 /* AppUpdateView.swift in Sources */,
 				3C9706E522F91B2300551C31 /* MarketManagerTopView.swift in Sources */,
+				5A2335D124ADB51D0067A944 /* NetworkModel.swift in Sources */,
 				3C72EF5A22D3112B00B17DEC /* VerifyFailedAlertView.swift in Sources */,
 				3CCC550E22B1F1F600B7F0C8 /* AssetList.swift in Sources */,
 				3C8C78D922A50DD800E0AE52 /* MutableCollection+Ext.swift in Sources */,
@@ -2185,6 +2208,7 @@
 				3C8C78D222A4F21900E0AE52 /* WalletConfirmController.swift in Sources */,
 				D2F9239522C2047000BA92CF /* tableHeaderView.swift in Sources */,
 				3C4B94FF22A90434008C8994 /* Chart.swift in Sources */,
+				5A2335D924ADB5580067A944 /* CustomNetworkCell.swift in Sources */,
 				3C71281522FAD28900119D4A /* MarketCoinModel.swift in Sources */,
 				3C9DC312229FBDD900B3DCA9 /* UIView+Ext.swift in Sources */,
 				3CF319E9234F43F10025F1EE /* TransactionVoucherHeaderCell.swift in Sources */,
