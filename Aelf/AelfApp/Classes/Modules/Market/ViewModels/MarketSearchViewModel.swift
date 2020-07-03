@@ -19,6 +19,7 @@ extension MarketSearchViewModel: ViewModelType {
         let searchText: Driver<String>
         let headerRefresh: Observable<Void>
         let footerRefresh: Observable<Void>
+        let loadData: Observable<Void>
     }
     
     struct Output {
@@ -29,35 +30,9 @@ extension MarketSearchViewModel: ViewModelType {
         
         let out = Output()
         
-        //        input.searchText
-        //            .throttle(0.3)
-        //            .distinctUntilChanged()
-        //            .asObservable()
-        //            .flatMapLatest({ [weak self] text -> Observable<MarketModel> in
-        //                guard let self = self else { return Observable.just(MarketModel(JSON: [:])!)}
-        //                self.searchText = text
-        //                self.page = 1
-        //               return self.requestSearchResults()
-        //                                 .trackActivity(self.headerLoading) })
-        //            .map({ $0.list })
-        //            .bind(to: out.items)
-        //            .disposed(by: rx.disposeBag)
-        //
-        //        input.headerRefresh
-        //            .flatMapLatest({ [weak self] () -> Observable<MarketModel> in
-        //                guard let self = self else { return Observable.just(MarketModel(JSON: [:])!)}
-        //                self.page = 1
-        //                return self.requestSearchResults().trackActivity(self.headerLoading) })
-        //            .map({ $0.list })
-        //            .bind(to: out.items)
-        //            .disposed(by: rx.disposeBag)
-        
-        Observable.combineLatest(input.searchText.throttle(0.3).distinctUntilChanged().asObservable(),
-                                 input.headerRefresh)
-            .flatMapLatest({ [weak self] (text,_) -> Observable<MarketModel> in
+        Observable.merge(input.loadData)
+            .flatMapLatest({ [weak self] _ -> Observable<MarketModel> in
                 guard let self = self else { return Observable.just(MarketModel(JSON: [:])!)}
-                self.searchText = text
-                self.page = 1
                 return self.requestSearchResults()
                     .trackActivity(self.headerLoading) })
             .map({ $0.list })
@@ -80,7 +55,7 @@ extension MarketSearchViewModel {
     
     func requestSearchResults() -> Observable<MarketModel> {
         return marketProvider
-            .requestData(.markList(currency: "usd", ids: "", perPage: 20, page: 1, sparkLine: false, priceChangePercentage: ""))
+            .requestData(.coinList)
             .mapObject(MarketModel.self)
             .trackError(self.error)
             .trackActivity(self.loading)

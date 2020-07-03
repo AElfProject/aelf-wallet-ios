@@ -14,17 +14,16 @@ class MarketSearchController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         makeUI()
         bindViewModel()
-        
     }
 
     func bindViewModel() {
 
         let input = MarketSearchViewModel.Input(searchText: searchView.searchField.asDriver(),
                                                 headerRefresh: headerRefreshTrigger,
-                                                footerRefresh: footerRefreshTrigger)
+                                                footerRefresh: footerRefreshTrigger,
+                                                loadData: loadDataTrigger)
         let output = viewModel.transform(input: input)
 
         viewModel.loading.asObservable().bind(to: isLoading).disposed(by: rx.disposeBag)
@@ -50,7 +49,10 @@ class MarketSearchController: BaseTableViewController {
             self?.emptyDataSetDescription.accept("Empty Data".localized())
         }).disposed(by: rx.disposeBag)
 
-        tableView.headRefreshControl.beginRefreshing()
+//        tableView.headRefreshControl.beginRefreshing()
+        //触发币种列表接口
+        self.loadDataTrigger.onNext(())
+//        self?.headerRefreshTrigger.onNext(())
     }
 
     func enterDetailVC(item: MarketCoinModel) {

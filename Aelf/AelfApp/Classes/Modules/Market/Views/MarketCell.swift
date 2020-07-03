@@ -22,7 +22,7 @@ class MarketCell: BaseTableCell {
     var item : MarketCoinModel? {
         didSet {
             guard let item = item else { return }
-            symbol.text = item.name?.uppercased()
+            symbol.text = item.symbol?.uppercased()
             priceLabel.text = App.currencySymbol + String(item.lastPrice ?? "")
             let increase = item.increase?.double() ?? 0.0
             // 返回数据 < 0 带 - 号

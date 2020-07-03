@@ -19,8 +19,8 @@ let marketProvider = MoyaProvider<MarktAPI>(endpointClosure:MoyaProvider.JSONEnd
 enum MarktAPI{
     //市场数据
     case markList(currency: String, ids: String, perPage: Int, page: Int, sparkLine: Bool, priceChangePercentage: String)
-    //币详情
-    case coinDetail(id: String)
+    //币列表
+    case coinList
     //K线数据
     case tradeKline(id: String,currency: String,days: String)
 }
@@ -39,8 +39,8 @@ extension MarktAPI: TargetType {
         switch self {
         case .markList:
             path = "coins/markets"
-        case .coinDetail:
-            path = "coins"
+        case .coinList:
+            path = "coins/list"
         case let .tradeKline(id, _, _):
             path = "coins/" + id + "/market_chart"
             break
@@ -70,8 +70,9 @@ extension MarktAPI: TargetType {
                           "page":page.string,
                           "sparkline":sparkLine.string,
                           "price_change_percentage":priceChangePercentage]
-        case let .coinDetail(id):
-            parameters = ["id":id]
+            break;
+        case .coinList:
+            break
         case let .tradeKline(_, currency, days):
             parameters = [
             "vs_currency":currency,

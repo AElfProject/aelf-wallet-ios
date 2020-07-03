@@ -13,7 +13,7 @@ import ObjectMapper
 class MarketCoinModel : Mappable,TableCodable {
 
     var identifier: String?
-
+    var symbol: String?
     var amount : Float?
     var amountTrans : String?
     var arrow : Int?
@@ -33,13 +33,14 @@ class MarketCoinModel : Mappable,TableCodable {
     var type : Int?
     var vol : String?
     var volTrans : String?
-
+    var marketCapChange: String?
     var favouriteIndex = 0
 
     required init?(map: Map){}
 
     func mapping(map: Map) {
         identifier <- map["id"]
+        symbol <- map["symbol"]
         amount <- map["amount"]
         amountTrans <- (map["total_supply"],MapperString())
         arrow <- map["arrow"]
@@ -53,46 +54,19 @@ class MarketCoinModel : Mappable,TableCodable {
         marketValueTrans <- (map["market_cap_rank"],MapperString())
         maxPrice <- map["high_24h"]
         minPrice <- map["low_24h"]
-        name <- map["symbol"]
+        name <- map["name"]
         nameCn <- map["name_cn"]
         nameEn <- map["name_en"]
         type <- map["type"]
         vol <- map["vol"]
         volTrans <- map["vol_trans"]
+        marketCapChange <- (map["market_cap_change_24h"],MapperString())
     }
-    
-//    {
-//      "market_cap_change_24h" : 1994104293,
-//      "low_24h" : 9127.6499999999996,
-//      "price_change_percentage_24h" : 1.1950499999999999,
-//      "image" : "https:\/\/assets.coingecko.com\/coins\/images\/1\/large\/bitcoin.png?1547033579",
-//      "atl_date" : "2013-07-06T00:00:00.000Z",
-//      "market_cap_rank" : 1,
-//      "market_cap_change_percentage_24h" : 1.1858900000000001,
-//      "market_cap" : 170146572695,
-//      "name" : "Bitcoin",
-//      "total_supply" : 21000000,
-//      "roi" : null,
-//      "id" : "bitcoin",
-//      "symbol" : "btc",
-//      "total_volume" : 17986466524,
-//      "price_change_24h" : 109.08,
-//      "ath_change_percentage" : -53.031889999999997,
-//      "atl" : 67.810000000000002,
-//      "last_updated" : "2020-07-02T03:50:07.432Z",
-//      "circulating_supply" : 18420506,
-//      "ath_date" : "2017-12-16T00:00:00.000Z",
-//      "atl_change_percentage" : 13521.295040000001,
-//      "current_price" : 9236.7299999999996,
-//      "high_24h" : 9287.1100000000006,
-//      "ath" : 19665.389999999999
-//    }
 
     enum CodingKeys :String,CodingTableKey {
-
         typealias Root = MarketCoinModel
         case identifier
-
+        case symbol
         case amount
         case amountTrans
         case arrow
@@ -112,6 +86,7 @@ class MarketCoinModel : Mappable,TableCodable {
         case type
         case vol
         case volTrans
+        case marketCapChange
 
         case favouriteIndex
 

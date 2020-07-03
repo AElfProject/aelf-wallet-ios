@@ -11,16 +11,20 @@ import ObjectMapper
 //MarketDetailModel
 
 class MarketTradeModel: Mappable {
-    var list = [Any]()
+    var list: [Array<Any>]?
     
-    required init?(map: Map){}
+    required init?(map: Map){
+        if map.JSON["prices"] == nil {
+            return nil
+        }
+    }
     
     func mapping(map: Map) {
         list <- map["prices"]
     }
 }
 
-class MarketTradeDetailModel :  Mappable{
+class MarketTradeDetailModel: Mappable{
     
     var createTime = ""
     var last: Double = 0
@@ -28,8 +32,9 @@ class MarketTradeDetailModel :  Mappable{
     required init?(map: Map){}
     
     func mapping(map: Map) {
-        createTime <- map["createTime"]
-        last <- map["last"]
+        let result: Array = map.currentValue as![String]
+        createTime = result[0]
+        last = result[1].double()!
     }
 }
 
