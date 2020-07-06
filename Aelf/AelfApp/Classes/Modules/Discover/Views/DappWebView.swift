@@ -17,6 +17,7 @@ protocol DappWebViewDelegate: AnyObject {
     func dappWebView(_ webView: DappWebView,invokeRead item: DappWebItem)
     func dappWebView(_ webView: DappWebView,api item: DappWebItem) //
     func dappWebView(_ webView: DappWebView,disconnect item: DappWebItem) // 断开连接
+    func dappWebView(_ webView: DappWebView,getContractMethods item: DappWebItem) // 获取合约方法
     
     func dappWebView(_ webView: DappWebView,error: DappError,showText: String) //
     func dappWebView(_ webView: DappWebView,log: String?) //
@@ -216,6 +217,8 @@ extension DappWebView {
             dappDelegate?.dappWebView(self, invokeRead: item)
         case .disconnect:
             dappDelegate?.dappWebView(self, disconnect: item)
+        case .getContractMethods:
+            dappDelegate?.dappWebView(self, getContractMethods: item)
         }
         
     }

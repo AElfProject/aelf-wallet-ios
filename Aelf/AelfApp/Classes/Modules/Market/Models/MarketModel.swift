@@ -103,9 +103,7 @@ import ObjectMapper
 class MarketModel: Mappable {
     var list = [MarketCoinModel]()
 
-    required init?(map: Map){
-        return nil
-    }
+    required init?(map: Map){ }
 
     func mapping(map: Map) {
         list <- map

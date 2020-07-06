@@ -40,7 +40,6 @@ extension MarketViewModel: ViewModelType {
                 if let r = error as? ResultError {
                     SVProgressHUD.showError(withStatus: r.msg)
                 }
-                logDebug(error)
             }).disposed(by: rx.disposeBag)
 
         input.headerRefresh.flatMapLatest { _ -> Observable<[MarketCoinModel]> in
@@ -69,7 +68,7 @@ extension MarketViewModel: ViewModelType {
 extension MarketViewModel {
     func request(sort:Int) -> Observable<[MarketCoinModel]> {
         return marketProvider
-            .requestData(.markList(currency: App.currency, ids: "", perPage: 20, page: self.page, sparkLine: false, priceChangePercentage: ""))
+            .requestData(.markList(currency: App.currency, ids:"", perPage: 20, page: self.page))
             .mapObjects(MarketCoinModel.self)
             .trackError(self.error)
             .trackActivity(self.loading)

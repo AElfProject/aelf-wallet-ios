@@ -17,14 +17,14 @@ extension MoyaProvider {
     func requestData(_ target: Target) -> Observable<VResult> {
         
         return Observable.create { [weak self] observer in
-            let cancellableToken = self?.request(target) { [weak self]result in
+            let cancellableToken = self?.request(target) { [weak self] result in
                 switch result {
                 case .success(let value):
                     if (target is MarktAPI){
-                        var result = VResult.init(JSON: [:])
-                        result?.status = value.statusCode
-                        result?.data = self?.nsdataToJSON(data: value.data)
-                        observer.onNext(result!)
+                        var result1 = VResult.init(JSON: [:])
+                        result1?.status = value.statusCode
+                        result1?.data = self?.nsdataToJSON(data: value.data)
+                        observer.onNext(result1!)
                         observer.onCompleted()
                         break;
                     } else {
@@ -52,8 +52,8 @@ extension MoyaProvider {
         do {
             let jsonStr = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
             print(jsonStr as Any)
-            return try JSONSerialization.jsonObject(with: data, options: .init()) as? AnyObject
-            // return try JSONSerialization.jsonObject(with: data as Data, options: .mutableContainers) as AnyObject
+            return try JSONSerialization.jsonObject(with: data, options: .init()) as AnyObject
+//             return try JSONSerialization.jsonObject(with: data as Data, options: .mutableContainers) as AnyObject
         } catch {
             print("error!")
         }

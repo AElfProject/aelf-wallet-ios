@@ -18,7 +18,7 @@ let marketProvider = MoyaProvider<MarktAPI>(endpointClosure:MoyaProvider.JSONEnd
 
 enum MarktAPI{
     //市场数据
-    case markList(currency: String, ids: String, perPage: Int, page: Int, sparkLine: Bool, priceChangePercentage: String)
+    case markList(currency: String, ids: String, perPage: Int, page: Int)
     //币列表
     case coinList
     //K线数据
@@ -48,6 +48,7 @@ extension MarktAPI: TargetType {
         path += "?lang=\(App.languageID ?? "")"
         return path
     }
+    
     var method: Moya.Method {
         switch self {
         default:
@@ -62,14 +63,12 @@ extension MarktAPI: TargetType {
     var task: Task {
         var parameters = [String:String]()
         switch self {
-        case let .markList(currency, ids, perPage, page, sparkLine, priceChangePercentage):
+        case let .markList(currency, ids, perPage, page):
             parameters = ["vs_currency":currency,
                           "ids":ids,
                           "order":"market_cap_desc",
                           "per_page":perPage.string,
-                          "page":page.string,
-                          "sparkline":sparkLine.string,
-                          "price_change_percentage":priceChangePercentage]
+                          "page":page.string]
             break;
         case .coinList:
             break
@@ -81,9 +80,7 @@ extension MarktAPI: TargetType {
         }
         
         logInfo("\n \(self.path)\n请求参数：\(parameters)\n")
-        
-//        parameters.addIfNotExist(dict: BaseConfig.baseParameters())
-        
+                
         var headers: [String : String]? {
             return nil
         }

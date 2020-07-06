@@ -89,7 +89,7 @@ class MarketDetailController: BaseStaticTableController {
     @objc func favoriteButtonTapped() {
 
         guard let model = model else { return }
-
+        
         // https://www.jianshu.com/p/d1f5b4ec3a1d
         AudioServicesPlaySystemSound(1519);
         if model.exist() {

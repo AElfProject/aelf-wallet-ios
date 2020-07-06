@@ -328,6 +328,30 @@ extension AElfBrowserView {
         }
     }
     
+    public func dappGetContractMethods(id: String,
+                                       address: String,
+                                       nodeUrl: String,
+                                       appId: String,
+                                       action: String,
+                                       params: Dictionary <String,Any>,
+                                       callback: DappCallback?) {
+        
+        let json =  ["id":id,
+                     "address":address,
+                     "nodeUrl":nodeUrl,
+                     "appId": appId,
+                     "action":action,
+                     "params":params] as [String : Any]
+        logInfo("getContractMethods - 请求参数：\(json)")
+        bridge.call(handlerName: "getContractMethods", data: json) { (result) in
+            guard let result = result as? String, let transfer = DappResult(JSONString: result) else {
+                callback?(nil)
+                return
+            }
+            callback?(transfer)
+        }
+    }
+    
     
     public func generalKeyPair(callback: KeyPairCallback?) {
         bridge.call(handlerName: "generalKeyPair", data: nil) { result in
