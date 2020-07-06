@@ -1,0 +1,6 @@
+framework module JJException {
+  umbrella header "JJException-umbrella.h"
+
+  export *
+  module * { export * }
+}
