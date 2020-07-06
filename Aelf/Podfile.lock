@@ -191,7 +191,7 @@ DEPENDENCIES:
   - WKWebViewJavascriptBridge (~> 1.2.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Alamofire
     - BitcoinKit
     - Bugly
@@ -218,10 +218,7 @@ SPEC REPOS:
     - MYTableViewIndex
     - "NSObject+Rx"
     - ObjectMapper
-    - Result
-    - RxCocoa
     - RxDataSources
-    - RxSwift
     - Schedule
     - SnapKit
     - SQLiteRepairKit
@@ -233,13 +230,18 @@ SPEC REPOS:
     - Then
     - "UITextView+Placeholder"
     - UMCAnalytics
-    - UMCCommon
     - UMCPush
     - Validator
     - ViewAnimator
     - WCDB.swift
     - WCDBOptimizedSQLCipher
     - WKWebViewJavascriptBridge
+  trunk:
+    - Moya
+    - Result
+    - RxCocoa
+    - RxSwift
+    - UMCCommon
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -291,6 +293,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   WKWebViewJavascriptBridge: 43c5948c08c29b8777530d512d02eb921ca0881f
 
-PODFILE CHECKSUM: aa60cbb1546c4e73a369099700ead0a24eab0bc9
+PODFILE CHECKSUM: 277cc011609644f2f2e350753463d1a96865a05b
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

@@ -24,16 +24,16 @@ private enum APIEnv: Int {
         case .dev:
 //            http://1.119.195.50:11177/app/elf/chain?lang=zh-cn
 //            return "https://hp-pre-wallet.aelf.io/"
-            return "http://1.119.195.50:11177/"
+            return "https://wallet-app-api-test.aelf.io/"
         case .test:
 //            return "http://aelf.phpdl.com/"
-            return "http://1.119.195.50:11177/"
+            return "https://wallet-app-api-test.aelf.io/"
         case .staging:
 //            return "https://hp-pre-wallet.aelf.io/"
-            return "http://1.119.195.50:11177/"
+            return "https://wallet-app-api-test.aelf.io/"
         case .prodcution:
 //            return "http://aelf.phpdl.com/"
-            return "http://1.119.195.50:11177/"
+            return "https://wallet-app-api-test.aelf.io/"
         }
     }
 
