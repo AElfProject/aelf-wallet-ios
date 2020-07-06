@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 git clone https://github.com/AElfProject/aelf-wallet-ios.git Pods-only
-cd Pods
+cd Pods-only
 git checkout pods-only
 mv Pods ../
 cd ../
