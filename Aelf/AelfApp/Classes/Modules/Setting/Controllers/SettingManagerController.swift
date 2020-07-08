@@ -48,6 +48,7 @@ class SettingManagerController: BaseStaticTableController {
         
         loadData()
     }
+    
     func loadData(){
         
         languageValueLabel.text = App.languageName
@@ -55,6 +56,15 @@ class SettingManagerController: BaseStaticTableController {
         assetValueLabel.text = App.assetMode.stringValue
         privateSwitch.isOn = App.isPrivateMode
         identificationSwitch.isOn = App.isBiometricIdentification
+        
+        let network: String = UserDefaults.standard.string(forKey: "kNetwork") ?? ""
+        if network == "https://wallet-app-api-test.aelf.io/" {
+            networkLabel.text = "默认配置"
+        } else if network == "http://1.119.195.50:" {
+            networkLabel.text = "测试网"
+        } else {
+            networkLabel.text = network
+        }
         
         tableView.reloadData()
     }
@@ -69,12 +79,10 @@ class SettingManagerController: BaseStaticTableController {
         languageTitleLabel.text = "Language".localized()
         currencyTitleLabel.text = "Pricing Currency".localized()
         assetDisplayTitleLabel.text = "Asset Display".localized()
-        
     }
     
     
     @IBAction func privateButtonTapped(_ sender: UIButton) {
-        
         privateSwitch.toggle()
         App.isPrivateMode = privateSwitch.isOn
         logInfo("IsOn: \(privateSwitch.isOn)")
@@ -102,7 +110,6 @@ class SettingManagerController: BaseStaticTableController {
                                 SVProgressHUD.showSuccess(withStatus: "Closed".localized())
             }
         } else {
-            
             SecurityWarnView.show(title: "Do you want to allow AELF Wallet to use biometrics?".localized(),
                                   centerTitle: false,
                                   body: "Using biometrics can be applied to unlock apps and verify payments".localized(),

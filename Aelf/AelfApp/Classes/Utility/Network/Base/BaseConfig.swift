@@ -19,25 +19,27 @@ private enum APIEnv: Int {
     case staging        // 预发布环境
     case prodcution     // 线上环境
 
+//    let network = UserDefaults.standard.string(forKey: "kNetwork")
+    
     var appHost: String {
         switch self {
         case .dev:
 //            http://1.119.195.50:11177/app/elf/chain?lang=zh-cn
 //            return "https://hp-pre-wallet.aelf.io/"
 //            return "http://3.25.10.185:8000"
-            return "https://wallet-app-api-test.aelf.io/"
+            return UserDefaults.standard.string(forKey: "kNetwork") ?? "https://wallet-app-api-test.aelf.io/"
         case .test:
 //            return "http://aelf.phpdl.com/"
 //            return "http://3.25.10.185:8000"
-            return "https://wallet-app-api-test.aelf.io/"
+            return UserDefaults.standard.string(forKey: "kNetwork") ?? "https://wallet-app-api-test.aelf.io/"
         case .staging:
 //            return "https://hp-pre-wallet.aelf.io/"
 //            return "http://3.25.10.185:8000"
-            return "https://wallet-app-api-test.aelf.io/"
+            return UserDefaults.standard.string(forKey: "kNetwork") ?? "https://wallet-app-api-test.aelf.io/"
         case .prodcution:
 //            return "http://aelf.phpdl.com/"
 //            return "http://3.25.10.185:8000"
-            return "https://wallet-app-api-test.aelf.io/"
+            return UserDefaults.standard.string(forKey: "kNetwork") ?? "https://wallet-app-api-test.aelf.io/"
         }
     }
 

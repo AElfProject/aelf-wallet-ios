@@ -84,7 +84,6 @@ class MarketDetailModel : Mappable{
         turnoverRate <- map["turnover_rate"]
         vol <- map["vol"]
         volTrans <- map["vol_trans"]
-        
         usdToCNY <- map["usd_cny"]
     }
 }

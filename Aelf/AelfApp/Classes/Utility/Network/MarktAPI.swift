@@ -18,7 +18,7 @@ let marketProvider = MoyaProvider<MarktAPI>(endpointClosure:MoyaProvider.JSONEnd
 
 enum MarktAPI{
     //市场数据
-    case markList(currency: String, ids: String, perPage: Int, page: Int)
+    case markList(currency: String, ids: String, order: Int, perPage: Int, page: Int)
     //币列表
     case coinList
     //K线数据
@@ -63,10 +63,25 @@ extension MarktAPI: TargetType {
     var task: Task {
         var parameters = [String:String]()
         switch self {
-        case let .markList(currency, ids, perPage, page):
+        case let .markList(currency, ids, order, perPage, page):
+            // =0价格倒序 =1价格正序 =2涨幅倒序 =3跌幅正序
+            var orderPx:String = "gecko_desc"
+            
+            switch order {
+            case 0:
+                orderPx = "price_desc"
+            case 1:
+                orderPx = "price_asc"
+            case 2:
+                orderPx = "market_cap_desc"
+            case 3:
+                orderPx = "market_cap_desc"
+            default:
+                orderPx = "market_cap_desc"
+            }
             parameters = ["vs_currency":currency,
                           "ids":ids,
-                          "order":"market_cap_desc",
+                          "order":orderPx,
                           "per_page":perPage.string,
                           "page":page.string]
             break;

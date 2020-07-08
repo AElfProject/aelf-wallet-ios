@@ -9,43 +9,81 @@
 import Foundation
 
 class MarketSearchViewModel: ViewModel {
-    
     private var searchText: String?
 }
 
 extension MarketSearchViewModel: ViewModelType {
-    
+        
     struct Input {
         let searchText: Driver<String>
-        let headerRefresh: Observable<Void>
-        let footerRefresh: Observable<Void>
+//        let headerRefresh: Observable<Void>
+//        let footerRefresh: Observable<Void>
         let loadData: Observable<Void>
+        let loadCoinData: Observable<Void>
     }
     
-    struct Output {
+    class Output {
         let items = BehaviorRelay<[MarketCoinModel]>(value: [])
+        var coinItems = BehaviorRelay<[MarketCoinListModel]>(value: [])
     }
     
     func transform(input: MarketSearchViewModel.Input) -> MarketSearchViewModel.Output {
         
         let out = Output()
+        var totalIds:String = ""
         
-        Observable.merge(input.loadData)
-            .flatMapLatest({ [weak self] _ -> Observable<MarketModel> in
-                guard let self = self else { return Observable.just(MarketModel(JSON: [:])!)}
+        Observable.merge(input.loadCoinData)
+            .flatMapLatest({ [weak self] _ -> Observable<[MarketCoinListModel]> in
+                guard let self = self else { return Observable.just([]) }
                 return self.requestSearchResults()
-                    .trackActivity(self.headerLoading) })
-            .map({ $0.list })
-            .bind(to: out.items)
+                    .trackActivity(self.headerLoading)
+            })
+            .bind(to: out.coinItems)
             .disposed(by: rx.disposeBag)
         
-        input.footerRefresh
-            .flatMapLatest({ () -> Observable<MarketModel> in
-                self.page += 1
-                return self.requestSearchResults().trackActivity(self.footerLoading) })
-            .subscribe(onNext: { result in
-                out.items <= out.items.value + result.list
-            }).disposed(by: rx.disposeBag)
+//        Observable.merge(input.loadData)
+//            .flatMapLatest({ [weak self] _ -> Observable<[MarketCoinModel]> in
+//                guard let self = self else { return Observable.just([]) }
+//
+//                return self.loadSearchCoinResult(ids: )
+//                    .trackActivity(self.headerLoading)
+//            })
+//            .map({ $0 })
+//            .bind(to: out.items)
+//            .disposed(by: rx.disposeBag)
+
+        input.searchText
+            .throttle(1)
+            .distinctUntilChanged()
+            .map({ [weak self] value -> String? in
+                guard self != nil else {return ""}
+                
+                var ids: String = ""
+                for model:MarketCoinListModel in out.coinItems.value {
+                    if (model.symbol?.contains(value))! {
+                        ids = ids + model.name! + ","
+                    }
+                }
+                totalIds = ids
+                return ids
+            })
+            .asObservable()
+            .flatMapLatest({ [weak self] _ -> Observable<[MarketCoinModel]> in
+                guard self != nil else { return Observable.just([]) }
+//                if totalIds.length > 0 { totalIds.remove(at: totalIds.index(before: totalIds.endIndex)) }
+                return self!.loadSearchCoinResult(ids: totalIds)
+                    .trackActivity(self!.headerLoading)
+            })
+            .bind(to: out.items)
+            .disposed(by: rx.disposeBag)
+            
+//        input.footerRefresh
+//            .flatMapLatest({ () -> Observable<MarketModel> in
+//                self.page += 1
+//                return self.requestSearchResults().trackActivity(self.footerLoading) })
+//            .subscribe(onNext: { result in
+//                out.items <= out.items.value + result.list
+//            }).disposed(by: rx.disposeBag)
         
         return out
     }
@@ -53,11 +91,28 @@ extension MarketSearchViewModel: ViewModelType {
 
 extension MarketSearchViewModel {
     
-    func requestSearchResults() -> Observable<MarketModel> {
+    func requestSearchResults() -> Observable<[MarketCoinListModel]> {
         return marketProvider
             .requestData(.coinList)
-            .mapObject(MarketModel.self)
+            .mapObjects(MarketCoinListModel.self)
             .trackError(self.error)
             .trackActivity(self.loading)
+    }
+    
+    func loadSearchCoinResult(ids: String) -> Observable<[MarketCoinModel]> {
+//        let items = MarketCoinModel.getCoins() ?? []
+        
+        // 多个 coin name 以逗号拼接
+//        let ids = items.map({ $0.identifier?.lowercased() }).compactMap({ $0 }).joined(separator: ",")
+        
+        if ids.length == 0 {
+            return Observable.just([])
+        } else {
+            return marketProvider
+                .requestData(.markList(currency: App.currency, ids: ids, order: -1, perPage: 10, page: self.page))
+                .mapObjects(MarketCoinModel.self)
+                .trackError(self.error)
+                .trackActivity(self.loading)
+        }
     }
 }
