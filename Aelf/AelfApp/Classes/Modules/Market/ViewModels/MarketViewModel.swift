@@ -34,7 +34,7 @@ extension MarketViewModel: ViewModelType {
             self.page = 1
             SVProgressHUD.show()
             return self.request(sort: t)}.subscribe(onNext: { result in
-                //对数据进行排序操作
+                
                 if input.sortType.value > 1 {
                     let array = result.sorted { (a, b) -> Bool in
                         if input.sortType.value == 2 {
@@ -44,9 +44,20 @@ extension MarketViewModel: ViewModelType {
                         }
                     }
                     output.items <= array
+                } else if input.sortType.value == 1 {
+                    let array = result.sorted { (a, b) -> Bool in
+                        return (a.lastPrice! as NSString).doubleValue < (b.lastPrice! as NSString).doubleValue
+                    }
+                    output.items <= array
+                } else if input.sortType.value == 0 {
+                    let array = result.sorted { (a, b) -> Bool in
+                        return (a.lastPrice! as NSString).doubleValue > (b.lastPrice! as NSString).doubleValue
+                    }
+                    output.items <= array
                 } else {
                     output.items <= result
                 }
+                
                 SVProgressHUD.dismiss()
             }, onError: { error in
                 if let r = error as? ResultError {
@@ -70,6 +81,16 @@ extension MarketViewModel: ViewModelType {
                         }
                     }
                     output.items <= array
+                } else if input.sortType.value == 1 {
+                    let array = result.sorted { (a, b) -> Bool in
+                        return (a.lastPrice! as NSString).doubleValue < (b.lastPrice! as NSString).doubleValue
+                    }
+                    output.items <= array
+                } else if input.sortType.value == 0 {
+                    let array = result.sorted { (a, b) -> Bool in
+                        return (a.lastPrice! as NSString).doubleValue > (b.lastPrice! as NSString).doubleValue
+                    }
+                    output.items <= array
                 } else {
                     output.items <= result
                 }
@@ -81,11 +102,6 @@ extension MarketViewModel: ViewModelType {
             return self.request(sort: sortType).trackActivity(self.footerLoading)
         }.subscribe(onNext: { result in
             //分页
-//            output.items <=  output.items.value + result
-            
-//            let array = (output.items.value + result).sorted { (a, b) -> Bool in
-//                return (a.increase! as NSString).doubleValue > (b.increase! as NSString).doubleValue
-//            }
             
             if input.sortType.value > 1 {
                 let array = (output.items.value + result).sorted { (a, b) -> Bool in
@@ -96,10 +112,19 @@ extension MarketViewModel: ViewModelType {
                     }
                 }
                 output.items <= array
+            } else if input.sortType.value == 1 {
+                let array = result.sorted { (a, b) -> Bool in
+                    return (a.lastPrice! as NSString).doubleValue < (b.lastPrice! as NSString).doubleValue
+                }
+                output.items <= array
+            } else if input.sortType.value == 0 {
+                let array = (output.items.value + result).sorted { (a, b) -> Bool in
+                    return (a.lastPrice! as NSString).doubleValue > (b.lastPrice! as NSString).doubleValue
+                }
+                output.items <= array
             } else {
                 output.items <= (output.items.value + result)
             }
-            
         }).disposed(by: rx.disposeBag)
         return output
     }

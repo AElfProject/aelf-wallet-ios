@@ -140,9 +140,11 @@ extension SettingController:UITableViewDataSource,UITableViewDelegate {
         let item = dataSource[indexPath.row]
         let cell  = tableView.dequeueReusableCell(withClass: SettingCell.self)
         cell.settingLabel.text = item.title
-        cell.pointLabel.text = item.point.string
-        cell.pointLabel.isHidden = item.point == 0
         
+        if indexPath.row == 2 {
+            cell.pointLabel.text = self.unReadCount.string
+            cell.pointLabel.isHidden = self.unReadCount == 0
+        }
         return cell
     }
     

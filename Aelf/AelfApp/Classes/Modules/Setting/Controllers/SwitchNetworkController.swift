@@ -160,7 +160,6 @@ extension SwitchNetworkController : UITableViewDelegate,UITableViewDataSource {
                         }
                     }
                 }
-                
             }).disposed(by: rx.disposeBag)
             view.addSubview(confirmBtn)
             confirmBtn.snp_makeConstraints { (make) in

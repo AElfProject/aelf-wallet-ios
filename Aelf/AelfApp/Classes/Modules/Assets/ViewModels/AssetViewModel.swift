@@ -67,7 +67,10 @@ extension AssetViewModel: ViewModelType {
     func totalPrice(assets: [AssetItem]) -> NSAttributedString {
         
         func resultAttribute(total: String) -> NSAttributedString {
-            let totalAtt = total.withFont(.systemFont(ofSize: 26,
+            
+            let totalNum = classfuncdeleteInvalidNum(num: total)
+            
+            let totalAtt = totalNum.withFont(.systemFont(ofSize: 26,
                                                       weight: .semibold)).withTextColor(.white)
             let currencyAtt = (" " + App.currency).withFont(.systemFont(ofSize: 16,weight: .semibold)).withTextColor(.white)
             totalAtt.append(currencyAtt)
@@ -85,6 +88,28 @@ extension AssetViewModel: ViewModelType {
 
         return resultAttribute(total: total.format(maxDigits: 8, mixDigits: 8))
     }
+    
+    func classfuncdeleteInvalidNum(num: String) -> String {
+        var outNumber = num
+        var i = 1
+        if num.contains(".") {
+            while i < num.count {
+                if outNumber.hasPrefix("0") {
+                    outNumber.remove(at: outNumber.index(before: outNumber.endIndex))
+                    i = i + 1
+                } else {
+                    break
+                }
+            }
+            if outNumber.hasSuffix(".") {
+                outNumber.remove(at: outNumber.index(before: outNumber.endIndex))
+            }
+            return outNumber
+        } else {
+            return num
+        }
+    }
+
     
     func requestAssets(address: String) -> Observable<[AssetItem]> {
         

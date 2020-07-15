@@ -35,8 +35,11 @@ extension MarketSearchViewModel: ViewModelType {
         Observable.merge(input.loadCoinData)
             .flatMapLatest({ [weak self] _ -> Observable<[MarketCoinListModel]> in
                 guard let self = self else { return Observable.just([]) }
-                return self.requestSearchResults()
-                    .trackActivity(self.headerLoading)
+                
+                let list: Observable<[MarketCoinListModel]> = self.requestSearchResults()
+                .trackActivity(self.headerLoading)
+                
+                return list
             })
             .bind(to: out.coinItems)
             .disposed(by: rx.disposeBag)
@@ -54,17 +57,20 @@ extension MarketSearchViewModel: ViewModelType {
 
         input.searchText
             .throttle(1)
-            .distinctUntilChanged()
             .map({ [weak self] value -> String? in
                 guard self != nil else {return ""}
                 
                 var ids: String = ""
-                for model:MarketCoinListModel in out.coinItems.value {
-                    if (model.symbol?.contains(value))! {
-                        ids = ids + model.name! + ","
+                if value.length > 1 {
+                    for model:MarketCoinListModel in out.coinItems.value {
+                        if (model.symbol!.lowercased().hasPrefix(value.lowercased())) && !(model.name.isBlank) {
+                            ids = ids + model.name! + ","
+                            print(ids)
+                        }
                     }
                 }
                 totalIds = ids
+                print(totalIds)
                 return ids
             })
             .asObservable()
@@ -89,6 +95,21 @@ extension MarketSearchViewModel: ViewModelType {
     }
 }
 
+extension String{
+    
+    /// check string cellection is whiteSpace
+    var isBlank : Bool{
+        return allSatisfy({$0.isWhitespace})
+    }
+}
+
+
+extension Optional where Wrapped == String{
+    var isBlank : Bool{
+        return self?.isBlank ?? true
+    }
+}
+
 extension MarketSearchViewModel {
     
     func requestSearchResults() -> Observable<[MarketCoinListModel]> {
@@ -109,7 +130,7 @@ extension MarketSearchViewModel {
             return Observable.just([])
         } else {
             return marketProvider
-                .requestData(.markList(currency: App.currency, ids: ids, order: -1, perPage: 10, page: self.page))
+                .requestData(.markList(currency: App.currency, ids: ids, order: 1, perPage: 100, page: self.page))
                 .mapObjects(MarketCoinModel.self)
                 .trackError(self.error)
                 .trackActivity(self.loading)

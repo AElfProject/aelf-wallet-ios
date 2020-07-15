@@ -63,22 +63,22 @@ extension MarktAPI: TargetType {
     var task: Task {
         var parameters = [String:String]()
         switch self {
-        case let .markList(currency, ids, order, perPage, page):
+        case let .markList(currency, ids, _, perPage, page):
             // =0价格倒序 =1价格正序 =2涨幅倒序 =3跌幅正序
-            var orderPx:String = "gecko_desc"
+            let orderPx:String = "market_cap_desc"
             
-            switch order {
-            case 0:
-                orderPx = "price_desc"
-            case 1:
-                orderPx = "price_asc"
-            case 2:
-                orderPx = "market_cap_desc"
-            case 3:
-                orderPx = "market_cap_desc"
-            default:
-                orderPx = "market_cap_desc"
-            }
+//            switch order {
+//            case 0:
+//                orderPx = "market_cap_desc"
+//            case 1:
+//                orderPx = "market_cap_desc"
+//            case 2:
+//                orderPx = "market_cap_desc"
+//            case 3:
+//                orderPx = "market_cap_desc"
+//            default:
+//                orderPx = "market_cap_desc"
+//            }
             parameters = ["vs_currency":currency,
                           "ids":ids,
                           "order":orderPx,

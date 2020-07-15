@@ -30,25 +30,39 @@ class MarketSearchController: BaseTableViewController {
                                                 loadCoinData: loadCoinDataTrigger)
         let output = viewModel.transform(input: input)
         
+        SVProgressHUD.dismiss()
         let saveTime: Int = UserDefaults.standard.integer(forKey: "kSearchTime")
         if saveTime > 0 {
             //保存了时间戳 延迟一天请求接口
-            let timeStamp = Int(NSDate().timeIntervalSince1970)
-            if timeStamp > (saveTime + 3600 * 24) {
-                self.loadCoinDataTrigger.onNext(())
-            } else {
-                if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
-                    let fileURL = dir.appendingPathComponent(fileName)
-                    do{
-                        let jsonString = try String(contentsOf: fileURL, encoding: .utf8)
-                        //为了代入方法解析,拼接成字典
-                        let str = "{\"list\":" + jsonString + "}"
-                        let list = MarketSearchModel(JSONString: str)!.list
-                        output.coinItems = BehaviorRelay<[MarketCoinListModel]>(value: list)
-                        print(jsonString)
-                    }catch{
-                        print("cant read...")
-                    }
+//            let timeStamp = Int(NSDate().timeIntervalSince1970)
+//            if timeStamp > (saveTime + 3600 * 24) {
+//                self.loadCoinDataTrigger.onNext(())
+//            } else {
+//                if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
+//                    let fileURL = dir.appendingPathComponent(fileName)
+//                    do{
+//                        let jsonString = try String(contentsOf: fileURL, encoding: .utf8)
+//                        //为了代入方法解析,拼接成字典
+//                        let str = "{\"list\":" + jsonString + "}"
+//                        let list = MarketSearchModel(JSONString: str)!.list
+//                        output.coinItems = BehaviorRelay<[MarketCoinListModel]>(value: list)
+//                        print(jsonString)
+//                    }catch{
+//                        print("cant read...")
+//                    }
+//                }
+//            }
+            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
+                let fileURL = dir.appendingPathComponent(fileName)
+                do{
+                    let jsonString = try String(contentsOf: fileURL, encoding: .utf8)
+                    //为了代入方法解析,拼接成字典
+                    let str = "{\"list\":" + jsonString + "}"
+                    let list = MarketSearchModel(JSONString: str)!.list
+                    output.coinItems = BehaviorRelay<[MarketCoinListModel]>(value: list)
+                    print(jsonString)
+                }catch{
+                    print("cant read...")
                 }
             }
         } else {
