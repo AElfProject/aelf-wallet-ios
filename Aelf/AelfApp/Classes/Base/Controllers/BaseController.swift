@@ -14,6 +14,7 @@ class BaseController: UIViewController {
 
     let headerRefreshTrigger = PublishSubject<Void>()
     let footerRefreshTrigger = PublishSubject<Void>()
+    let loadDataTrigger = PublishSubject<Void>()
 
     let emptyDataSetButtonTap = PublishSubject<Void>()
     fileprivate var emptyDataSetTitle = "" // 暂时用不到

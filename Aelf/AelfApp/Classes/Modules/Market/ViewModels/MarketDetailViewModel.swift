@@ -29,8 +29,8 @@ extension MarketDetailViewModel: ViewModelType {
         let dataSource = BehaviorRelay<MarketDetailModel>(value: MarketDetailModel(JSON: [:])!)
         let items = PublishSubject<[MarketSiteModel]>()
 
-        let numberOfSection = BehaviorRelay<Int>(value: 0)
-        let numberSectionOfRow =  BehaviorRelay<Int>(value: 0)
+        let numberOfSection = BehaviorRelay<Int>(value: 1)
+        let numberSectionOfRow =  BehaviorRelay<Int>(value: 6)
         let klineSource = PublishRelay<MarketTradeModel>()
     }
     
@@ -74,11 +74,11 @@ extension MarketDetailViewModel {
             .trackError(self.error)
     }
 
-    func requestData(input: Input) -> Observable<MarketDetailModel> {
-        return marketProvider
-            .requestData(.coinDetail(id: input.name))
-            .mapObject(MarketDetailModel.self)
-            .trackError(self.error)
-            .trackActivity(self.loading)
-    }
+//    func requestData(input: Input) -> Observable<MarketDetailModel> {
+//        return marketProvider
+//            .requestData(.coinDetail(id: input.name))
+//            .mapObject(MarketDetailModel.self)
+//            .trackError(self.error)
+//            .trackActivity(self.loading)
+//    }
 }

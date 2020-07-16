@@ -18,9 +18,9 @@ let marketProvider = MoyaProvider<MarktAPI>(endpointClosure:MoyaProvider.JSONEnd
 
 enum MarktAPI{
     //市场数据
-    case markList(currency: String, ids: String, perPage: Int, page: Int, sparkLine: Bool, priceChangePercentage: String)
-    //币详情
-    case coinDetail(id: String)
+    case markList(currency: String, ids: String, order: Int, perPage: Int, page: Int)
+    //币列表
+    case coinList
     //K线数据
     case tradeKline(id: String,currency: String,days: String)
 }
@@ -39,15 +39,16 @@ extension MarktAPI: TargetType {
         switch self {
         case .markList:
             path = "coins/markets"
-        case .coinDetail:
-            path = "coins"
+        case .coinList:
+            path = "coins/list"
         case let .tradeKline(id, _, _):
             path = "coins/" + id + "/market_chart"
             break
-            path += "?lang=\(App.languageID ?? "")"
         }
+        path += "?lang=\(App.languageID ?? "")"
         return path
     }
+    
     var method: Moya.Method {
         switch self {
         default:
@@ -62,16 +63,30 @@ extension MarktAPI: TargetType {
     var task: Task {
         var parameters = [String:String]()
         switch self {
-        case let .markList(currency, ids, perPage, page, sparkLine, priceChangePercentage):
+        case let .markList(currency, ids, _, perPage, page):
+            // =0价格倒序 =1价格正序 =2涨幅倒序 =3跌幅正序
+            let orderPx:String = "market_cap_desc"
+            
+//            switch order {
+//            case 0:
+//                orderPx = "market_cap_desc"
+//            case 1:
+//                orderPx = "market_cap_desc"
+//            case 2:
+//                orderPx = "market_cap_desc"
+//            case 3:
+//                orderPx = "market_cap_desc"
+//            default:
+//                orderPx = "market_cap_desc"
+//            }
             parameters = ["vs_currency":currency,
                           "ids":ids,
-                          "order":"market_cap_desc",
+                          "order":orderPx,
                           "per_page":perPage.string,
-                          "page":page.string,
-                          "sparkline":sparkLine.string,
-                          "price_change_percentage":priceChangePercentage]
-        case let .coinDetail(id):
-            parameters = ["id":id]
+                          "page":page.string]
+            break;
+        case .coinList:
+            break
         case let .tradeKline(_, currency, days):
             parameters = [
             "vs_currency":currency,
@@ -80,9 +95,7 @@ extension MarktAPI: TargetType {
         }
         
         logInfo("\n \(self.path)\n请求参数：\(parameters)\n")
-        
-//        parameters.addIfNotExist(dict: BaseConfig.baseParameters())
-        
+                
         var headers: [String : String]? {
             return nil
         }
@@ -90,13 +103,6 @@ extension MarktAPI: TargetType {
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
     }
 }
-
-func dicValueString(_ dic:[String : Any]) -> String?{
-    let data = try? JSONSerialization.data(withJSONObject: dic, options: [])
-    let str = String(data: data!, encoding: String.Encoding.utf8)
-    return str
-}
-
 
 #warning("老版本接口设置")
 //enum MarktAPI{

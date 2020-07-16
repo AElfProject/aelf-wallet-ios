@@ -17,6 +17,7 @@ struct VResult: Mappable {
     var data: Any?
 
     init?(map: Map) {
+        
     }
 
     mutating func mapping(map: Map) {
@@ -44,6 +45,7 @@ struct VResult: Mappable {
 extension VResult {
 
     func mapObjects<T: Mappable>(_ map: T.Type,context: MapContext? = nil) throws -> [T] {
+        
         guard self.isOk else { // 接口返回状态错误。
             #if DEUBG // 产品不希望用户看到 `Error`，所以只在 DEBUG 展示方便调试😌。
             throw ResultError.parseError(self.msg ?? ErrorType.serverError.rawValue.localized())
@@ -51,6 +53,7 @@ extension VResult {
             throw ResultError.parseError(self.msg ?? ErrorType.noData.rawValue.localized())
             #endif
         }
+        
         guard let objects = Mapper<T>(context: context).mapArray(JSONObject: self.data) else {
             logInfo("接口数据类型无法解析：\(self)") // 接口返回数据类型错误。
             #if DEUBG
@@ -64,6 +67,7 @@ extension VResult {
     }
 
     func mapObject<T: Mappable>(_ map: T.Type,context: MapContext? = nil) throws -> T {
+        
         guard self.isOk else {
             #if DEUBG
             throw ResultError.parseError(self.msg ?? ErrorType.serverError.rawValue.localized())
@@ -71,6 +75,7 @@ extension VResult {
             throw ResultError.parseError(self.msg ?? ErrorType.noData.rawValue.localized())
             #endif
         }
+        
         guard let object = Mapper<T>(context: context).map(JSONObject: self.data) else {
             logInfo("接口数据无法解析：\(self)")
             #if DEUBG

@@ -18,10 +18,11 @@ extension Response {
         }
         return r
     }
+    
     func toMarketResult() -> VResult {
-           guard let r = try? mapObject(VResult.self) else {
-               return VResult.parseError()
-           }
-           return r
-       }
+        guard let r = try? mapObject(VResult.self) else {
+            return VResult.parseError()
+        }
+        return r
+    }
 }

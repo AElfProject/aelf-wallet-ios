@@ -13,12 +13,12 @@ import AVFoundation
 class SwitchNetworkController: BaseTableViewController {
 
     var dataSource = [NetworkModel]()
-    var isCustom: Bool = false
+    var isCustom: Bool = true
     var ipString: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Switch Network"
+        self.title = "Switch Network".localized()
         
         guard let path = Bundle.main.path(forResource: "network", ofType: "json") else {
             SVProgressHUD.showError(withStatus: "暂无配置地址信息");
@@ -27,7 +27,23 @@ class SwitchNetworkController: BaseTableViewController {
         
         do {
             let jsonString = try String(contentsOfFile: path, encoding: .utf8)
-            let nets:[NetworkModel] = Mapper<NetworkModel>().mapArray(JSONString: jsonString)!
+            var nets:[NetworkModel] = Mapper<NetworkModel>().mapArray(JSONString: jsonString)!
+            let network: String = UserDefaults.standard.string(forKey: "kNetwork") ?? ""
+            
+            if network.length > 0 {
+                for (index,var model) in nets.enumerated() {
+                    if model.url == network {
+                        isCustom = false
+                        model.selected = true
+                    }
+                    nets[index] = model
+                }
+            }
+            
+            if isCustom {
+                ipString = network
+            }
+            
             dataSource = nets
         } catch {
             print("json decode error")
@@ -103,12 +119,48 @@ extension SwitchNetworkController : UITableViewDelegate,UITableViewDataSource {
             }
             
             let confirmBtn = UIButton.init(type: .custom)
-            confirmBtn.setTitle("Confirm", for: .normal)
+            confirmBtn.setTitle("Confirm".localized(), for: .normal)
             confirmBtn.setTitleColor(.white, for: .normal)
             confirmBtn.layer.cornerRadius = 22.5
             confirmBtn.layer.masksToBounds = true
             confirmBtn.backgroundColor = UIColor(hexString: "410F8A")
-            confirmBtn.addTarget(self, action:#selector(comfirmClick(sender:)), for:.touchUpInside)
+            
+//            earchView.cancelButton.rx.tap.subscribe(onNext: { [weak self] _ in
+//                searchView.searchField.resignFirstResponder()
+//                self?.pop()
+//            }).disposed(by: rx.disposeBag)
+            
+//            confirmBtn.addTarget(self, action:#selector(comfirmClick(sender:)), for:.touchUpInside)
+            confirmBtn.rx.tap.subscribe(onNext: { [weak self] _ in
+                
+                if self!.isCustom == true {
+                    if (self?.ipString.length)! <= 0 {
+                        SVProgressHUD.showInfo(withStatus:"请输入自定义地址")
+                        return
+                    }
+                    if (self?.ipString.hasPrefix("http"))! {
+                        if Validate.URL(self!.ipString).isRight {
+                            UserDefaults.standard.setValue(self!.ipString, forKey: "kNetwork")
+                            UserDefaults.standard.synchronize()
+                            self?.navigationController?.popViewController()
+                        } else {
+                            SVProgressHUD.showInfo(withStatus:"输入错误，请重新输入")
+                        }
+                    } else {
+                        SVProgressHUD.showInfo(withStatus:"请输入以http开头的地址")
+                        return
+                    }
+                } else {
+                    for model in self!.dataSource {
+                        if model.selected == true {
+                            UserDefaults.standard.setValue(model.url!, forKey: "kNetwork")
+                            UserDefaults.standard.synchronize()
+                            self?.navigationController?.popViewController()
+                            break;
+                        }
+                    }
+                }
+            }).disposed(by: rx.disposeBag)
             view.addSubview(confirmBtn)
             confirmBtn.snp_makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(50)
@@ -122,13 +174,6 @@ extension SwitchNetworkController : UITableViewDelegate,UITableViewDataSource {
         return nil
     }
     
-    //点击按钮执行的方法
-    @objc func comfirmClick(sender : UIButton) {
-        guard let isRight = try? Validate.IP(ipString) else {
-            SVProgressHUD.showError(withStatus: "ip地址错误")
-        }
-        
-    }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return section == 0 ? 0.5 : 90
@@ -147,6 +192,7 @@ extension SwitchNetworkController : UITableViewDelegate,UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withClass: CustomNetworkCell.self)
             cell.isChoose = isCustom
+            cell.customTF.text = self.ipString
             cell.confirmAction = {(ipStr:String) -> (Void) in
                 self.ipString = ipStr
             }
@@ -207,7 +253,7 @@ enum Validate {
             predicateStr = "^[\\u4e00-\\u9fa5]{4,8}$"
             currObject = str
         case let .URL(str):
-            predicateStr = "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
+            predicateStr = "^(http?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
             currObject = str
         case let .IP(str):
             predicateStr = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"

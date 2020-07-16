@@ -636,6 +636,57 @@
                 }
 
             })
+            
+            //Contract
+            bridge.registerHandler('getContractMethods', function (data, responseCallback) {
+                
+                try {
+                    var resultJson = data;
+                    const aelf = new AElf(new AElf.providers.HttpProvider(resultJson.nodeUrl));
+                    if (!aelf.isConnected()) {
+                        // TODO: 这里补充下异常逻辑
+                        console.log('Blockchain Node is not running or missing connection');
+                        throw Error('Not Connected');
+                    }
+                    
+                    const action = resultJson.action;
+                    const args = resultJson.params || [];
+                    console.log('contractAddress', resultJson.address);
+                    
+                    aelf.chain.contractAt(resultJson.address, {}).then(contractInstance => {
+                        console.log('contract method', Object.keys(contractInstance));
+                        // 返回数据结果
+                        var responseData = {
+                            'data': Object.keys(contractInstance).filter(v => /^[A-Z]/.test(v)).sort(),
+                            'id': resultJson.id,
+                            'success': 1
+                        };
+                        responseCallback(JSON.stringify(responseData));
+
+                    }).catch(error => {
+                        console.log('contractAt catch: ', JSON.stringify(error));
+                        var responseData = {
+                            'err': JSON.stringify(error),
+                            'msg': JSON.stringify(error),
+                            'id': resultJson.id,
+                            'success': -1
+                        }
+                        responseCallback(JSON.stringify(responseData));
+                    });
+                    
+                } catch (error) {
+                    var resultJson = data;
+                    console.log('getContractMethods catch: ', JSON.stringify(error));
+                    var responseData = {
+                        'err': JSON.stringify(error),
+                        'id': resultJson.id,
+                        'msg': JSON.stringify(error),
+                        'success': -1
+                    }
+                    responseCallback(JSON.stringify(responseData));
+                }
+                
+            });
 
             // --------- 
 
@@ -643,7 +694,7 @@
 
                 try {
 
-                    var resultJson = data
+                    var resultJson = data;
                     const wallet = Wallet.getWalletByPrivateKey(resultJson.privateKey);
                     const aelf = new AElf(new AElf.providers.HttpProvider(resultJson.nodeURL));
                     if (!aelf.isConnected()) {
@@ -677,6 +728,29 @@
                             }).catch(error => {
                                 const msg = error.message || error.Error || "unknown error"
                                 var responseData = { 'err': JSON.stringify(msg), 'success': -1, 'data': '' }
+                                responseCallback(JSON.stringify(responseData));
+                            });
+                        }
+                        
+                        if (action === 'getContractMethods') {
+                            contractInstance[resultJson.contractMethod].apply(null, argumentsInput.map(v => v.value)).then(result => {
+                                var responseData = {
+                                    'data': result,
+                                    'id': resultJson.id,
+                                    'success': 1
+                                }
+                                
+                                responseCallback(JSON.stringify(responseData));
+                                console.log('getContractMethods', JSON.stringify(responseData));
+                                
+                            }).catch(error => {
+                                console.log('getContractMethods catch: ', JSON.stringify(error));
+                                var responseData = {
+                                    'err': JSON.stringify(error),
+                                    'id': resultJson.id,
+                                    'msg': JSON.stringify(error),
+                                    'success': -1
+                                }
                                 responseCallback(JSON.stringify(responseData));
                             });
                         }

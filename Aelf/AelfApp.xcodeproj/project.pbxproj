@@ -377,14 +377,10 @@
 		D2F9C00B22AE53AA00E5E597 /* TransationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C00A22AE53AA00E5E597 /* TransationViewModel.swift */; };
 		D2F9C00D22AE5BE300E5E597 /* TransationNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C00C22AE5BE300E5E597 /* TransationNoteModel.swift */; };
 		D2FA90C322A7D7420022F381 /* MarketDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FA90C222A7D7420022F381 /* MarketDetailController.swift */; };
+		D848CD3F24B358FE008F3EF1 /* MarketSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D848CD3E24B358FD008F3EF1 /* MarketSearchModel.swift */; };
+		D848CD4224B422C4008F3EF1 /* FilePathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D848CD4124B422C4008F3EF1 /* FilePathUtils.swift */; };
+		D848CD4424B48BCD008F3EF1 /* network.json in Resources */ = {isa = PBXBuildFile; fileRef = D848CD4324B48BCD008F3EF1 /* network.json */; };
 		D848F07224ADB55300EFC9BD /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D848F07124ADB55300EFC9BD /* NetworkModel.swift */; };
-		D8B5C31E24A89BEE0087A4EB /* SwitchNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C31D24A89BEE0087A4EB /* SwitchNetworkController.swift */; };
-		D8B5C32024A8A9320087A4EB /* SettingManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C31F24A8A9320087A4EB /* SettingManagerController.swift */; };
-		D8B5C32624A8AE260087A4EB /* SwitchNetworkTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C32424A8AE260087A4EB /* SwitchNetworkTableCell.swift */; };
-		D8B5C32724A8AE260087A4EB /* SwitchNetworkTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B5C32524A8AE260087A4EB /* SwitchNetworkTableCell.xib */; };
-		D8B5C34B24A9CC7B0087A4EB /* network.json in Resources */ = {isa = PBXBuildFile; fileRef = D8B5C34A24A9CC7B0087A4EB /* network.json */; };
-		D8B5C35024A9DE780087A4EB /* CustomNetworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C34E24A9DE780087A4EB /* CustomNetworkCell.swift */; };
-		D8B5C35124A9DE780087A4EB /* CustomNetworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8B5C34F24A9DE780087A4EB /* CustomNetworkCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -789,14 +785,10 @@
 		D2F9C00A22AE53AA00E5E597 /* TransationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransationViewModel.swift; sourceTree = "<group>"; };
 		D2F9C00C22AE5BE300E5E597 /* TransationNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransationNoteModel.swift; sourceTree = "<group>"; };
 		D2FA90C222A7D7420022F381 /* MarketDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailController.swift; sourceTree = "<group>"; };
+		D848CD3E24B358FD008F3EF1 /* MarketSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MarketSearchModel.swift; path = AelfApp/Classes/Modules/Market/Models/MarketSearchModel.swift; sourceTree = SOURCE_ROOT; };
+		D848CD4124B422C4008F3EF1 /* FilePathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePathUtils.swift; sourceTree = "<group>"; };
+		D848CD4324B48BCD008F3EF1 /* network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = network.json; path = AelfApp/Resources/network.json; sourceTree = SOURCE_ROOT; };
 		D848F07124ADB55300EFC9BD /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkModel.swift; path = AelfApp/Classes/Modules/Setting/Models/NetworkModel.swift; sourceTree = SOURCE_ROOT; };
-		D8B5C31D24A89BEE0087A4EB /* SwitchNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchNetworkController.swift; path = AelfApp/Classes/Modules/Setting/Controllers/SwitchNetworkController.swift; sourceTree = SOURCE_ROOT; };
-		D8B5C31F24A8A9320087A4EB /* SettingManagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingManagerController.swift; path = AelfApp/Classes/Modules/Setting/Controllers/SettingManagerController.swift; sourceTree = SOURCE_ROOT; };
-		D8B5C32424A8AE260087A4EB /* SwitchNetworkTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchNetworkTableCell.swift; path = AelfApp/Classes/Modules/Setting/Views/SwitchNetworkTableCell.swift; sourceTree = SOURCE_ROOT; };
-		D8B5C32524A8AE260087A4EB /* SwitchNetworkTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SwitchNetworkTableCell.xib; path = AelfApp/Classes/Modules/Setting/Views/SwitchNetworkTableCell.xib; sourceTree = SOURCE_ROOT; };
-		D8B5C34A24A9CC7B0087A4EB /* network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = network.json; path = AelfApp/Resources/network.json; sourceTree = SOURCE_ROOT; };
-		D8B5C34E24A9DE780087A4EB /* CustomNetworkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomNetworkCell.swift; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.swift; sourceTree = SOURCE_ROOT; };
-		D8B5C34F24A9DE780087A4EB /* CustomNetworkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomNetworkCell.xib; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.xib; sourceTree = SOURCE_ROOT; };
 		DB9BEC060865C77E9FC06FD7 /* Pods_ALEFAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ALEFAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1165,6 +1157,7 @@
 		3C9DE1D222967A6000BB8C74 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D848CD4024B422A7008F3EF1 /* FilePathUtils */,
 				3C4B6B052394E62D00575F4D /* Moya+Cache */,
 				3C2910162354459500B0FC07 /* Managers */,
 				D2F4875922B1039000DD2902 /* AELFWallet */,
@@ -1187,6 +1180,7 @@
 		3C9DE1D322967A6000BB8C74 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D848CD4324B48BCD008F3EF1 /* network.json */,
 				5A2335CC24ADB22A0067A944 /* Configure.plist */,
 				3CA1131722DC6E060065AA1D /* Protocols */,
 				D26E21D222BE30760055167A /* HTML */,
@@ -1611,6 +1605,7 @@
 			children = (
 				D2F4875222AF9E4200DD2902 /* MarketDetailModel.swift */,
 				3C9706D022F8363300551C31 /* MarketModel.swift */,
+				D848CD3E24B358FD008F3EF1 /* MarketSearchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1765,6 +1760,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		D848CD4024B422A7008F3EF1 /* FilePathUtils */ = {
+			isa = PBXGroup;
+			children = (
+				D848CD4124B422C4008F3EF1 /* FilePathUtils.swift */,
+			);
+			name = FilePathUtils;
+			path = AelfApp/Classes/Utility/FilePathUtils;
+			sourceTree = SOURCE_ROOT;
+		};
 		E21676D78BD542BD698EE96D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1847,6 +1851,7 @@
 			files = (
 				3C58DF8D23409C6700A469B9 /* TransferDetectedView.xib in Resources */,
 				3C4B6AF52393F47E00575F4D /* minaelf_iOS.html in Resources */,
+				D848CD4424B48BCD008F3EF1 /* network.json in Resources */,
 				3C9CB46C22A6507200F4C281 /* AssetCell.xib in Resources */,
 				D2203EF322A7A20200943497 /* SystemMessageCell.xib in Resources */,
 				3CF319EA234F43F10025F1EE /* TransactionVoucherHeaderCell.xib in Resources */,
@@ -2105,6 +2110,7 @@
 				D2F4876922B341D700DD2902 /* CurrencyModel.swift in Sources */,
 				3C4B94B522A7CC0A008C8994 /* AddAssetController.swift in Sources */,
 				3C4B6B152394EB1000575F4D /* Single+ObjectMapper.swift in Sources */,
+				D848CD3F24B358FE008F3EF1 /* MarketSearchModel.swift in Sources */,
 				3C9DE2772297960A00BB8C74 /* BaseStaticTableController.swift in Sources */,
 				3CB7DAB722A121FA00ADFEF6 /* ImportMnemonicController.swift in Sources */,
 				D2A61B13229FF0E000D64D71 /* SettingCell.swift in Sources */,
@@ -2183,6 +2189,7 @@
 				3C32E8FA23A78F250014E482 /* AELFTransactionBody.swift in Sources */,
 				3CCAB4E222FD7F3100924A55 /* FavouritesTopView.swift in Sources */,
 				3C9DC31B229FE2D100B3DCA9 /* Behavior+Ext.swift in Sources */,
+				D848CD4224B422C4008F3EF1 /* FilePathUtils.swift in Sources */,
 				D2F4875D22B1074C00DD2902 /* WalletAccount.swift in Sources */,
 				D2203EE322A75AE000943497 /* QRCodeUtil.swift in Sources */,
 				3CF319DE234F0C2F0025F1EE /* TransactionVoucherController.swift in Sources */,
@@ -2489,7 +2496,7 @@
 				CODE_SIGN_ENTITLEMENTS = AElfApp/AElfApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LR77E76VJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -2499,7 +2506,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
 				PRODUCT_NAME = "AELF Wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2519,7 +2526,7 @@
 				CODE_SIGN_ENTITLEMENTS = AElfApp/AElfApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LR77E76VJ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -2529,7 +2536,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
 				PRODUCT_NAME = "AELF Wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -24,7 +24,7 @@ class MarketSearchCell: UITableViewCell {
     var item: MarketCoinModel? {
         didSet {
             guard let item = item else { return }
-            nameLabel.text = item.name
+            nameLabel.text = item.symbol?.uppercased()
             priceLabel.text = App.currencySymbol + String(item.lastPrice ?? "")
 
             favouriteButton.isSelected = item.exist()

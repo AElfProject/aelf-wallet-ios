@@ -60,6 +60,7 @@ class MarketContentController: BaseController {
     }
 
     @objc func searchTapped() {
+        SVProgressHUD.show()
         push(controller: MarketSearchController())
     }
 

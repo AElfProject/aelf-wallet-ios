@@ -125,6 +125,10 @@ extension DappWebController: DappWebViewDelegate {
         parseInvokeReadItem(item)
     }
     
+    func dappWebView(_ webView: DappWebView, getContractMethods item: DappWebItem) {
+        parseContractItem(item)
+    }
+    
     func dappWebView(_ webView: DappWebView, error: DappError, showText: String) {
         logInfo("Error: \(showText)\n\(error)")
     }
@@ -426,6 +430,41 @@ extension DappWebController {
         
     }
     
+    
+    func parseContractItem(_ item: DappWebItem) {
+        
+        guard let wallet = wallet else {
+            logInfo("Please sign in".localized())
+            self.sendErrorMessage("Please sign in".localized(),code: 1004, id: item.id)
+            return
+        }
+        guard let params = item.params else {
+            logInfo("缺少 Params ")
+            self.sendErrorMessage("Missing parameters".localized() + ": params",code: 1003, id: item.id)
+            return
+        }
+        params.parseParams(dappPublicKey: wallet.dappPublicKey, callback: { [weak self] (err, json) in
+            guard let self = self else { return }
+            if let err = err {
+                logInfo(err.msg)
+                self.sendErrorMessage(err.msg,code: 1000, id: item.id)
+                return
+            }
+            guard let apiItem = DappAPIItem(JSONString: json) else {
+                logInfo("数据解析失败");
+                self.sendErrorMessage("Data parsing failed".localized(),code: 1002, id: item.id)
+                return
+            }
+            
+            if !self.isValidTime(apiItem.timestamp) {
+                self.sendErrorMessage("Invalid timestamp".localized(),code: 1001, id: item.id)
+                return
+            }
+            
+            self.getContractsMethods(id: item.id, appId: item.appId, action: item.action, address: apiItem.address, item:apiItem)
+        })
+    }
+    
     func showPasswordView(content: String, id: String,callback: @escaping ((String?) -> ())) {
         
         let url = self.item.url
@@ -488,6 +527,41 @@ extension DappWebController {
 
 
 extension DappWebController {
+        
+    func getContractsMethods(id: String, appId: String, action: String, address: String, item: DappAPIItem) {
+        
+        guard let chain = ChainItem.getMainItem() else {
+            GlobalDataManager.shared.checkAndUpdateData()
+            return
+        }
+        let params = ["timestamp":item.timestamp,
+                      "endpoint":item.endpoint,
+                      "address":item.address]
+        let nodeUrl = item.endpoint.length > 0 ? item.endpoint : chain.node.removeSlash()
+        AElfWallet.dappGetContractMethods(id: id,
+                                          address: address,
+                                          nodeUrl:nodeUrl,
+                                          appId: appId,
+                                          action: action,
+                                          params: params)
+        { [weak self] result in
+            guard let result = result else {
+                self?.sendErrorMessage("Data parsing failed".localized(),code: 1002, id: id)
+                return }
+            
+            guard result.isOk else {
+                logInfo("invoke 获取失败：\(result.err)")
+                self?.sendErrorMessage(result.err,code:1000, id: id)
+                return
+            }
+            
+            guard let data = result.data else {
+                self?.sendErrorMessage("Missing parameters".localized() + ": data",code: 1003, id: id)
+                return
+            }
+            self?.sendSuccessMessage(value: data, id: id)
+        }
+    }
     
     func invokeEventHandler(privateKey: String,id: String,action: String, item: DappAPIItem) {
         

@@ -19,7 +19,6 @@ extension DappSearchViewModel: ViewModelType {
         let searchText: Driver<String>
         let items: [DiscoverDapp]
         let headerRefresh: Observable<()>
-        
     }
     
     struct Output {

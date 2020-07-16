@@ -13,7 +13,7 @@ struct NetworkModel: Mappable {
     
     var name: String?
     var nameEn: String?
-    var nodeApi: String?
+    var url: String?
     var walletServer: String?
     var canDelete: Bool?
     var selected: Bool = false
@@ -23,7 +23,7 @@ struct NetworkModel: Mappable {
     mutating func mapping(map: Map) {
         name <- map["name"]
         nameEn <- map["nameEn"]
-        nodeApi <- map["nodeApi"]
+        url <- map["url"]
         walletServer <- map["walletServer"]
         canDelete <- map["canDelete"]
         selected <- map["selected"]

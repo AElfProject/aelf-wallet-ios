@@ -526,10 +526,33 @@ extension AElfWallet {
     
     
     
+    /// Dapp 调获取合约方法名
+    /// - Parameters:
+    ///   - id: 本次调用事件 id
+    ///   - action: 事件类型
+    ///   - params: 参数
+    ///   - callback: 回调
+    static func dappGetContractMethods(id: String,
+                                       address: String,
+                                       nodeUrl: String,
+                                       appId: String,
+                                       action: String,
+                                       params: Dictionary<String, Any>,
+                                       callback: AElfBrowserView.DappCallback?) {
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        appDelegate.browserView.dappGetContractMethods(id: id,
+                                                       address: address,
+                                                       nodeUrl: nodeUrl,
+                                                       appId: appId,
+                                                       action: action,
+                                                       params: params,
+                                                       callback: callback)
+    }
+    
     /// Dapp 调用 js api 方法。
     /// - Parameters:
     ///   - id: 本次调用事件 id
-    ///   - nodeURL: 节点地址
+    ///   - appId: appId
     ///   - action: 事件类型
     ///   - apiPath: api 路径
     ///   - argumentsInput: 传递的参数

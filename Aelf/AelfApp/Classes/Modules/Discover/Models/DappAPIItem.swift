@@ -16,6 +16,7 @@ struct DappAPIItem: Mappable {
     var timestamp = ""
     var contractMethod = ""
     var contractAddress = ""
+    var address = ""
     
     init?(map: Map) {
     }
@@ -27,7 +28,7 @@ struct DappAPIItem: Mappable {
         timestamp <- (map["timestamp"],MapperString())
         contractAddress <- map["contractAddress"]
         contractMethod <- map["contractMethod"]
-        
+        address <- map["address"]
     }
     
     
