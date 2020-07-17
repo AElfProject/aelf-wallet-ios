@@ -88,7 +88,8 @@ class AssetTransferController: BaseController {
                 self.balance = value
             }
             if let f = balance.fee?.first?.fee, let value = f.double() {
-                self.fee = value
+                print(value)
+                self.fee = 0
             }
             
         }).disposed(by: rx.disposeBag)
@@ -96,8 +97,10 @@ class AssetTransferController: BaseController {
         output.chains.subscribe(onNext: { [weak self] (items) in
             guard let self = self else { return }
             self.chains <= items
+           // print(items)
             
             items.forEach({
+                print($0)
                 if $0.name.lowercased() == self.item?.chainID.lowercased() {
                     self.fromItem = $0 //
                     self.toItem = $0 // 默认与发送方一致。
@@ -241,12 +244,12 @@ class AssetTransferController: BaseController {
                 // 上面已经判断了是否支持 toChainID，如果走到这里，则能取到 item
                 guard let item = value.1 else { return }
                 self.toItem = item
-                self.checkToChainFee(item: item) {
+              //  self.checkToChainFee(item: item) {
                     // 检测为跨链，提示跨链弹框
                     TransferDetectedView.show(fromChain: fromChainID, toChain: toChainID) {
                         self.showPasswordAlertView(isCrossChain: true)
                     }
-                }
+              //  }
                 
                 
             }else { // 存在，相等 即为同链
@@ -287,7 +290,7 @@ class AssetTransferController: BaseController {
                                  fromNode: fromNode,
                                  toNode: toNode,
                                  toAddress: toAddress.removeChainID(),
-                                 mainChainID: toItem.issueID,
+                                 mainChainID: issueMainChainID(type: "main"),
                                  issueChainID: issueChainID(symbol: currentSymbol()),
                                  fromTokenContractAddress: fromItem.contractAddress,
                                  fromCrossChainContractAddress: fromItem.crossChainContractAddress,
@@ -513,13 +516,18 @@ extension AssetTransferController {
         guard let fromItem = self.fromItem else { return (false,nil) }
         var isContainer = false
         var item: ChainItem?
+//        chains.value.forEach({
+//            print($0.issueID)
+//        })
         chains.value.forEach({
-            if $0.name.lowercased() == chainID.lowercased() && fromItem.isSupportTransfer(toSymbol: $0.symbol) {
-                isContainer = true
-                item = $0
-            }
-            
-        })
+                   if $0.name.lowercased() == chainID.lowercased() && fromItem.isSupportTransfer(toSymbol: $0.symbol) {
+                       isContainer = true
+                       item = $0
+                       print($0.issueID)
+
+                   }
+                   
+               })
         return (isContainer,item)
     }
     
@@ -527,13 +535,25 @@ extension AssetTransferController {
         
         var id = ""
         self.chains.value.forEach({
+            print($0.issueID)
             if $0.symbol.lowercased() == symbol.lowercased() {
                 id = $0.issueID
+                //break
             }
         })
         return id
     }
-    
+    private func issueMainChainID(type: String) -> String {
+           
+           var id = ""
+           self.chains.value.forEach({
+               print($0.issueID)
+               if $0.type.lowercased() == type.lowercased() {
+                   id = $0.issueID
+               }
+           })
+           return id
+       }
     func currentSymbol() -> String {
         return self.item?.symbol ?? ""
     }
