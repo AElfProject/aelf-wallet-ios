@@ -22,7 +22,9 @@ struct AssetInfo: Mappable {
     var txId : String?
     var logo: String?
     var balance: String?
+    var issueChainId: String?
 
+   
     init?(map: Map) {}
 
     mutating func mapping(map: Map) {
@@ -37,6 +39,9 @@ struct AssetInfo: Mappable {
         txId <- map["tx_id"]
         logo <- map["logo"]
         balance <- map["balance"]
+        issueChainId <- map["issue_chain_id"]
+
+        
     }
     
     func isEqual(item: AssetInfo) -> Bool {
