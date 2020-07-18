@@ -60,7 +60,8 @@ struct AssetItem: Mappable {
     
     var address : String = ""
     var color: String = ""
-    
+    var issueChainId: String = ""
+
     var totalAmount: Double = 0
     var totalPrice: Double = 0
 
@@ -68,6 +69,8 @@ struct AssetItem: Mappable {
     mutating func mapping(map: Map) {
         balance <- (map["balance"],MapperString())
         chainID <- map["chain_id"]
+        issueChainId <- map["issue_chain_id"]
+
         contractAddress <- map["contractAddress"]
         decimals <- map["decimals"]
         expenditure <- map["expenditure"]

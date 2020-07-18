@@ -30,12 +30,18 @@ class AssetTransferController: BaseController {
     let viewModel = AssetTransferViewModel()
     
     let fetchChainsTripper = PublishSubject<Void>()
+    let fetchAllChainsTripper = PublishSubject<Void>()
+
     let chains = BehaviorRelay<[ChainItem]>(value: [])
+    let allChains = BehaviorRelay<[AssetItem]>(value: [])
+
     var item: AssetDetailItem?
     var balance: Double = 0
     var fee: Double = 0
     var task: Task?
-    
+    var mainID: String = ""
+    var issueID: String = ""
+
     var fromItem: ChainItem?
     var toItem: ChainItem?
     
@@ -75,7 +81,8 @@ class AssetTransferController: BaseController {
                                                  contractAddress: item.contractAddress,
                                                  chainID: item.chainID,
                                                  refreshData: headerRefresh(),
-                                                 fetchChains: Observable.of(Observable.just(()), fetchChainsTripper).merge())
+                                                 fetchChains: Observable.of(Observable.just(()), fetchChainsTripper).merge(),
+                                              fetchAllChains:Observable.of(Observable.just(()), fetchAllChainsTripper).merge())
         let output = viewModel.transform(input: input)
         
         output.balance.subscribe(onNext: { [weak self] balance in
@@ -107,7 +114,19 @@ class AssetTransferController: BaseController {
                 }
             })
         }).disposed(by: rx.disposeBag)
-        
+        output.allChains.subscribe(onNext: { [weak self] (items) in
+                guard let self = self else { return }
+                self.allChains <= items
+                items.forEach({
+                    print($0)
+                    if $0.chainID.lowercased() == self.item?.chainID.lowercased() {
+                        self.issueID = $0.issueChainId
+                        self.mainID = $0.chainID
+                       // var issueChainId: String = ""
+
+                    }
+                })
+            }).disposed(by: rx.disposeBag)
         viewModel.parseError.subscribe(onNext: { e in
             logDebug(e)
             if let msg = e.msg {
@@ -290,8 +309,8 @@ class AssetTransferController: BaseController {
                                  fromNode: fromNode,
                                  toNode: toNode,
                                  toAddress: toAddress.removeChainID(),
-                                 mainChainID: issueMainChainID(type: "main"),
-                                 issueChainID: issueChainID(symbol: currentSymbol()),
+                                 mainChainID: self.mainID,
+                                 issueChainID: self.issueID,
                                  fromTokenContractAddress: fromItem.contractAddress,
                                  fromCrossChainContractAddress: fromItem.crossChainContractAddress,
                                  toTokenContractAddress: toItem.contractAddress,

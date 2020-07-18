@@ -24,6 +24,7 @@ struct ChainItem: Mappable,TableCodable {
     var contractAddress = ""
     var explorer = ""
     var issueID = ""
+    var issueChainId = ""
     var crossChainContractAddress = ""
     var transferCoins = "" // 支持的交易币种
 
@@ -40,6 +41,8 @@ struct ChainItem: Mappable,TableCodable {
         contractAddress <- map["contract_address"]
         explorer <- map["explorer"]
         issueID <- map["issueid"]
+        issueChainId <- map["issue_chain_id"]
+
         crossChainContractAddress <- map["crossChainContractAddress"]
         transferCoins <- map["transferCoins"]
     }
