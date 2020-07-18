@@ -200,6 +200,10 @@
 "Pricing Currency" = "货币类型";
 "Asset Display" = "资产展示";
 "Switch Network" = "网络选择";
+"Default Network" = "默认网络";
+"Custom Network" = "自定义网络";
+"default" = "默认配置";
+"testnet" = "测试网";
 "When turn on" = "当打开隐私模式时，钱包中的资产和金额将被隐藏";
 "Biometric Identification" = "生物识别";
 "Face ID or Touch ID" = "面部识别或触摸识别";
@@ -470,3 +474,9 @@
 
 "Do you want to allow AELF Wallet to use biometrics?" = "您要允许\“AELF Wallet\”使用生物识别吗？";
 "Using biometrics can be applied to unlock apps and verify payments" = "使用生物识别可应用于解锁应用和验证支付";
+
+"No configuration address information" = "暂无配置地址信息";
+"Custom address" = "自定义网络";
+"Please enter a custom address" = "请输入自定义地址";
+"Input errors, please re-enter" = "输入错误，请重新输入";
+"Please enter an address beginning with http" = "请输入以http开头的地址";

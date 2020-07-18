@@ -201,12 +201,9 @@
 "Pricing Currency" = "Pricing Currency";
 "Asset Display" = "Asset Display";
 "Switch Network" = "Switch Network";
-"When turn on" = "When turn on private mode, the assets and amount in wallet will be hidden.";
-"Biometric Identification" = "Biometric Identification";
-"Face ID or Touch ID" = "Face ID or Touch ID";
-"Please save your QR code" = "Please save your QR code properly. If your phone is lost, stolen or damaged, QR Code could recover your assets.";
-"Restore Identity" = "Restore Identity";
-"Save to Photo Album" = "Save to Photo Album";
+"Default Network" = "Default Network";
+"default" = "default";
+"testnet" = "testnet";
 "Photo Album" = "Photo Album";
 "Backup Notes" = "Backup Notes";
 "Version Log" = "Version Log";
@@ -471,3 +468,8 @@
 "Do you want to allow AELF Wallet to use biometrics?" = "Do you want to allow \"AELF Wallet\" to use biometrics?";
 
 "Using biometrics can be applied to unlock apps and verify payments" = "Using biometrics can be applied to unlock apps and verify payments";
+
+"No configuration address information" = "No configuration address information";
+"Please enter a custom address" = "Please enter a custom address";
+"Input errors, please re-enter" = "Input errors, please re-enter";
+"Please enter an address beginning with http" = "Please enter an address beginning with http";
