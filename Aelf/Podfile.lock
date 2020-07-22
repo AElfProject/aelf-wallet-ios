@@ -191,7 +191,7 @@ DEPENDENCIES:
   - WKWebViewJavascriptBridge (~> 1.2.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/CocoaPods/Specs:
     - Alamofire
     - BitcoinKit
     - Bugly
@@ -293,4 +293,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: aa60cbb1546c4e73a369099700ead0a24eab0bc9
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.8.4
