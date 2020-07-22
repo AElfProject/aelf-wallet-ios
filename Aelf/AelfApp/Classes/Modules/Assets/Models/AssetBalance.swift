@@ -15,8 +15,8 @@ struct AssetBalance: Mappable {
     var transactionId : String?
     var balance : AssetBalanceItem?
     var fee : [AssetFee]?
-    var rate : AssetRate?
-    var usdRate : AssetRate?
+   // var rate : AssetRate?
+  //  var usdRate : AssetRate?
 
     init?(map: Map){}
 
@@ -25,11 +25,11 @@ struct AssetBalance: Mappable {
         transactionId <- map["TransactionId"]
         balance <- map["balance"]
         fee <- map["fee"]
-        rate <- map["rate"]
-        usdRate <- map["usd_rate"]
+     //   rate <- map["rate"]
+      //  usdRate <- map["usd_rate"]
     }
 
-    func detailTitle() -> NSAttributedString {
+    func detailTitle(price: Double) -> NSAttributedString {
 
         if App.isPrivateMode {
             let att = "*****".withFont(.systemFont(ofSize: 26, weight: .semibold)).withTextColor(.white)
@@ -41,7 +41,7 @@ struct AssetBalance: Mappable {
 
         let usdTotal: Double = (balance?.balance?.double() ?? 0.00)
 
-        let totalPrice = (balance?.balance?.double() ?? 0) * (rate?.price.double() ?? 0)
+        let totalPrice = (balance?.balance?.double() ?? 0) * price
 
         let balanceAtt = "\(usdTotal.format(maxDigits: 2))".withFont(.systemFont(ofSize: 26, weight: .semibold)).withTextColor(.white)
 

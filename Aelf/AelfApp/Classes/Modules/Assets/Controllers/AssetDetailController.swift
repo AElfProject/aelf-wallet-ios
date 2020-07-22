@@ -54,9 +54,9 @@ class AssetDetailController: BaseController {
                                                chainID: item.chainID,
                                                refresh: headerRefresh())
         let output = viewModel.transform(input: input)
-        output.balance.map{ $0.detailTitle() }
+        output.balance.map{ $0.detailTitle(price: item.price) }
             .bind(to: moneyLabel.rx.attributedText).disposed(by: rx.disposeBag)
-        output.balance.map({ $0.detailTitle().string.isEmpty })
+        output.balance.map({ $0.detailTitle(price: item.price).string.isEmpty })
             .bind(to: activityView.rx.isAnimating).disposed(by: rx.disposeBag)
     }
 

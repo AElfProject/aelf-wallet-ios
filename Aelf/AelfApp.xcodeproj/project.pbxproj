@@ -211,7 +211,6 @@
 		3C9DE1FC22967C3900BB8C74 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DE1FB22967C3900BB8C74 /* BaseView.swift */; };
 		3C9DE1FE22967C5500BB8C74 /* DiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DE1FD22967C5500BB8C74 /* DiscoverController.swift */; };
 		3C9DE20222967C8300BB8C74 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DE20122967C8300BB8C74 /* SettingController.swift */; };
-		3C9DE20422967C9100BB8C74 /* AssetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DE20322967C9100BB8C74 /* AssetController.swift */; };
 		3C9DE20F2296816C00BB8C74 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C9DE2112296816C00BB8C74 /* Localizable.strings */; };
 		3C9DE214229685D600BB8C74 /* WalletHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DE213229685D600BB8C74 /* WalletHomeController.swift */; };
 		3C9DE2222296971200BB8C74 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DE2212296971200BB8C74 /* Constant.swift */; };
@@ -302,6 +301,7 @@
 		5A2335D924ADB5580067A944 /* CustomNetworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2335D724ADB5580067A944 /* CustomNetworkCell.swift */; };
 		5A2661A9423E0DA5AB50BBDB /* Pods_AelfApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC6304F4AEEB1A9325E3945 /* Pods_AelfApp.framework */; };
 		5A623DCD23BF34250068A8F0 /* ImportPrivateKeyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A623DCC23BF34250068A8F0 /* ImportPrivateKeyController.swift */; };
+		5AF79B9724C827CE000CB99C /* AssetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF79B9624C827CD000CB99C /* AssetController.swift */; };
 		D20CCAA522A522CF00345262 /* QRScannerPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20CCA9F22A522CE00345262 /* QRScannerPermissions.swift */; };
 		D20CCAA622A522CF00345262 /* QRScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20CCAA022A522CE00345262 /* QRScannerError.swift */; };
 		D20CCAA722A522CF00345262 /* QRScannerSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20CCAA122A522CE00345262 /* QRScannerSquareView.swift */; };
@@ -594,7 +594,6 @@
 		3C9DE1FB22967C3900BB8C74 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		3C9DE1FD22967C5500BB8C74 /* DiscoverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverController.swift; sourceTree = "<group>"; };
 		3C9DE20122967C8300BB8C74 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
-		3C9DE20322967C9100BB8C74 /* AssetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetController.swift; sourceTree = "<group>"; };
 		3C9DE20522967CC700BB8C74 /* AElfApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AElfApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3C9DE20B2296806F00BB8C74 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3C9DE20C2296806F00BB8C74 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -701,6 +700,7 @@
 		5A2335D624ADB5580067A944 /* CustomNetworkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomNetworkCell.xib; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.xib; sourceTree = SOURCE_ROOT; };
 		5A2335D724ADB5580067A944 /* CustomNetworkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomNetworkCell.swift; path = AelfApp/Classes/Modules/Setting/Views/CustomNetworkCell.swift; sourceTree = SOURCE_ROOT; };
 		5A623DCC23BF34250068A8F0 /* ImportPrivateKeyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportPrivateKeyController.swift; sourceTree = "<group>"; };
+		5AF79B9624C827CD000CB99C /* AssetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetController.swift; path = AelfApp/Classes/Modules/Assets/Controllers/AssetController.swift; sourceTree = SOURCE_ROOT; };
 		6E1AA27E93B6AD3020103087 /* Pods-AelfApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AelfApp.release.xcconfig"; path = "Target Support Files/Pods-AelfApp/Pods-AelfApp.release.xcconfig"; sourceTree = "<group>"; };
 		70DB8A204905FA0529A143B8 /* Pods-ALEFAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALEFAPP.debug.xcconfig"; path = "Target Support Files/Pods-ALEFAPP/Pods-ALEFAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		ABC6304F4AEEB1A9325E3945 /* Pods_AelfApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AelfApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1372,7 +1372,7 @@
 		3C9DE1F222967BE200BB8C74 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3C9DE20322967C9100BB8C74 /* AssetController.swift */,
+				5AF79B9624C827CD000CB99C /* AssetController.swift */,
 				3C7737DA22991B3500CFC54D /* AssetDetailController.swift */,
 				3C045A8322AF5CBA00E0C1E1 /* AssetHistoryController.swift */,
 				3C4B94A622A79805008C8994 /* AssetReceiveController.swift */,
@@ -1994,7 +1994,6 @@
 				D2F4874822AF449200DD2902 /* MessageViewModel.swift in Sources */,
 				5A2335D524ADB53A0067A944 /* SwitchNetworkTableCell.swift in Sources */,
 				3CA1131B22DC755B0065AA1D /* TestPlanController.swift in Sources */,
-				3C9DE20422967C9100BB8C74 /* AssetController.swift in Sources */,
 				3C9DC30C229FBDD900B3DCA9 /* UIViewController+Ext.swift in Sources */,
 				3CA4213522BDF56F0042804B /* AuthenticationErrors.swift in Sources */,
 				3CF319E0234F0C820025F1EE /* TransactionVoucherItem.swift in Sources */,
@@ -2246,6 +2245,7 @@
 				3C7737D522990FA100CFC54D /* Enviroment.swift in Sources */,
 				3CA1131A22DC755B0065AA1D /* WebViewController.swift in Sources */,
 				3C9706F322F928C700551C31 /* ErrorType.swift in Sources */,
+				5AF79B9724C827CE000CB99C /* AssetController.swift in Sources */,
 				3C9DC30A229FBDD900B3DCA9 /* Moya+Ext.swift in Sources */,
 				3C045A8222AE0BC100E0C1E1 /* Discover.swift in Sources */,
 				3C9706BB22F819E400551C31 /* BaseWalletViewModel.swift in Sources */,
