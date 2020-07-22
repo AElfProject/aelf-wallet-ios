@@ -59,9 +59,9 @@ class SettingManagerController: BaseStaticTableController {
         
         let network: String = UserDefaults.standard.string(forKey: "kNetwork") ?? ""
         if network == "https://wallet-app-api-test.aelf.io/" {
-            networkLabel.text = "默认配置"
+            networkLabel.text = "default".localized()
         } else if network == "http://1.119.195.50:" {
-            networkLabel.text = "测试网"
+            networkLabel.text = "testnet".localized()
         } else {
             networkLabel.text = network
         }

@@ -21,7 +21,7 @@ class SwitchNetworkController: BaseTableViewController {
         self.title = "Switch Network".localized()
         
         guard let path = Bundle.main.path(forResource: "network", ofType: "json") else {
-            SVProgressHUD.showError(withStatus: "暂无配置地址信息");
+            SVProgressHUD.showError(withStatus: "No configuration address information".localized());
             return
         }
         
@@ -84,7 +84,7 @@ extension SwitchNetworkController : UITableViewDelegate,UITableViewDataSource {
             let titleLabel = UILabel.init()
             titleLabel.textColor = UIColor(hexString: "101829")
             titleLabel.font = UIFont.systemFont(ofSize: 15)
-            titleLabel.text = "Mainnet address"
+            titleLabel.text = "Default Network".localized()
             zeroView.addSubview(titleLabel)
             titleLabel.snp_makeConstraints { (make) in
                 make.centerY.equalToSuperview()
@@ -96,7 +96,7 @@ extension SwitchNetworkController : UITableViewDelegate,UITableViewDataSource {
             let titleLabel = UILabel.init()
             titleLabel.textColor = UIColor(hexString: "101829")
             titleLabel.font = UIFont.systemFont(ofSize: 15)
-            titleLabel.text = "Custom address"
+            titleLabel.text = "Custom Network".localized()
             oneView.addSubview(titleLabel)
             titleLabel.snp_makeConstraints { (make) in
                 make.centerY.equalToSuperview()
@@ -135,7 +135,7 @@ extension SwitchNetworkController : UITableViewDelegate,UITableViewDataSource {
                 
                 if self!.isCustom == true {
                     if (self?.ipString.length)! <= 0 {
-                        SVProgressHUD.showInfo(withStatus:"请输入自定义地址")
+                        SVProgressHUD.showInfo(withStatus:"Please enter a custom address".localized())
                         return
                     }
                     if (self?.ipString.hasPrefix("http"))! {
@@ -144,10 +144,10 @@ extension SwitchNetworkController : UITableViewDelegate,UITableViewDataSource {
                             UserDefaults.standard.synchronize()
                             self?.navigationController?.popViewController()
                         } else {
-                            SVProgressHUD.showInfo(withStatus:"输入错误，请重新输入")
+                            SVProgressHUD.showInfo(withStatus:"Input errors, please re-enter".localized())
                         }
                     } else {
-                        SVProgressHUD.showInfo(withStatus:"请输入以http开头的地址")
+                        SVProgressHUD.showInfo(withStatus:"Please enter an address beginning with http".localized())
                         return
                     }
                 } else {
