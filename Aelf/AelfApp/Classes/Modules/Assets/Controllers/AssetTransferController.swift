@@ -232,9 +232,7 @@ class AssetTransferController: BaseController {
         
         SecurityVerifyManager.verifyPaymentPassword(completion: { (pwd) in
             self.goTransferHandler(pwd: pwd, isCrossChain: isCrossChain)
-        }) { (pwd) in
-            self.goTransferHandler(pwd: pwd, isCrossChain: isCrossChain)
-        }
+        })
     }
     
     func goTransferHandler(pwd: String?,isCrossChain: Bool) {

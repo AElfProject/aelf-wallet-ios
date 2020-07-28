@@ -142,6 +142,13 @@ extension CrossChainsController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appBlack]
     }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        NotificationCenter.post(name: NotificationName.currencyDidChange)
+//    }
+    
 }
 
 

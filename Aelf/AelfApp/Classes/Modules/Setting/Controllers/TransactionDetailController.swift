@@ -240,11 +240,11 @@ class TransactionDetailController: BaseStaticTableController {
             case 0: // Balance
                 label.attributedText = getAttri(pre: item.amount,
                                                 preFont: .systemFont(ofSize: 16),
-                                                next: " \(item.toChainID.uppercased())", nextFont: .systemFont(ofSize: 12))
+                                                next: " \(item.symbol.uppercased())", nextFont: .systemFont(ofSize: 12))
             case 1: // Fee
-                label.attributedText = getAttri(pre: self.fee ?? item.fee ?? "0.00",
+                label.attributedText = getAttri(pre: "0.00",
                                                 preFont: .systemFont(ofSize: 16),
-                                                next: " \(item.toChainID.uppercased())",
+                                                next: " \(item.symbol.uppercased())",
                     nextFont: .systemFont(ofSize: 12))
                 
             default:

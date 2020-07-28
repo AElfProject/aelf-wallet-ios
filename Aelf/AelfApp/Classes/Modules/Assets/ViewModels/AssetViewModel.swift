@@ -21,7 +21,7 @@ extension AssetViewModel: ViewModelType {
     }
     
     struct Output {
-        let items = BehaviorRelay<[AssetItem]>(value: [])
+        var items = BehaviorRelay<[AssetItem]>(value: [])
         let total = PublishSubject<NSAttributedString>()
     }
     
@@ -63,6 +63,7 @@ extension AssetViewModel: ViewModelType {
             self.loadAssetItemPrices(items: results).subscribe(onNext: { res in
                 output.total.onNext(self.totalPrice(assets: res))
                 output.items.accept(res)
+//                output.items = res
             }).disposed(by: self.rx.disposeBag)
             
 //            output.total.onNext(self.totalPrice(assets: res))
@@ -117,7 +118,6 @@ extension AssetViewModel: ViewModelType {
         } else {
             return num
         }
-//        return num
     }
 
     
@@ -146,6 +146,7 @@ extension AssetViewModel: ViewModelType {
         } else {
             
             return Observable.create { observer in
+                
                 let t = assetProvider.rx.onCache(.allChains(address: App.address, type: 1),
                                                  type: VResult.self)
                 { (obj) in
@@ -167,38 +168,35 @@ extension AssetViewModel: ViewModelType {
         }
         
     }
+    
     func loadAssetItemPrices(items:[AssetItem]) ->  Observable<[AssetItem]> {
         //let items = AssetItem ?? []
         
         // 多个 coin name 以逗号拼接
-       // let ids = items.map({ $0.symbol.lowercased() }).compactMap({ $0 }).joined(separator: ",")
+        // let ids = items.map({ $0.symbol.lowercased() }).compactMap({ $0 }).joined(separator: ",")
         var items = items
         let ids = "aelf";
-       return Observable.create { observer in
-                   let t = marketProvider
-                    .requestData(.markList(currency: App.currency, ids: ids, order: 0, perPage: 10, page: self.page))
-                        .mapObjects(MarketCoinModel.self).subscribe(onNext: { result in
-                          
-                            for i in 0 ..< items.count {
-                                var item = items[i]
-                                for coin in result {
-                                   if item.symbol.lowercased() == coin.symbol?.lowercased() {
-                                       item.rate?.price = coin.lastPrice ?? "0"
-                                    items[i] = item
-                                   }
-                                }
+        return Observable.create { observer in
+            let t = marketProvider
+                .requestData(.markList(currency: App.currency, ids: ids, order: 0, perPage: 10, page: self.page))
+                .mapObjects(MarketCoinModel.self).subscribe(onNext: { result in
+                    
+                    for i in 0 ..< items.count {
+                        var item = items[i]
+                        for coin in result {
+                            if item.symbol.lowercased() == coin.symbol?.lowercased() {
+                                item.rate?.price = coin.lastPrice ?? "0"
+                                items[i] = item
                             }
-                            observer.onNext(items)
-                            observer.onCompleted()
-                          // return items
-                        })
-                      return Disposables.create {
-                          t.dispose()
-                      }
-                  }
-//        return
-//            return items
-           
+                        }
+                    }
+                    observer.onNext(items)
+                    observer.onCompleted()
+                })
+            return Disposables.create {
+                t.dispose()
+            }
+        }
     }
     func noticeData() -> Observable<AssetNoticeList> {
         return assetProvider.requestData(.notice).mapObject(AssetNoticeList.self)

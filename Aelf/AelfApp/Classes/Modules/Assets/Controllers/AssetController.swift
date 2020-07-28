@@ -149,8 +149,7 @@ class AssetController: BaseTableViewController {
             .subscribe(onNext: { [weak self] (indexPath,item) in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
                 self?.enterDetailVC(item)
-                
-            }).disposed(by: rx.disposeBag)
+        }).disposed(by: rx.disposeBag)
         
         NotificationCenter.default.rx.notification(NotificationName.currencyDidChange).subscribe(onNext: { [weak self] notify in
             self?.headerRefreshTrigger.onNext(())
@@ -158,6 +157,7 @@ class AssetController: BaseTableViewController {
         
         NotificationCenter.default.rx.notification(NotificationName.updateAssetData).subscribe(onNext: { [weak self] notify in
             guard let self = self else { return }
+//            self.walletAddress = nil
             self.walletAddress <= App.address
             self.updateAddressLabel(chainID: App.chainID)
         }).disposed(by: rx.disposeBag)
@@ -313,7 +313,6 @@ extension AssetController {
     }
     
     func checkUnConfirmTransactions() {
-//        return
         if !isCanShowOtherMessageViews || !SecurityWarnView.isCanShow() { return } // 如果 SecurityWarnView 的视图在显示，则终止
         viewModel.requestUnconfirmTransaction(address: App.address).subscribe(onNext: { [weak self] result in
             

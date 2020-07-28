@@ -84,7 +84,7 @@ extension CrossChainsViewModel: ViewModelType {
         guard let text = text,text.length > 0 else { return origins }
         return origins.filter({ $0.chainID.contains(text, caseSensitive: false) || $0.symbol.contains(text, caseSensitive: false) }) // 不区分大小写
     }
-    func loadAssetItemPrices(items:[AssetItem]) ->  Observable<[AssetItem]> {
+    func loadAssetItemPrices(items:[AssetItem]) -> Observable<[AssetItem]> {
         //let items = AssetItem ?? []
         
         // 多个 coin name 以逗号拼接
@@ -113,32 +113,55 @@ extension CrossChainsViewModel: ViewModelType {
                 t.dispose()
             }
         }
-        //        return
-        //            return items
         
     }
+    
+//    func requestKLine(input: Input) -> Observable<MarketTradeModel> {
+//        return marketProvider.requestData(.tradeKline(id: input.name, currency: input.currency, days:String(try! input.time.value())))
+//            .mapObject(MarketTradeModel.self)
+//            .trackActivity(self.loading)
+//            .trackError(self.error)
+//    }
+    
     func requestChains() -> Observable<[AssetItem]> {
+        
         return Observable.create { observer in
-            let t = assetProvider.rx.onCache(.allChains(address: App.address, type: 0),
-                                             type: VResult.self)
-            { (obj) in
-                if let res = try? obj.mapObjects(AssetItem.self) {
-                    observer.onNext(res)
-                }
-            }.request()
+            let t = assetProvider.requestData(.allChains(address: App.address, type: 0))
                 .trackActivity(self.loading)
                 .mapObjects(AssetItem.self)
                 .trackError(self.error)
                 .subscribe(onNext: { [weak self] results in
-                    //  guard let self = self else { return }
                     observer.onNext(results)
                     observer.onCompleted()
-                    
                 })
             return Disposables.create {
                 t.dispose()
             }
         }
+            
+           
+        
+//        return Observable.create { observer in
+//            let t = assetProvider.rx.onCache(.allChains(address: App.address, type: 0),
+//                                             type: VResult.self)
+//            { (obj) in
+//                if let res = try? obj.mapObjects(AssetItem.self) {
+//                    observer.onNext(res)
+//                }
+//            }.request()
+//                .trackActivity(self.loading)
+//                .mapObjects(AssetItem.self)
+//                .trackError(self.error)
+//                .subscribe(onNext: { [weak self] results in
+//                    //  guard let self = self else { return }
+//                    observer.onNext(results)
+//                    observer.onCompleted()
+//
+//                })
+//            return Disposables.create {
+//                t.dispose()
+//            }
+//        }
     }
     
 }
