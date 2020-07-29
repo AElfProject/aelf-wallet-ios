@@ -150,7 +150,7 @@ extension AssetViewModel: ViewModelType {
         } else {
             return Observable.create { observer in
                 
-                let t = assetProvider.rx.onCache(.allChains(address: App.address, type: 0),
+                let t = assetProvider.rx.onCache(.allChains(address: App.address, type: 1),
                                                  type: VResult.self)
                 { (obj) in
                     if let res = try? obj.mapObjects(AssetItem.self) {
