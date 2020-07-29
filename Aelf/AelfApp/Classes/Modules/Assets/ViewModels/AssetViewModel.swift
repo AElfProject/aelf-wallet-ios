@@ -61,6 +61,7 @@ extension AssetViewModel: ViewModelType {
 //            output.items.accept(results)
            // let res = self.loadAssetItemPrices(items: results)
             self.loadAssetItemPrices(items: results).subscribe(onNext: { res in
+                print("res = \(res)")
                 output.total.onNext(self.totalPrice(assets: res))
                 output.items.accept(res)
 //                output.items = res
@@ -138,16 +139,18 @@ extension AssetViewModel: ViewModelType {
                     .subscribe(onNext: { ass in
                         observer.onNext(ass.list)
                         observer.onCompleted()
+                    }, onError: { error in
+                        SVProgressHUD.showError(withStatus: error.localizedDescription)
+                        observer.onCompleted()
                     })
                 return Disposables.create {
                     t.dispose()
                 }
             }
         } else {
-            
             return Observable.create { observer in
                 
-                let t = assetProvider.rx.onCache(.allChains(address: App.address, type: 1),
+                let t = assetProvider.rx.onCache(.allChains(address: App.address, type: 0),
                                                  type: VResult.self)
                 { (obj) in
                     if let res = try? obj.mapObjects(AssetItem.self) {
@@ -159,6 +162,9 @@ extension AssetViewModel: ViewModelType {
                     .trackError(self.error)
                     .subscribe(onNext: { result in
                         observer.onNext(result)
+                        observer.onCompleted()
+                    }, onError: { error in
+                        SVProgressHUD.showError(withStatus: error.localizedDescription)
                         observer.onCompleted()
                     })
                 return Disposables.create {

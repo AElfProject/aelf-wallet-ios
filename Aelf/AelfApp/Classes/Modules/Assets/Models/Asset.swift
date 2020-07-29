@@ -45,7 +45,7 @@ struct AssetFee: Mappable {
 
 struct AssetItem: Mappable {
 
-    var decimals : String?
+    var decimals : String = ""
     var expenditure : String?
     var income : String?
     
@@ -72,7 +72,7 @@ struct AssetItem: Mappable {
         issueChainId <- map["issue_chain_id"]
 
         contractAddress <- map["contractAddress"]
-        decimals <- map["decimals"]
+        decimals <- (map["decimals"],MapperString())
         expenditure <- map["expenditure"]
         income <- map["income"]
         logo <- map["logo"]

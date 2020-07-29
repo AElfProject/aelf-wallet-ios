@@ -41,6 +41,7 @@ class AssetTransferController: BaseController {
     var task: Task?
     var mainID: String = ""
     var issueID: String = ""
+    var decimals: String = ""
 
     var fromItem: ChainItem?
     var toItem: ChainItem?
@@ -122,6 +123,7 @@ class AssetTransferController: BaseController {
                     if $0.chainID.lowercased() == self.item?.chainID.lowercased() {
                         self.issueID = $0.issueChainId
                         self.mainID = $0.chainID
+                        self.decimals = $0.decimals
                        // var issueChainId: String = ""
 
                     }
@@ -316,8 +318,8 @@ class AssetTransferController: BaseController {
                                  fromChainName: fromItem.name,
                                  toChainName: toItem.name,
                                  symbol: currentSymbol(),
-                                 memo: memo,
-                                 amount: Int(amount * Define.decimalsValue))
+                                 memo: memo,//Define.decimalsValue
+            amount: Int(amount * pow(Double(10), Double(self.decimals)!)))
         { [weak self] result in
             guard let self = self else { return }
             self.task?.cancel()

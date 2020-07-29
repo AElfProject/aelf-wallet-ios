@@ -10,8 +10,9 @@ import UIKit
 
 class BaseController: UIViewController {
 
+    var isFirst: Bool = false
     let isLoading = BehaviorRelay(value: false)
-
+    
     let headerRefreshTrigger = PublishSubject<Void>()
     let footerRefreshTrigger = PublishSubject<Void>()
     let loadDataTrigger = PublishSubject<Void>()
@@ -156,7 +157,10 @@ extension BaseController: DZNEmptyDataSetSource {
 extension BaseController: DZNEmptyDataSetDelegate {
 
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-        return !isLoading.value
+        if !isFirst {
+            return !isLoading.value
+        }
+        return false
     }
 
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
@@ -175,6 +179,4 @@ extension BaseController: DZNEmptyDataSetDelegate {
         return NSAttributedString(string: title,
                                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.master])
     }
-
-
 }

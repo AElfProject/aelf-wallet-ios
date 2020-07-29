@@ -10,7 +10,7 @@ import UIKit
 import RxDataSources
 import Schedule
 import MarqueeLabel
-import KafkaRefresh
+//import KafkaRefresh
 
 
 /// 资产首页
@@ -328,6 +328,7 @@ extension AssetController {
             }
             
             }, onError: { e in
+                
                 logError("请求失败：\(e)")
         }).disposed(by: rx.disposeBag)
     }

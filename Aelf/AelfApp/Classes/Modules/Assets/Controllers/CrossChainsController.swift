@@ -14,7 +14,7 @@ enum CrossChainType {
 }
 
 class CrossChainsController: BaseTableViewController {
-
+    
     let type: CrossChainType
     let symbol: String?
     let closure: ((AssetItem) -> ())?
@@ -32,8 +32,8 @@ class CrossChainsController: BaseTableViewController {
     private let viewModel = CrossChainsViewModel()
 
     override func viewDidLoad() {
+        isFirst = true
         super.viewDidLoad()
-
         setupUI()
         bindViewModel()
     }
@@ -68,12 +68,12 @@ class CrossChainsController: BaseTableViewController {
     
 
     func bindViewModel() {
-
         let input = CrossChainsViewModel.Input(search: headerView.searchField.asDriver(), symbol: self.symbol, headerRefresh: headerRefreshTrigger)
         let output = viewModel.transform(input: input)
 
-        output.items.bind(to: tableView.rx.items(cellIdentifier: ChooseChainCell.className, cellType: ChooseChainCell.self)) { index,item,cell in
+        output.items.bind(to: tableView.rx.items(cellIdentifier: ChooseChainCell.className, cellType: ChooseChainCell.self)) {[weak self] index,item,cell in
             cell.item = item
+            self?.isFirst = false
         }.disposed(by: rx.disposeBag)
 
         Observable.combineLatest(output.totalAmount,output.totalPrice).subscribe(onNext: { [weak self] (total,price) in
@@ -87,9 +87,7 @@ class CrossChainsController: BaseTableViewController {
         viewModel.loading.asObservable().bind(to: isLoading).disposed(by: rx.disposeBag)
         viewModel.headerLoading.asObservable().bind(to: isHeaderLoading).disposed(by: rx.disposeBag)
         viewModel.parseError.map({ $0.msg ?? "" }).bind(to: emptyDataSetDescription).disposed(by: rx.disposeBag)
-
         tableView.headRefreshControl.beginRefreshing()
-
     }
 
     func enterDetailController(_ item: AssetItem) {
@@ -143,12 +141,42 @@ extension CrossChainsController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appBlack]
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        NotificationCenter.post(name: NotificationName.currencyDidChange)
-//    }
-    
 }
 
+
+//extension CrossChainsController: DZNEmptyDataSetSource {
+//
+//    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+//        return NSAttributedString(string: emptyDataSetTitle)
+//    }
+//
+//    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+//        let value = emptyDataSetDescription.value
+//
+//        let paraph = NSMutableParagraphStyle()
+//        paraph.lineSpacing = 20
+//        paraph.alignment = .center
+//        let attributes = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16, weight: .semibold),
+//                          NSAttributedString.Key.foregroundColor: UIColor(hexString: "787F87")!,
+//
+//                          NSAttributedString.Key.paragraphStyle: paraph]
+//        let att = NSAttributedString(string: value, attributes: attributes)
+//
+//        return att
+//    }
+//
+//    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+//        return emptyDataSetImage
+//    }
+//
+//    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+//        return emptyDataSetImageTintColor.value
+//    }
+//
+//    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+//        return .clear
+//    }
+//
+//
+//}
 

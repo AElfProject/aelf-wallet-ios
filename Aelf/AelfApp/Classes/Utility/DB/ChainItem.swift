@@ -14,7 +14,7 @@ import WCDBSwift
 struct ChainItem: Mappable,TableCodable {
 
     var identifier:Int?
-    var decimals:Int?
+    var decimals = ""
     var symbol = ""
     var logo = ""
     var color = ""
@@ -33,7 +33,7 @@ struct ChainItem: Mappable,TableCodable {
 
     mutating func mapping(map: Map) {
         symbol <- map["symbol"]
-        decimals <- map["decimals"]
+        decimals <- (map["decimals"],MapperString())
         logo <- map["logo"]
         color <- map["color"]
         node <- map["node"]
@@ -53,6 +53,7 @@ struct ChainItem: Mappable,TableCodable {
         typealias Root = ChainItem
         case identifier
         case symbol
+        case decimals
         case logo
         case color
         case node

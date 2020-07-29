@@ -25,7 +25,6 @@ extension UnConfirmTransactionViewModel: ViewModelType {
     struct Output {
         let items = BehaviorRelay<[UnConfirmTransactionItem]>(value: [])
         let chains = BehaviorRelay<[ChainItem]>(value: [])
-
     }
 
     func transform(input: UnConfirmTransactionViewModel.Input) -> UnConfirmTransactionViewModel.Output {
