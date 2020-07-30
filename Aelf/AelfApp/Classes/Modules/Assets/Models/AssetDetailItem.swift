@@ -12,16 +12,18 @@ struct AssetDetailItem {
     var symbol: String
     var chainID: String
     var contractAddress: String
+    var decimals: String
 
     //
     var price: Double
     var logo: String?
 
-    init(symbol: String, chainID: String, contractAddress: String, price: Double = 0, logo: String? = nil) {
+    init(symbol: String, chainID: String, contractAddress: String, price: Double = 0, logo: String? = nil, decimals: String) {
         self.symbol = symbol
         self.chainID = chainID
         self.contractAddress = contractAddress
         self.price = price
         self.logo = logo
+        self.decimals = decimals
     }
 }

@@ -102,7 +102,8 @@ class CrossChainsController: BaseTableViewController {
                                       chainID: item.chainID,
                                       contractAddress: item.contractAddress,
                                       price: item.rate?.price.double() ?? 0,
-                                      logo: item.logo)
+                                      logo: item.logo,
+                                      decimals: item.decimals)
             push(controller: vc)
         }
 

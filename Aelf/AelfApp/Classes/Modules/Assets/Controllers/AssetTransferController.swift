@@ -41,7 +41,6 @@ class AssetTransferController: BaseController {
     var task: Task?
     var mainID: String = ""
     var issueID: String = ""
-    var decimals: String = ""
 
     var fromItem: ChainItem?
     var toItem: ChainItem?
@@ -97,7 +96,7 @@ class AssetTransferController: BaseController {
             }
             if let f = balance.fee?.first?.fee, let value = f.double() {
                 print(value)
-                self.fee = 0
+                self.fee = value
             }
             
         }).disposed(by: rx.disposeBag)
@@ -123,9 +122,6 @@ class AssetTransferController: BaseController {
                     if $0.chainID.lowercased() == self.item?.chainID.lowercased() {
                         self.issueID = $0.issueChainId
                         self.mainID = $0.chainID
-                        self.decimals = $0.decimals
-                       // var issueChainId: String = ""
-
                     }
                 })
             }).disposed(by: rx.disposeBag)
@@ -271,7 +267,7 @@ class AssetTransferController: BaseController {
               //  }
                 
                 
-            }else { // 存在，相等 即为同链
+            } else { // 存在，相等 即为同链
                 self.showPasswordAlertView()
             }
         } else { // 用户地址不包含 chainID，则弹出选择链界面
@@ -285,6 +281,7 @@ class AssetTransferController: BaseController {
         
     }
     
+    //MARK: 跨链转账
     func startCrossTransaction(pwd: String) {
         
         SVProgressHUD.show()
@@ -319,7 +316,7 @@ class AssetTransferController: BaseController {
                                  toChainName: toItem.name,
                                  symbol: currentSymbol(),
                                  memo: memo,//Define.decimalsValue
-            amount: Int(amount * pow(Double(10), Double(self.decimals)!)))
+            amount: Int(amount * pow(Double(10), Double(item!.decimals)!)))
         { [weak self] result in
             guard let self = self else { return }
             self.task?.cancel()
@@ -408,7 +405,7 @@ class AssetTransferController: BaseController {
         let fromNode = fromItem.node.removeSlash()
         AElfWallet.transferNode(pwd: pwd,
                                 toAddress: toAddress.removeChainID(),
-                                amount: Int(amount * Define.decimalsValue),
+                                amount: Int(amount * pow(Double(10), Double(item!.decimals)!)),
                                 symbol: currentSymbol(),
                                 memo: memo,
                                 nodeURL: fromNode,
