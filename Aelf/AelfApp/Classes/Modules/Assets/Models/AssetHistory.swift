@@ -35,6 +35,7 @@ struct AssetHistory: Mappable {
     var completed : Int?
     var confirmations : Int?
     var fee: String?
+    var feeSymbol: String?
     var from = ""
     var gasLimit = ""
     var gasPrice = ""
@@ -65,6 +66,7 @@ struct AssetHistory: Mappable {
         completed <- map["completed"]
         confirmations <- map["confirmations"]
         fee <- map["fee"]
+        feeSymbol <- map["feeSymbol"]
         from <- map["from"]
         gasLimit <- map["gasLimit"]
         gasPrice <- map["gasPrice"]
