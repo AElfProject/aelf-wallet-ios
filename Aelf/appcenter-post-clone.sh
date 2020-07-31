@@ -13,3 +13,4 @@ sudo gem install cocoapods
 app_version=`cat AelfApp.xcodeproj/project.pbxproj | grep MARKETING_VERSION |  awk -F"=|;| "  '{ print $4 }' | head -1`
 echo $app_version
 sed -i "" "s/MARKETING_VERSION = $app_version/MARKETING_VERSION = $APP_VERSION/g" AelfApp.xcodeproj/project.pbxproj
+echo $app_version
