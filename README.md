@@ -108,7 +108,8 @@ AELF 是一个去中心化云计算区块链网络，具有高性能、资源隔
 │   	└── Wallet	# 钱包
 └── Resource		# 资源文件
 ```
-
+## SwiftNetwork配置文件路径
+AElfApp-->Resources-->network.json
 
 ## ✉️ 反馈
 
