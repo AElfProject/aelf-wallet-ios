@@ -138,18 +138,15 @@ extension SwitchNetworkController : UITableViewDelegate,UITableViewDataSource {
                         SVProgressHUD.showInfo(withStatus:"Please enter a custom address".localized())
                         return
                     }
-                    if (self?.ipString.hasPrefix("http"))! {
-                        if Validate.URL(self!.ipString).isRight {
-                            UserDefaults.standard.setValue(self!.ipString, forKey: "kNetwork")
-                            UserDefaults.standard.synchronize()
-                            self?.navigationController?.popViewController()
-                        } else {
-                            SVProgressHUD.showInfo(withStatus:"Input errors, please re-enter".localized())
-                        }
+                    
+                    if Validate.URL(self!.ipString).isRight || Validate.IP(self!.ipString).isRight {
+                        UserDefaults.standard.setValue(self!.ipString, forKey: "kNetwork")
+                        UserDefaults.standard.synchronize()
+                        self?.navigationController?.popViewController()
                     } else {
-                        SVProgressHUD.showInfo(withStatus:"Please enter an address beginning with http".localized())
-                        return
+                        SVProgressHUD.showInfo(withStatus:"Input errors, please re-enter".localized())
                     }
+                    
                 } else {
                     for model in self!.dataSource {
                         if model.selected == true {
@@ -253,7 +250,7 @@ enum Validate {
             predicateStr = "^[\\u4e00-\\u9fa5]{4,8}$"
             currObject = str
         case let .URL(str):
-            predicateStr = "^(http?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
+            predicateStr = "^([hH][tT]{2}[pP]://|[hH][tT]{2}[pP][sS]://)(([A-Za-z0-9-~]+).)+([A-Za-z0-9-~\\\\\\\\/])+$"
             currObject = str
         case let .IP(str):
             predicateStr = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
