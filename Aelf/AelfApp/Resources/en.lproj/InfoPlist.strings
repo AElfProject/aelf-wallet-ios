@@ -7,8 +7,8 @@
 */
 
 
-"NSCameraUsageDescription" = "Save photos can only be taken with your permission";
+"NSCameraUsageDescription" = "The app requires camera functionality to scan QR codes or take a picture";
 "NSFaceIDUsageDescription" = "This app requires Face ID permission to authenticate using Face recognition.";
-"NSPhotoLibraryAddUsageDescription" = "Only if you agree can you enter the album to save the photos";
-"NSPhotoLibraryUsageDescription" = "We need to access your album to access photos";
+"NSPhotoLibraryAddUsageDescription" = "The app needs to save the pictures you generated in the app";
+"NSPhotoLibraryUsageDescription" = "The app hopes to get the QR code or avatar from your photo album";
 "NSLocationWhenInUseUsageDescription" = "We need to access your location to provide location information for the photos taken.";
