@@ -13,7 +13,7 @@ private let dappApplyURL = "http://aelfaelf1616.mikecrm.com/Z8EMGWN"
 class DiscoverController: BaseTableViewController {
     
     var dappSource = [DiscoverDapp]()
-    var listSource = [DiscoverDapp]()
+    var listSource = [DiscoverListDapp]()
     
     let viewModel = DiscoverViewModel()
     
@@ -50,7 +50,8 @@ class DiscoverController: BaseTableViewController {
             
             self.headerView.bannerSource = discover.banner ?? []
             self.dappSource = discover.dapp
-            self.listSource = discover.tool
+//            self.listSource = discover.tool
+            self.listSource = discover.list
             self.tableView.reloadData()
             self.updateLayouts()
             }, onError: { e in
@@ -70,8 +71,6 @@ class DiscoverController: BaseTableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.footRefreshControl = nil
-//        tableView.estimatedSectionFooterHeight = 0
-//        tableView.estimatedSectionHeaderHeight = 0
         
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.equalToSuperview()
@@ -89,7 +88,7 @@ class DiscoverController: BaseTableViewController {
             make.size.equalTo(CGSize(width: screenWidth, height: 50))
             make.top.equalTo(tableView.contentSize.height)
         }
-        //
+        
         self.tableView.setNeedsLayout()
         self.tableView.layoutIfNeeded()
         
@@ -156,7 +155,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
             return 0
         } else {
             footerView.isHidden = false
-            return 2
+            return listSource.count + 1
         }
     }
     
@@ -165,7 +164,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
         case 0:
             return 1
         default:
-            return self.listSource.count
+            return self.listSource[section - 1].data.count;
         }
     }
     
@@ -194,7 +193,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
         if section == 0 {
             view.titleLabel.text = "Recommend".localized()
         } else {
-            view.titleLabel.text = "Tool".localized()
+            view.titleLabel.text = listSource[section - 1].categoryTitle
         }
         view.sectionButton.tag = section
         view.sectionButton.addTarget(self, action: #selector(moreButtonTapped(_:)), for: .touchUpInside)
@@ -215,7 +214,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withClass: DappGameCell.self)
-            cell.item = listSource[indexPath.row]
+            cell.item = listSource[indexPath.section - 1].data[indexPath.row]
             return cell
         }
     }
@@ -227,7 +226,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
         case 0:
             logInfo("\(indexPath)")
         default:
-            let item = listSource[indexPath.row]
+            let item = listSource[indexPath.section - 1].data[indexPath.row]
             didSelectDapp(name: item.name, url: item.url)
         }
     }

@@ -15,6 +15,7 @@ struct Discover: Mappable {
     var dapp = [DiscoverDapp]()
     var group = [DiscoverItem]()
     var tool = [DiscoverDapp]()
+    var list = [DiscoverListDapp]()
 
     init?(map: Map) {}
 
@@ -23,8 +24,21 @@ struct Discover: Mappable {
         dapp <- map["dapp"]
         group <- map["group"]
         tool <- map["tool"]
+        list <- map["list"]
     }
 
+}
+
+//新数据结构
+struct DiscoverListDapp: Mappable {
+    var categoryTitle = ""
+    init?(map: Map) {}
+    var data = [DiscoverDapp]()
+    
+    mutating func mapping(map: Map) {
+        data <- map["data"]
+        categoryTitle <- map["category_title"]
+    }
 }
 
 struct DiscoverDapp: Mappable {
