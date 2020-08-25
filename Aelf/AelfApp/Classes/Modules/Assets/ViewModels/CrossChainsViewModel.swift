@@ -36,15 +36,18 @@ extension CrossChainsViewModel: ViewModelType {
             return self.filterSearchResult(value)
         }).asObservable().bind(to: out.items).disposed(by: rx.disposeBag)
         
+        
         input.headerRefresh.flatMapLatest({ [weak self] _ -> Observable<[AssetItem]> in
             guard let self = self else { return Observable.just([]) }
-            return self.requestChains().trackActivity(self.headerLoading)
+            return self.requestChains()
+                .trackActivity(self.headerLoading)
+                .catchErrorJustComplete()
         }).subscribe(onNext: { [weak self] items in
             guard let self = self else { return }
             
             //var results = items
             self.loadAssetItemPrices(items: items).subscribe(onNext: {[weak self] items in
-               var result = items
+                var result = items
                 if let symbol = input.symbol, !symbol.isEmpty { // 如果有 symbol，则过滤取 == symbol 的数据。
                     result = items.filter{ $0.symbol == symbol }
                 }
@@ -75,7 +78,9 @@ extension CrossChainsViewModel: ViewModelType {
                 
             }).disposed(by: self.rx.disposeBag)
             
-        }).disposed(by: rx.disposeBag)
+            }, onError: {error in
+                logError(error)
+        }) .disposed(by: rx.disposeBag)
         
         return out
     }
@@ -127,17 +132,32 @@ extension CrossChainsViewModel: ViewModelType {
         
         return Observable.create { observer in
             let t = assetProvider.requestData(.allChains(address: App.address, type: 0))
-                .trackActivity(self.loading)
                 .mapObjects(AssetItem.self)
-                .trackError(self.error)
-                .subscribe(onNext: { [weak self] results in
-                    observer.onNext(results)
-                    observer.onCompleted()
-                })
+            .subscribe(onNext: {results in
+                observer.onNext(results)
+                observer.onCompleted()
+            }, onError: {error in
+                observer.onError(error)
+                observer.onCompleted()
+                logError(error)
+            })
             return Disposables.create {
                 t.dispose()
             }
         }
+        
+//        return Observable.create { observer in
+//            let t = assetProvider.requestData(.allChains(address: App.address, type: 0))
+//                .mapObjects(AssetItem.self)
+//                .subscribe(onNext: {results in
+////                    guard let self = self else { return }
+//                    observer.onNext(results)
+//                    observer.onCompleted()
+//                })
+//            return Disposables.create {
+//                t.dispose()
+//            }
+//        }
             
            
         

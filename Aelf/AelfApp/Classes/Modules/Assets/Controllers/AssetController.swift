@@ -329,7 +329,9 @@ extension AssetController {
             }
             
             }, onError: { e in
-                
+//                if let r = e as? ResultError {
+//                    SVProgressHUD.showError(withStatus: r.msg?.localized())
+//                }
                 logError("请求失败：\(e)")
         }).disposed(by: rx.disposeBag)
     }

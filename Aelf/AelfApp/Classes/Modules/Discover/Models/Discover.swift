@@ -16,6 +16,7 @@ struct Discover: Mappable {
     var group = [DiscoverItem]()
     var tool = [DiscoverDapp]()
     var list = [DiscoverListDapp]()
+    var dappLink = ""
 
     init?(map: Map) {}
 
@@ -25,6 +26,7 @@ struct Discover: Mappable {
         group <- map["group"]
         tool <- map["tool"]
         list <- map["list"]
+        dappLink <- map["dapp_link"]
     }
 
 }

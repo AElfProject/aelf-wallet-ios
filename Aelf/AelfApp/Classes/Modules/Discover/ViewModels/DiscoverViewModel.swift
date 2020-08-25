@@ -28,9 +28,13 @@ extension DiscoverViewModel: ViewModelType {
 
         input.headerRefresh.flatMapLatest { [weak self] _ -> Observable<Discover> in
             guard let self = self else { return Observable.just(Discover.init(JSON: [:])!)}
-            return self.request().trackActivity(self.headerLoading)
+            return self.request()
+                .trackActivity(self.headerLoading)
+                .catchErrorJustComplete()
             }.subscribe(onNext: { result in
                 output.discover.accept(result)
+            }, onError: {error in
+                logError(error)
             }).disposed(by: rx.disposeBag)
 
         return output

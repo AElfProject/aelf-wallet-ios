@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let dappApplyURL = "http://aelfaelf1616.mikecrm.com/Z8EMGWN"
+//private let dappApplyURL = "http://aelfaelf1616.mikecrm.com/Z8EMGWN"
 
 class DiscoverController: BaseTableViewController {
     
@@ -16,6 +16,8 @@ class DiscoverController: BaseTableViewController {
     var listSource = [DiscoverListDapp]()
     
     let viewModel = DiscoverViewModel()
+    
+    var dappLink = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +49,7 @@ class DiscoverController: BaseTableViewController {
         
         output.discover.subscribe(onNext: { [weak self] discover in
             guard let self = self else { return }
-            
+            self.dappLink = discover.dappLink
             self.headerView.bannerSource = discover.banner ?? []
             self.dappSource = discover.dapp
 //            self.listSource = discover.tool
@@ -128,7 +130,7 @@ class DiscoverController: BaseTableViewController {
     
     func dappApplyTapped() {
         
-        enterWebController(url: dappApplyURL)
+        enterWebController(url: self.dappLink)
     }
     
     func enterWebController(url: String) {

@@ -244,7 +244,7 @@ class TransactionDetailController: BaseStaticTableController {
             case 1: // Fee
                 label.attributedText = getAttri(pre: self.fee ?? item.fee ?? "0.00",
                                                 preFont: .systemFont(ofSize: 16),
-                                                next: " \(item.feeSymbol!.uppercased())",
+                                                next: " \(String(describing: item.feeSymbol?.uppercased()))",
                     nextFont: .systemFont(ofSize: 12))
                  
             default:

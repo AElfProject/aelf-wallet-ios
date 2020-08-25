@@ -47,7 +47,6 @@ class CrossChainsController: BaseTableViewController {
             addEmptyBackItem()
         } else {
             navigationItem.title = "Select Chain".localized()
-
         }
 
         headerView.snp.makeConstraints { (make) in
@@ -84,7 +83,7 @@ class CrossChainsController: BaseTableViewController {
             self?.enterDetailController(item)
         }).disposed(by: rx.disposeBag)
 
-        viewModel.loading.asObservable().bind(to: isLoading).disposed(by: rx.disposeBag)
+        viewModel.loading.asObservable().bind(to: BehaviorRelay(value: false)).disposed(by: rx.disposeBag)
         viewModel.headerLoading.asObservable().bind(to: isHeaderLoading).disposed(by: rx.disposeBag)
         viewModel.parseError.map({ $0.msg ?? "" }).bind(to: emptyDataSetDescription).disposed(by: rx.disposeBag)
         tableView.headRefreshControl.beginRefreshing()
