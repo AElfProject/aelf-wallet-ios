@@ -129,7 +129,6 @@ class DiscoverController: BaseTableViewController {
     }
     
     func dappApplyTapped() {
-        
         enterWebController(url: self.dappLink)
     }
     
@@ -139,8 +138,14 @@ class DiscoverController: BaseTableViewController {
     }
     
     @objc func moreButtonTapped(_ button: UIButton) {
-        
-        self.performSegue(withIdentifier: DappListController.className, sender: nil)
+        self.performSegue(withIdentifier: DappListController.className, sender: button.tag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == DappListController.className {
+            let vc = segue.destination as! DappListController
+            vc.moreType = (sender as? Int)!
+        }
     }
     
     override func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {

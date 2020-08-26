@@ -13,13 +13,14 @@ class DappListController: BaseController {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var segmentView: JXSegmentedView!
+    var moreType: Int?
+    
 
     var segmentedDataSource: JXSegmentedBaseDataSource?
     lazy var listContainerView = JXSegmentedListContainerView(dataSource: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupSegmentView()
         addNavigationItem()
     }
@@ -37,7 +38,6 @@ class DappListController: BaseController {
         let searchVC = UIStoryboard.loadController(DappSearchController.self, storyType: .discover)
         
         push(controller: searchVC)
-        
     }
     
     
@@ -67,7 +67,7 @@ class DappListController: BaseController {
         indicator.indicatorColor =  UIColor.master
         indicator.indicatorWidth = screenBounds.width/CGFloat(titles.count)
         indicator.lineStyle = .lengthenOffset
-        
+        segmentView.defaultSelectedIndex = moreType ?? 0
         segmentView.indicators = [indicator]
         segmentView.dataSource = segmentedDataSource
         segmentView.delegate = self
@@ -82,6 +82,8 @@ class DappListController: BaseController {
         segmentView.layer.addSublayer(lineLayer)
 
         segmentView.contentScrollView = listContainerView.scrollView
+        
+        listContainerView.defaultSelectedIndex = moreType ?? 0
         
         contentView.addSubview(listContainerView)
     }

@@ -17,6 +17,7 @@ enum DappGameType: Int {
 
 class DappGameController: BaseTableViewController {
     
+    var moreType: Int?
     var parentVC: UIViewController?
     var type = DappGameType.all
     
