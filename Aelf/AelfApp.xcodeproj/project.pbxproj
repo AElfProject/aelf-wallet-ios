@@ -584,7 +584,7 @@
 		3C9DC307229FBDD900B3DCA9 /* Response+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Ext.swift"; sourceTree = "<group>"; };
 		3C9DC316229FC5F400B3DCA9 /* LanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageController.swift; sourceTree = "<group>"; };
 		3C9DC31A229FE2D000B3DCA9 /* Behavior+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Behavior+Ext.swift"; sourceTree = "<group>"; };
-		3C9DE1B62296757000BB8C74 /* AELF Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AELF Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C9DE1B62296757000BB8C74 /* aelf Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "aelf Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9DE1D022967A6000BB8C74 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C9DE1D622967A6000BB8C74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C9DE1D822967A6000BB8C74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -1065,7 +1065,7 @@
 		3C9DE1B72296757000BB8C74 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3C9DE1B62296757000BB8C74 /* AELF Wallet.app */,
+				3C9DE1B62296757000BB8C74 /* aelf Wallet.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1798,7 +1798,7 @@
 			);
 			name = AelfApp;
 			productName = ALEFAPP;
-			productReference = 3C9DE1B62296757000BB8C74 /* AELF Wallet.app */;
+			productReference = 3C9DE1B62296757000BB8C74 /* aelf Wallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2508,7 +2508,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
-				PRODUCT_NAME = "AELF Wallet";
+				PRODUCT_NAME = "aelf Wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AElfApp/Resources/AElfApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2538,7 +2538,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
-				PRODUCT_NAME = "AELF Wallet";
+				PRODUCT_NAME = "aelf Wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AElfApp/Resources/AElfApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
