@@ -55,7 +55,8 @@ class DiscoverController: BaseTableViewController {
 //            self.listSource = discover.tool
             self.listSource = discover.list
             self.tableView.reloadData()
-            self.updateLayouts()
+//            self.updateLayouts()
+//            self.tableView.tableFooterView = self.footerView
             }, onError: { e in
                 logDebug(e)
         }).disposed(by: rx.disposeBag)
@@ -69,7 +70,7 @@ class DiscoverController: BaseTableViewController {
         tableView.register(nibWithCellClass: DiscoverRecommendCell.self)
         tableView.register(nibWithCellClass: DappGameCell.self)
         tableView.tableHeaderView = headerView
-        tableView.tableFooterView = footerView
+//        tableView.tableFooterView = footerView
         tableView.delegate = self
         tableView.dataSource = self
         tableView.footRefreshControl = nil
@@ -85,10 +86,6 @@ class DiscoverController: BaseTableViewController {
         
         headerView.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: screenWidth, height: DiscoverHeaderView.headerHeight()))
-        }
-        footerView.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize(width: screenWidth, height: 50))
-            make.top.equalTo(tableView.contentSize.height)
         }
         
         self.tableView.setNeedsLayout()
@@ -138,13 +135,24 @@ class DiscoverController: BaseTableViewController {
     }
     
     @objc func moreButtonTapped(_ button: UIButton) {
-        self.performSegue(withIdentifier: DappListController.className, sender: button.tag)
+        var dappModel:DiscoverListDapp? = DiscoverListDapp.init(JSON: [:])
+        
+        if button.tag > 0 {
+            dappModel = listSource[button.tag - 1]
+            dappModel?.isRecommand = false
+        } else {
+            dappModel?.categoryTitle = "Recommend".localized()
+            dappModel?.cat = self.dappSource.first?.cat.int
+            dappModel?.isRecommand = true
+        }
+
+        self.performSegue(withIdentifier: DappListController.className, sender: dappModel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == DappListController.className {
             let vc = segue.destination as! DappListController
-            vc.moreType = (sender as? Int)!
+            vc.dappModel = (sender as? DiscoverListDapp)!
         }
     }
     
@@ -188,6 +196,31 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
         default:
             return 90
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == self.listSource.count {
+            return 50
+        }
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        //最后一个section 添加footerView
+        if section == self.listSource.count {
+            
+            footerView.frame = CGRect(x:0,y:0,width: screenWidth,height: 40);
+            
+            return footerView
+            
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

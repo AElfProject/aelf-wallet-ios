@@ -33,13 +33,16 @@ struct Discover: Mappable {
 
 //新数据结构
 struct DiscoverListDapp: Mappable {
-    var categoryTitle = ""
+    var categoryTitle:String = ""
+    var cat:Int?
+    var isRecommand: Bool?
     init?(map: Map) {}
     var data = [DiscoverDapp]()
     
     mutating func mapping(map: Map) {
         data <- map["data"]
         categoryTitle <- map["category_title"]
+        cat <- map["cat"]
     }
 }
 

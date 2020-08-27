@@ -15,7 +15,8 @@ class DappGameViewModel: ViewModel {
 extension DappGameViewModel: ViewModelType {
     
     struct Input {
-        let type: DappGameType
+        let cat: String?
+        let isRecommand: Bool?
         let headerRefresh: Observable<Void>
         let footerRefresh: Observable<Void>
     }
@@ -32,7 +33,7 @@ extension DappGameViewModel: ViewModelType {
         input.headerRefresh.flatMapLatest { [weak self] _ -> Observable<DappList> in
             guard let self = self else { return Observable.just(DappList.init(JSON: [:])!)}
             self.page = 1
-            return self.request(type: input.type).trackActivity(self.headerLoading)
+            return self.request(cat: input.cat!, isRecommand:input.isRecommand!).trackActivity(self.headerLoading)
         }.subscribe(onNext: { dapp in
             let value = dapp.dapps
             output.items.accept(value)
@@ -41,7 +42,7 @@ extension DappGameViewModel: ViewModelType {
         input.footerRefresh.flatMapLatest { [weak self] _ -> Observable<DappList> in
             guard let self = self else { return Observable.just(DappList.init(JSON: [:])!)}
             self.page += 1
-            return self.request(type: input.type).trackActivity(self.footerLoading)
+            return self.request(cat: input.cat!, isRecommand:input.isRecommand!).trackActivity(self.footerLoading)
         }.subscribe(onNext: { dapp in
             let value = dapp.dapps
             output.items.accept(output.items.value + value)
@@ -53,14 +54,14 @@ extension DappGameViewModel: ViewModelType {
 
 extension DappGameViewModel {
     // req
-    func request(type: DappGameType) -> Observable<DappList> {
+    func request(cat: String, isRecommand: Bool) -> Observable<DappList> {
         return discoverProvider
             .requestData(.gamelist(page: page,
-                                   type: type,
+                                   cat: cat,
                                    coin: nil,
                                    name: nil,
                                    isPopular: false,
-                                   isRecommand: nil))
+                                   isRecommand: isRecommand))
             .trackError(self.error)
             .trackActivity(self.loading)
             .mapObject(DappList.self)

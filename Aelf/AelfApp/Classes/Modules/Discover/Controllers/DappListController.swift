@@ -13,8 +13,8 @@ class DappListController: BaseController {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var segmentView: JXSegmentedView!
+    var dappModel: DiscoverListDapp? = nil
     var moreType: Int?
-    
 
     var segmentedDataSource: JXSegmentedBaseDataSource?
     lazy var listContainerView = JXSegmentedListContainerView(dataSource: self)
@@ -51,7 +51,10 @@ class DappListController: BaseController {
         let dataSource = JXSegmentedNumberDataSource()
         dataSource.isTitleColorGradientEnabled = true
         dataSource.numberOffset = CGPoint.init(x: 4, y: -2)
-        let titles = [ "All","Games", "Others"].map({ $0.localized() })
+//        let titles = [ "All","Games", "Others"].map({ $0.localized() })
+        
+        let titles:Array = ["All".localized(),self.dappModel!.categoryTitle]
+        
         dataSource.titles = titles
         dataSource.numbers = titles.map({_ in 0 })
         dataSource.titleSelectedColor = .master
@@ -67,7 +70,7 @@ class DappListController: BaseController {
         indicator.indicatorColor =  UIColor.master
         indicator.indicatorWidth = screenBounds.width/CGFloat(titles.count)
         indicator.lineStyle = .lengthenOffset
-        segmentView.defaultSelectedIndex = moreType ?? 0
+        segmentView.defaultSelectedIndex = 1
         segmentView.indicators = [indicator]
         segmentView.dataSource = segmentedDataSource
         segmentView.delegate = self
@@ -83,7 +86,7 @@ class DappListController: BaseController {
 
         segmentView.contentScrollView = listContainerView.scrollView
         
-        listContainerView.defaultSelectedIndex = moreType ?? 0
+        listContainerView.defaultSelectedIndex = 1
         
         contentView.addSubview(listContainerView)
     }
@@ -130,16 +133,18 @@ extension DappListController: JXSegmentedListContainerViewDataSource {
 
         let vc = DappGameController()
         vc.parentVC = self
-        switch index {
-        case 0:
-            vc.type = .all
-        case 1:
-            vc.type = .games
-        case 2:
-            vc.type = .others
-        default:
-            vc.type = .all
-        }
+        vc.cat = self.dappModel?.cat?.string
+        vc.isRecommand = self.dappModel?.isRecommand
+//        switch index {
+//        case 0:
+//            vc.type = .all
+//        case 1:
+//            vc.type = .games
+//        case 2:
+//            vc.type = .others
+//        default:
+//            vc.type = .all
+//        }
 
         return vc
     }

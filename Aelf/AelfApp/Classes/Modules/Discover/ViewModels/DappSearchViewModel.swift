@@ -52,7 +52,7 @@ extension DappSearchViewModel {
     func requestSearchGames(name: String) -> Observable<[DiscoverDapp]> {
         return discoverProvider
             .requestData(.gamelist(page: page,
-                                   type: .all,
+                                   cat: "0",
                                    coin: nil,
                                    name: name,
                                    isPopular: true,

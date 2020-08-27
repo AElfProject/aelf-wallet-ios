@@ -20,6 +20,8 @@ class DappGameController: BaseTableViewController {
     var moreType: Int?
     var parentVC: UIViewController?
     var type = DappGameType.all
+    var cat: String? = "0"
+    var isRecommand: Bool?
     
     fileprivate let viewModel = DappGameViewModel()
     
@@ -34,7 +36,8 @@ class DappGameController: BaseTableViewController {
     
     func bindGameViewModel() {
         
-        let input = DappGameViewModel.Input(type: type,
+        let input = DappGameViewModel.Input(cat: cat,
+                                            isRecommand: isRecommand,
                                             headerRefresh: headerRefresh(),
                                             footerRefresh: footerRefreshTrigger)
         let output = viewModel.transform(input: input)

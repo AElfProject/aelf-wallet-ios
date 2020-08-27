@@ -17,7 +17,7 @@ let discoverProvider = MoyaProvider<DiscoverAPI>(endpointClosure:MoyaProvider.JS
 
 enum DiscoverAPI {
     case home
-    case gamelist(page: Int,type: DappGameType,coin: String?,name: String?,isPopular: Bool?,isRecommand:Bool?)
+    case gamelist(page: Int,cat: String?,coin: String?,name: String?,isPopular: Bool?,isRecommand:Bool?)
 
 }
 
@@ -59,10 +59,10 @@ extension DiscoverAPI: TargetType {
         switch self {
         case .home:
             break
-        case let .gamelist(page,type,coin,name,isPopular,isRecommand):
+        case let .gamelist(page,cat,coin,name,isPopular,isRecommand):
 //            parameters["popular"] = "1"
             parameters["p"] = "\(page)"
-            parameters["cat"] = "\(type.rawValue)"
+
             if let name = name {
                 parameters["name"] = name
             }
@@ -72,11 +72,15 @@ extension DiscoverAPI: TargetType {
             if let isPopular = isPopular {
                 parameters["popular"] = isPopular.int.string
             }
-            if let isRecommand = isRecommand {
-                parameters["isindex"] = isRecommand.int.string
-            }
             
-
+            if let recommand = isRecommand {
+                if recommand == true {
+                    parameters["isindex"] = recommand.int.string
+                    parameters["cat"] = "0"
+                } else {
+                    parameters["cat"] = cat
+                }
+            }
         }
 
         logInfo("\n \(self.path)\n请求参数：\(parameters)\n")
