@@ -60,7 +60,7 @@ extension DiscoverAPI: TargetType {
         case .home:
             break
         case let .gamelist(page,type,coin,name,isPopular,isRecommand):
-            parameters["popular"] = "1"
+//            parameters["popular"] = "1"
             parameters["p"] = "\(page)"
             parameters["cat"] = "\(type.rawValue)"
             if let name = name {

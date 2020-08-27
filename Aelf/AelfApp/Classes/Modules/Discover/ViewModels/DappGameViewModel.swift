@@ -59,7 +59,7 @@ extension DappGameViewModel {
                                    type: type,
                                    coin: nil,
                                    name: nil,
-                                   isPopular: nil,
+                                   isPopular: false,
                                    isRecommand: nil))
             .trackError(self.error)
             .trackActivity(self.loading)
