@@ -133,8 +133,8 @@ extension DappListController: JXSegmentedListContainerViewDataSource {
 
         let vc = DappGameController()
         vc.parentVC = self
-        vc.cat = self.dappModel?.cat?.string
-        vc.isRecommand = self.dappModel?.isRecommand
+        vc.cat = index == 0 ? "0" : self.dappModel?.cat?.string
+        vc.isRecommand = index == 0 ? false : self.dappModel?.isRecommand
 //        switch index {
 //        case 0:
 //            vc.type = .all
