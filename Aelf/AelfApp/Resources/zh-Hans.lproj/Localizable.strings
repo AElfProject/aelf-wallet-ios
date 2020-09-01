@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   AelfApp
 
@@ -10,7 +10,7 @@
 "coin_intro_vol24" = "24小时成交量";
 "coin_intro_total_supply" = "总发行量";
 
-"Invalid Address" = "无效的 AElf 地址";
+"Invalid Address" = "无效的 aelf 地址";
 
 //AppUpdate
 "New Version" = "新版本\nv%@";
@@ -46,7 +46,7 @@
 
 "Help_transation_info" = "可在钱包首页中选择某一种数字代币，进入详情界面后，点击“转账”、“收款”功能进行操作；\n转账：用户可通过扫码（可从相册中选取二维码）或手动填写的方式填入收款地址。\n收款：可通过面对面出示二维码来进行收款，也可将二维码分享给对方或将收款地址复制给对方进行收款。";
 "Help_backup" = "如何备份助记词、Keystore、私钥、二维码？";
-"Help_backup_info" = "助记词是未经任何加密措施保护的私钥，一旦有人获得了你的助记词，那就等同于掌控了你的钱包，在使用助记词时候需要注意以下几点：\n途径一：\n（1）创建钱包之后，一定要及时备份助记词。\n备份助记词时，要尽量采用物理介质备份，比如手抄在一张纸上，然后收藏好这张纸。尽可能不要使用截屏！\n（2）要确保备份的助记词准确，多次校对助记词是否正确。\n一定要妥善保管好你所备份的助记词，一是不要被盗，二是要做好防丟措施。切记千万不要把助记词发给任何人！\n途径二：\nAElf Wallet为去中心化钱包，不存储用户的钱包助记词，导入的助记词通过加密只存储在用户自己原先登录的设备上，根据以下的操作可以进行再次备份。\n“我的”界面—身份管理—选择导出助记词/Keystore/私钥/二维码—输入交易密码—备份（妥善保管好）。";
+"Help_backup_info" = "助记词是未经任何加密措施保护的私钥，一旦有人获得了你的助记词，那就等同于掌控了你的钱包，在使用助记词时候需要注意以下几点：\n途径一：\n（1）创建钱包之后，一定要及时备份助记词。\n备份助记词时，要尽量采用物理介质备份，比如手抄在一张纸上，然后收藏好这张纸。尽可能不要使用截屏！\n（2）要确保备份的助记词准确，多次校对助记词是否正确。\n一定要妥善保管好你所备份的助记词，一是不要被盗，二是要做好防丟措施。切记千万不要把助记词发给任何人！\n途径二：\naelf Wallet为去中心化钱包，不存储用户的钱包助记词，导入的助记词通过加密只存储在用户自己原先登录的设备上，根据以下的操作可以进行再次备份。\n“我的”界面—身份管理—选择导出助记词/Keystore/私钥/二维码—输入交易密码—备份（妥善保管好）。";
 "Private Keys" = "私钥";
 
 
@@ -84,7 +84,7 @@
 "Wallet name %d~%d characters" = "钱包名称 %d~%d 位";
 "Two input password must be consistent" = "两次输入的密码必须一致";
 
-"How to use ELF Wallet" = "如何使用 AElf 钱包?";
+"How to use ELF Wallet" = "如何使用 aelf 钱包?";
 "Create Wallet" = "创建身份";
 "Import Wallet" = "恢复身份";
 "%d-%d characters password" = "请设置 %d-%d 位登录密码";
@@ -94,8 +94,8 @@
 "You can use mnemonic" = "您可以选择使用助记词恢复身份，也可以扫码恢复身份。";
 "You reset wallet" = "使用助记词导入的同时，可以重置钱包密码。";
 "Please seperate each Mnemonic" = "请输入助记词，用空格分离。";
-"Importing AElf Wallet" = "AElf 钱包导入中";
-"Creating AElf Wallet" = "AElf 钱包创建中";
+"Importing AElf Wallet" = "aelf 钱包导入中";
+"Creating AElf Wallet" = "aelf 钱包创建中";
 "Please back up your wallet!" = "请及时备份钱包！";
 "Mnemonic words" = "备份助记词可用于恢复钱包资产，防止由于忘记密码、应用删除、手机丢失等情况导致资产损失。\n我们强烈建议您在四周无人，且没有摄像头的安全环境下把助记词抄写在纸上，并妥善保管至隔离网络的安全地方，禁止将助记词在联网环境下分享和存储。";
 "Start Backup" = "开始备份";
@@ -115,7 +115,7 @@
 "Total Assets in Current Account1" = "当前链下总资产";
 "Total Assets in Current Account2" = "当前链下\n总资产";
 "Current identity is in following chains" = "当前身份存在于以下链中\n点击可切换链（链名称-链的主要Token名称）";
-"Password is used" = "密码用于加密保护您的私钥与交易，因此密码的安全强度十分重要。AElf钱包将不会保存您的钱包密码也无法帮您找回。请务必牢记您的密码。";
+"Password is used" = "密码用于加密保护您的私钥与交易，因此密码的安全强度十分重要。aelf 钱包将不会保存您的钱包密码也无法帮您找回。请务必牢记您的密码。";
 "I have read and agree to" = " 我已仔细阅读并同意 ";
 "Please remember your password" = "请牢记您的密码";
 "User Name" = "用户名";
@@ -150,7 +150,7 @@
 "Security reminder" = "安全提示";
 "Please check on the security level" = "请检查您移动设备生物识别功能的安全等级。在大额转账中，请手动输入您的密码。请勿在共享的移动设备中开启生物识别功能。";
 "Disclaimer" = "免责声明";
-"The security levels" = "不同移动设备的生物识别功能的安全等级均不同，我们建议您在使用时提高警惕.对于因生物识别功能而造成的威胁或损失，Aelf钱包概不负责。";
+"The security levels" = "不同移动设备的生物识别功能的安全等级均不同，我们建议您在使用时提高警惕.对于因生物识别功能而造成的威胁或损失，aelf 钱包概不负责。";
 "You need to re-sign transaction to initiate a transfer" = "你需要重新签名构造交易";
 
 
@@ -280,7 +280,7 @@
 "TxID" = "TxID";
 
 "Block" = "区块";
-"View more details" = "在 Aelf 区块浏览器中查看更多详情";
+"View more details" = "在 aelf 区块浏览器中查看更多详情";
 
 "Copied" = "已复制";
 "Retry" = "重试";
@@ -408,7 +408,7 @@
 "Get more details" = "查询更详细信息 >";
 
 "Scanning QR code requires camera permissions" = "扫描二维码需要相机权限";
-"Please look forward to the release of the new version of AELF" = "%@ 到 %@ 转账 %@ 改造中，请期待 AELF 发布新版升级";
+"Please look forward to the release of the new version of AELF" = "%@ 到 %@ 转账 %@ 改造中，请期待 aelf 发布新版升级";
 "Input name" = "输入名称";
 
 "Dapp visite info title" = "您所访问的页面将跳转至第三方 DApp \"%@\"";
@@ -472,7 +472,7 @@
 
 "Keystore is file format for private keys" = "Keystore 是存储私钥的一种文件格式（JSON），点击进行扫描 Keystore 二维码导入钱包。";
 
-"Do you want to allow AELF Wallet to use biometrics?" = "您要允许\“AELF Wallet\”使用生物识别吗？";
+"Do you want to allow AELF Wallet to use biometrics?" = "您要允许\“aelf Wallet\”使用生物识别吗？";
 "Using biometrics can be applied to unlock apps and verify payments" = "使用生物识别可应用于解锁应用和验证支付";
 
 "No configuration address information" = "暂无配置地址信息";

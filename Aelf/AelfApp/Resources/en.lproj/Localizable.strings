@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   AelfApp
 
@@ -11,20 +11,20 @@
 "coin_intro_vol24" = "24H Volume";
 "coin_intro_total_supply" = "Total Supply";
 
-"Invalid Address" = "Invalid AElf address";
+"Invalid Address" = "Invalid aelf address";
 "New Version" = "New Version\nv%@";
 "Update" = "Update";
 "Search" = "Search";
 "Results" = "Results";
 "Popular Searchs" = "Popular Searchs";
 
-"Feed_content_placeholder" = "Please enter a detailed description of problem. \nPlease submit the wallet address and transaction hash using text format as far as possible. Don't submit Mnemonic Phrase,Keystore or Private Key to us!";
+"Feed_content_placeholder" = "Please describe the issue in details and submit your wallet address and tx hash in text format. Do not submit your mnemonic phrase, Keystore or private key to us!";
 "Email_address" = "Email Address";
 "Feed_title" = "Title";
 "Submit" = "Submit";
 "Submit Feedback" = "Submit Feedback";
 "Submit failed" = "Submit failed";
-"Submit successfully" = "Submit successfully";
+"Submit successfully" = "Successfully submitted";
 "Invalid URL address" = "Invalid URL address";
 "Submit Feedback" = "Submit Feedback";
 "Identity Management" = "Identity Management";
@@ -34,19 +34,20 @@
 "Help_title" = "Help & Feedback";
 "Failed" = "Failed";
 "Help_wallet" = "How to create/import wallet?";
-"Help_wallet_info" = "Ÿ You don't have a wallet.\nStep 1: Create a wallet\nClick \"Create\".\nStep 2: Create successfully and get your Mnemonic Words\nYou will get a wallet and mnemonic words after setting the password. Mnemonic words are a human readable format of private keys without encryption. Anyone who has the mnemonic words can access your wallet. For your wallet security, it is recommended that you should write them down on papers or store them on U-disk or hard disk for physical isolation.\nŸ You have a wallet.\nStep 1: Click \"Import\"\nStep 2: Enter your mnemonic words or scan QR code to import\nEnter your mnemonic words or scan QR code to import your wallet. After scanning, you also need to enter your password to complete. When importing your wallet, you can also modify your password.";
+"Help_wallet_info" = "1. If you don’t have a wallet yet, follow the steps below to create one.\nStep 1: Tab “Create Wallet” and follow the instructions.\nStep 2: After creating your wallet successfully, you'll get your mnemonic phrase, which is a human readable format of private keys without encryption. Anyone who has it can access your wallet. To keep your wallet secure, we advise you to write the mnemonic phrase down on paper or store it on U-disk or hard disk.\n2. If you already have a wallet, follow the steps below to import wallet.\nTab “Import Wallet”.\nStep 2: Enter your mnemonic phrase or scan QR code to import your wallet.
+After scanning, you also need to enter your password. You can also reset your password when importing your wallet.";
 "Help_search" = "How to add or search tokens?";
-"Help_search_info" = "When you want more tokens in your asset list, click \"+\" to add tokens. Part of the major tokens will be displayed by default. You can search the tokens you need and add them to the list.";
+"Help_search_info" = "If you want to add more tokens in your asset list, click“+” to add tokens. Some of the mainstream tokens will appear here by default. You can search tokens and add them to the list.";
 "Help_password" = "What if I forget my password?";
-"Help_password_info" = "If you forget your trade password, you can import your wallet again by mnemonic words and set your new password.";
+"Help_password_info" = "If you forget your transaction password, you can import your wallet again via mnemonic phrase and set a new password.";
 "Help_transation" = "How to use wallet to transfer/receive tokens?";
-"Help_transation_info" = "You can select one of the digital tokens in the wallet homepage. After entering the details page, click the \"Transfer\" and \"Receive\" functions.\nTransfer: you can input the recipient's address by scanning (selecting QR code from your album is available) or entering the address.\nReceive: you can receive tokens by scanning QR code face to face, or share your QR code to your counterparty, or copy your receipt address to your counterparty.";
+"Help_transation_info" = "You can choose a token in your asset list and click “Transfer” or “Receive”.\nTransfer: you can enter the receiver’s address by scanning the QR code on your phone or entering the address manually.\nReceive: you can receive tokens by scanning the QR code face to face, or share your QR code or receiver's address to the sender.";
 
 "Help_cross_transaction" = "How to operate cross-chain transfers?";
-"Help_cross_transaction_info" = "If you need cross-chain transfer, you should modify the receive address suffix to the specified chain ID.\nExample:\nIf the address is ELF_address_AELF, and now you need to transfer the token to the account of 'tDVV' chain, you have to modify the address to ELF_address_tDVV and follow the prompts to complete the subsequent transfer operation.";
+"Help_cross_transaction_info" = "For cross-chain transfers, you need to change the suffix to the receiver's address to the specified chain ID.\nFor example:\nIf the address is ELF_addressA_AELF, and you need to transfer the token to the account of tDVV chain, then you have to change the address to ELF_addressA_tDVV and follow the instructions to complete the transfer.";
 
-"Help_backup" = "How to back up Mnemonic Words, Keystore, Private Key and QR Code?";
-"Help_backup_info" = "Mnemonic words are a human readable format of private keys without encryption. Anyone who has the mnemonic words can access your wallet. The following should be noted when using mnemonic words:\nApproach One:\na) After creating a wallet, please back up your mnemonic words immediately.\nIt is recommended to back up your mnemonic words on physical medium, such as writing them down on papers and keep the papers well. Please do NOT take screenshots!\nb) Please guarantee the accuracy of the backup.\nPlease keep your mnemonic words well against being stolen or lost. Do NOT send your mnemonic words to anyone!\nApproach Two:\nBeing a decentralized wallet, AElf Wallet does not store user's wallet mnemonic words. Mnemonic words are only stored on the original device through encryption. You back up your mnemonic words by following the instructions.\n\"My Account\"——Identity Management——Select exporting mnemonic words/Keystore/Private Key/QR Code——Enter trade password——Back up (please keep it well)";
+"Help_backup" = "How to backup mnemonic phrase, Keystore, private key and QR code?";
+"Help_backup_info" = "Mnemonic phrase is a human readable format of private keys without encryption. Anyone who has it can access your wallet. Please note that:\na) After you've created your wallet, backup your mnemonic phrase immediately. We recommend you to write down the mnemonic phrase on paper and keep it safe. Please do NOT take screenshots!\nb) Make sure you backed up correctly and keep your mnemonic phrase safe. Do NOT send your mnemonic phrase to anyone!\nAs a decentralized wallet, aelf Wallet does not store users’ wallet mnemonic phrase. It is only stored on users' original devices through encryption. Follow the steps below to backup your mnemonic phrase.\n\“My Account”——Profile photo——Select "Export Mnemonic Phrase/Keystore/Private Key/QR Code"——Enter transaction password——Backup (please keep it safe)";
 
 "Localized" = "English Localized";
 "Change" = "Change Language";
@@ -71,77 +72,77 @@
 "Scan" = "Scan";
 "Transaction Details" = "Transaction Details";
 "Copy Address" = "Copy Address";
-"Beyond amount" = "Beyond amount";
+"Beyond amount" = "Beyond Amount";
 "Transfer Amount" = "Transfer Amount";
-"Receiver Address - Wallet Address" = "Receiver Address - Wallet Address";
+"Receiver Address - Wallet Address" = "Receiver's Address - Wallet Address";
 "Notes (Optional)" = "Notes (Optional)";
 "Please check the amount" = "Please check the amount";
-"Wrong Mnenomic Words Order" = "Wrong Mnenomic Words Order";
+"Wrong Mnenomic Words Order" = "Wrong Mnenomic phrase Order";
 "The password should be with 12 characters" = "The password should be with 12 characters";
 "Wallet name %d~%d characters" = "Wallet name %d~%d characters";
 "Two input password must be consistent" = "Two input password must be consistent";
 
-"How to use ELF Wallet" = "How to use AElf Wallet?";
+"How to use ELF Wallet" = "How to use aelf Wallet?";
 "Create Wallet" = "Create Wallet";
 "Import Wallet" = "Import Wallet";
 "%d-%d characters password" = "%d-%d characters password";
-"please enter %d-%d characters password rule" = "Please enter the %d-%d character password, containing upper and lower case letters, characters and numbers.";
+"please enter %d-%d characters password rule" = "Please enter a password between %d-%d characters, containing upper and lower case letters, characters and numbers.";
 "Please confirm your password" = "Please confirm your password";
 "Password hints (Optional)" = "Password hints (Optional)";
 "You can use mnemonic" = "You can use mnemonic phrase to import wallet or scan QR code to import.";
 "You reset wallet" = "You reset wallet password while importing the Mnemonic Phrase";
 "Please seperate each Mnemonic" = "Please seperate each Mnemonic phrase with a space.";
-"Importing AElf Wallet" = "Importing AElf Wallet";
-"Creating AElf Wallet" = "Creating AElf Wallet";
-"Please back up your wallet!" = "Please back up your wallet!";
+"Importing AElf Wallet" = "Importing aelf Wallet";
+"Creating AElf Wallet" = "Creating aelf Wallet";
+"Please back up your wallet!" = "Please backup your wallet!";
 "Mnemonic words" = "Mnemonic words can be used to recover your assets when you forget password, delete the app or lose your phone.\nWe highly recommend you write the Mnemonic words (Backup Phrase) on paper and keep it in a safe place, anyone get can access or spend your assets. \nPlease don't save them on any cloud drive or share via the internet.";
 "Start Backup" = "Start Backup";
 "Later" = "Later";
 "Update_later" = "Later";
 "Don’t Screenshot" = "Don't Screenshot";
-"We highly recommend you" = "We highly recommend you write the Mnemonic words (Backup Phrase) on paper and keep it in a safe place, anyone get it can access or spend your assets.";
+"We highly recommend you" = "We highly recommend that you write down the mnemonic phrase (Backup Phrase) on paper and keep it in a safe place, because anyone who gets it can access your assets.";
 "Mnemonic Phrase Backup" = "Mnemonic Phrase Backup";
-"Mnemonic words can" = "Mnemonic words can be used to import wallet or reset wallet password. If someone gets your mnemonic words, he gets all your assets directly! Please write in the Mnemonic words on paper and keep it in a safe place.\n\nPlease write down the 12 Mnemonic words in order carefully, we will verify this in the next step.";
-"Mnemonic words can2" = "Mnemonic words can be used to import wallet or reset wallet password. If someone gets your mnemonic words, he gets all your assets directly! Please write in the Mnemonic words on paper and keep it in a safe place.";
+"Mnemonic words can" = "Mnemonic phrase can be used to import wallet or reset wallet password. Anyone who has your mnemonic phrase can access all your assets directly, so please write it down on paper and keep it in a safe place.\n\nPlease write down your 12-word mnemonic phrase in the right order, we will verify it in the next step.";
+"Mnemonic words can2" = "Mnemonic phrase can be used to import wallet or reset wallet password. Anyone who has your mnemonic phrase can access all your assets directly, so please write it down on paper and keep it in a safe place.";
 
 "Next" = "Next";
 "Mnemonic Phrase" = "Mnemonic Phrase";
 "Confirm Mnemonic Phrase" = "Confirm Mnemonic Phrase";
-"Please choose Mnemonic Phrase" = "Please choose Mnemonic Phrase in correct order to confirm your mnemonic phrase backup in the previous step is correct.";
+"Please choose Mnemonic Phrase" = "Please choose your mnemonic phrase in correct order to confirm your backup.";
 "Total Assets" = "Total Assets";
 "Total Assets in Current Account1" = "Total Assets in Current Account";
 "Total Assets in Current Account2" = "Total Assets in \nCurrent Account";
-"Current identity is in following chains" = "Current identity is in following chains\nClick to switch the chain (chain name-the main token name of the chain)";
-"Password is used" = "Password is used to encrypt and protect your private keys and transactions so the strength of the password is very important. Aelf Wallet will not save your wallet password and get it back. So please remember your password.";
+"Current identity is in following chains" = "The current identity is available in the following chains.\nClick to switch chains (Chain name - The main token name of the chain)";
+"Password is used" = "Your password is used to encrypt and protect your private key and transactions, so the strength of the password is very important. aelf Wallet does not keep your password and cannot help you retrieve it. Please remember your password and keep it safe.";
 
 "I have read and agree to" = " I have read and agree to ";
 "Please remember your password" = "Please remember your password";
 "User Name" = "User Name";
 "Wallet name" = "Wallet name";
 "Wallet address" = "Wallet address";
-"Phrase Backup" = "Phrase Backup";
+"Phrase Backup" = "Mnemonic Phrase Backup";
 "Private Key Backup" = "Private Key Backup";
-"Notice:" = "Notice: This address only support receiving from ELF. Please don't use other coins!";
+"Notice:" = "Notice: This address only support receiving from aelf. Please don't use other coins!";
 "Cross-chain transfer" = "Cross-chain transfer detected, please use password to sign.";
-"Having your mnemonic phrase" = "Having your mnemonic phrase means having all your wallet assets.";
-"Having your Keystore" = "Having your Keystore means having all your wallet assets.";
-"Having your private keys" = "Having your private keys means having all your wallet assets.";
+"Having your mnemonic phrase" = "Anyone who has your Keystore can access your assets directly.";
+"Having your Keystore" = "Anyone who has your Keystore can access your assets directly.";
+"Having your private keys" = "Anyone who has your Keystore can access your assets directly.";
 "Having your QR Code" = "Getting your wallet QR code means getting all your wallet assets, and you can recover your identity with the wallet QR code and wallet password!";
 
 
 "Please write down the mnemonic words" = "Please write down the mnemonic words in order on paper carefully. If your phone is lost, stolen or damaged, mnemonic words can be used to recover your assets.";
-"Please write down Keystore" = "Please be sure to keep your Keystore in a safe place. If your phone is lost, stolen or damaged, the keystore can be used to retrieve your assets.";
-"Please write down the private key" = "Please write down private key on paper carefully. If your phone is lost, stolen or damaged, private key could be used to recover your assets.";
+"Please write down Keystore" = "Please be sure to keep your Keystore in a safe place. If your phone is lost, stolen or damaged, the Keystore can be used to retrieve your assets.";
+"Please write down the private key" = "Please write down your private key on paper carefully. If your phone is lost, stolen, or damaged, the private key can be used to recover your assets.";
 
 "Private Keys" = "Private Keys";
 
-"Off-line Saving" = "Off-line Saving";
-"Keep the mnemonic words" = "Keep the mnemonic words in a secure place off-line. Please do not share or save the mnemonic words in a public network, such as email, photo albums, social apps and such.";
+"Off-line Saving" = "Save Offline";
+"Keep the mnemonic words" = "Save your mnemonic phrase offline and keep it safe. Do not store or tell anyone about your Keystore via any public network, including email, photos, or social media.";
 "Keystore Backup" = "Keystore Backup";
-"Keep the Keystore" = "Keep the keystore in a secure place off-line. Please do not share or save the keystore in a public network, such as email, photo albums, social apps and such.";
-"Keep the Private keys" = "Keep the Private keys in a secure place off-line. Please do not share or save the Private keys in a public network, such as email, photo albums, social apps and such.";
+"Keep the Keystore" = "Save your Keystore offline and keep it safe. Do not store or tell anyone about your Keystore via any public network, including email, photos, or social media.";
+"Keep the Private keys" = "Save your private key offline and keep it safe. Do not store or tell anyone about your Keystore via any public network, including email, photos, or social media.";
 
-"Please do not save" = "Please do not save to mailbox,notepad,network disk,chat tools,etc. This may put your assets in danger";
+"Please do not save" = "Please do not save your private key to your email, notepad, cloud drive, chat tools, etc. which may put your assets at risk.";
 "Do not use network transmission" = "Do not use network transmission";
 "Do not transfer through network tools" = "Do not transfer through network tools, once obtained by hackers will cause irreparable loss of assets. Offline devices are recommended to be transmitted by scanning qr code.";
 "Password Management Tool" = "Password Management Tool";
@@ -151,7 +152,7 @@
 "Security reminder" = "Security reminder";
 "Please check on the security level" = "Please check on the security level of your mobile device's biometric verification feature. For large asset transfers, please execute by manually inputting your password. Please refrain from enabling biometric verification for shared mobile devices";
 "Disclaimer" = "Disclaimer";
-"The security levels" = "The security levels for biometric verification vary among mobile devices, user are recommended to proceed with caution. AElf Wallet will not be held liable for any risks or loss arising from vulnerabilities in the biometric verification feature.";
+"The security levels" = "The security levels for biometric verification vary among mobile devices, user are recommended to proceed with caution. aelf Wallet will not be held liable for any risks or loss arising from vulnerabilities in the biometric verification feature.";
 "You need to re-sign transaction to initiate a transfer" = "You need to re-sign transaction to initiate a transfer";
 
 
@@ -167,11 +168,11 @@
 "Notifications" = "Notifications";
 "Settings" = "Settings";
 "Help" = "Help";
-"Terms Service" = "Terms of service";
-"Terms of Service" = "Terms of service";
+"Terms Service" = "Terms of Service";
+"Terms of Service" = "Terms of Service";
 "About Us" = "About Us";
 "Search or input address" = "Search or input address";
-"Messages" = "Messages";
+"Messages" = "Notifications";
 "User Agreement" = "User Agreement";
 "Change Profile Picture" = "Change Profile Picture";
 "Clear all transaction notifications" = "Are you sure to clear all transaction notifications?";
@@ -198,7 +199,7 @@
 "Password - free Payment" = "Password - free Payment";
 "Auto Recei" = "Auto Recei";
 "Language" = "Language";
-"Pricing Currency" = "Pricing Currency";
+"Pricing Currency" = "Currency";
 "Asset Display" = "Asset Display";
 "Switch Network" = "Switch Network";
 "Default Network" = "Default Network";
@@ -231,7 +232,7 @@
 //Notifications
 
 "Notifications" = "Notifications";
-"Transaction Notice" = "Transaction Notice";
+"Transaction Notice" = "Transactions";
 "System Messages" = "System Messages";
 "Clear" = "Clear";
 
@@ -271,16 +272,16 @@
 "Memo" = "Memo";
 "TxID" = "TxID";
 "Block" = "Block";
-"View more details" = "View more details in AElf explorer";
+"View more details" = "View more details in aelf Explorer";
 
 "Copied" = "Copied";
 "Retry" = "Retry";
 
-"Please input password" = "Please input password";
-"Please input wallet password" = "Please input wallet password";
-"Please input wallet name" = "Please input wallet name";
+"Please input password" = "Please enter password";
+"Please input wallet password" = "Please enter wallet password";
+"Please input wallet name" = "Please enter wallet name";
 "Please read and agree" = "Please read and agree to Terms of Service";
-"Please enter 12 mnemonic words" = "Please enter 12 mnemonic words";
+"Please enter 12 mnemonic words" = "Please enter 12 mnemonic phrase";
 
 "No images available" = "No images available";
 "Camera is not available" = "Camera is not available";
@@ -317,14 +318,14 @@
 "Token invalid, please login again" = "Token invalid, please login again";
 "Data parsing failed" = "Data parsing failed";
 "Data return error" = "Data return error";
-"Empty Data" = "Empty Data";
+"Empty Data" = "No Data";
 "Search result is empty" = "Search result is empty";
 "Unable to find DApp" = "Unable to find DApp";
 "No-Notifications" = "No-Notifications";
 "Network timeout, please try again later" = "Network timeout, please try again later";
 
 "Security Warning" = "Security Warning";
-"You have not backed up" = "You have not backed up your mnemonic phrases. Please bacup now! Mnemonics can be used to recover your assets in case you forget the password, accidentally delete the wallet or lose your phone.";
+"You have not backed up" = "You haven't backed up your mnemonic phrase. Please backup now! The mnemonic phrase is used for recovering your assets in case you forget your password, accidentally delete the wallet or lose your phone.";
 "Backup Now" = "Backup Now";
 
 
@@ -374,7 +375,7 @@
 "No node address found for %@ or %@" = "No node address found for %@ or %@";
 "Confirm success" = "Confirm success";
 "No pending transactions" = "No pending transactions";
-"To be confirmed transfer" = "To be confirmed transfer";
+"To be confirmed transfer" = "Confirm Transactions";
 
 "The amount is too small to transfe" = "The amount is too small to transfe";
 "Transfer failed" = "Transfer failed";
@@ -398,7 +399,7 @@
 "Get more details" = "Get more details >";
 
 "Scanning QR code requires camera permissions" = "Scanning QR code requires camera permissions";
-"Please look forward to the release of the new version of AELF" = "Chain %@ to chain %@ transfer %@ in the transformation, please look forward to the release of the new version of AELF.";
+"Please look forward to the release of the new version of AELF" = "Chain %@ to chain %@ transfer %@ in the transformation, please look forward to the release of the new version of aelf.";
 "Input name" = "Input name";
 
 "Dapp visite info title" = "The page you visit will jump to the third-party DApp \"%@\"";
@@ -407,10 +408,10 @@
 "Dapp request visite wallet address" = "Request access to wallet address";
 "Dapp request visite description" = "\"%@\" is requesting access to your wallet address. Are you sure you want to make the address public to this site?";
 "Dapp sign title" = "Signature Authority";
-"Dapp sign content" = "Signature content：";
-"Dapp sign address" = "Signature address：";
+"Dapp sign content" = "Signature content:";
+"Dapp sign address" = "Signature address:";
 "Dapp join White list" = "Join white list";
-"Dapp join White list description" = "Before the wallet application is closed, DAPP can automatically complete the whitelist operation without the need to confirm the pop-up window.";
+"Dapp join White list description" = "Before the wallet application is closed, DApp can automatically complete the whitelist operation without the need to confirm the pop-up window.";
 "Dapp joined" = "Already joined";
 
 "Please sign in" = "Please sign in";
@@ -429,7 +430,7 @@
 "Games" = "Games";
 "Others" = "Others";
 
-"DApp listing application" = "DApp listing application";
+"DApp listing application" = "Apply for DApp listing";
 
 "Tool" = "Tool";
 
@@ -441,7 +442,7 @@
 "%@ on %@ is not enough to pay the fee" = "%@ on %@ is not enough to pay the fee, please recharge and try again";
 
 "Forgot password" = "Forgot password?";
-"Forgot password Warning" = "Forgetting the password will delete all the data in the wallet. You can only recover your identity through Keystore, mnemonic or private key, please proceed with caution!";
+"Forgot password Warning" = "Please be careful. If you forget your password, all wallet data will be deleted. You can only recover your identity via mnemonic phrase and private key.";
 
 "Authentication success" = "Authentication success";
 "Are you sure you want to turn off biometrics?" = "Are you sure you want to turn off biometrics?";
@@ -460,12 +461,12 @@
 
 "Please enter Feedback title" = "Please enter Feedback title";
 "Please enter Feedback contents" = "Please enter Feedback contents";
-"Please enter E-mail" = "Please enter E-mail";
+"Please enter E-mail" = "Please enter email";
 
 
 "Keystore is file format for private keys" = "Keystore is file format for private keys(JSON),Click to scan Keystore QR code to import wallet.";
 
-"Do you want to allow AELF Wallet to use biometrics?" = "Do you want to allow \"AELF Wallet\" to use biometrics?";
+"Do you want to allow AELF Wallet to use biometrics?" = "Do you want to allow \"aelf Wallet\" to use biometrics?";
 
 "Using biometrics can be applied to unlock apps and verify payments" = "Using biometrics can be applied to unlock apps and verify payments";
 
