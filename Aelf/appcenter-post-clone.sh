@@ -1,2 +1,2 @@
-#! /bin/bash
+#!/bin/bash
 brew install autoconf automake libtool
