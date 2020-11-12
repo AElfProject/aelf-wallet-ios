@@ -16,13 +16,14 @@ DerivedData
 .idea/
 *.hmap
 *.xccheckout
-*.xcworkspace
+# *.xcworkspace
+project.xcworkspace
 !default.xcworkspace
 
 #CocoaPods
 Pods
 !Podfile
 !Podfile.lock
-AelfApp.xcscheme
+# AelfApp.xcscheme
 
-Configure.plist
+# Configure.plist
