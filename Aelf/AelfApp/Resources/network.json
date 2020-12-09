@@ -1,23 +1,14 @@
 [
   {
-    "name":"默认配置",
-    "nameEn":"default",
-    "url":"https://wallet-app-api-test.aelf.io/",
-    "node":""
+    "name": "默认配置",
+    "nameEn": "default",
+    "url": "https://app-wallet-api.aelf.io/",
+    "node": ""
   },
   {
-    "name":"测试网",
-    "nameEn":"testnet",
-    "url":"http://1.119.195.50:11177/",
-    "node":"11177/"
-  },
-  {
-    "name":"测试网美国节点",
-    "nameEn":"testnet-american",
-    "url":"",
-    "node":""
+    "name": "测试网",
+    "nameEn": "testnet",
+    "url": "https://wallet-app-api-test.aelf.io/",
+    "node": ""
   }
 ]
-
-
-

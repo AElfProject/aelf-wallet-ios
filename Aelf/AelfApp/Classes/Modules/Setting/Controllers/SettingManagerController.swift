@@ -58,9 +58,9 @@ class SettingManagerController: BaseStaticTableController {
         identificationSwitch.isOn = App.isBiometricIdentification
         
         let network: String = UserDefaults.standard.string(forKey: "kNetwork") ?? ""
-        if network == "https://wallet-app-api-test.aelf.io/" {
+        if network == "https://app-wallet-api.aelf.io/" {
             networkLabel.text = "default".localized()
-        } else if network == "http://1.119.195.50:" {
+        } else if network == "https://wallet-app-api-test.aelf.io/" {
             networkLabel.text = "testnet".localized()
         } else {
             networkLabel.text = network

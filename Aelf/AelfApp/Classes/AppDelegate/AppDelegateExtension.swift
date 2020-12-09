@@ -20,7 +20,7 @@ extension AppDelegate {
         //Network config
         let network: String = UserDefaults.standard.string(forKey: "kNetwork") ?? ""
         if network.length <= 0 {
-            UserDefaults.standard.setValue("https://wallet-app-api-test.aelf.io/", forKey: "kNetwork")
+            UserDefaults.standard.setValue("https://app-wallet-api.aelf.io/", forKey: "kNetwork")
             UserDefaults.standard.synchronize()
         }
         
