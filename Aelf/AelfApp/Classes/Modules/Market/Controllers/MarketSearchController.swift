@@ -170,6 +170,8 @@ class MarketSearchController: BaseTableViewController {
 
         tableView.register(nibWithCellClass: MarketSearchCell.self)
         tableView.height = 55
+        tableView.headRefreshControl = nil
+        tableView.footRefreshControl = nil
     }
 
     lazy var searchView: SearchBarView = {

@@ -55,7 +55,7 @@ extension DappSearchViewModel {
                                    cat: "0",
                                    coin: nil,
                                    name: name,
-                                   isPopular: true,
+                                   isPopular: false,
                                    isRecommand: nil))
             .trackError(self.error)
             .trackActivity(self.loading)

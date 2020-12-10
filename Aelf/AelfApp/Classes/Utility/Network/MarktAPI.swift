@@ -33,7 +33,6 @@ extension MarktAPI: TargetType {
     var baseURL: URL {
         return NSURL.init(string: "https://api.coingecko.com/api/v3/")! as URL
     }
-    
     var path: String {
         var path = ""
         switch self {
@@ -80,7 +79,7 @@ extension MarktAPI: TargetType {
 //                orderPx = "market_cap_desc"
 //            }
             parameters = ["vs_currency":currency,
-                          "ids":ids,
+                          "ids":ids.lowercased(),
                           "order":orderPx,
                           "per_page":perPage.string,
                           "page":page.string]
