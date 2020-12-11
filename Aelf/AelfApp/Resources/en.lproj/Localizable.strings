@@ -434,7 +434,7 @@ After scanning, you also need to enter your password. You can also reset your pa
 
 "Tool" = "Tool";
 
-"Enter DApp Name" = "Enter DApp Name";
+"Enter DApp Name" = "Search";
 "No updates" = "No updates";
 "Please verify the mnemonic" = "Please verify the mnemonic";
 
