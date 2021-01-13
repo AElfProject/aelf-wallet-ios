@@ -569,9 +569,10 @@ extension DappWebController {
             GlobalDataManager.shared.checkAndUpdateData()
             return
         }
+        let nodeUrl = item.endpoint.length > 0 ? item.endpoint : chain.node.removeSlash()
         AElfWallet.dappInvokeOrInvokeReadJS(privateKey: privateKey,
                                             id: id,
-                                            nodeURL: chain.node.removeSlash(),
+                                            nodeURL: nodeUrl,
                                             action: action,
                                             contractMethod: item.contractMethod,
                                             contractAddress: item.contractAddress,
