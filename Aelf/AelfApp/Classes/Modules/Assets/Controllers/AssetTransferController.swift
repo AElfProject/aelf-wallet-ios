@@ -119,7 +119,7 @@ class AssetTransferController: BaseController {
                 self.allChains <= items
                 items.forEach({
                     print($0)
-                    if $0.chainID.lowercased() == self.item?.chainID.lowercased() {
+                    if $0.symbol.lowercased() == self.item?.symbol.lowercased() {
                         self.issueID = $0.issueChainId
                         self.mainID = $0.chainID
                     }
