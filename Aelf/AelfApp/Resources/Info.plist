@@ -101,7 +101,7 @@
 	<key>NSFaceIDUsageDescription</key>
 	<string>This app requires Face ID permission to authenticate using Face recognition.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to access your location to provide location information for the photos taken. If you don't need this feature, you can also click reject.</string>
+	<string>We need to access your location to provide location information for the photos taken. If you don&apos;t need this feature, you can also click reject.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>The app needs to save the pictures you generated in the app</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -112,10 +112,6 @@
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
