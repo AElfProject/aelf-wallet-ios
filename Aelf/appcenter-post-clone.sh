@@ -1,9 +1,9 @@
 #!/bin/bash
-# git clone https://github.com/AElfProject/aelf-wallet-ios.git Pods-only
-# cd Pods-only
-# git checkout pods-only
-# mv Pods ../
-# cd ../
+git clone https://github.com/AElfProject/aelf-wallet-ios.git Pods-only
+cd Pods-only
+git checkout pods-only
+mv Pods ../
+cd ../
 brew install autoconf automake libtool
 echo "Uninstalling all CocoaPods versions"
 sudo gem uninstall cocoapods --all --executables
