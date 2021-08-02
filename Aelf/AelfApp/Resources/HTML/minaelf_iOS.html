@@ -13,6 +13,13 @@
     <script type="text/javascript" src="aelf.umd.js"></script>
     <script type="text/javascript" src="aelf-cross-chain.umd.js"></script>
     <script type="text/javascript">
+        const defaultResponseData = {
+            'privateKey': '',
+            'publicKey': '',
+            'signedAddress': '',
+            'signature': '',
+            'address': ''
+        }
         AElf = window.AElf;
         const Wallet = AElf.wallet;
         const { CrossChain } = window.AElfCrossChain;
@@ -182,11 +189,15 @@
                 //console.log('publicKey :',publicKey)
 
                 let signedAddress = keyPair.sign(address)
+                // TODO Signed
+                const sha256Address = AElf.utils.sha256(address);
+                const signature = keyPair.sign(sha256Address);
                 // document.writeln('signedAddress = ' + JSON.stringify(signedAddress))
                 var responseData = {
                     'privateKey': privateKey,
                     'publicKey': publicKey,
                     'signedAddress': JSON.stringify(signedAddress),
+                    'signature': JSON.stringify(signature),
                     'address': address
                 }
                 log('iOS called getWalletByMnemonicJS Result ', responseData, 'native')
@@ -270,12 +281,16 @@
                     //console.log('publicKey :',publicKey)
 
                     let signedAddress = keyPair.sign(address)
+                    // TODO Signed
+                    const sha256Address = AElf.utils.sha256(address);
+                    const signature = keyPair.sign(sha256Address)
                     // document.writeln('signedAddress = ' + JSON.stringify(signedAddress))
                     var responseData = {
                         'privateKey': privateKey,
                         'publicKey': publicKey,
-                        'signedAddress': signedAddress,
-                        'address': address
+                        'signedAddress': JSON.stringify(signedAddress),
+                        'signature': JSON.stringify(signature),
+                        'address': address,
                     }
                     log('iOS called getWalletByPrivateKeyJS Result ', responseData, 'native')
                     responseCallback(JSON.stringify(responseData))
@@ -285,13 +300,7 @@
                     log('iOS called getWalletByPrivateKeyJS with', err, 'native')
                     //TODO handle the exception
                     if (responseCallback) {
-                        var responseData = {
-                            'privateKey': '',
-                            'publicKey': '',
-                            'signedAddress': '',
-                            'address': ''
-                        }
-                        responseCallback(JSON.stringify(responseData));
+                        responseCallback(JSON.stringify(defaultResponseData));
                         //dsBridge.call("onResult", JSON.stringify(responseData));
                     }
                 }
@@ -335,24 +344,22 @@
                         //console.log('publicKey :',publicKey)
 
                         let signedAddress = keyPair.sign(address)
+                        // TODO Signed
+                        const sha256Address = AElf.utils.sha256(address);
+                        const signature = keyPair.sign(sha256Address);
                         // document.writeln('signedAddress = ' + JSON.stringify(signedAddress))
                         var responseData = {
                             'privateKey': privateKey,
                             'publicKey': publicKey,
-                            'signedAddress': signedAddress,
+                            'signedAddress': JSON.stringify(signedAddress),
+                            'signature': JSON.stringify(signature),
                             'address': address
                         }
                         log('iOS called getWalletByMnemonicJS Result ', responseData, 'native')
                         responseCallback(JSON.stringify(responseData))
                         //dsBridge.call("onResult", JSON.stringify(responseData));
                     } else {
-                        var responseData = {
-                            'privateKey': '',
-                            'publicKey': '',
-                            'signedAddress': '',
-                            'address': ''
-                        }
-                        responseCallback(JSON.stringify(responseData));
+                        responseCallback(JSON.stringify(defaultResponseData));
                         //dsBridge.call("onResult", JSON.stringify(responseData));
                     }
 
@@ -360,13 +367,7 @@
                     log('iOS called importWalletKeyStoreJS4 with', err, 'native')
                     //TODO handle the exception
                     if (responseCallback) {
-                        var responseData = {
-                            'privateKey': '',
-                            'publicKey': '',
-                            'signedAddress': '',
-                            'address': ''
-                        }
-                        responseCallback(JSON.stringify(responseData));
+                        responseCallback(JSON.stringify(defaultResponseData));
                         //dsBridge.call("onResult", JSON.stringify(responseData));
                     }
                 }
@@ -383,6 +384,8 @@
                     //# 密码
                     let amount = transferJson.amount
                     let symbol = transferJson.symbol
+                    //备注
+                    const memo  = transferJson.memo
                     // 新增节点地址
                     let nodeUrl = transferJson.nodeUrl
                     // 新增合约地址
@@ -407,7 +410,8 @@
                     tokenC.Transfer({
                         to: toAddress,
                         symbol: symbol,
-                        amount: amount
+                        amount: amount,
+                        memo: memo ?memo :'',
                     }, (error, txObj) => {
 
                         if (responseCallback) {

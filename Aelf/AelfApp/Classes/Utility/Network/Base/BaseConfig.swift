@@ -27,19 +27,19 @@ private enum APIEnv: Int {
 //            http://1.119.195.50:11177/app/elf/chain?lang=zh-cn
 //            return "https://hp-pre-wallet.aelf.io/"
 //            return "http://3.25.10.185:8000"
-            return UserDefaults.standard.string(forKey: "kNetwork") ?? "https://app-wallet-api.aelf.io/"
+            return UserDefaults.standard.string(forKey: "kNetwork") ?? "http://192.168.67.97:8081/"
         case .test:
 //            return "http://aelf.phpdl.com/"
 //            return "http://3.25.10.185:8000"
-            return UserDefaults.standard.string(forKey: "kNetwork") ?? "https://app-wallet-api.aelf.io/"
+            return UserDefaults.standard.string(forKey: "kNetwork") ?? "http://192.168.67.97:8081/"
         case .staging:
 //            return "https://hp-pre-wallet.aelf.io/"
 //            return "http://3.25.10.185:8000"
-            return UserDefaults.standard.string(forKey: "kNetwork") ?? "https://app-wallet-api.aelf.io/"
+            return UserDefaults.standard.string(forKey: "kNetwork") ?? "http://192.168.67.97:8081/"
         case .prodcution:
 //            return "http://aelf.phpdl.com/"
 //            return "http://3.25.10.185:8000"
-            return UserDefaults.standard.string(forKey: "kNetwork") ?? "https://app-wallet-api.aelf.io/"
+            return UserDefaults.standard.string(forKey: "kNetwork") ?? "http://192.168.67.97:8081/"
         }
     }
 
@@ -80,7 +80,10 @@ struct BaseConfig {
         parameters["version"] = String.appVersion
         parameters["currency"] = App.currency
         parameters["chainid"] = App.chainID
-
+        //TODO ADD Parameters
+        parameters["signature"] = AElfWallet.walletAccount().signature
+        parameters["public_key"] = AElfWallet.walletAccount().publicKey
+        parameters["address"] = AElfWallet.walletAccount().address
         logInfo("\n 基础参数：\(parameters)\n")
 
         parameters.rsaEncode()

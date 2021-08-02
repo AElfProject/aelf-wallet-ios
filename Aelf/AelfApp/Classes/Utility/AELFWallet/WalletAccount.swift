@@ -91,11 +91,12 @@ struct KeyPairResult: Mappable {
     }
 }
 
-
+// TODO signature
 struct WalletResult: Mappable {
 
     var publicKey : String = ""
     var signedAddress : String = ""
+    var signature : String = ""
     var privateKey : String = ""
     var address : String = ""
 
@@ -106,10 +107,11 @@ struct WalletResult: Mappable {
         address <- map["address"]
         publicKey <- map["publicKey"]
         signedAddress <- map["signedAddress"]
+        signature <- map["signature"]
     }
     
 }
-
+// TODO signature
 class WalletAccount : NSObject,NSCoding{
     var accoutName : String
     var address : String
@@ -121,6 +123,7 @@ class WalletAccount : NSObject,NSCoding{
     var hint : String
     var publicKey : String
     var signedAddress : String
+    var signature : String
     required override init() {
         address = ""
         privateKey = ""
@@ -131,6 +134,7 @@ class WalletAccount : NSObject,NSCoding{
         hint = ""
         publicKey = ""
         signedAddress = ""
+        signature = ""
     }
     
     /**
@@ -141,6 +145,7 @@ class WalletAccount : NSObject,NSCoding{
     {
         publicKey = aDecoder.decodeObject(forKey: "publicKey") as? String ?? ""
         signedAddress = aDecoder.decodeObject(forKey: "signedAddress") as? String ?? ""
+        signature = aDecoder.decodeObject(forKey: "signature") as? String ?? ""
         address = aDecoder.decodeObject(forKey: "address") as? String ?? ""
         privateKey = aDecoder.decodeObject(forKey: "privateKey") as? String ?? ""
         mnemonic = aDecoder.decodeObject(forKey: "mnemonic") as? String ?? ""
@@ -158,6 +163,7 @@ class WalletAccount : NSObject,NSCoding{
     {
         aCoder.encode(publicKey, forKey: "publicKey")
         aCoder.encode(signedAddress, forKey: "signedAddress")
+        aCoder.encode(signature, forKey: "signature")
         aCoder.encode(address, forKey: "address")
         aCoder.encode(privateKey, forKey: "privateKey")
         aCoder.encode(mnemonic, forKey: "mnemonic")

@@ -144,6 +144,7 @@ extension AElfWallet {
                 callback?(false,nil)
             } else {
                 let account = WalletAccount()
+                account.signature = result.signature
                 account.signedAddress = result.signedAddress
                 account.publicKey = result.publicKey
                 account.address = result.address
@@ -179,6 +180,7 @@ extension AElfWallet {
                 callback?(false,nil)
             } else {
                 let account = WalletAccount()
+                account.signature = result.signature
                 account.signedAddress = result.signedAddress
                 account.publicKey = result.publicKey
                 account.address = result.address
@@ -207,6 +209,7 @@ extension AElfWallet {
             return
         }
         let account = WalletAccount()
+        account.signature = item.signature
         account.signedAddress = item.signedAddress
         account.publicKey = item.publicKey
         account.address = item.address
