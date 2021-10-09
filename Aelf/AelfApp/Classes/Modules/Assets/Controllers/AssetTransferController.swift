@@ -205,11 +205,12 @@ class AssetTransferController: BaseController {
             SVProgressHUD.showInfo(withStatus: "Invalid Address".localized())
             return
         }
-        guard amount > 0 else {
+        let amountValue = Int(amount * pow(Double(10), Double(item!.decimals)!));
+        guard amount > 0 && amountValue >= 1 else {
             SVProgressHUD.showInfo(withStatus: "The amount is too small to transfe".localized())
             return
         }
-        guard balance > 0 && balance > self.fee + amount else {
+        guard balance > 0 && balance >= self.fee + amount else {
             SVProgressHUD.showInfo(withStatus: "%@ chain balance is not enough".localizedFormat(item?.chainID ?? ""))
 
            // SVProgressHUD.showInfo(withStatus: "Beyond amount".localized())
@@ -302,6 +303,14 @@ class AssetTransferController: BaseController {
         let fromNode = fromItem.node.removeSlash()
         let toNode = toItem.node.removeSlash()
         
+        let number = NSNumber(value:amount)
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0;
+        formatter.maximumFractionDigits = Int(item!.decimals) ?? 0;
+        formatter.roundingMode = .floor
+
+        let showAmount = formatter.string(from:  number )!
+
         AElfWallet.transferCross(pwd: pwd,
                                  fromNode: fromNode,
                                  toNode: toNode,
@@ -345,7 +354,8 @@ class AssetTransferController: BaseController {
                                                    fromChain: fromItem.name,
                                                    fromNode: fromNode,
                                                    memo: memo,
-                                                   txID: result.txId)
+                                                   txID: result.txId,
+                                                   showAmount:showAmount)
                     
                     logWarn("跨链交易结果: \(txResult)")
                     if txResult.isOk {

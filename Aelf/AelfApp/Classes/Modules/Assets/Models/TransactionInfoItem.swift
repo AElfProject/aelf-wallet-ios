@@ -25,5 +25,6 @@ struct TransactionInfoItem {
     let memo: String
     let txID: String
 
+    let showAmount: String
 
 }

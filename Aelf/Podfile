@@ -1,5 +1,4 @@
 platform :ios, '9.0'
-source 'https://github.com/CocoaPods/Specs.git'
 
 
 target 'AelfApp' do
@@ -9,7 +8,7 @@ target 'AelfApp' do
   pod 'Moya','~> 12.0' # 网络请求 https://github.com/Moya/Moya
   pod 'Kingfisher' # 图片下载 https://github.com/onevcat/Kingfisher
   pod 'SnapKit' # Layout 布局 https://github.com/SnapKit/SnapKit
-  pod 'WCDB.swift' # 腾讯数据库 https://github.com/Tencent/wcdb
+  # pod 'WCDB.swift' # 腾讯数据库 https://github.com/Tencent/wcdb
   pod 'IQKeyboardManagerSwift' # 键盘管理 https://github.com/hackiftekhar/IQKeyboardManager
   pod 'Bugly' # 崩溃统计 https://bugly.qq.com/v2/
 

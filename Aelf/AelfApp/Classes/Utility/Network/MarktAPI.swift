@@ -31,17 +31,17 @@ extension MarktAPI: TargetType {
     }
     
     var baseURL: URL {
-        return NSURL.init(string: "https://api.coingecko.com/api/v3/")! as URL
+        return NSURL.init(string: "https://wallet-app-api-test.aelf.io/")! as URL
     }
     var path: String {
         var path = ""
         switch self {
         case .markList:
-            path = "coins/markets"
+            path = "app/market-data/markets"
         case .coinList:
-            path = "coins/list"
-        case let .tradeKline(id, _, _):
-            path = "coins/" + id + "/market_chart"
+            path = "app/market-data/coin-list"
+        case let .tradeKline:
+            path = "app/market-data/chart"
             break
         }
         path += "?lang=\(App.languageID ?? "")"
@@ -78,18 +78,19 @@ extension MarktAPI: TargetType {
 //            default:
 //                orderPx = "market_cap_desc"
 //            }
-            parameters = ["vs_currency":currency,
-                          "ids":ids.lowercased(),
-                          "order":orderPx,
-                          "per_page":perPage.string,
-                          "page":page.string]
+            parameters = ["Currency":currency,
+                          "Ids":ids.lowercased(),
+                          "Order":orderPx,
+                          "PerPage":perPage.string,
+                          "Page":page.string]
             break;
         case .coinList:
             break
-        case let .tradeKline(_, currency, days):
+        case let .tradeKline(id, currency, days):
             parameters = [
-            "vs_currency":currency,
-            "days":days]
+            "Currency":currency,
+            "Days":days,
+            "Id":id]
             break
         }
         

@@ -83,7 +83,7 @@ class TransactionVoucherController: BaseTableViewController {
     }
     
     func amountAttributed() -> NSAttributedString {
-        let amountAttr = item.amount.string.withFont(.systemFont(ofSize: 18, weight: .medium)).withTextColor(.appBlack)
+        let amountAttr = item.showAmount.withFont(.systemFont(ofSize: 18, weight: .medium)).withTextColor(.appBlack)
         let symbolAttr = item.symbol.withFont(.systemFont(ofSize: 12, weight: .medium)).withTextColor(.appBlack)
         return amountAttr + " " + symbolAttr
     }
