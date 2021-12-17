@@ -88,6 +88,12 @@ class App {
            return AElfWallet.walletAddress()
         }
     }
+
+    class var publicKey: String {
+        get {
+           return AElfWallet.walletPublicKey()
+        }
+    }
     
     class var walletName: String? {
         get {

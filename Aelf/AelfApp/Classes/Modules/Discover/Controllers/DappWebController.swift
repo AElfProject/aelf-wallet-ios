@@ -284,7 +284,7 @@ extension DappWebController {
                 return
             }
             
-            let accounts = [["name":App.walletName ?? "","address":App.address,"publicKey":wallet.publicKey]]
+            let accounts = [["name":App.walletName ?? "","address":App.address,"publicKey":App.publicKey]]
             let dict = ["accounts":accounts,"chains":self.getChains()] as [String : Any]
             
             // result 字典转码并签名

@@ -71,6 +71,9 @@ public final class AElfWallet {
     static func walletAddress() -> String {
         return shared.account.address
     }
+    static func walletPublicKey() -> String {
+        return shared.account.publicKey
+    }
     
     static var walletName: String? {
         return shared.account.accoutName
