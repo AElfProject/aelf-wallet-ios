@@ -32,4 +32,8 @@ extension DappVerifyManager {
     static func getPrivateKey(url: String) -> String? {
         return shared.whiteList[url]
     }
+
+    static func cleanPrivateKey()  {
+        shared.whiteList = [String:String]()
+    }
 }

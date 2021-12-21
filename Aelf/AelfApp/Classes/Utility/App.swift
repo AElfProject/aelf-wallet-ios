@@ -202,5 +202,6 @@ extension App {
         
         KingfisherManager.shared.cache.clearMemoryCache()
         KingfisherManager.shared.cache.clearDiskCache()
+        DappVerifyManager.cleanPrivateKey()
     }
 }
