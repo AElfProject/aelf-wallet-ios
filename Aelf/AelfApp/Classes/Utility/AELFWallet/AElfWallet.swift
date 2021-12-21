@@ -71,10 +71,11 @@ public final class AElfWallet {
     static func walletAddress() -> String {
         return shared.account.address
     }
+
     static func walletPublicKey() -> String {
         return shared.account.publicKey
     }
-    
+
     static var walletName: String? {
         return shared.account.accoutName
     }
@@ -529,7 +530,29 @@ extension AElfWallet {
                                                          argumentsInput: argumentsInput,
                                                          callback: callback)
     }
-    
+
+    /// Dapp KeyPairUtils
+    /// - Parameters:
+    ///   - privateKey 私钥
+    ///   - id: 事件 id
+    ///   - action: 事件名
+    ///   - method: 方法名
+    ///   - argumentsInput: 参数
+    ///   - callback: 回调
+    static func dappKeyPairUtils(privateKey: String,
+                                         id: String,
+                                         action: String,
+                                         method: String,
+                                         argumentsInput: [Any],
+                                         callback: AElfBrowserView.DappCallback?) {
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        appDelegate.browserView.dappKeyPairUtils(privateKey: privateKey,
+                                                         id: id,
+                                                         action: action,
+                                                         method: method,
+                                                         argumentsInput: argumentsInput,
+                                                         callback: callback)
+    }
     
     
     /// Dapp 调获取合约方法名

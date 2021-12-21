@@ -697,7 +697,6 @@
             bridge.registerHandler('invokeOrInvokeReadJS', function (data, responseCallback) {
 
                 try {
-
                     var resultJson = data;
                     const wallet = Wallet.getWalletByPrivateKey(resultJson.privateKey);
                     const aelf = new AElf(new AElf.providers.HttpProvider(resultJson.nodeURL));
@@ -820,6 +819,46 @@
 
             });
 
+            // KeyPairUtils
+            bridge.registerHandler(
+            "dappKeyPairUtils",
+            function (data, responseCallback) {
+                try {
+                    const resultJson = data;
+                    const keyPair = ec.keyFromPrivate(resultJson.privateKey)
+                    const method = resultJson.method;
+                    const argumentsInput = resultJson.argumentsInput || [];
+                    const KEY_PAIR_UTILS = {sign:"sign"};
+                    if (
+                        !KEY_PAIR_UTILS[method]||
+                        !keyPair||
+                        !keyPair[method]
+                    ) {
+                        throw Error(`Not support action ${method}`);
+                    }
+                    const result = keyPair[method](...argumentsInput)
+                    // if(method === 'sign'){
+                    //     result = [
+                    //         result.r.toString(16, 64),
+                    //         result.s.toString(16, 64),
+                    //         `0${result.recoveryParam.toString()}`
+                    //     ].join('')
+                    // }
+                    const responseData = {
+                        'data': result,
+                        'success': 1
+                    };
+                    responseCallback(JSON.stringify(responseData))
+                } catch (error) {
+                    const msg = error.message || error.Error || "unknown error";
+                    const responseData = {
+                        err: JSON.stringify(msg),
+                        success: -1,
+                        data: "",
+                    };
+                    responseCallback(JSON.stringify(responseData));
+                }
+            });
         })
     </script>
     <div id='buttons'></div>

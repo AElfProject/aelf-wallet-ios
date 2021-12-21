@@ -17,7 +17,7 @@ struct DappAPIItem: Mappable {
     var contractMethod = ""
     var contractAddress = ""
     var address = ""
-    
+    var method = ""
     init?(map: Map) {
     }
     
@@ -29,6 +29,7 @@ struct DappAPIItem: Mappable {
         contractAddress <- map["contractAddress"]
         contractMethod <- map["contractMethod"]
         address <- map["address"]
+        method <- map["method"]
     }
     
     

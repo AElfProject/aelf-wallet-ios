@@ -100,7 +100,7 @@ extension DappWebController: DappWebViewDelegate {
     }
     
     func dappWebView(_ webView: DappWebView, account item: DappWebItem) {
-        
+
         let title = "Dapp request visite wallet address".localized()
         let content = "Dapp request visite description".localizedFormat(self.item.name)
         DappConfirmView.show(title: title, content: content) { [weak self] v in
@@ -123,6 +123,10 @@ extension DappWebController: DappWebViewDelegate {
     
     func dappWebView(_ webView: DappWebView, invokeRead item: DappWebItem) {
         parseInvokeReadItem(item)
+    }
+
+    func dappWebView(_ webView: DappWebView, keyPairUtils item: DappWebItem) {
+        parseKeyPairUtils(item)
     }
     
     func dappWebView(_ webView: DappWebView, getContractMethods item: DappWebItem) {
@@ -304,6 +308,85 @@ extension DappWebController {
             }
         }
         
+    }
+    func KeyPairEventHandler(privateKey: String,id: String,action: String, item: DappAPIItem) {
+        
+        AElfWallet.dappKeyPairUtils(privateKey: privateKey,
+                                            id: id,
+                                            action: action,
+                                            method: item.method,
+                                            argumentsInput: item.argumentsInput ?? [])
+        { [weak self] result in
+            guard let result = result else {
+                self?.sendErrorMessage("Data parsing failed".localized(),code: 1002, id: id)
+                return }
+            
+            guard result.isOk else {
+                logInfo("KeyPairUtils 获取失败：\(result.err)")
+                self?.sendErrorMessage(result.err,code:1000, id: id)
+                return
+            }
+            
+            guard let data = result.data else {
+                self?.sendErrorMessage("Missing parameters".localized() + ": data",code: 1003, id: id)
+                return
+            }
+            logInfo("KeyPairEventHandler Success")
+            self?.sendSuccessMessage(value: data, id: id)
+        }
+    }
+
+    func parseKeyPairUtils(_ item: DappWebItem) {
+        guard let wallet = wallet else {
+            logInfo("Please sign in".localized())
+            self.sendErrorMessage("Please sign in".localized(),code: 1004, id: item.id)
+            return
+        }
+        guard let params = item.params else {
+            logInfo("缺少 Params ");
+            self.sendErrorMessage("Missing parameters".localized() + ": params",code: 1003, id: item.id)
+            return
+        }
+        params.parseParams(dappPublicKey: wallet.dappPublicKey, callback: { [weak self] (err, json) in
+            guard let self = self else { return }
+            if let err = err {
+                logInfo(err.msg)
+                self.sendErrorMessage(err.msg,code: 1000, id: item.id)
+                return
+            }
+            guard let apiItem = DappAPIItem(JSONString: json) else {
+                logInfo("数据解析失败");
+                self.sendErrorMessage("Data parsing failed".localized(),code: 1002, id: item.id)
+                return
+            }
+            
+            if !self.isValidTime(apiItem.timestamp) {
+                self.sendErrorMessage("Invalid timestamp".localized(),code: 1001, id: item.id)
+                return
+            }
+            
+               // 如果从 keystore 能够取得白名单私钥，则不需要弹框请求授权。
+            let url = self.item.url
+            if let pri = DappVerifyManager.getPrivateKey(url: url) {
+                self.KeyPairEventHandler(privateKey: pri, id: item.id, action: item.action, item: apiItem)
+            } else {
+                // 弹框授权
+                
+                var arguments = json
+                if let input = apiItem.argumentsInput, let ags = input as? [[String: Any]] {
+                    let result = ags.map({ $0.jsonString(prettify: true) }).compactMap({ $0 }).joined(separator: "")
+                    arguments = result
+                }
+                logInfo("转换后的输出数据：\(arguments)")
+                let addr = "Dapp sign address".localized() + App.address
+                let content = addr + "\n\n" + "Dapp sign content".localized() + "\n" + arguments
+                self.showPasswordView(content: content,id: item.id, callback: { [weak self] privateKey in
+                    if let privateKey = privateKey {
+                        self?.KeyPairEventHandler(privateKey: privateKey,id: item.id,action: item.action, item: apiItem)
+                    }
+                })
+            }
+        })
     }
     
     func parseApiData(item: DappWebItem) {

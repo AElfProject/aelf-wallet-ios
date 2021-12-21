@@ -13,6 +13,7 @@ enum DappActionType: String,CaseIterable {
     case account
     case invoke
     case invokeRead
+    case keyPairUtils
     case api
     case disconnect
     case getContractMethods

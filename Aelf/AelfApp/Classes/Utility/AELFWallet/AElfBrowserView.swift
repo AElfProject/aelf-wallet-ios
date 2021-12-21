@@ -305,6 +305,29 @@ extension AElfBrowserView {
             callback?(transfer)
         }
     }
+
+    public func dappKeyPairUtils(privateKey: String,
+                                         id: String,
+                                         action: String,
+                                         method: String,
+                                         argumentsInput: [Any],
+                                         callback: DappCallback?) {
+        
+        let json =  ["privateKey":privateKey,
+                     "id":id,
+                     "action": action,
+                     "method": method,
+                     "argumentsInput":argumentsInput] as [String : Any]
+        logInfo("dappKeyPairUtils - 请求参数：\(json)")
+        bridge.call(handlerName: "dappKeyPairUtils", data: json) { (result) in
+            guard let result = result as? String, let transfer = DappResult(JSONString: result) else {
+                callback?(nil)
+                return
+            }
+            logInfo("dappKeyPairUtils - result：\(result)")
+            callback?(transfer)
+        }
+    }
     
     public func dappAPIJS(id: String,
                           nodeURL: String,
