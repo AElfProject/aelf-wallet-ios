@@ -1,4 +1,5 @@
 import UIKit
+import CoreGraphics
 
 protocol ButtonPickerDelegate: class {
 
@@ -16,7 +17,7 @@ class ButtonPicker: UIButton {
   lazy var numberLabel: UILabel = { [unowned self] in
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.font = Configuration.numberLabelFont
+    label.font = UIFont(name: "HelveticaNeue-Bold", size: 19)
 
     return label
     }()

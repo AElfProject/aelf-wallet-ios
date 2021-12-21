@@ -32,7 +32,7 @@ class MarKetListController: BaseTableViewController {
     let imageArray = ["sort_default","sort_up","sort_down"]
     let sortTriger = BehaviorRelay<Int>(value: -1) // =0价格倒序 =1价格正序 =2涨幅倒序 =3跌幅正序
     let viewModel = MarketViewModel()
-
+    let aelfDataRefreshTrigger =  BehaviorRelay<Int>(value: -1)
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,6 +77,7 @@ class MarKetListController: BaseTableViewController {
 
         let input = MarketViewModel.Input(headerRefresh: headerRefreshTrigger,
                                           footerRefresh: footerRefreshTrigger,
+                                          aelfDataRefresh: aelfDataRefreshTrigger,
                                           sortType: sortTriger)
         let output = viewModel.transform(input: input)
 
@@ -102,7 +103,7 @@ class MarKetListController: BaseTableViewController {
             self?.headerRefreshTrigger.onNext(())
         }).disposed(by: rx.disposeBag)
 
-        tableView.headRefreshControl.beginRefreshing()
+       // tableView.headRefreshControl.beginRefreshing()
     }
     
     func pushFromParent(model:MarketCoinModel) {

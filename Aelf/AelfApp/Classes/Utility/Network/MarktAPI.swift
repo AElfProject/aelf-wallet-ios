@@ -19,6 +19,8 @@ let marketProvider = MoyaProvider<MarktAPI>(endpointClosure:MoyaProvider.JSONEnd
 enum MarktAPI{
     //市场数据
     case markList(currency: String, ids: String, order: Int, perPage: Int, page: Int)
+    //aelf数据
+    case aelfMarkList(currency: String, ids: String)
     //币列表
     case coinList
     //K线数据
@@ -40,9 +42,11 @@ extension MarktAPI: TargetType {
             path = "app/market-data/markets"
         case .coinList:
             path = "app/market-data/coin-list"
-        case let .tradeKline:
+        case  .tradeKline:
             path = "app/market-data/chart"
             break
+        case .aelfMarkList:
+            path = "app/market-data/markets"
         }
         path += "?lang=\(App.languageID ?? "")"
         return path
@@ -62,6 +66,11 @@ extension MarktAPI: TargetType {
     var task: Task {
         var parameters = [String:String]()
         switch self {
+        case let .aelfMarkList(currency, ids):
+            parameters = ["Currency":currency,
+                          "Ids":ids
+                         ]
+            break;
         case let .markList(currency, ids, _, perPage, page):
             // =0价格倒序 =1价格正序 =2涨幅倒序 =3跌幅正序
             let orderPx:String = "market_cap_desc"

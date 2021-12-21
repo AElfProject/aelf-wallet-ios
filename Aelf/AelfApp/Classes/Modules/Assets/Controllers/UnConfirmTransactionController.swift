@@ -220,11 +220,12 @@ extension UnConfirmTransactionController: UITableViewDelegate,UITableViewDataSou
 
         cell.backgroundColor = .clear
 
-        if cellHeights[indexPath.section] == Const.closeCellHeight {
-            cell.unfold(false, animated: false, completion: nil)
-        } else {
-            cell.unfold(true, animated: false, completion: nil)
-        }
+//        if cellHeights[indexPath.section] == Const.closeCellHeight {
+//            cell.unfold(false, animated: false, completion: nil)
+//        } else {
+//            cell.unfold(true, animated: false, completion: nil)
+//        }
+        cell.unfold(true, animated: false, completion: nil)
 
         cell.item = items[indexPath.section]
     }
@@ -234,6 +235,7 @@ extension UnConfirmTransactionController: UITableViewDelegate,UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withClass: UnConfirmTransactionCell.self)
 //        let durations: [TimeInterval] = [0.16, 0.1, 0.1,0.15]
         let durations: [TimeInterval] = [0,0, 0,0]
+        
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
         
@@ -251,43 +253,43 @@ extension UnConfirmTransactionController: UITableViewDelegate,UITableViewDataSou
     }
 
     func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeights[indexPath.section]
+        return 240
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        let cell = tableView.cellForRow(at: indexPath) as! UnConfirmTransactionCell
-
-        if cell.isAnimating() {
-            return
-        }
-
-        var duration = 0.0
-        let cellIsCollapsed = cellHeights[indexPath.section] == Const.closeCellHeight
-        if cellIsCollapsed {
-            cellHeights[indexPath.section] = Const.openCellHeight
-            cell.unfold(true, animated: true, completion: nil)
-            duration = 0.5
-        } else {
-            cellHeights[indexPath.section] = Const.closeCellHeight
-            cell.unfold(false, animated: true, completion: nil)
-            duration = 0.8
-        }
-
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
-            tableView.beginUpdates()
-            tableView.endUpdates()
-            
-            // fix https://github.com/Ramotion/folding-cell/issues/169
-            if cell.frame.maxY > tableView.frame.maxY {
-                tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
-            }
-        }, completion: nil)
-    }
+//需求优化 需要默认展开菜单 暂时注释掉手动展开菜单的功能
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        let cell = tableView.cellForRow(at: indexPath) as! UnConfirmTransactionCell
+//
+//        if cell.isAnimating() {
+//            return
+//        }
+//
+//        var duration = 0.0
+//        let cellIsCollapsed = cellHeights[indexPath.section] == Const.closeCellHeight
+//        if cellIsCollapsed {
+//            cellHeights[indexPath.section] = Const.openCellHeight
+//            cell.unfold(true, animated: true, completion: nil)
+//            duration = 0.5
+//        } else {
+//            cellHeights[indexPath.section] = Const.closeCellHeight
+//            cell.unfold(false, animated: true, completion: nil)
+//            duration = 0.8
+//        }
+//
+//        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
+//            tableView.beginUpdates()
+//            tableView.endUpdates()
+//
+//            // fix https://github.com/Ramotion/folding-cell/issues/169
+//            if cell.frame.maxY > tableView.frame.maxY {
+//                tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+//            }
+//        }, completion: nil)
+//    }
 }
 
  
