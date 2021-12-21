@@ -78,27 +78,23 @@ extension MarketViewModel: ViewModelType {
                     output.items <= array
                 } else {
                     output.items <= result
+                    var allItems = output.items.value
+                    
+                    let aelfIems = output.aelfItems.value
+                    
+                    if !aelfIems.isEmpty{
+                        allItems.insert(aelfIems[0], at: 2)
+                        output.items.accept(allItems)
+                    }
                 }
                 
                 SVProgressHUD.dismiss()
-                
-                var allItems = output.items.value
-                
-                let aelfIems = output.aelfItems.value
-                
-                if !aelfIems.isEmpty{
-                    
-                    allItems.insert(aelfIems[0], at: 2)
-                    output.items.accept(allItems)
-                }
-                
             }, onError: { error in
                 if let r = error as? ResultError {
                     SVProgressHUD.showError(withStatus: r.msg)
                 }
             }).disposed(by: rx.disposeBag)
-        
-        
+
         input.headerRefresh.flatMapLatest { _ -> Observable<[MarketCoinModel]> in
             self.page = 1
             let sortType = input.sortType.value
@@ -127,20 +123,18 @@ extension MarketViewModel: ViewModelType {
                 output.items <= array
             } else {
                 output.items <= result
-            }
+                var allItems = output.items.value
             
-            var allItems = output.items.value
-            
-            let aelfIems = output.aelfItems.value
-            
-            if !aelfIems.isEmpty{
+                let aelfIems = output.aelfItems.value
                 
-                allItems.insert(aelfIems[0], at: 2)
-                output.items.accept(allItems)
+                if !aelfIems.isEmpty{
+                    
+                    allItems.insert(aelfIems[0], at: 2)
+                    output.items.accept(allItems)
+                }
             }
-            
         }).disposed(by: rx.disposeBag)
-        
+
         input.footerRefresh.flatMapLatest { _ -> Observable<[MarketCoinModel]> in
             self.page += 1
             let sortType = input.sortType.value
@@ -171,10 +165,9 @@ extension MarketViewModel: ViewModelType {
                 output.items <= (output.items.value + result)
             }
         }).disposed(by: rx.disposeBag)
-        
         return output
     }
-    
+
 }
 
 extension MarketViewModel {
