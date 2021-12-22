@@ -60,13 +60,11 @@ extension MarketFavouritesViewModel {
                     .subscribe(onNext: { result in
                         var marketList = result
                         marketList.sort { (c1, c2) -> Bool in
-                            let index1 = idList.firstIndex { (id) -> Bool in
+                            return !((idList.firstIndex { (id) -> Bool in
                                 return id == c1.identifier?.lowercased()
-                            }?.double ?? 0.0
-                            let index2 = idList.firstIndex { (id) -> Bool in
+                            }?.double ?? 0.0) > (idList.firstIndex { (id) -> Bool in
                                 return id == c2.identifier?.lowercased()
-                            }?.double ?? 0.0
-                            return  index1  > index2  ?false :true
+                            }?.double ?? 0.0))
                         }
                         observer.onNext(marketList)
                         observer.onCompleted()
