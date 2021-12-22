@@ -34,7 +34,6 @@ extension MarketFavouritesViewModel: ViewModelType {
             .map({ $0 })
             .bind(to: output.items)
             .disposed(by: rx.disposeBag)
-
         return output
     }
 }
@@ -45,17 +44,37 @@ extension MarketFavouritesViewModel {
     func loadFavourites(isFirst: Bool) -> Observable<[MarketCoinModel]> {
         let items = MarketCoinModel.getCoins() ?? []
 
+        let idList = items.map({ $0.identifier?.lowercased() })
         // 多个 coin name 以逗号拼接
-        let ids = items.map({ $0.identifier?.lowercased() }).compactMap({ $0 }).joined(separator: ",")
+        let ids = idList.compactMap({ $0 }).joined(separator: ",")
         
         if ids.length == 0 {
             return Observable.just([])
         } else {
-            return marketProvider
-                .requestData(.markList(currency: App.currency, ids: ids, order: -1, perPage: 10, page: self.page))
-            .mapObjects(MarketCoinModel.self)
-            .trackError(error)
-            .trackActivity(loading)
+            return Observable.create { observer in
+                let t = marketProvider
+                    .requestData(.markList(currency: App.currency, ids: ids, order: -1, perPage: 10, page: self.page))
+                    .mapObjects(MarketCoinModel.self)
+                    .trackActivity(self.loading)
+                    .trackError(self.error)
+                    .subscribe(onNext: { result in
+                        var marketList = result
+                        marketList.sort { (c1, c2) -> Bool in
+                            let index1 = idList.firstIndex { (id) -> Bool in
+                                return id == c1.identifier?.lowercased()
+                            }?.double ?? 0.0
+                            let index2 = idList.firstIndex { (id) -> Bool in
+                                return id == c2.identifier?.lowercased()
+                            }?.double ?? 0.0
+                            return  index1  > index2  ?false :true
+                        }
+                        observer.onNext(marketList)
+                        observer.onCompleted()
+                    })
+                return Disposables.create {
+                    t.dispose()
+                }
+            }
         }
     }
 }

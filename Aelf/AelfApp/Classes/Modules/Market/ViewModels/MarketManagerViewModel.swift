@@ -52,8 +52,8 @@ extension MarketManagerViewModel: ViewModelType {
             items.removeFirst(where: { $0.name == item.name }) // 从数组中删除
             items.insert(item, at: 0) // 插入第一位
 
-            for (idx,value) in items.enumerated() { // // 重新设置索引，倒序方式。
-                value.updateFavouriteIndex(items.count - idx - 1)
+            for (idx,value) in items.enumerated() { // // 重新设置索引。
+                value.updateFavouriteIndex(idx - 1)
             }
             output.items <= items // reload
 
@@ -68,7 +68,7 @@ extension MarketManagerViewModel: ViewModelType {
             items.insert(item, at: destIdx.row) // 再插入到拖拽的位置
 
             for (idx,value) in items.enumerated() {
-                value.updateFavouriteIndex(items.count - idx - 1)
+                value.updateFavouriteIndex(idx - 1)
             }
             output.items <= items // reload
         }).disposed(by: rx.disposeBag)
