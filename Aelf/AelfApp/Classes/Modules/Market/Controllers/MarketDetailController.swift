@@ -131,12 +131,12 @@ class MarketDetailController: BaseStaticTableController {
                 self.detailArray[i].text = "#\(self.model?.marketValueTrans ?? "")"
             } else if i == 2 {
                 if App.currency.lowercased() == "usd" {
-                    self.detailArray[i].text = "$ " + (self.model?.marketCapChange)!
+                    self.detailArray[i].text = "$ " + (self.model?.totalVolume)!
                 } else {
-                    self.detailArray[i].text = "¥ " + (self.model?.marketCapChange)!
+                    self.detailArray[i].text = "¥ " + (self.model?.totalVolume)!
                 }
             } else if i == 3 {
-                self.detailArray[i].text = self.model?.amountTrans
+                self.detailArray[i].text = self.model?.amountTrans ?? "--";
             }
         }
 

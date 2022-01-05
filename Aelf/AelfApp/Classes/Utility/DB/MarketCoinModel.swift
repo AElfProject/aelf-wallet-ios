@@ -31,6 +31,7 @@ class MarketCoinModel : Mappable,TableCodable {
     var type : Int?
     var volTrans : String?
     var marketCapChange: String?
+    var totalVolume: String?
     var favouriteIndex = 0
 
     required init?(map: Map){}
@@ -55,6 +56,7 @@ class MarketCoinModel : Mappable,TableCodable {
         type <- map["type"]
         volTrans <- map["vol_trans"]
         marketCapChange <- (map["market_cap_change_24h"],MapperString())
+        totalVolume <- (map["total_volume"],MapperString())
     }
 
     enum CodingKeys :String,CodingTableKey {
@@ -78,7 +80,7 @@ class MarketCoinModel : Mappable,TableCodable {
         case type
         case volTrans
         case marketCapChange
-
+        case totalVolume
         case favouriteIndex
 
         static let objectRelationalMapping = TableBinding(CodingKeys.self)
