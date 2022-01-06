@@ -2593,7 +2593,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hoopox.product.aelf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
 				PRODUCT_NAME = "aelf Wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AElfApp/Resources/AElfApp-Bridging-Header.h";
@@ -2630,7 +2630,7 @@
 				);
 				MARKETING_VERSION = 1.1.4;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hoopox.product.aelf;
+				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
 				PRODUCT_NAME = "aelf Wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AElfApp/Resources/AElfApp-Bridging-Header.h";
