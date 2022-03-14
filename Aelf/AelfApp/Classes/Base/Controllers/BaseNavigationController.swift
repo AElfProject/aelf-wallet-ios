@@ -18,7 +18,15 @@ class BaseNavigationController: UINavigationController {
             hero.navigationAnimationType = .autoReverse(presenting: .slide(direction: .left))
             Hero.shared.containerColor = UIColor.white
         }
-
+        
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.shadowImage = UIImage.init()
+            appearance.shadowColor = UIColor.clear
+            self.navigationBar.standardAppearance = appearance
+            self.navigationBar.scrollEdgeAppearance = appearance
+        }
     }
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

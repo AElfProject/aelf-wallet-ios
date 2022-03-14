@@ -120,8 +120,8 @@ class AssetDetailController: BaseController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.master,
-                                                                            size: CGSize(width: 10, height: 10)),for: .default)
+        self.navigationController?.navigationBar.configBackgroundImage(image: UIImage(color:UIColor.master, size: CGSize(width: 10, height: 10)), titleColor: UIColor.white)
+
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
         headerRefreshTrigger.onNext(())
@@ -129,7 +129,7 @@ class AssetDetailController: BaseController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        self.navigationController?.navigationBar.configBackgroundImage(image: UIImage(), titleColor: UIColor.black)
         self.navigationController?.navigationBar.shadowImage = nil
     }
 
