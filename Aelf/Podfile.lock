@@ -125,9 +125,9 @@ PODS:
   - SwifterSwift/SpriteKit (5.1.0)
   - SwifterSwift/SwiftStdlib (5.1.0)
   - SwifterSwift/UIKit (5.1.0)
-  - SwiftMessages (9.0.3):
-    - SwiftMessages/App (= 9.0.3)
-  - SwiftMessages/App (9.0.3)
+  - SwiftMessages (9.0.5):
+    - SwiftMessages/App (= 9.0.5)
+  - SwiftMessages/App (9.0.5)
   - SwiftyAttributes (5.1.1)
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
@@ -176,7 +176,7 @@ DEPENDENCIES:
   - SnapKit
   - SVProgressHUD
   - SwifterSwift
-  - SwiftMessages
+  - SwiftMessages (~> 9.0.4)
   - SwiftyAttributes
   - SwiftyRSA
   - Then
@@ -221,7 +221,6 @@ SPEC REPOS:
     - SnapKit
     - SVProgressHUD
     - SwifterSwift
-    - SwiftMessages
     - SwiftyAttributes
     - SwiftyRSA
     - Then
@@ -235,6 +234,7 @@ SPEC REPOS:
     - Result
     - RxCocoa
     - RxSwift
+    - SwiftMessages
     - UMCCommon
 
 SPEC CHECKSUMS:
@@ -272,7 +272,7 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
-  SwiftMessages: 077f19126c24033fe24042237ecc20261adb46e4
+  SwiftMessages: 9cca50659fa22bb523b4dd2a958d4442e843a354
   SwiftyAttributes: e3e13891ddac3c62b3d7798d5c3969cea88e62bb
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
@@ -284,6 +284,6 @@ SPEC CHECKSUMS:
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 
-PODFILE CHECKSUM: 042f3fd200d4d6bb23c17190dae8772ab0b103b8
+PODFILE CHECKSUM: 816af9a79fa213d31b49eda2a5daba41cc38ae6a
 
 COCOAPODS: 1.10.2

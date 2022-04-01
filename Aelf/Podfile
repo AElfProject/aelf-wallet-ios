@@ -20,7 +20,7 @@ target 'AelfApp' do
   pod 'SwifterSwift' # 类似 YYKit https://github.com/SwifterSwift/SwifterSwift
   pod 'Localize-Swift' # 国际化 https://github.com/marmelroy/Localize-Swift
   pod 'Then' # 语法糖 https://github.com/devxoul/Then
-  pod 'SwiftMessages' #  UI 弹框库 https://github.com/SwiftKickMobile/SwiftMessages
+  pod 'SwiftMessages', '~>9.0.4' #  UI 弹框库 https://github.com/SwiftKickMobile/SwiftMessages
   pod 'DZNEmptyDataSet'  # 老版空态框架 https://github.com/dzenbot/DZNEmptyDataSet
   pod 'KafkaRefresh' # 刷新框架 https://github.com/OpenFeyn/KafkaRefresh
 
