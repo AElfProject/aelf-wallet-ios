@@ -1,0 +1,6 @@
+framework module sqlcipher {
+    umbrella header "sqlite3.h"
+    
+    export *
+    module * { export * }
+}

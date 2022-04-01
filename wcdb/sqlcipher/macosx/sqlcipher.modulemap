@@ -1,0 +1,7 @@
+framework module sqlcipher {
+  umbrella header "sqlite3.h"
+  header "fts3_tokenizer.h"
+
+  export *
+  module * { export * }
+}
