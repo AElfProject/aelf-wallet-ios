@@ -202,8 +202,8 @@
 "Switch Network" = "网络选择";
 "Default Network" = "默认网络";
 "Custom Network" = "自定义网络";
-"default" = "默认配置";
-"testnet" = "测试网";
+"Mainnet" = "默认配置";
+"Testnet" = "测试网";
 "When turn on" = "当打开隐私模式时，钱包中的资产和金额将被隐藏";
 "Biometric Identification" = "生物识别";
 "Face ID or Touch ID" = "面部识别或触摸识别";

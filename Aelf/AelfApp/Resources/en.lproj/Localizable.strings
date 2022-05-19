@@ -203,8 +203,8 @@ After scanning, you also need to enter your password. You can also reset your pa
 "Asset Display" = "Asset Display";
 "Switch Network" = "Switch Network";
 "Default Network" = "Default Network";
-"default" = "default";
-"testnet" = "testnet";
+"Mainnet" = "Mainnet";
+"Testnet" = "Testnet";
 "Photo Album" = "Photo Album";
 "Backup Notes" = "Backup Notes";
 "Version Log" = "Version Log";

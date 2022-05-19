@@ -558,6 +558,7 @@
                         <outlet property="privateSubTitleLabel" destination="a8c-F8-7Uy" id="M3o-qB-VWa"/>
                         <outlet property="privateSwitch" destination="Tvi-2T-DHd" id="zHC-4x-jg1"/>
                         <outlet property="privateTitleLabel" destination="JRp-NW-UGq" id="0jn-tM-U3O"/>
+                        <outlet property="switchNetworkTitleLabel" destination="B9d-AI-czh" id="ctL-AJ-As3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYM-dc-OeS" userLabel="First Responder" sceneMemberID="firstResponder"/>

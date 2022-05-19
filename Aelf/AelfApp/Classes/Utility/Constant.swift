@@ -11,7 +11,7 @@ let screenBounds = UIScreen.main.bounds
 let screenWidth = screenBounds.width
 let screenHeight = screenBounds.height
 
-let isIphoneX = UIApplication.shared.statusBarFrame.height == 44
+let isIphoneX = UIApplication.shared.statusBarFrame.height >= 44
 
 let iPHONE_NAVBAR_HEIGHT :CGFloat = isIphoneX ? 88:64
 let iPHONE_TABBAR_HEIGHT :CGFloat = isIphoneX ? 83:49

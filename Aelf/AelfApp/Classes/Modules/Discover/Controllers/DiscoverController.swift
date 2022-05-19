@@ -160,7 +160,28 @@ class DiscoverController: BaseTableViewController {
         return false
     }
 }
-
+// MARK: View Appear
+extension DiscoverController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.request().subscribe(onNext: { [weak self] discover in
+            guard let self = self else { return }
+            self.dappLink = discover.dappLink
+            self.headerView.bannerSource = discover.banner ?? []
+            self.dappSource = discover.dapp
+            self.listSource = discover.list
+            self.tableView.reloadData()
+            }, onError: { e in
+                logDebug(e)
+        }).disposed(by: rx.disposeBag)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)    
+    }
+}
 
 extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
     
@@ -187,7 +208,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
         switch indexPath.section {
         case 0:
             if dappSource.count > 4 {
-                return 240
+                return 250
             }else if dappSource.count > 0 {
                 return 130
             }else {

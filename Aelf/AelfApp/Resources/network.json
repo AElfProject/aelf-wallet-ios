@@ -1,13 +1,13 @@
 [
   {
-    "name": "默认配置",
-    "nameEn": "default",
+    "name": "主网",
+    "nameEn": "Mainnet",
     "url": "https://app-wallet-api.aelf.io/",
     "node": ""
   },
   {
     "name": "测试网",
-    "nameEn": "testnet",
+    "nameEn": "Testnet",
     "url": "https://wallet-app-api-test.aelf.io/",
     "node": ""
   }
