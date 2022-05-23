@@ -33,7 +33,7 @@ extension MarktAPI: TargetType {
     }
     
     var baseURL: URL {
-        return NSURL.init(string: "https://wallet-app-api-test.aelf.io/")! as URL
+        return NSURL.init(string: "https://app-wallet-api.aelf.io/")! as URL
     }
     var path: String {
         var path = ""

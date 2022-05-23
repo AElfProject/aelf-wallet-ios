@@ -12,6 +12,9 @@ import Moya_ObjectMapper
 
 typealias ResultCompletion = (_ result:VResult) -> Void
 
+// FIXME :Simple adaptation, looking forward to refactoring
+let markList = "app/market-data/markets"
+
 extension MoyaProvider {
     
     func requestData(_ target: Target) -> Observable<VResult> {
@@ -39,8 +42,7 @@ extension MoyaProvider {
                         break;
                     }
                 case .failure(let error):
-                    if (target is MarktAPI){
-                        
+                    if (target is MarktAPI && !target.path.contains(markList)){
                         break;
                     }
                     logInfo("请求出错：\(error)\n")
