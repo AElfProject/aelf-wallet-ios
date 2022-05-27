@@ -208,7 +208,7 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
         switch indexPath.section {
         case 0:
             if dappSource.count > 4 {
-                return 250
+                return 260
             }else if dappSource.count > 0 {
                 return 130
             }else {
@@ -248,12 +248,16 @@ extension DiscoverController: UITableViewDelegate,UITableViewDataSource {
         
         guard let view = DiscoverSectionView.loadFromNib(named: DiscoverSectionView.className) as? DiscoverSectionView else {
             return nil
-        }
-        view.sectionButton.setTitle("More".localized(), for: .normal)
-        
+        }        
         if section == 0 {
+            if dappSource.count > 8 {
+                view.sectionButton.setTitle("More".localized(), for: .normal)
+            } else {
+                view.sectionButton.isHidden = true
+            }
             view.titleLabel.text = "Recommend".localized()
         } else {
+            view.sectionButton.isHidden = true
             view.titleLabel.text = listSource[section - 1].categoryTitle
         }
         view.sectionButton.tag = section
