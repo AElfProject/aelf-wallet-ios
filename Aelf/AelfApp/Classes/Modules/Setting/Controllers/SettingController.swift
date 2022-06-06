@@ -144,6 +144,8 @@ extension SettingController:UITableViewDataSource,UITableViewDelegate {
         if indexPath.row == 2 {
             cell.pointLabel.text = self.unReadCount.string
             cell.pointLabel.isHidden = self.unReadCount == 0
+        } else {
+            cell.pointLabel.isHidden = true
         }
         return cell
     }

@@ -113,6 +113,14 @@ extension CrossChainsViewModel: ViewModelType {
                     observer.onNext(items)
                     observer.onCompleted()
                     // return items
+                },onError: { e in
+                    for i in 0 ..< items.count {
+                        var item = items[i]
+                        item.rate?.price = "0"
+                        items[i] = item
+                    }
+                    observer.onNext(items)
+                    observer.onCompleted()
                 })
             return Disposables.create {
                 t.dispose()

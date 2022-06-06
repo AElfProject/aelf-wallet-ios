@@ -31,6 +31,7 @@ class SettingManagerController: BaseStaticTableController {
     @IBOutlet weak var privateButton: UIButton!
     @IBOutlet weak var identificationButton: UIButton!
     
+    @IBOutlet weak var switchNetworkTitleLabel: UILabel!
     @IBOutlet weak var networkLabel: UILabel!
     
     
@@ -59,9 +60,9 @@ class SettingManagerController: BaseStaticTableController {
         
         let network: String = UserDefaults.standard.string(forKey: "kNetwork") ?? ""
         if network == "https://app-wallet-api.aelf.io/" {
-            networkLabel.text = "default".localized()
+            networkLabel.text = "Mainnet".localized()
         } else if network == "https://wallet-app-api-test.aelf.io/" {
-            networkLabel.text = "testnet".localized()
+            networkLabel.text = "Testnet".localized()
         } else {
             networkLabel.text = network
         }
@@ -79,6 +80,7 @@ class SettingManagerController: BaseStaticTableController {
         languageTitleLabel.text = "Language".localized()
         currencyTitleLabel.text = "Pricing Currency".localized()
         assetDisplayTitleLabel.text = "Asset Display".localized()
+        switchNetworkTitleLabel.text = "Switch Network".localized()
     }
     
     

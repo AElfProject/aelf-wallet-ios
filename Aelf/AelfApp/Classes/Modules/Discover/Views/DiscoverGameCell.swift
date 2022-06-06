@@ -24,6 +24,8 @@ class DiscoverGameCell: UICollectionViewCell {
             guard let item = item else { return }
 
             nameLabel.text = item.name
+            nameLabel.numberOfLines = 2
+            nameLabel.lineBreakMode = .byWordWrapping
             if let url = URL(string: item.logo) {
                 imgView.setImage(with: url)
             }

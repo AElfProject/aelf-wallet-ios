@@ -2578,7 +2578,7 @@
 				CODE_SIGN_ENTITLEMENTS = AElfApp/AElfApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202203310003;
+				CURRENT_PROJECT_VERSION = 202205300001;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = LR77E76VJ6;
 				ENABLE_BITCODE = NO;
@@ -2592,7 +2592,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
 				PRODUCT_NAME = "aelf Wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2615,7 +2615,7 @@
 				CODE_SIGN_ENTITLEMENTS = AElfApp/AElfApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202203310003;
+				CURRENT_PROJECT_VERSION = 202205300001;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = LR77E76VJ6;
 				ENABLE_BITCODE = NO;
@@ -2628,7 +2628,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.1.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.product.aelfWallet;
 				PRODUCT_NAME = "aelf Wallet";
